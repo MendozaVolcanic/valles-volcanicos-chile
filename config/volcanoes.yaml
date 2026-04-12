@@ -1,0 +1,306 @@
+# 43 volcanes monitoreados por OVDAS - SERNAGEOMIN
+# Fuente: Catálogo de Volcanes Activos de Chile (SERNAGEOMIN)
+# Formato: nombre, lat, lon, elevación (m), región, zona_riesgo
+# Este archivo es la fuente de verdad compartida para todos los módulos del ecosistema
+
+volcanes:
+  - nombre: Guallatiri
+    lat: -18.4197
+    lon: -69.0903
+    elevacion: 6071
+    region: "Arica y Parinacota"
+    codigo: GUA
+
+  - nombre: Isluga
+    lat: -19.1533
+    lon: -68.8333
+    elevacion: 5550
+    region: "Tarapacá"
+    codigo: ISL
+
+  - nombre: Tata Sabaya
+    lat: -19.1167
+    lon: -68.5333
+    elevacion: 5430
+    region: "Tarapacá"
+    codigo: TAT
+
+  - nombre: Olca-Paruma
+    lat: -20.9333
+    lon: -68.4833
+    elevacion: 5407
+    region: "Tarapacá"
+    codigo: OLC
+
+  - nombre: Irruputuncu
+    lat: -20.7333
+    lon: -68.5333
+    elevacion: 5163
+    region: "Tarapacá"
+    codigo: IRR
+
+  - nombre: Ollagüe
+    lat: -21.3000
+    lon: -68.1833
+    elevacion: 5868
+    region: "Antofagasta"
+    codigo: OLL
+
+  - nombre: San Pedro
+    lat: -21.8833
+    lon: -68.4000
+    elevacion: 6145
+    region: "Antofagasta"
+    codigo: SDP
+
+  - nombre: Putana
+    lat: -22.5833
+    lon: -67.8667
+    elevacion: 5890
+    region: "Antofagasta"
+    codigo: PUT
+
+  - nombre: Lascar
+    lat: -23.3692
+    lon: -67.7317
+    elevacion: 5592
+    region: "Antofagasta"
+    codigo: LAS
+
+  - nombre: Lastarria
+    lat: -25.1667
+    lon: -68.5167
+    elevacion: 5697
+    region: "Antofagasta"
+    codigo: LST
+
+  - nombre: Llullaillaco
+    lat: -24.7167
+    lon: -68.5333
+    elevacion: 6739
+    region: "Antofagasta"
+    codigo: LLU
+
+  - nombre: Socompa
+    lat: -24.3833
+    lon: -68.2333
+    elevacion: 6051
+    region: "Antofagasta"
+    codigo: SOC
+
+  - nombre: Azufre
+    lat: -25.3333
+    lon: -68.5167
+    elevacion: 5480
+    region: "Atacama"
+    codigo: AZU
+
+  - nombre: Bayo
+    lat: -25.3667
+    lon: -68.5000
+    elevacion: 4802
+    region: "Atacama"
+    codigo: BAY
+
+  - nombre: Copiapó
+    lat: -27.1500
+    lon: -69.0167
+    elevacion: 6052
+    region: "Atacama"
+    codigo: COP
+
+  - nombre: Tipas
+    lat: -27.2000
+    lon: -68.6667
+    elevacion: 6660
+    region: "Atacama"
+    codigo: TIP
+
+  - nombre: Nevado Tres Cruces
+    lat: -27.0833
+    lon: -68.7833
+    elevacion: 6749
+    region: "Atacama"
+    codigo: NTC
+
+  - nombre: Ojos del Salado
+    lat: -27.1167
+    lon: -68.5333
+    elevacion: 6891
+    region: "Atacama"
+    codigo: ODS
+
+  - nombre: San Francisco
+    lat: -26.8833
+    lon: -68.2833
+    elevacion: 6018
+    region: "Atacama"
+    codigo: SFR
+
+  - nombre: Incahuasi
+    lat: -27.0167
+    lon: -68.3000
+    elevacion: 6621
+    region: "Atacama"
+    codigo: INC
+
+  - nombre: Antuco
+    lat: -37.4000
+    lon: -71.3667
+    elevacion: 2979
+    region: "Biobío"
+    codigo: ANT
+
+  - nombre: Callaqui
+    lat: -37.9167
+    lon: -71.4500
+    elevacion: 3164
+    region: "Biobío"
+    codigo: CAL
+
+  - nombre: Copahue
+    lat: -37.8564
+    lon: -71.1697
+    elevacion: 2965
+    region: "Biobío"
+    codigo: CPA
+
+  - nombre: Lonquimay
+    lat: -38.3792
+    lon: -71.5861
+    elevacion: 2865
+    region: "La Araucanía"
+    codigo: LON
+
+  - nombre: Llaima
+    lat: -38.6917
+    lon: -71.7294
+    elevacion: 3125
+    region: "La Araucanía"
+    codigo: LLA
+
+  - nombre: Sollipulli
+    lat: -38.9667
+    lon: -71.5167
+    elevacion: 2282
+    region: "La Araucanía"
+    codigo: SOL
+
+  - nombre: Villarrica
+    lat: -39.4197
+    lon: -71.9378
+    elevacion: 2847
+    region: "La Araucanía"
+    codigo: VIL
+
+  - nombre: Quetrupillán
+    lat: -39.5000
+    lon: -71.7167
+    elevacion: 2360
+    region: "La Araucanía"
+    codigo: QUE
+
+  - nombre: Mocho-Choshuenco
+    lat: -39.9333
+    lon: -72.0333
+    elevacion: 2422
+    region: "Los Ríos"
+    codigo: MCH
+
+  - nombre: Chaitén
+    lat: -42.8333
+    lon: -72.6464
+    elevacion: 1122
+    region: "Los Lagos"
+    codigo: CHA
+
+  - nombre: Michinmahuida
+    lat: -42.7833
+    lon: -72.4333
+    elevacion: 2404
+    region: "Los Lagos"
+    codigo: MIC
+
+  - nombre: Corcovado
+    lat: -43.1833
+    lon: -72.7833
+    elevacion: 2300
+    region: "Los Lagos"
+    codigo: COR
+
+  - nombre: Hornopirén
+    lat: -41.8667
+    lon: -72.4333
+    elevacion: 1572
+    region: "Los Lagos"
+    codigo: HOR
+
+  - nombre: Yate
+    lat: -41.7667
+    lon: -72.4000
+    elevacion: 2111
+    region: "Los Lagos"
+    codigo: YAT
+
+  - nombre: Calbuco
+    lat: -41.3264
+    lon: -72.6147
+    elevacion: 2003
+    region: "Los Lagos"
+    codigo: CLB
+
+  - nombre: Osorno
+    lat: -41.0972
+    lon: -72.4931
+    elevacion: 2652
+    region: "Los Lagos"
+    codigo: OSO
+
+  - nombre: Puntiagudo
+    lat: -40.9667
+    lon: -72.2667
+    elevacion: 2493
+    region: "Los Lagos"
+    codigo: PUN
+
+  - nombre: Tronador
+    lat: -41.1667
+    lon: -71.8833
+    elevacion: 3491
+    region: "Los Lagos"
+    codigo: TRO
+
+  - nombre: Puyehue-Cordón Caulle
+    lat: -40.5903
+    lon: -72.1172
+    elevacion: 2236
+    region: "Los Ríos"
+    codigo: PCC
+
+  - nombre: Carrán-Los Venados
+    lat: -40.3500
+    lon: -72.0667
+    elevacion: 1114
+    region: "Los Ríos"
+    codigo: CLV
+
+  - nombre: Hudson
+    lat: -45.9000
+    lon: -72.9667
+    elevacion: 1905
+    region: "Aysén"
+    codigo: HUD
+
+  - nombre: Melimoyu
+    lat: -44.0833
+    lon: -72.8833
+    elevacion: 2400
+    region: "Aysén"
+    codigo: MEL
+
+  - nombre: Mentolat
+    lat: -44.7000
+    lon: -73.0833
+    elevacion: 1660
+    region: "Aysén"
+    codigo: MEN
