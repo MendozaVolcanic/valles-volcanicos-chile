@@ -146,8 +146,8 @@ if volcán_activo:
     col4.metric("Longitud", f"{volcán_activo['lon']:.4f}°")
 
     # Población en cuenca si disponible
-    if poblacion_df is not None and "volcán_codigo" in poblacion_df.columns:
-        row = poblacion_df[poblacion_df["volcán_codigo"] == volcán_activo["codigo"]]
+    if poblacion_df is not None and "volcan_codigo" in poblacion_df.columns:
+        row = poblacion_df[poblacion_df["volcan_codigo"] == volcán_activo["codigo"]]
         if not row.empty:
             pob = row.iloc[0]["poblacion_cuenca"]
             st.metric("Población en cuenca", f"{int(pob):,} hab.", help="Censo 2024, manzanas dentro de la cuenca")
@@ -194,7 +194,7 @@ REGION_COLORS = {
 # Capa: cuencas
 if mostrar_cuencas and cuencas_gdf is not None:
     filtro = cuencas_gdf if not volcán_activo else cuencas_gdf[
-        cuencas_gdf["volcán_codigo"] == volcán_activo["codigo"]
+        cuencas_gdf["volcan_codigo"] == volcán_activo["codigo"]
     ]
     for _, row in filtro.iterrows():
         color = REGION_COLORS.get(row.get("region", ""), "#6bffb8")
@@ -206,13 +206,13 @@ if mostrar_cuencas and cuencas_gdf is not None:
                 "weight": 1.5,
                 "fillOpacity": op,
             },
-            tooltip=f"<b>{row['volcán_nombre']}</b><br>Cuenca hidrográfica",
+            tooltip=f"<b>{row['volcan_nombre']}</b><br>Cuenca hidrográfica",
         ).add_to(m)
 
 # Capa: drenajes / quebradas
 if mostrar_drenajes and drenajes_gdf is not None:
     filtro_d = drenajes_gdf if not volcán_activo else drenajes_gdf[
-        drenajes_gdf["volcán_codigo"] == volcán_activo["codigo"]
+        drenajes_gdf["volcan_codigo"] == volcán_activo["codigo"]
     ]
     for _, row in filtro_d.iterrows():
         nombre_q = row.get("nombre", "Sin nombre")
@@ -265,7 +265,7 @@ st_folium(m, width=None, height=map_height, returned_objects=[])
 if volcán_activo and drenajes_gdf is not None:
     st.divider()
     st.markdown("#### Quebradas / Valles identificados")
-    drenajes_v = drenajes_gdf[drenajes_gdf["volcán_codigo"] == volcán_activo["codigo"]]
+    drenajes_v = drenajes_gdf[drenajes_gdf["volcan_codigo"] == volcán_activo["codigo"]]
     if len(drenajes_v) > 0:
         nombres_unicos = drenajes_v[drenajes_v["nombre"] != "Sin nombre"]["nombre"].unique()
         if len(nombres_unicos) > 0:
