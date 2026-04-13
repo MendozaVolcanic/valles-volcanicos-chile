@@ -1,145 +1,170 @@
 """
 04_census.py
 ------------
-Descarga y procesa datos del Censo 2024 (INE Chile).
-Cruza manzanas censales con cuencas volcánicas para estimar
-población por quebrada/valle.
+Cruza datos censales con cuencas volcanicas para estimar poblacion en riesgo.
 
-Fuentes públicas INE:
-  - Redatam / IDE del INE: manzanas con población total
+CENSO 2024 (INE):
+  Las bases de manzanas con cartografia del Censo 2024 fueron publicadas
+  en diciembre 2025 pero requieren descarga manual desde:
+  https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/resultados-censo-2024
+  -> Secciones de datos / Bases de datos a nivel de manzana y cartografia
 
-Salida: data/processed/poblacion_cuencas.gpkg
-        data/processed/resumen_poblacion.csv
+  Alternativa Redatam online: https://redatam.ine.gob.cl
+
+INSTRUCCIONES DE DESCARGA MANUAL:
+  1. Ir a la URL anterior
+  2. Descargar el shapefile de manzanas con poblacion
+  3. Guardar en: data/raw/manzanas_censales.gpkg
+     (o data/raw/manzanas_censales.shp si viene en shapefile)
+  4. Ejecutar este script nuevamente
+
+  Si tienes el Censo 2017, tambien funciona. Guarda como:
+  data/raw/manzanas_censales_2017.gpkg
+
+Salida: data/processed/resumen_poblacion.csv
+        data/processed/poblacion_cuencas.gpkg
 """
 
 import geopandas as gpd
 import pandas as pd
-import requests
-import zipfile
-import io
 from pathlib import Path
 import yaml
 
-RAW = Path("data/raw")
 PROCESSED = Path("data/processed")
+RAW       = Path("data/raw")
 PROCESSED.mkdir(parents=True, exist_ok=True)
 
-CONFIG = yaml.safe_load(open("config/volcanoes.yaml"))
+CONFIG   = yaml.safe_load(open("config/volcanoes.yaml"))
+VOLCANES = CONFIG["volcanes"]
 
-# ---------------------------------------------------------------------------
-# Fuentes de datos INE (URLs públicas)
-# ---------------------------------------------------------------------------
-
-# IDE IGM / BCN shapefile de manzanas censales con población
-# INE publica resultados del censo por manzana en su IDE
-INE_URLS = {
-    # URL del shapefile de manzanas del Censo 2024 - INE IDE
-    # Alternativa: descarga manual desde https://ide.ine.cl
-    "manzanas": "https://www.ine.gob.cl/docs/default-source/censo-de-poblacion-y-vivienda/cartografia/2024/manzanas_2024.zip",
-}
-
-# Fallback: usar censo 2017 si 2024 no está disponible públicamente aún
-INE_URLS_2017 = {
-    "manzanas": "https://www.ine.gob.cl/docs/default-source/censo-de-poblacion-y-vivienda/cartografia/2017/manzanas_2017.zip",
-}
+# Columnas de poblacion segun version del censo
+# El script detecta automaticamente cual usar
+COLUMNAS_POBLACION_2024 = ["PERSONAS", "personas", "TOTAL_PERSONAS", "Total_personas", "P_TOTAL"]
+COLUMNAS_POBLACION_2017 = ["PERSONAS", "personas", "TOTAL", "total", "P17", "TOT_PERSONAS"]
 
 
-def descargar_manzanas():
-    """Descarga el shapefile de manzanas censales de INE."""
-    output = RAW / "manzanas_censales.gpkg"
-    if output.exists():
-        print(f"[✓] Manzanas ya descargadas: {output}")
-        return gpd.read_file(output)
+def detectar_col_poblacion(gdf, candidatas):
+    for col in candidatas:
+        if col in gdf.columns:
+            return col
+    return None
 
-    print("Intentando descargar manzanas del Censo 2024 (INE)...")
 
-    for año, urls in [("2024", INE_URLS), ("2017", INE_URLS_2017)]:
-        try:
-            url = urls["manzanas"]
-            print(f"  → {url}")
-            resp = requests.get(url, timeout=120, stream=True)
-            resp.raise_for_status()
+def cargar_manzanas():
+    """Busca el archivo de manzanas en las ubicaciones esperadas."""
+    candidatos = [
+        RAW / "manzanas_censales.gpkg",
+        RAW / "manzanas_censales.shp",
+        RAW / "manzanas_censales_2024.gpkg",
+        RAW / "manzanas_censales_2024.shp",
+        RAW / "manzanas_censales_2017.gpkg",
+        RAW / "manzanas_censales_2017.shp",
+        RAW / "manzanas_2024" / "manzanas.shp",
+        RAW / "manzanas_2017" / "manzanas.shp",
+    ]
 
-            z = zipfile.ZipFile(io.BytesIO(resp.content))
-            shp_files = [f for f in z.namelist() if f.endswith(".shp")]
-            if not shp_files:
-                print(f"  [!] No se encontró .shp en el zip del censo {año}")
-                continue
-
-            z.extractall(RAW / f"manzanas_{año}_raw")
-            shp = RAW / f"manzanas_{año}_raw" / shp_files[0]
-            gdf = gpd.read_file(shp)
-
-            # Normalizar columnas de población
-            pop_cols = [c for c in gdf.columns if "pobl" in c.lower() or "personas" in c.lower() or "total" in c.lower()]
-            print(f"  [i] Columnas de población encontradas: {pop_cols}")
-
-            gdf.to_file(output, driver="GPKG")
-            print(f"  [✓] Censo {año}: {len(gdf)} manzanas guardadas → {output}")
+    for path in candidatos:
+        if path.exists():
+            print(f"  Cargando: {path}")
+            gdf = gpd.read_file(path)
+            print(f"  {len(gdf):,} manzanas | CRS: {gdf.crs}")
+            print(f"  Columnas: {list(gdf.columns)}")
             return gdf
 
-        except Exception as e:
-            print(f"  [!] Censo {año} no disponible: {e}")
-            continue
-
-    print("\n[!] No se pudo descargar manzanas automáticamente.")
-    print("    Descarga manual desde: https://ide.ine.cl")
-    print("    y guarda el .gpkg en data/raw/manzanas_censales.gpkg")
     return None
 
 
 def calcular_poblacion_cuencas(manzanas_gdf):
-    """Cruza manzanas censales con cuencas volcánicas."""
+    """Spatial join: manzanas dentro de cuencas volcanicas."""
     cuencas_path = PROCESSED / "cuencas.gpkg"
     if not cuencas_path.exists():
-        print("[!] Ejecuta primero 03_watershed.py")
+        print("[!] Ejecuta primero 03_watershed.py para generar cuencas.gpkg")
         return
 
     cuencas = gpd.read_file(cuencas_path, layer="cuencas")
-    print(f"[i] Cuencas: {len(cuencas)} | Manzanas: {len(manzanas_gdf)}")
+    print(f"\n  Cuencas: {len(cuencas)} | Manzanas: {len(manzanas_gdf):,}")
 
-    # Asegurar mismo CRS
+    # Alinear CRS
     if manzanas_gdf.crs != cuencas.crs:
         manzanas_gdf = manzanas_gdf.to_crs(cuencas.crs)
 
-    # Detectar columna de población
-    pop_col = None
-    for candidate in ["PERSONAS", "personas", "TOTAL_PERS", "P_TOTAL", "pobl_total", "POBL_TOTAL"]:
-        if candidate in manzanas_gdf.columns:
-            pop_col = candidate
-            break
+    # Detectar columna de poblacion
+    todas_candidatas = COLUMNAS_POBLACION_2024 + COLUMNAS_POBLACION_2017
+    pop_col = detectar_col_poblacion(manzanas_gdf, todas_candidatas)
 
     if pop_col is None:
-        print(f"[!] Columna de población no encontrada. Columnas disponibles: {list(manzanas_gdf.columns)}")
-        print("    Ajusta la variable pop_col manualmente.")
+        print(f"\n[!] No se encontro columna de poblacion.")
+        print(f"    Columnas disponibles: {list(manzanas_gdf.columns)}")
+        print(f"    Edita COLUMNAS_POBLACION_2024 en este script.")
         return
 
-    print(f"[i] Usando columna de población: '{pop_col}'")
+    print(f"  Columna de poblacion: '{pop_col}'")
 
-    # Spatial join: manzanas dentro de cada cuenca
-    joined = gpd.sjoin(manzanas_gdf[[pop_col, "geometry"]], cuencas, how="inner", predicate="intersects")
+    # Asegurar que la columna de poblacion sea numerica
+    manzanas_gdf[pop_col] = pd.to_numeric(manzanas_gdf[pop_col], errors="coerce").fillna(0)
 
-    # Agregar población por volcán
-    resumen = joined.groupby(["volcán_codigo", "volcán_nombre", "region"])[pop_col].sum().reset_index()
-    resumen.columns = ["volcán_codigo", "volcán_nombre", "region", "poblacion_cuenca"]
-    resumen = resumen.sort_values("poblacion_cuenca", ascending=False)
+    # Spatial join: manzanas que intersectan cuencas
+    joined = gpd.sjoin(
+        manzanas_gdf[[pop_col, "geometry"]],
+        cuencas[["volcan_codigo", "volcan_nombre", "region", "geometry"]],
+        how="inner",
+        predicate="intersects"
+    )
 
-    # Guardar
-    resumen.to_csv(PROCESSED / "resumen_poblacion.csv", index=False)
-    print(f"\n[✓] Resumen guardado: {PROCESSED}/resumen_poblacion.csv")
+    # Resumen por volcan
+    resumen = (
+        joined
+        .groupby(["volcan_codigo", "volcan_nombre", "region"])[pop_col]
+        .sum()
+        .reset_index()
+        .rename(columns={pop_col: "poblacion_cuenca"})
+        .sort_values("poblacion_cuenca", ascending=False)
+    )
+
+    # Agregar volcanes sin poblacion detectada
+    codigos_con_pob = set(resumen["volcan_codigo"])
+    sin_pob = [
+        {"volcan_codigo": v["codigo"], "volcan_nombre": v["nombre"],
+         "region": v.get("region",""), "poblacion_cuenca": 0}
+        for v in VOLCANES if v["codigo"] not in codigos_con_pob
+    ]
+    if sin_pob:
+        resumen = pd.concat([resumen, pd.DataFrame(sin_pob)], ignore_index=True)
+        resumen = resumen.sort_values("poblacion_cuenca", ascending=False)
+
+    # Guardar CSV resumen
+    csv_out = PROCESSED / "resumen_poblacion.csv"
+    resumen.to_csv(csv_out, index=False)
+    print(f"\n[OK] Resumen guardado: {csv_out}")
     print(resumen.to_string(index=False))
 
-    # Guardar manzanas con volcán asignado
-    joined_out = joined.merge(resumen[["volcán_codigo", "poblacion_cuenca"]], on="volcán_codigo")
-    gdf_out = gpd.GeoDataFrame(joined_out, crs=manzanas_gdf.crs)
-    gdf_out.to_file(PROCESSED / "poblacion_cuencas.gpkg", driver="GPKG")
-    print(f"[✓] GeoPackage: {PROCESSED}/poblacion_cuencas.gpkg")
+    # Guardar GeoPackage con manzanas asignadas a volcanes
+    gdf_out = gpd.GeoDataFrame(joined, crs=manzanas_gdf.crs)
+    gpkg_out = PROCESSED / "poblacion_cuencas.gpkg"
+    gdf_out.to_file(gpkg_out, driver="GPKG")
+    print(f"[OK] GeoPackage: {gpkg_out}")
 
 
 def main():
-    manzanas = descargar_manzanas()
-    if manzanas is not None:
-        calcular_poblacion_cuencas(manzanas)
+    print("Censo de Poblacion x Cuencas Volcanicas")
+    print("=" * 45)
+
+    manzanas = cargar_manzanas()
+
+    if manzanas is None:
+        print("\n[!] Archivo de manzanas censales no encontrado.")
+        print("\n    DESCARGA MANUAL REQUERIDA:")
+        print("    1. Ir a: https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/resultados-censo-2024")
+        print("    2. Buscar 'Bases de datos a nivel de manzana y cartografia'")
+        print("    3. Descargar el shapefile de manzanas con poblacion")
+        print("    4. Guardar en: data/raw/manzanas_censales.gpkg")
+        print("       (o data/raw/manzanas_censales.shp)")
+        print("    5. Ejecutar nuevamente: python scripts/04_census.py")
+        print("\n    Alternativa Censo 2017:")
+        print("    https://www.ine.gob.cl/estadisticas/sociales/censos-de-poblacion-y-vivienda/censo-de-poblacion-y-vivienda")
+        return
+
+    calcular_poblacion_cuencas(manzanas)
 
 
 if __name__ == "__main__":
