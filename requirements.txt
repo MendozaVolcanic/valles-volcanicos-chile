@@ -1,14 +1,18 @@
+# Dashboard (Streamlit Cloud + local)
 streamlit>=1.35
 geopandas>=0.14
-pysheds>=0.4
+pyogrio>=0.7
 folium>=0.16
 streamlit-folium>=0.20
 pandas>=2.0
-numpy>=1.26
-requests>=2.31
-tqdm>=4.66
-rasterio>=1.3
 shapely>=2.0
-fiona>=1.9
 pyproj>=3.6
 pyyaml>=6.0
+
+# Scripts locales (pipeline de datos, no se usan en cloud)
+# pysheds>=0.4
+# rasterio>=1.3
+# fiona>=1.9
+# numpy>=1.26
+# requests>=2.31
+# tqdm>=4.66

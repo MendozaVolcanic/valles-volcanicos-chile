@@ -48,9 +48,9 @@ def cargar_cuencas():
     p = PROCESSED / "cuencas.gpkg"
     if not p.exists():
         return None, None
-    cuencas  = gpd.read_file(p, layer="cuencas")
+    cuencas  = gpd.read_file(p, layer="cuencas",  engine="pyogrio")
     try:
-        drenajes = gpd.read_file(p, layer="drenajes")
+        drenajes = gpd.read_file(p, layer="drenajes", engine="pyogrio")
     except Exception:
         drenajes = None
     return cuencas, drenajes
