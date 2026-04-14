@@ -1,6 +1,6 @@
 data/raw/
 data/processed/*.csv
-# cuencas.gpkg se incluye en el repo para deploy en Streamlit Cloud
+# GeoJSON y GeoPackage se incluyen en el repo para deploy en Streamlit Cloud
 __pycache__/
 *.pyc
 .env

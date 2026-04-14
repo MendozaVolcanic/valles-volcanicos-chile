@@ -1,15 +1,14 @@
 """
 dashboard.py - Valles Volcanicos OVDAS
 Pantalla 43", modo oscuro, fondo satelital, etiquetas de quebradas.
+Sin dependencias nativas (no geopandas/pyogrio/shapely/pyproj).
 """
 
 import streamlit as st
-import geopandas as gpd
 import pandas as pd
 import folium
 from streamlit_folium import st_folium
-from pyproj import Transformer
-import yaml, json, os
+import yaml, json, math
 from pathlib import Path
 
 st.set_page_config(
@@ -31,13 +30,66 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
-# Datos
+# Rutas — absolutas para funcionar local y en Streamlit Cloud
 # ---------------------------------------------------------------------------
 
-# Rutas absolutas — funciona tanto local como en Streamlit Cloud
-ROOT        = Path(__file__).resolve().parent.parent
-PROCESSED   = ROOT / "data" / "processed"
+ROOT      = Path(__file__).resolve().parent.parent
+PROCESSED = ROOT / "data" / "processed"
 CONFIG_PATH = ROOT / "config" / "volcanoes.yaml"
+
+# ---------------------------------------------------------------------------
+# Funciones puras (sin librerias nativas)
+# ---------------------------------------------------------------------------
+
+def latlon_a_utm(lat, lon):
+    """Convierte lat/lon WGS84 a coordenadas UTM. Implementacion pura Python."""
+    zone = int((lon + 180) / 6) + 1
+    lon_rad = math.radians(lon)
+    lat_rad = math.radians(lat)
+    a  = 6378137.0
+    f  = 1 / 298.257223563
+    b  = a * (1 - f)
+    e2 = 1 - (b / a) ** 2
+    e  = math.sqrt(e2)
+    lon0 = math.radians((zone - 1) * 6 - 180 + 3)
+    N = a / math.sqrt(1 - e2 * math.sin(lat_rad) ** 2)
+    T = math.tan(lat_rad) ** 2
+    C = e2 / (1 - e2) * math.cos(lat_rad) ** 2
+    A = math.cos(lat_rad) * (lon_rad - lon0)
+    M = a * (
+        (1 - e2/4 - 3*e2**2/64 - 5*e2**3/256) * lat_rad
+        - (3*e2/8 + 3*e2**2/32 + 45*e2**3/1024) * math.sin(2*lat_rad)
+        + (15*e2**2/256 + 45*e2**3/1024) * math.sin(4*lat_rad)
+        - (35*e2**3/3072) * math.sin(6*lat_rad)
+    )
+    easting = 500000 + 0.9996 * N * (
+        A + (1-T+C)*A**3/6
+        + (5-18*T+T**2+72*C-58*(e2/(1-e2)))*A**5/120
+    )
+    northing = (0 if lat >= 0 else 10000000) + 0.9996 * (
+        M + N * math.tan(lat_rad) * (
+            A**2/2
+            + (5-T+9*C+4*C**2)*A**4/24
+            + (61-58*T+T**2+600*C-330*(e2/(1-e2)))*A**6/720
+        )
+    )
+    return easting, northing, zone
+
+def midpoint_geojson(feature):
+    """Punto medio aproximado de un feature LineString/MultiLineString."""
+    try:
+        geom = feature["geometry"]
+        coords = geom["coordinates"]
+        if geom["type"] == "MultiLineString":
+            coords = coords[0]
+        mid = coords[len(coords) // 2]
+        return mid[1], mid[0]   # lat, lon
+    except (KeyError, IndexError, TypeError):
+        return None
+
+# ---------------------------------------------------------------------------
+# Carga de datos (JSON puro, sin geopandas)
+# ---------------------------------------------------------------------------
 
 @st.cache_data
 def cargar_config():
@@ -46,51 +98,39 @@ def cargar_config():
 
 @st.cache_data
 def cargar_cuencas():
-    p = PROCESSED / "cuencas.gpkg"
+    p = PROCESSED / "cuencas.geojson"
     if not p.exists():
-        return None, None
-    cuencas  = gpd.read_file(str(p), layer="cuencas",  engine="pyogrio")
-    try:
-        drenajes = gpd.read_file(str(p), layer="drenajes", engine="pyogrio")
-    except Exception:
-        drenajes = None
-    return cuencas, drenajes
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+@st.cache_data
+def cargar_drenajes(codigo):
+    p = PROCESSED / "drenajes" / f"{codigo}.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
 
 @st.cache_data
 def cargar_poblacion():
     p = PROCESSED / "resumen_poblacion.csv"
     return pd.read_csv(str(p)) if p.exists() else None
 
-# Cargar datos con manejo de errores
 try:
-    config       = cargar_config()
-    VOLCANES     = config["volcanes"]
+    config   = cargar_config()
+    VOLCANES = config["volcanes"]
 except Exception as e:
-    st.error(f"Error cargando configuracion de volcanes: {e}\nRuta: {CONFIG_PATH}")
+    st.error(f"Error cargando volcanoes.yaml: {e}  |  Ruta: {CONFIG_PATH}")
     st.stop()
 
 try:
-    cuencas_gdf, drenajes_gdf = cargar_cuencas()
+    cuencas_gj = cargar_cuencas()
 except Exception as e:
-    st.error(f"Error cargando cuencas.gpkg: {e}\nRuta: {PROCESSED / 'cuencas.gpkg'}")
+    st.error(f"Error cargando cuencas.geojson: {e}")
     st.stop()
 
 poblacion_df = cargar_poblacion()
-
-def latlon_a_utm(lat, lon):
-    zone = int((lon + 180) / 6) + 1
-    epsg = 32600 + zone if lat >= 0 else 32700 + zone
-    t = Transformer.from_crs("EPSG:4326", f"EPSG:{epsg}", always_xy=True)
-    e, n = t.transform(lon, lat)
-    return e, n, zone
-
-def midpoint_linestring(geom):
-    """Retorna el punto medio de una geometria lineal."""
-    try:
-        pt = geom.interpolate(0.5, normalized=True)
-        return pt.y, pt.x
-    except Exception:
-        return None
 
 # ---------------------------------------------------------------------------
 # Sidebar
@@ -138,18 +178,23 @@ if volcan:
     c4.metric("Norte (UTM)", f"{n:,.0f} m")
     c5.metric("Zona UTM",    f"{zone}{hemi}")
 
-    if drenajes_gdf is not None:
-        dv = drenajes_gdf[drenajes_gdf["volcan_codigo"] == volcan["codigo"]]
-        nombrados = dv[dv["nombre"] != "Sin nombre"]
+    drenajes_gj = cargar_drenajes(volcan["codigo"])
+    if drenajes_gj:
+        feats    = drenajes_gj.get("features", [])
+        nombrados = [f for f in feats if f["properties"].get("nombre", "Sin nombre") != "Sin nombre"]
+        n_nombres = len({f["properties"]["nombre"] for f in nombrados})
         c6, c7 = st.columns(2)
-        c6.metric("Tramos de drenaje", f"{len(dv):,}")
-        c7.metric("Quebradas con nombre", f"{nombrados['nombre'].nunique():,}")
+        c6.metric("Tramos de drenaje",     f"{len(feats):,}")
+        c7.metric("Quebradas con nombre",  f"{n_nombres:,}")
+    else:
+        drenajes_gj = None
 else:
     st.markdown("### Todos los volcanes monitoreados")
     c1, c2 = st.columns(2)
     c1.metric("Volcanes activos", len(VOLCANES))
-    if cuencas_gdf is not None:
-        c2.metric("Cuencas procesadas", len(cuencas_gdf))
+    if cuencas_gj:
+        c2.metric("Cuencas procesadas", len(cuencas_gj.get("features", [])))
+    drenajes_gj = None
 
 # ---------------------------------------------------------------------------
 # Mapa
@@ -170,7 +215,6 @@ REGION_COLORS = {
 center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
 zoom   = 10 if volcan else 5
 
-# Fondo satelital ESRI (publico, sin API key)
 m = folium.Map(
     location=center,
     zoom_start=zoom,
@@ -180,7 +224,6 @@ m = folium.Map(
     prefer_canvas=True,
 )
 
-# Capa adicional: rotulo de referencia sobre satelital
 folium.TileLayer(
     tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
     attr="Esri",
@@ -191,18 +234,26 @@ folium.TileLayer(
 ).add_to(m)
 
 # Zona de influencia
-if mostrar_cuencas and cuencas_gdf is not None:
-    filtro_c = cuencas_gdf if not volcan else cuencas_gdf[
-        cuencas_gdf["volcan_codigo"] == volcan["codigo"]
-    ]
-    if len(filtro_c) > 0:
+if mostrar_cuencas and cuencas_gj:
+    if volcan:
+        filtro_c = {
+            "type": "FeatureCollection",
+            "features": [
+                f for f in cuencas_gj["features"]
+                if f["properties"].get("volcan_codigo") == volcan["codigo"]
+            ],
+        }
+    else:
+        filtro_c = cuencas_gj
+
+    if filtro_c["features"]:
         folium.GeoJson(
-            json.loads(filtro_c.to_json()),
+            filtro_c,
             name="Zona de influencia",
             style_function=lambda f, op=opacidad: {
                 "fillColor": REGION_COLORS.get(f["properties"].get("region", ""), "#6bffb8"),
-                "color": "#ffffff",
-                "weight": 1.5,
+                "color":       "#ffffff",
+                "weight":      1.5,
                 "fillOpacity": op,
             },
             tooltip=folium.GeoJsonTooltip(
@@ -212,39 +263,35 @@ if mostrar_cuencas and cuencas_gdf is not None:
         ).add_to(m)
 
 # Quebradas / rios
-if mostrar_drenajes and drenajes_gdf is not None:
-    filtro_d = drenajes_gdf if not volcan else drenajes_gdf[
-        drenajes_gdf["volcan_codigo"] == volcan["codigo"]
-    ]
-    if len(filtro_d) > 0:
-        folium.GeoJson(
-            json.loads(filtro_d.to_json()),
-            name="Quebradas y rios",
-            style_function=lambda f: {
-                "color":   "#00aaff" if f["properties"].get("tipo") == "river" else "#66ccff",
-                "weight":  2.5      if f["properties"].get("tipo") == "river" else 1.2,
-                "opacity": 0.9,
-            },
-            tooltip=folium.GeoJsonTooltip(
-                fields=["nombre", "tipo"],
-                aliases=["Nombre", "Tipo"],
-            ),
-        ).add_to(m)
+if mostrar_drenajes and drenajes_gj and drenajes_gj.get("features"):
+    folium.GeoJson(
+        drenajes_gj,
+        name="Quebradas y rios",
+        style_function=lambda f: {
+            "color":   "#00aaff" if f["properties"].get("tipo") == "river" else "#66ccff",
+            "weight":  2.5      if f["properties"].get("tipo") == "river" else 1.2,
+            "opacity": 0.9,
+        },
+        tooltip=folium.GeoJsonTooltip(
+            fields=["nombre", "tipo"],
+            aliases=["Nombre", "Tipo"],
+        ),
+    ).add_to(m)
 
-    # Etiquetas de nombres (solo cuando hay un volcan seleccionado)
-    if mostrar_nombres and volcan and len(filtro_d) > 0:
-        nombrados_d = filtro_d[filtro_d["nombre"] != "Sin nombre"].copy()
-        # Un marcador por nombre unico (en el punto medio del primer tramo)
+    # Etiquetas (solo vista por volcan)
+    if mostrar_nombres and volcan:
+        feats = drenajes_gj.get("features", [])
+        nombrados = [f for f in feats if f["properties"].get("nombre", "Sin nombre") != "Sin nombre"]
         vistos = set()
-        for _, row in nombrados_d.iterrows():
-            nombre_q = row["nombre"]
+        for feat in nombrados:
+            nombre_q = feat["properties"]["nombre"]
             if nombre_q in vistos:
                 continue
             vistos.add(nombre_q)
-            mid = midpoint_linestring(row.geometry)
+            mid = midpoint_geojson(feat)
             if mid is None:
                 continue
-            es_rio = row.get("tipo") == "river"
+            es_rio = feat["properties"].get("tipo") == "river"
             folium.Marker(
                 location=mid,
                 icon=folium.DivIcon(
@@ -300,23 +347,28 @@ st_folium(m, use_container_width=True, height=730, returned_objects=[], key="map
 # Tabla de quebradas
 # ---------------------------------------------------------------------------
 
-if volcan and drenajes_gdf is not None:
+if volcan and drenajes_gj:
     st.divider()
-    dv = drenajes_gdf[drenajes_gdf["volcan_codigo"] == volcan["codigo"]]
-    nombrados = dv[dv["nombre"] != "Sin nombre"].copy()
+    feats     = drenajes_gj.get("features", [])
+    nombrados = [f for f in feats if f["properties"].get("nombre", "Sin nombre") != "Sin nombre"]
 
     col_t, col_dl = st.columns([3, 1])
     col_t.markdown("#### Quebradas y rios identificados")
 
-    if len(nombrados) > 0:
-        resumen = (
-            nombrados
-            .groupby("nombre")
-            .agg(tipo=("tipo", "first"), tramos=("osm_id", "count"))
-            .reset_index()
-            .sort_values(["tipo", "nombre"])
-            .rename(columns={"nombre": "Nombre", "tipo": "Tipo", "tramos": "Tramos OSM"})
-        )
+    if nombrados:
+        from collections import defaultdict
+        grupos = defaultdict(lambda: {"tipo": "", "tramos": 0})
+        for f in nombrados:
+            p = f["properties"]
+            nombre = p.get("nombre", "")
+            grupos[nombre]["tipo"]   = p.get("tipo", "")
+            grupos[nombre]["tramos"] += 1
+
+        resumen = pd.DataFrame([
+            {"Nombre": k, "Tipo": v["tipo"], "Tramos OSM": v["tramos"]}
+            for k, v in grupos.items()
+        ]).sort_values(["Tipo", "Nombre"])
+
         csv = resumen.to_csv(index=False).encode("utf-8")
         col_dl.download_button(
             label="Descargar CSV",
