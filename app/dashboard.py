@@ -7,12 +7,10 @@ import streamlit as st
 import geopandas as gpd
 import pandas as pd
 import folium
-from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 from pyproj import Transformer
 import yaml, json, os
 from pathlib import Path
-from shapely.geometry import MultiLineString
 
 st.set_page_config(
     page_title="Valles Volcanicos - OVDAS",
@@ -36,8 +34,10 @@ st.markdown("""
 # Datos
 # ---------------------------------------------------------------------------
 
-PROCESSED   = Path("data/processed")
-CONFIG_PATH = Path("config/volcanoes.yaml")
+# Rutas absolutas para funcionar tanto local como en Streamlit Cloud
+ROOT        = Path(__file__).parent.parent
+PROCESSED   = ROOT / "data" / "processed"
+CONFIG_PATH = ROOT / "config" / "volcanoes.yaml"
 
 @st.cache_data
 def cargar_config():
@@ -60,12 +60,13 @@ def cargar_poblacion():
     p = PROCESSED / "resumen_poblacion.csv"
     return pd.read_csv(p) if p.exists() else None
 
-# Invalidar cache si el gpkg cambio
+# Invalidar cache local si el gpkg cambio (solo en entorno local)
 _gpkg = PROCESSED / "cuencas.gpkg"
-_mtime = str(os.path.getmtime(_gpkg)) if _gpkg.exists() else "0"
-if st.session_state.get("_mtime") != _mtime:
-    st.cache_data.clear()
-    st.session_state["_mtime"] = _mtime
+if _gpkg.exists():
+    _mtime = str(os.path.getmtime(_gpkg))
+    if st.session_state.get("_mtime") != _mtime:
+        st.cache_data.clear()
+        st.session_state["_mtime"] = _mtime
 
 config       = cargar_config()
 VOLCANES     = config["volcanes"]
