@@ -34,23 +34,24 @@ st.markdown("""
 # Datos
 # ---------------------------------------------------------------------------
 
-# Rutas absolutas para funcionar tanto local como en Streamlit Cloud
-ROOT        = Path(__file__).parent.parent
+# Rutas absolutas — funciona tanto local como en Streamlit Cloud
+ROOT        = Path(__file__).resolve().parent.parent
 PROCESSED   = ROOT / "data" / "processed"
 CONFIG_PATH = ROOT / "config" / "volcanoes.yaml"
 
 @st.cache_data
 def cargar_config():
-    return yaml.safe_load(open(CONFIG_PATH, encoding="utf-8"))
+    with open(str(CONFIG_PATH), encoding="utf-8") as f:
+        return yaml.safe_load(f)
 
 @st.cache_data
 def cargar_cuencas():
     p = PROCESSED / "cuencas.gpkg"
     if not p.exists():
         return None, None
-    cuencas  = gpd.read_file(p, layer="cuencas",  engine="pyogrio")
+    cuencas  = gpd.read_file(str(p), layer="cuencas",  engine="pyogrio")
     try:
-        drenajes = gpd.read_file(p, layer="drenajes", engine="pyogrio")
+        drenajes = gpd.read_file(str(p), layer="drenajes", engine="pyogrio")
     except Exception:
         drenajes = None
     return cuencas, drenajes
@@ -58,19 +59,22 @@ def cargar_cuencas():
 @st.cache_data
 def cargar_poblacion():
     p = PROCESSED / "resumen_poblacion.csv"
-    return pd.read_csv(p) if p.exists() else None
+    return pd.read_csv(str(p)) if p.exists() else None
 
-# Invalidar cache local si el gpkg cambio (solo en entorno local)
-_gpkg = PROCESSED / "cuencas.gpkg"
-if _gpkg.exists():
-    _mtime = str(os.path.getmtime(_gpkg))
-    if st.session_state.get("_mtime") != _mtime:
-        st.cache_data.clear()
-        st.session_state["_mtime"] = _mtime
+# Cargar datos con manejo de errores
+try:
+    config       = cargar_config()
+    VOLCANES     = config["volcanes"]
+except Exception as e:
+    st.error(f"Error cargando configuracion de volcanes: {e}\nRuta: {CONFIG_PATH}")
+    st.stop()
 
-config       = cargar_config()
-VOLCANES     = config["volcanes"]
-cuencas_gdf, drenajes_gdf = cargar_cuencas()
+try:
+    cuencas_gdf, drenajes_gdf = cargar_cuencas()
+except Exception as e:
+    st.error(f"Error cargando cuencas.gpkg: {e}\nRuta: {PROCESSED / 'cuencas.gpkg'}")
+    st.stop()
+
 poblacion_df = cargar_poblacion()
 
 def latlon_a_utm(lat, lon):
