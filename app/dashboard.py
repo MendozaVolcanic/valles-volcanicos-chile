@@ -1,289 +1,332 @@
 """
-dashboard.py
-------------
-Dashboard Streamlit para visualización de valles volcánicos.
-Optimizado para pantalla de monitoreo 43" (1920x1080+), modo oscuro.
-
-Capas:
-  - Volcanes (marcadores con ícono)
-  - Cuencas hidrográficas (polígonos translúcidos por volcán)
-  - Red de drenaje / quebradas (líneas con nombre)
-  - Población (manzanas censales coloreadas por densidad)
+dashboard.py - Valles Volcanicos OVDAS
+Pantalla 43", modo oscuro, fondo satelital, etiquetas de quebradas.
 """
 
 import streamlit as st
 import geopandas as gpd
 import pandas as pd
 import folium
+from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
-import yaml
+from pyproj import Transformer
+import yaml, json, os
 from pathlib import Path
-import json
-
-# ---------------------------------------------------------------------------
-# Configuración de página (modo oscuro, full width)
-# ---------------------------------------------------------------------------
+from shapely.geometry import MultiLineString
 
 st.set_page_config(
-    page_title="Valles Volcánicos — OVDAS",
-    page_icon="🌋",
+    page_title="Valles Volcanicos - OVDAS",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# CSS: fondo oscuro optimizado para sala de monitoreo
 st.markdown("""
 <style>
     .stApp { background-color: #0e1117; color: #e0e0e0; }
-    .stSidebar { background-color: #161b22; }
-    h1, h2, h3 { color: #ff6b35; }
-    .metric-card {
-        background: #1e2530;
-        border: 1px solid #30363d;
-        border-radius: 8px;
-        padding: 12px;
-        margin: 4px 0;
+    section[data-testid="stSidebar"] { background-color: #161b22; }
+    h1,h2,h3,h4 { color: #ff6b35; }
+    div[data-testid="metric-container"] {
+        background: #1e2530; border-radius: 8px; padding: 10px;
     }
-    .volcano-name { font-size: 1.4em; font-weight: bold; color: #ff6b35; }
-    .stSelectbox label { color: #e0e0e0; font-size: 1.1em; }
+    .stSelectbox label, .stCheckbox label, .stSlider label { color: #ccc !important; }
 </style>
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
-# Carga de datos
+# Datos
 # ---------------------------------------------------------------------------
 
-PROCESSED = Path("data/processed")
+PROCESSED   = Path("data/processed")
 CONFIG_PATH = Path("config/volcanoes.yaml")
-
 
 @st.cache_data
 def cargar_config():
-    return yaml.safe_load(open(CONFIG_PATH))
-
+    return yaml.safe_load(open(CONFIG_PATH, encoding="utf-8"))
 
 @st.cache_data
 def cargar_cuencas():
     p = PROCESSED / "cuencas.gpkg"
     if not p.exists():
         return None, None
-    cuencas = gpd.read_file(p, layer="cuencas")
+    cuencas  = gpd.read_file(p, layer="cuencas")
     try:
         drenajes = gpd.read_file(p, layer="drenajes")
     except Exception:
         drenajes = None
     return cuencas, drenajes
 
-
 @st.cache_data
 def cargar_poblacion():
     p = PROCESSED / "resumen_poblacion.csv"
-    if p.exists():
-        return pd.read_csv(p)
-    return None
+    return pd.read_csv(p) if p.exists() else None
 
+# Invalidar cache si el gpkg cambio
+_gpkg = PROCESSED / "cuencas.gpkg"
+_mtime = str(os.path.getmtime(_gpkg)) if _gpkg.exists() else "0"
+if st.session_state.get("_mtime") != _mtime:
+    st.cache_data.clear()
+    st.session_state["_mtime"] = _mtime
 
-@st.cache_data
-def cargar_manzanas():
-    p = PROCESSED / "poblacion_cuencas.gpkg"
-    if p.exists():
-        return gpd.read_file(p)
-    return None
-
-
-config = cargar_config()
-VOLCANES = config["volcanes"]
+config       = cargar_config()
+VOLCANES     = config["volcanes"]
 cuencas_gdf, drenajes_gdf = cargar_cuencas()
 poblacion_df = cargar_poblacion()
 
+def latlon_a_utm(lat, lon):
+    zone = int((lon + 180) / 6) + 1
+    epsg = 32600 + zone if lat >= 0 else 32700 + zone
+    t = Transformer.from_crs("EPSG:4326", f"EPSG:{epsg}", always_xy=True)
+    e, n = t.transform(lon, lat)
+    return e, n, zone
+
+def midpoint_linestring(geom):
+    """Retorna el punto medio de una geometria lineal."""
+    try:
+        pt = geom.interpolate(0.5, normalized=True)
+        return pt.y, pt.x
+    except Exception:
+        return None
 
 # ---------------------------------------------------------------------------
-# Sidebar: controles
+# Sidebar
 # ---------------------------------------------------------------------------
 
 with st.sidebar:
-    st.markdown("## 🌋 Valles Volcánicos")
-    st.markdown("**OVDAS — SERNAGEOMIN**")
+    st.markdown("## Valles Volcanicos")
+    st.markdown("**OVDAS - SERNAGEOMIN**")
     st.divider()
 
-    # Selector de volcán
-    nombres = ["(Todos los volcanes)"] + [v["nombre"] for v in VOLCANES]
-    seleccion = st.selectbox("Volcán", nombres, index=0)
+    nombres   = ["(Todos los volcanes)"] + [v["nombre"] for v in VOLCANES]
+    seleccion = st.selectbox("Volcan", nombres, index=0)
 
     st.divider()
-
-    # Capas visibles
     st.markdown("**Capas**")
-    mostrar_cuencas = st.checkbox("Cuencas hidrográficas", value=True)
-    mostrar_drenajes = st.checkbox("Red de drenaje / quebradas", value=True)
-    mostrar_poblacion = st.checkbox("Población (manzanas censales)", value=False)
-    mostrar_volcanes = st.checkbox("Volcanes", value=True)
+    mostrar_cuencas  = st.checkbox("Zona de influencia", value=True)
+    mostrar_drenajes = st.checkbox("Quebradas / rios", value=True)
+    mostrar_nombres  = st.checkbox("Nombres de quebradas", value=True)
+    mostrar_volcanes = st.checkbox("Volcan", value=True)
 
     st.divider()
-
-    # Opacidad
-    opacidad_cuenca = st.slider("Opacidad cuencas", 0.1, 0.8, 0.3)
+    opacidad = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
 
     st.divider()
-    st.caption("Fuentes: SERNAGEOMIN · OSM · INE Censo 2024")
-
+    st.caption("Fuentes: SERNAGEOMIN · OSM · INE")
 
 # ---------------------------------------------------------------------------
 # Panel principal
 # ---------------------------------------------------------------------------
 
-# Título
-volcán_activo = None if seleccion == "(Todos los volcanes)" else next(
+volcan = None if seleccion == "(Todos los volcanes)" else next(
     (v for v in VOLCANES if v["nombre"] == seleccion), None
 )
 
-if volcán_activo:
-    st.markdown(f"### 🌋 {volcán_activo['nombre']}")
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Región", volcán_activo.get("region", "—"))
-    col2.metric("Elevación", f"{volcán_activo.get('elevacion', 0):,} m")
-    col3.metric("Latitud", f"{volcán_activo['lat']:.4f}°")
-    col4.metric("Longitud", f"{volcán_activo['lon']:.4f}°")
+if volcan:
+    lat, lon = volcan["lat"], volcan["lon"]
+    e, n, zone = latlon_a_utm(lat, lon)
+    hemi = "S" if lat < 0 else "N"
 
-    # Población en cuenca si disponible
-    if poblacion_df is not None and "volcan_codigo" in poblacion_df.columns:
-        row = poblacion_df[poblacion_df["volcan_codigo"] == volcán_activo["codigo"]]
-        if not row.empty:
-            pob = row.iloc[0]["poblacion_cuenca"]
-            st.metric("Población en cuenca", f"{int(pob):,} hab.", help="Censo 2024, manzanas dentro de la cuenca")
+    st.markdown(f"### {volcan['nombre']}")
+    c1, c2, c3, c4, c5 = st.columns(5)
+    c1.metric("Region",      volcan.get("region", "-"))
+    c2.metric("Elevacion",   f"{volcan.get('elevacion', 0):,} m")
+    c3.metric("Este (UTM)",  f"{e:,.0f} m")
+    c4.metric("Norte (UTM)", f"{n:,.0f} m")
+    c5.metric("Zona UTM",    f"{zone}{hemi}")
+
+    if drenajes_gdf is not None:
+        dv = drenajes_gdf[drenajes_gdf["volcan_codigo"] == volcan["codigo"]]
+        nombrados = dv[dv["nombre"] != "Sin nombre"]
+        c6, c7 = st.columns(2)
+        c6.metric("Tramos de drenaje", f"{len(dv):,}")
+        c7.metric("Quebradas con nombre", f"{nombrados['nombre'].nunique():,}")
 else:
-    st.markdown("### 🌋 Todos los volcanes monitoreados")
-    col1, col2 = st.columns(2)
-    col1.metric("Volcanes activos", len(VOLCANES))
+    st.markdown("### Todos los volcanes monitoreados")
+    c1, c2 = st.columns(2)
+    c1.metric("Volcanes activos", len(VOLCANES))
     if cuencas_gdf is not None:
-        col2.metric("Cuencas procesadas", len(cuencas_gdf))
+        c2.metric("Cuencas procesadas", len(cuencas_gdf))
 
 # ---------------------------------------------------------------------------
 # Mapa
 # ---------------------------------------------------------------------------
 
-# Centro del mapa
-if volcán_activo:
-    center = [volcán_activo["lat"], volcán_activo["lon"]]
-    zoom = 10
-else:
-    center = [-35.0, -70.5]  # centro de Chile
-    zoom = 5
+REGION_COLORS = {
+    "Arica y Parinacota": "#ff6b6b",
+    "Tarapaca":           "#ffa36b",
+    "Antofagasta":        "#ffd36b",
+    "Atacama":            "#b8ff6b",
+    "Biobio":             "#6bffb8",
+    "La Araucania":       "#6bdbff",
+    "Los Rios":           "#6b9fff",
+    "Los Lagos":          "#c46bff",
+    "Aysen":              "#ff6bdb",
+}
 
-# Fondo oscuro para sala de monitoreo
+center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
+zoom   = 10 if volcan else 5
+
+# Fondo satelital ESRI (publico, sin API key)
 m = folium.Map(
     location=center,
     zoom_start=zoom,
-    tiles="CartoDB dark_matter",
+    tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    attr="Esri World Imagery",
+    name="Satelital",
     prefer_canvas=True,
 )
 
-# Colores por región (para distinguir volcanes)
-REGION_COLORS = {
-    "Arica y Parinacota": "#ff6b6b",
-    "Tarapacá": "#ffa36b",
-    "Antofagasta": "#ffd36b",
-    "Atacama": "#b8ff6b",
-    "Biobío": "#6bffb8",
-    "La Araucanía": "#6bdbff",
-    "Los Ríos": "#6b9fff",
-    "Los Lagos": "#c46bff",
-    "Aysén": "#ff6bdb",
-}
+# Capa adicional: rotulo de referencia sobre satelital
+folium.TileLayer(
+    tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+    attr="Esri",
+    name="Rotulos",
+    overlay=True,
+    control=True,
+    opacity=0.7,
+).add_to(m)
 
-# Capa: cuencas
+# Zona de influencia
 if mostrar_cuencas and cuencas_gdf is not None:
-    filtro = cuencas_gdf if not volcán_activo else cuencas_gdf[
-        cuencas_gdf["volcan_codigo"] == volcán_activo["codigo"]
+    filtro_c = cuencas_gdf if not volcan else cuencas_gdf[
+        cuencas_gdf["volcan_codigo"] == volcan["codigo"]
     ]
-    for _, row in filtro.iterrows():
-        color = REGION_COLORS.get(row.get("region", ""), "#6bffb8")
+    if len(filtro_c) > 0:
         folium.GeoJson(
-            row.geometry.__geo_interface__,
-            style_function=lambda f, c=color, op=opacidad_cuenca: {
-                "fillColor": c,
-                "color": c,
+            json.loads(filtro_c.to_json()),
+            name="Zona de influencia",
+            style_function=lambda f, op=opacidad: {
+                "fillColor": REGION_COLORS.get(f["properties"].get("region", ""), "#6bffb8"),
+                "color": "#ffffff",
                 "weight": 1.5,
                 "fillOpacity": op,
             },
-            tooltip=f"<b>{row['volcan_nombre']}</b><br>Cuenca hidrográfica",
+            tooltip=folium.GeoJsonTooltip(
+                fields=["volcan_nombre", "region", "elevacion"],
+                aliases=["Volcan", "Region", "Elevacion (m)"],
+            ),
         ).add_to(m)
 
-# Capa: drenajes / quebradas
+# Quebradas / rios
 if mostrar_drenajes and drenajes_gdf is not None:
-    filtro_d = drenajes_gdf if not volcán_activo else drenajes_gdf[
-        drenajes_gdf["volcan_codigo"] == volcán_activo["codigo"]
+    filtro_d = drenajes_gdf if not volcan else drenajes_gdf[
+        drenajes_gdf["volcan_codigo"] == volcan["codigo"]
     ]
-    for _, row in filtro_d.iterrows():
-        nombre_q = row.get("nombre", "Sin nombre")
-        tipo = row.get("tipo", "stream")
-        color_d = "#4fc3f7" if tipo == "river" else "#81d4fa"
-        weight = 2.5 if tipo == "river" else 1.5
+    if len(filtro_d) > 0:
         folium.GeoJson(
-            row.geometry.__geo_interface__,
-            style_function=lambda f, c=color_d, w=weight: {
-                "color": c,
-                "weight": w,
+            json.loads(filtro_d.to_json()),
+            name="Quebradas y rios",
+            style_function=lambda f: {
+                "color":   "#00aaff" if f["properties"].get("tipo") == "river" else "#66ccff",
+                "weight":  2.5      if f["properties"].get("tipo") == "river" else 1.2,
                 "opacity": 0.9,
             },
-            tooltip=f"<b>{nombre_q}</b><br>{tipo}",
+            tooltip=folium.GeoJsonTooltip(
+                fields=["nombre", "tipo"],
+                aliases=["Nombre", "Tipo"],
+            ),
         ).add_to(m)
 
-# Capa: volcanes
+    # Etiquetas de nombres (solo cuando hay un volcan seleccionado)
+    if mostrar_nombres and volcan and len(filtro_d) > 0:
+        nombrados_d = filtro_d[filtro_d["nombre"] != "Sin nombre"].copy()
+        # Un marcador por nombre unico (en el punto medio del primer tramo)
+        vistos = set()
+        for _, row in nombrados_d.iterrows():
+            nombre_q = row["nombre"]
+            if nombre_q in vistos:
+                continue
+            vistos.add(nombre_q)
+            mid = midpoint_linestring(row.geometry)
+            if mid is None:
+                continue
+            es_rio = row.get("tipo") == "river"
+            folium.Marker(
+                location=mid,
+                icon=folium.DivIcon(
+                    html=f"""<div style="
+                        font-size: {'11px' if es_rio else '9px'};
+                        font-weight: {'bold' if es_rio else 'normal'};
+                        color: {'#ffffff' if es_rio else '#aaddff'};
+                        background: rgba(0,0,0,0.55);
+                        padding: 1px 4px;
+                        border-radius: 3px;
+                        white-space: nowrap;
+                        pointer-events: none;
+                    ">{nombre_q}</div>""",
+                    icon_size=(len(nombre_q)*7, 18),
+                    icon_anchor=(len(nombre_q)*3, 9),
+                ),
+            ).add_to(m)
+
+# Marcadores de volcanes
 if mostrar_volcanes:
-    volcanes_a_mostrar = [volcán_activo] if volcán_activo else VOLCANES
-    for v in volcanes_a_mostrar:
+    vlist = [volcan] if volcan else VOLCANES
+    for v in vlist:
+        lat_v, lon_v = v["lat"], v["lon"]
+        e_v, n_v, zone_v = latlon_a_utm(lat_v, lon_v)
+        hemi_v = "S" if lat_v < 0 else "N"
         color = REGION_COLORS.get(v.get("region", ""), "#ff6b35")
-        popup_html = f"""
-        <div style='font-family: monospace; min-width: 180px;'>
-        <b style='color: #ff6b35; font-size: 1.1em;'>{v['nombre']}</b><br>
-        Región: {v.get('region', '—')}<br>
-        Elevación: {v.get('elevacion', '—')} m<br>
-        Coord: {v['lat']:.4f}, {v['lon']:.4f}<br>
-        Código: {v['codigo']}
-        </div>
-        """
+        popup_html = (
+            f"<div style='font-family:monospace;min-width:200px'>"
+            f"<b style='color:#ff6b35;font-size:1.1em'>{v['nombre']}</b><br>"
+            f"Region: {v.get('region','-')}<br>"
+            f"Elevacion: {v.get('elevacion','-')} m<br>"
+            f"Este: {e_v:,.0f} m &nbsp; Norte: {n_v:,.0f} m<br>"
+            f"Zona: {zone_v}{hemi_v}<br>"
+            f"Codigo: {v['codigo']}"
+            f"</div>"
+        )
         folium.CircleMarker(
-            location=[v["lat"], v["lon"]],
-            radius=10,
+            location=[lat_v, lon_v],
+            radius=9,
             color="#ff6b35",
             fill=True,
             fill_color=color,
             fill_opacity=0.9,
-            popup=folium.Popup(popup_html, max_width=220),
-            tooltip=f"🌋 {v['nombre']} ({v.get('elevacion', '?')} m)",
+            popup=folium.Popup(popup_html, max_width=240),
+            tooltip=f"{v['nombre']} ({v.get('elevacion','?')} m)",
         ).add_to(m)
 
-# Render del mapa
-map_height = 750  # px — para pantalla 43"
-st_folium(m, width=None, height=map_height, returned_objects=[])
+folium.LayerControl(collapsed=False).add_to(m)
+
+st_folium(m, use_container_width=True, height=730, returned_objects=[], key="mapa")
 
 # ---------------------------------------------------------------------------
-# Tabla resumen (bajo el mapa)
+# Tabla de quebradas
 # ---------------------------------------------------------------------------
 
-if volcán_activo and drenajes_gdf is not None:
+if volcan and drenajes_gdf is not None:
     st.divider()
-    st.markdown("#### Quebradas / Valles identificados")
-    drenajes_v = drenajes_gdf[drenajes_gdf["volcan_codigo"] == volcán_activo["codigo"]]
-    if len(drenajes_v) > 0:
-        nombres_unicos = drenajes_v[drenajes_v["nombre"] != "Sin nombre"]["nombre"].unique()
-        if len(nombres_unicos) > 0:
-            df_show = pd.DataFrame({
-                "Nombre": nombres_unicos,
-                "Tipo": [drenajes_v[drenajes_v["nombre"] == n]["tipo"].iloc[0] for n in nombres_unicos],
-            })
-            st.dataframe(df_show, use_container_width=True, hide_index=True)
-        else:
-            st.info("No se encontraron nombres de quebradas en esta área (fuente: OSM). Considera agregar nombres manualmente.")
+    dv = drenajes_gdf[drenajes_gdf["volcan_codigo"] == volcan["codigo"]]
+    nombrados = dv[dv["nombre"] != "Sin nombre"].copy()
+
+    col_t, col_dl = st.columns([3, 1])
+    col_t.markdown("#### Quebradas y rios identificados")
+
+    if len(nombrados) > 0:
+        resumen = (
+            nombrados
+            .groupby("nombre")
+            .agg(tipo=("tipo", "first"), tramos=("osm_id", "count"))
+            .reset_index()
+            .sort_values(["tipo", "nombre"])
+            .rename(columns={"nombre": "Nombre", "tipo": "Tipo", "tramos": "Tramos OSM"})
+        )
+        csv = resumen.to_csv(index=False).encode("utf-8")
+        col_dl.download_button(
+            label="Descargar CSV",
+            data=csv,
+            file_name=f"quebradas_{volcan['codigo']}.csv",
+            mime="text/csv",
+        )
+        st.dataframe(resumen, use_container_width=True, hide_index=True, height=380)
     else:
-        st.info("Sin datos de drenaje procesados para este volcán. Ejecuta los scripts de procesamiento.")
+        st.info("Sin quebradas nombradas en OSM para este volcan.")
 
-elif not volcán_activo and poblacion_df is not None:
+elif not volcan and poblacion_df is not None:
     st.divider()
-    st.markdown("#### Población por cuenca volcánica")
+    st.markdown("#### Poblacion por cuenca volcanica")
     st.dataframe(
         poblacion_df.sort_values("poblacion_cuenca", ascending=False),
-        use_container_width=True,
-        hide_index=True,
+        use_container_width=True, hide_index=True,
     )

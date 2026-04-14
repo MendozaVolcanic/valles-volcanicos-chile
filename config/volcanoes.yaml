@@ -1,7 +1,6 @@
 # 43 volcanes monitoreados por OVDAS - SERNAGEOMIN
-# Fuente: Catálogo de Volcanes Activos de Chile (SERNAGEOMIN)
-# Formato: nombre, lat, lon, elevación (m), región, zona_riesgo
-# Este archivo es la fuente de verdad compartida para todos los módulos del ecosistema
+# Fuente: Catalogo de Volcanes Activos de Chile (SERNAGEOMIN)
+# Encoding: UTF-8
 
 volcanes:
   - nombre: Guallatiri
@@ -15,31 +14,31 @@ volcanes:
     lat: -19.1533
     lon: -68.8333
     elevacion: 5550
-    region: "Tarapacá"
+    region: "Tarapaca"
     codigo: ISL
 
   - nombre: Tata Sabaya
     lat: -19.1167
     lon: -68.5333
     elevacion: 5430
-    region: "Tarapacá"
+    region: "Tarapaca"
     codigo: TAT
 
   - nombre: Olca-Paruma
     lat: -20.9333
     lon: -68.4833
     elevacion: 5407
-    region: "Tarapacá"
+    region: "Tarapaca"
     codigo: OLC
 
   - nombre: Irruputuncu
     lat: -20.7333
     lon: -68.5333
     elevacion: 5163
-    region: "Tarapacá"
+    region: "Tarapaca"
     codigo: IRR
 
-  - nombre: Ollagüe
+  - nombre: Ollague
     lat: -21.3000
     lon: -68.1833
     elevacion: 5868
@@ -102,7 +101,7 @@ volcanes:
     region: "Atacama"
     codigo: BAY
 
-  - nombre: Copiapó
+  - nombre: Copiapo
     lat: -27.1500
     lon: -69.0167
     elevacion: 6052
@@ -148,66 +147,66 @@ volcanes:
     lat: -37.4000
     lon: -71.3667
     elevacion: 2979
-    region: "Biobío"
+    region: "Biobio"
     codigo: ANT
 
   - nombre: Callaqui
     lat: -37.9167
     lon: -71.4500
     elevacion: 3164
-    region: "Biobío"
+    region: "Biobio"
     codigo: CAL
 
   - nombre: Copahue
     lat: -37.8564
     lon: -71.1697
     elevacion: 2965
-    region: "Biobío"
+    region: "Biobio"
     codigo: CPA
 
   - nombre: Lonquimay
     lat: -38.3792
     lon: -71.5861
     elevacion: 2865
-    region: "La Araucanía"
+    region: "La Araucania"
     codigo: LON
 
   - nombre: Llaima
     lat: -38.6917
     lon: -71.7294
     elevacion: 3125
-    region: "La Araucanía"
+    region: "La Araucania"
     codigo: LLA
 
   - nombre: Sollipulli
     lat: -38.9667
     lon: -71.5167
     elevacion: 2282
-    region: "La Araucanía"
+    region: "La Araucania"
     codigo: SOL
 
   - nombre: Villarrica
     lat: -39.4197
     lon: -71.9378
     elevacion: 2847
-    region: "La Araucanía"
+    region: "La Araucania"
     codigo: VIL
 
-  - nombre: Quetrupillán
+  - nombre: Quetrupillan
     lat: -39.5000
     lon: -71.7167
     elevacion: 2360
-    region: "La Araucanía"
+    region: "La Araucania"
     codigo: QUE
 
   - nombre: Mocho-Choshuenco
     lat: -39.9333
     lon: -72.0333
     elevacion: 2422
-    region: "Los Ríos"
+    region: "Los Rios"
     codigo: MCH
 
-  - nombre: Chaitén
+  - nombre: Chaiten
     lat: -42.8333
     lon: -72.6464
     elevacion: 1122
@@ -228,7 +227,7 @@ volcanes:
     region: "Los Lagos"
     codigo: COR
 
-  - nombre: Hornopirén
+  - nombre: Hornopiren
     lat: -41.8667
     lon: -72.4333
     elevacion: 1572
@@ -270,37 +269,37 @@ volcanes:
     region: "Los Lagos"
     codigo: TRO
 
-  - nombre: Puyehue-Cordón Caulle
+  - nombre: Puyehue-Cordon Caulle
     lat: -40.5903
     lon: -72.1172
     elevacion: 2236
-    region: "Los Ríos"
+    region: "Los Rios"
     codigo: PCC
 
-  - nombre: Carrán-Los Venados
+  - nombre: Carran-Los Venados
     lat: -40.3500
     lon: -72.0667
     elevacion: 1114
-    region: "Los Ríos"
+    region: "Los Rios"
     codigo: CLV
 
   - nombre: Hudson
     lat: -45.9000
     lon: -72.9667
     elevacion: 1905
-    region: "Aysén"
+    region: "Aysen"
     codigo: HUD
 
   - nombre: Melimoyu
     lat: -44.0833
     lon: -72.8833
     elevacion: 2400
-    region: "Aysén"
+    region: "Aysen"
     codigo: MEL
 
   - nombre: Mentolat
     lat: -44.7000
     lon: -73.0833
     elevacion: 1660
-    region: "Aysén"
+    region: "Aysen"
     codigo: MEN
