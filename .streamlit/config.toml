@@ -8,7 +8,8 @@ font = "monospace"
 
 [server]
 headless = true
-port = 8505
+# port: sin definir aqui, Streamlit Cloud usa 8501 por defecto
+# Para correr local en puerto diferente: streamlit run app/dashboard.py --server.port 8505
 
 [browser]
 gatherUsageStats = false
