@@ -1,18 +1,5 @@
-# Dashboard - Streamlit Cloud (sin dependencias nativas)
 streamlit>=1.35
 folium>=0.16
 streamlit-folium>=0.20
 pandas>=2.0
 pyyaml>=6.0
-
-# Scripts locales de pipeline (ejecutar solo en entorno local con geopandas)
-# geopandas>=0.14
-# pyogrio>=0.7
-# pysheds>=0.4
-# rasterio>=1.3
-# fiona>=1.9
-# shapely>=2.0
-# pyproj>=3.6
-# numpy>=1.26
-# requests>=2.31
-# tqdm>=4.66
