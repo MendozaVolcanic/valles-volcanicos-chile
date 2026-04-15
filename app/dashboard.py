@@ -24,13 +24,42 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+    /* Fondo y texto global */
     .stApp { background-color: #0e1117; color: #e0e0e0; }
     section[data-testid="stSidebar"] { background-color: #161b22; }
-    h1,h2,h3,h4 { color: #ff6b35; }
-    div[data-testid="metric-container"] {
-        background: #1e2530; border-radius: 8px; padding: 10px;
+
+    /* Titulos en naranja OVDAS */
+    h1, h2, h3, h4 { color: #ff6b35; font-family: 'Segoe UI', sans-serif; }
+
+    /* Labels de sidebar en fuente sans-serif legible */
+    .stSelectbox label, .stCheckbox label, .stSlider label {
+        color: #ccc !important;
+        font-family: 'Segoe UI', sans-serif !important;
+        font-size: 0.85rem !important;
     }
-    .stSelectbox label, .stCheckbox label, .stSlider label { color: #ccc !important; }
+
+    /* Metricas: fondo oscuro, label pequeño, valor grande y claro */
+    div[data-testid="metric-container"] {
+        background: #1e2530;
+        border-radius: 8px;
+        padding: 10px 14px;
+        border-left: 3px solid #ff6b35;
+    }
+    div[data-testid="metric-container"] label {
+        font-family: 'Segoe UI', sans-serif !important;
+        font-size: 0.72rem !important;
+        color: #999 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+        font-family: 'Courier New', monospace !important;
+        font-size: 1.15rem !important;
+        color: #f0f0f0 !important;
+    }
+
+    /* Tabla de datos */
+    .stDataFrame { border-radius: 6px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -203,14 +232,20 @@ if volcan:
     hemi       = "S" if lat < 0 else "N"
 
     st.markdown(f"### {volcan['nombre']}")
-    c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
-    c1.metric("Region",               volcan.get("region", "-"))
-    c2.metric("Elevacion",            f"{volcan.get('elevacion', 0):,} m")
-    c3.metric("Este (UTM)",           f"{e:,.0f} m")
-    c4.metric("Norte (UTM)",          f"{n:,.0f} m")
-    c5.metric("Zona UTM",             f"{zone}{hemi}")
-    c6.metric("Tramos de drenaje",    f"{len(feats):,}")
+
+    # Fila 1: datos del volcan (columnas con ancho relativo para que UTM no se corte)
+    c1, c2, c3, c4, c5 = st.columns([1.6, 1.0, 1.6, 1.6, 0.8])
+    c1.metric("Region",       volcan.get("region", "-"))
+    c2.metric("Elevacion",    f"{volcan.get('elevacion', 0):,} m")
+    c3.metric("Este UTM",     f"{e:,.0f} m")
+    c4.metric("Norte UTM",    f"{n:,.0f} m")
+    c5.metric("Zona",         f"{zone}{hemi}")
+
+    # Fila 2: estadisticas de drenaje
+    c6, c7, _ = st.columns([1, 1, 4.6])
+    c6.metric("Tramos OSM",          f"{len(feats):,}")
     c7.metric("Quebradas con nombre", f"{len(nombres_unicos):,}")
+
 else:
     st.markdown("### Todos los volcanes monitoreados")
     c1, c2 = st.columns(2)
@@ -224,17 +259,24 @@ else:
 center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
 zoom   = 10 if volcan else 5
 
+# tiles=None evita que folium ponga el tile base en el LayerControl con la URL cruda
 m = folium.Map(
     location=center,
     zoom_start=zoom,
+    tiles=None,
+    prefer_canvas=True,
+)
+
+# Capa satelital como TileLayer con nombre limpio (aparece "Satelital" en el control)
+folium.TileLayer(
     tiles=(
         "https://server.arcgisonline.com/ArcGIS/rest/services"
         "/World_Imagery/MapServer/tile/{z}/{y}/{x}"
     ),
     attr="Esri World Imagery",
     name="Satelital",
-    prefer_canvas=True,
-)
+    control=True,
+).add_to(m)
 
 # Rotulos de referencia sobre el satelital
 folium.TileLayer(
