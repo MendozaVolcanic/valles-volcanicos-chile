@@ -1,7 +1,8 @@
 """
 dashboard.py - Valles Volcanicos OVDAS
 Pantalla 43", modo oscuro, fondo satelital ESRI, etiquetas de quebradas.
-Lee GeoJSON pre-exportados: sin dependencias nativas (funciona en cualquier Python).
+Capas: comunas (WMS BCN Chile) + ciudades y pueblos (lista estatica OSM).
+Sin dependencias nativas — funciona en cualquier Python.
 """
 
 import streamlit as st
@@ -24,21 +25,15 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* Fondo y texto global */
     .stApp { background-color: #0e1117; color: #e0e0e0; }
     section[data-testid="stSidebar"] { background-color: #161b22; }
-
-    /* Titulos en naranja OVDAS */
     h1, h2, h3, h4 { color: #ff6b35; font-family: 'Segoe UI', sans-serif; }
 
-    /* Labels de sidebar en fuente sans-serif legible */
     .stSelectbox label, .stCheckbox label, .stSlider label {
         color: #ccc !important;
         font-family: 'Segoe UI', sans-serif !important;
         font-size: 0.85rem !important;
     }
-
-    /* Metricas: fondo oscuro, label pequeño, valor grande y claro */
     div[data-testid="metric-container"] {
         background: #1e2530;
         border-radius: 8px;
@@ -57,14 +52,12 @@ st.markdown("""
         font-size: 1.15rem !important;
         color: #f0f0f0 !important;
     }
-
-    /* Tabla de datos */
     .stDataFrame { border-radius: 6px; }
 </style>
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
-# Rutas absolutas (funciona tanto local como en Streamlit Cloud)
+# Rutas absolutas (funciona local y en Streamlit Cloud)
 # ---------------------------------------------------------------------------
 
 ROOT        = Path(__file__).resolve().parent.parent
@@ -72,11 +65,74 @@ PROCESSED   = ROOT / "data" / "processed"
 CONFIG_PATH = ROOT / "config" / "volcanoes.yaml"
 
 # ---------------------------------------------------------------------------
+# Datos estaticos: ciudades y pueblos de Chile (zonas volcanicas)
+# Fuente: OpenStreetMap / INE. pop = poblacion aproximada.
+# ---------------------------------------------------------------------------
+
+CIUDADES = [
+    # Arica y Parinacota
+    {"nombre": "Arica",               "lat": -18.4783, "lon": -70.3126, "pop": 222000},
+    {"nombre": "Putre",               "lat": -18.1969, "lon": -69.5644, "pop":   2500},
+    # Tarapaca
+    {"nombre": "Iquique",             "lat": -20.2307, "lon": -70.1357, "pop": 191000},
+    {"nombre": "Colchane",            "lat": -19.2667, "lon": -68.6333, "pop":    800},
+    # Antofagasta
+    {"nombre": "Calama",              "lat": -22.4558, "lon": -68.9271, "pop": 165000},
+    {"nombre": "San Pedro de Atacama","lat": -22.9087, "lon": -68.1997, "pop":  10000},
+    {"nombre": "Antofagasta",         "lat": -23.6509, "lon": -70.3975, "pop": 402000},
+    {"nombre": "Toconao",             "lat": -23.1833, "lon": -67.9833, "pop":    600},
+    # Atacama
+    {"nombre": "Copiapo",             "lat": -27.3668, "lon": -70.3323, "pop": 158000},
+    {"nombre": "Tierra Amarilla",     "lat": -27.4931, "lon": -70.2703, "pop":  13000},
+    {"nombre": "Fiambalá",            "lat": -27.7000, "lon": -67.6167, "pop":   2000},
+    # Biobio
+    {"nombre": "Los Angeles",         "lat": -37.4670, "lon": -72.3526, "pop": 211000},
+    {"nombre": "Mulchen",             "lat": -37.7167, "lon": -72.2333, "pop":  25000},
+    {"nombre": "Angol",               "lat": -37.7945, "lon": -72.7095, "pop":  54000},
+    # La Araucania
+    {"nombre": "Temuco",              "lat": -38.7396, "lon": -72.5900, "pop": 282000},
+    {"nombre": "Curacautin",          "lat": -38.4231, "lon": -71.8832, "pop":  16000},
+    {"nombre": "Lonquimay",           "lat": -38.4372, "lon": -71.5700, "pop":   7000},
+    {"nombre": "Victoria",            "lat": -38.2352, "lon": -72.3394, "pop":  32000},
+    {"nombre": "Villarrica",          "lat": -39.2812, "lon": -72.2232, "pop":  51000},
+    {"nombre": "Pucon",               "lat": -39.2731, "lon": -71.9789, "pop":  22000},
+    {"nombre": "Loncoche",            "lat": -39.3703, "lon": -72.6311, "pop":  20000},
+    {"nombre": "Curarrehue",          "lat": -39.3833, "lon": -71.5500, "pop":   6000},
+    {"nombre": "Licanray",            "lat": -39.4833, "lon": -72.1500, "pop":   4000},
+    # Los Rios
+    {"nombre": "Valdivia",            "lat": -39.8196, "lon": -73.2452, "pop": 154000},
+    {"nombre": "Panguipulli",         "lat": -39.6375, "lon": -72.3356, "pop":  19000},
+    {"nombre": "Conaripe",            "lat": -39.6136, "lon": -71.9875, "pop":   2000},
+    {"nombre": "Futrono",             "lat": -40.1283, "lon": -72.3897, "pop":   9000},
+    {"nombre": "La Union",            "lat": -40.2919, "lon": -73.0841, "pop":  40000},
+    # Los Lagos
+    {"nombre": "Osorno",              "lat": -40.5736, "lon": -73.1337, "pop": 145000},
+    {"nombre": "Entre Lagos",         "lat": -40.6833, "lon": -72.6000, "pop":   5000},
+    {"nombre": "Puerto Octay",        "lat": -40.9667, "lon": -72.9167, "pop":   5000},
+    {"nombre": "Frutillar",           "lat": -41.1247, "lon": -73.0564, "pop":  16000},
+    {"nombre": "Puerto Varas",        "lat": -41.3194, "lon": -72.9887, "pop":  41000},
+    {"nombre": "Ensenada",            "lat": -41.2167, "lon": -72.6167, "pop":   2000},
+    {"nombre": "Puerto Montt",        "lat": -41.4693, "lon": -72.9424, "pop": 245000},
+    {"nombre": "Cochamo",             "lat": -41.4833, "lon": -72.3333, "pop":   1500},
+    {"nombre": "Hornopiren",          "lat": -41.9167, "lon": -72.4333, "pop":   2500},
+    {"nombre": "Chaiten",             "lat": -42.9167, "lon": -72.7000, "pop":   4000},
+    {"nombre": "Futaleufu",           "lat": -43.1833, "lon": -71.8667, "pop":   2500},
+    {"nombre": "Palena",              "lat": -43.6167, "lon": -71.8167, "pop":   2000},
+    # Aysen
+    {"nombre": "La Junta",            "lat": -43.9667, "lon": -72.4167, "pop":   1500},
+    {"nombre": "Puyuhuapi",           "lat": -44.3333, "lon": -72.5667, "pop":    500},
+    {"nombre": "Cisnes",              "lat": -44.7500, "lon": -72.6833, "pop":   1000},
+    {"nombre": "Coyhaique",           "lat": -45.5752, "lon": -72.0662, "pop":  55000},
+    {"nombre": "Puerto Aysen",        "lat": -45.4019, "lon": -72.6988, "pop":  16000},
+    {"nombre": "Chile Chico",         "lat": -46.5333, "lon": -71.7333, "pop":   4500},
+]
+
+# ---------------------------------------------------------------------------
 # Utilidades geograficas (puro Python, sin librerias nativas)
 # ---------------------------------------------------------------------------
 
 def latlon_a_utm(lat: float, lon: float) -> tuple[float, float, int]:
-    """Convierte coordenadas WGS84 a UTM. Formula directa, precision metrica."""
+    """Convierte WGS84 a UTM. Formula directa Karney/USGS, precision metrica."""
     zone    = int((lon + 180) / 6) + 1
     lon_rad = math.radians(lon)
     lat_rad = math.radians(lat)
@@ -89,10 +145,10 @@ def latlon_a_utm(lat: float, lon: float) -> tuple[float, float, int]:
     C    = e2 / (1 - e2) * math.cos(lat_rad) ** 2
     A    = math.cos(lat_rad) * (lon_rad - lon0)
     M    = a * (
-        (1 - e2/4 - 3*e2**2/64 - 5*e2**3/256)   * lat_rad
-        - (3*e2/8 + 3*e2**2/32 + 45*e2**3/1024)  * math.sin(2*lat_rad)
-        + (15*e2**2/256 + 45*e2**3/1024)          * math.sin(4*lat_rad)
-        - (35*e2**3/3072)                          * math.sin(6*lat_rad)
+        (1 - e2/4 - 3*e2**2/64 - 5*e2**3/256)  * lat_rad
+        - (3*e2/8 + 3*e2**2/32 + 45*e2**3/1024) * math.sin(2*lat_rad)
+        + (15*e2**2/256 + 45*e2**3/1024)         * math.sin(4*lat_rad)
+        - (35*e2**3/3072)                         * math.sin(6*lat_rad)
     )
     easting = 500000.0 + 0.9996 * N * (
         A + (1 - T + C) * A**3 / 6
@@ -109,14 +165,14 @@ def latlon_a_utm(lat: float, lon: float) -> tuple[float, float, int]:
 
 
 def midpoint_geojson(feature: dict) -> tuple[float, float] | None:
-    """Coordenada media de un LineString/MultiLineString para posicionar etiquetas."""
+    """Coordenada media de LineString/MultiLineString para etiquetas."""
     try:
         geom   = feature["geometry"]
         coords = geom["coordinates"]
         if geom["type"] == "MultiLineString":
             coords = coords[0]
         mid = coords[len(coords) // 2]
-        return mid[1], mid[0]          # (lat, lon)
+        return mid[1], mid[0]
     except (KeyError, IndexError, TypeError):
         return None
 
@@ -155,7 +211,7 @@ def cargar_poblacion() -> pd.DataFrame | None:
     return pd.read_csv(str(p)) if p.exists() else None
 
 
-# Carga inicial (config y cuencas siempre necesarios)
+# Carga inicial
 try:
     config   = cargar_config()
     VOLCANES = config["volcanes"]
@@ -189,37 +245,41 @@ REGION_COLORS = {
 
 with st.sidebar:
     st.markdown("## Valles Volcanicos")
-    st.markdown("**OVDAS - SERNAGEOMIN**")
+    st.markdown("**OVDAS · SERNAGEOMIN**")
     st.divider()
 
     nombres   = ["(Todos los volcanes)"] + [v["nombre"] for v in VOLCANES]
     seleccion = st.selectbox("Volcan", nombres, index=0)
 
     st.divider()
-    st.markdown("**Capas**")
-    mostrar_cuencas  = st.checkbox("Zona de influencia",  value=True)
-    mostrar_drenajes = st.checkbox("Quebradas / rios",    value=True)
-    mostrar_nombres  = st.checkbox("Nombres de quebradas", value=True)
-    mostrar_volcanes = st.checkbox("Volcan",               value=True)
+    st.markdown("**Capas tematicas**")
+    mostrar_cuencas  = st.checkbox("Zona de influencia (50 km)", value=True)
+    mostrar_drenajes = st.checkbox("Quebradas y rios",           value=True)
+    mostrar_nombres  = st.checkbox("Nombres de quebradas",       value=True)
+    mostrar_volcanes = st.checkbox("Marcadores de volcanes",     value=True)
+
+    st.divider()
+    st.markdown("**Capas de contexto**")
+    mostrar_comunas  = st.checkbox("Limites comunales",          value=False)
+    mostrar_ciudades = st.checkbox("Ciudades y pueblos",         value=True)
 
     st.divider()
     opacidad = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
     st.divider()
-    st.caption("Fuentes: SERNAGEOMIN · OSM · INE")
+    st.caption("Fuentes: SERNAGEOMIN · OSM · BCN · INE")
 
 # ---------------------------------------------------------------------------
-# Datos del volcan seleccionado (calculados una sola vez)
+# Volcan seleccionado y datos derivados (calculados una sola vez)
 # ---------------------------------------------------------------------------
 
 volcan = None if seleccion == "(Todos los volcanes)" else next(
     (v for v in VOLCANES if v["nombre"] == seleccion), None
 )
 
-# Drenajes y listas derivadas — se calculan una vez y se reusan en mapa + tabla
-drenajes_gj   = cargar_drenajes(volcan["codigo"]) if volcan else None
-feats         = drenajes_gj.get("features", []) if drenajes_gj else []
-nombrados     = [f for f in feats
-                 if f["properties"].get("nombre", "Sin nombre") != "Sin nombre"]
+drenajes_gj    = cargar_drenajes(volcan["codigo"]) if volcan else None
+feats          = drenajes_gj.get("features", []) if drenajes_gj else []
+nombrados      = [f for f in feats
+                  if f["properties"].get("nombre", "Sin nombre") != "Sin nombre"]
 nombres_unicos = {f["properties"]["nombre"] for f in nombrados}
 
 # ---------------------------------------------------------------------------
@@ -232,20 +292,17 @@ if volcan:
     hemi       = "S" if lat < 0 else "N"
 
     st.markdown(f"### {volcan['nombre']}")
-
-    # Fila 1: datos del volcan (columnas con ancho relativo para que UTM no se corte)
+    # Fila 1: identidad del volcan
     c1, c2, c3, c4, c5 = st.columns([1.6, 1.0, 1.6, 1.6, 0.8])
-    c1.metric("Region",       volcan.get("region", "-"))
-    c2.metric("Elevacion",    f"{volcan.get('elevacion', 0):,} m")
-    c3.metric("Este UTM",     f"{e:,.0f} m")
-    c4.metric("Norte UTM",    f"{n:,.0f} m")
-    c5.metric("Zona",         f"{zone}{hemi}")
-
+    c1.metric("Region",    volcan.get("region", "-"))
+    c2.metric("Elevacion", f"{volcan.get('elevacion', 0):,} m")
+    c3.metric("Este UTM",  f"{e:,.0f} m")
+    c4.metric("Norte UTM", f"{n:,.0f} m")
+    c5.metric("Zona",      f"{zone}{hemi}")
     # Fila 2: estadisticas de drenaje
-    c6, c7, _ = st.columns([1, 1, 4.6])
-    c6.metric("Tramos OSM",          f"{len(feats):,}")
+    c6, c7, _ = st.columns([1, 1.3, 4.3])
+    c6.metric("Tramos OSM",           f"{len(feats):,}")
     c7.metric("Quebradas con nombre", f"{len(nombres_unicos):,}")
-
 else:
     st.markdown("### Todos los volcanes monitoreados")
     c1, c2 = st.columns(2)
@@ -253,21 +310,15 @@ else:
     c2.metric("Cuencas procesadas", len(cuencas_gj.get("features", [])) if cuencas_gj else 0)
 
 # ---------------------------------------------------------------------------
-# Mapa
+# Mapa Folium
 # ---------------------------------------------------------------------------
 
 center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
 zoom   = 10 if volcan else 5
 
-# tiles=None evita que folium ponga el tile base en el LayerControl con la URL cruda
-m = folium.Map(
-    location=center,
-    zoom_start=zoom,
-    tiles=None,
-    prefer_canvas=True,
-)
+m = folium.Map(location=center, zoom_start=zoom, tiles=None, prefer_canvas=True)
 
-# Capa satelital como TileLayer con nombre limpio (aparece "Satelital" en el control)
+# -- Base satelital ESRI --
 folium.TileLayer(
     tiles=(
         "https://server.arcgisonline.com/ArcGIS/rest/services"
@@ -278,7 +329,7 @@ folium.TileLayer(
     control=True,
 ).add_to(m)
 
-# Rotulos de referencia sobre el satelital
+# -- Rotulos ESRI sobre satelital --
 folium.TileLayer(
     tiles=(
         "https://server.arcgisonline.com/ArcGIS/rest/services"
@@ -291,7 +342,22 @@ folium.TileLayer(
     opacity=0.7,
 ).add_to(m)
 
-# -- Zona de influencia (cuencas) --
+# -- Limites comunales (WMS BCN Chile) --
+# Servicio: Biblioteca del Congreso Nacional, SIIT
+if mostrar_comunas:
+    folium.WmsTileLayer(
+        url="https://siit2.bcn.cl/mapas_geoserver/BCN/wms",
+        layers="BCN:lim_comunal_2016_WGS84",
+        fmt="image/png",
+        transparent=True,
+        name="Comunas (BCN)",
+        overlay=True,
+        control=True,
+        opacity=0.85,
+        show=True,
+    ).add_to(m)
+
+# -- Zona de influencia --
 if mostrar_cuencas and cuencas_gj:
     features_c = (
         [f for f in cuencas_gj["features"]
@@ -330,7 +396,7 @@ if mostrar_drenajes and feats:
         ),
     ).add_to(m)
 
-    # Etiquetas de nombre — solo en vista de un volcan (rendimiento)
+    # Etiquetas — solo vista de un volcan
     if mostrar_nombres and volcan:
         vistos: set[str] = set()
         for feat in nombrados:
@@ -360,14 +426,63 @@ if mostrar_drenajes and feats:
                 ),
             ).add_to(m)
 
+# -- Ciudades y pueblos --
+if mostrar_ciudades:
+    grupo_ciudades = folium.FeatureGroup(name="Ciudades y pueblos", show=True)
+    for c in CIUDADES:
+        # Tamaño y color segun poblacion
+        if c["pop"] >= 100_000:
+            radio, color_c, peso = 7, "#ffffff", 2
+        elif c["pop"] >= 20_000:
+            radio, color_c, peso = 5, "#eeeeee", 1.5
+        else:
+            radio, color_c, peso = 3, "#cccccc", 1
+
+        folium.CircleMarker(
+            location=[c["lat"], c["lon"]],
+            radius=radio,
+            color=color_c,
+            weight=peso,
+            fill=True,
+            fill_color=color_c,
+            fill_opacity=0.85,
+            tooltip=f"{c['nombre']} ({c['pop']:,} hab.)",
+            popup=folium.Popup(
+                f"<b>{c['nombre']}</b><br>Poblacion: ~{c['pop']:,} hab.",
+                max_width=180,
+            ),
+        ).add_to(grupo_ciudades)
+
+        # Etiqueta de texto para ciudades grandes
+        if c["pop"] >= 20_000:
+            folium.Marker(
+                location=[c["lat"], c["lon"]],
+                icon=folium.DivIcon(
+                    html=(
+                        f'<div style="'
+                        f'font-size:{"10px" if c["pop"] >= 100000 else "8px"};'
+                        f'font-weight:{"bold" if c["pop"] >= 100000 else "normal"};'
+                        f'color:#ffffff;'
+                        f'text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;'
+                        f'white-space:nowrap;pointer-events:none;'
+                        f'margin-left:8px;margin-top:-4px;">'
+                        f'{c["nombre"]}</div>'
+                    ),
+                    icon_size=(150, 16),
+                    icon_anchor=(0, 8),
+                ),
+            ).add_to(grupo_ciudades)
+
+    grupo_ciudades.add_to(m)
+
 # -- Marcadores de volcanes --
 if mostrar_volcanes:
     for v in ([volcan] if volcan else VOLCANES):
-        lat_v, lon_v   = v["lat"], v["lon"]
-        e_v, n_v, zv   = latlon_a_utm(lat_v, lon_v)
-        hemi_v         = "S" if lat_v < 0 else "N"
-        color_v        = REGION_COLORS.get(v.get("region", ""), "#ff6b35")
-        popup_html     = (
+        lat_v, lon_v = v["lat"], v["lon"]
+        e_v, n_v, zv = latlon_a_utm(lat_v, lon_v)
+        hemi_v       = "S" if lat_v < 0 else "N"
+        color_v      = REGION_COLORS.get(v.get("region", ""), "#ff6b35")
+        popup_html   = (
             f"<div style='font-family:monospace;min-width:200px'>"
             f"<b style='color:#ff6b35;font-size:1.1em'>{v['nombre']}</b><br>"
             f"Region: {v.get('region', '-')}<br>"
