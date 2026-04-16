@@ -453,22 +453,30 @@ if mostrar_ciudades:
             ),
         ).add_to(grupo_ciudades)
 
-        # Etiqueta de texto para ciudades grandes
-        if c["pop"] >= 20_000:
+        # Etiqueta de texto:
+        # - Vista general (todos volcanes): solo ciudades >= 20k hab
+        # - Vista de un volcan (zoom): todas las localidades
+        mostrar_etiqueta = (volcan is not None) or (c["pop"] >= 20_000)
+        if mostrar_etiqueta:
+            if c["pop"] >= 100_000:
+                fs, fw = "10px", "bold"
+            elif c["pop"] >= 20_000:
+                fs, fw = "9px", "normal"
+            else:
+                fs, fw = "8px", "normal"
             folium.Marker(
                 location=[c["lat"], c["lon"]],
                 icon=folium.DivIcon(
                     html=(
                         f'<div style="'
-                        f'font-size:{"10px" if c["pop"] >= 100000 else "8px"};'
-                        f'font-weight:{"bold" if c["pop"] >= 100000 else "normal"};'
+                        f'font-size:{fs};font-weight:{fw};'
                         f'color:#ffffff;'
-                        f'text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;'
+                        f'text-shadow:1px 1px 2px #000,-1px -1px 2px #000;'
                         f'white-space:nowrap;pointer-events:none;'
-                        f'margin-left:8px;margin-top:-4px;">'
+                        f'margin-left:9px;margin-top:-4px;">'
                         f'{c["nombre"]}</div>'
                     ),
-                    icon_size=(150, 16),
+                    icon_size=(len(c["nombre"]) * 7, 16),
                     icon_anchor=(0, 8),
                 ),
             ).add_to(grupo_ciudades)
