@@ -242,38 +242,32 @@ poblacion_df = cargar_poblacion()
 # ---------------------------------------------------------------------------
 
 REGION_COLORS = {
+    # Norte
     "Arica y Parinacota": "#ff6b6b",
     "Tarapaca":           "#ffa36b",
     "Antofagasta":        "#ffd36b",
-    "Atacama":            "#b8ff6b",
+    # Centro
+    "Metropolitana":      "#e8ff6b",
+    "O'Higgins":          "#c8ff6b",
+    "Maule":              "#a8e86b",
     "Nuble":              "#aaff6b",
+    # Sur
     "Biobio":             "#6bffb8",
     "La Araucania":       "#6bdbff",
     "Los Rios":           "#6b9fff",
+    # Austral
     "Los Lagos":          "#c46bff",
     "Aysen":              "#ff6bdb",
 }
 
-# Clasificacion por zona volcanica (norte a sur por latitud)
-ZONA_VOLCANICA = {
-    "Arica y Parinacota": "ZVN — Zona Volcanica Norte",
-    "Tarapaca":           "ZVN — Zona Volcanica Norte",
-    "Antofagasta":        "ZVN — Zona Volcanica Norte",
-    "Atacama":            "ZVN — Zona Volcanica Norte",
-    "Nuble":              "ZVS — Zona Volcanica Sur",
-    "Biobio":             "ZVS — Zona Volcanica Sur",
-    "La Araucania":       "ZVS — Zona Volcanica Sur",
-    "Los Rios":           "ZVS — Zona Volcanica Sur",
-    "Los Lagos":          "ZVS — Zona Volcanica Sur",
-    "Aysen":              "ZVA — Zona Volcanica Austral",
+# Zonas volcanicas OVDAS (campo 'zona' en volcanoes.yaml)
+ZONAS_ORDEN = ["(Todas las zonas)", "Norte", "Centro", "Sur", "Austral"]
+ZONA_LABELS = {
+    "Norte":   "ZVN — Zona Norte",
+    "Centro":  "ZVC — Zona Centro",
+    "Sur":     "ZVS — Zona Sur",
+    "Austral": "ZVA — Zona Austral",
 }
-
-ZONAS_ORDEN = [
-    "(Todas las zonas)",
-    "ZVN — Zona Volcanica Norte",
-    "ZVS — Zona Volcanica Sur",
-    "ZVA — Zona Volcanica Austral",
-]
 
 with st.sidebar:
     st.markdown("## Valles Volcanicos")
@@ -281,14 +275,19 @@ with st.sidebar:
     st.divider()
 
     # Selector de zona
-    zona_sel = st.selectbox("Zona volcanica", ZONAS_ORDEN, index=0)
+    zona_sel = st.selectbox(
+        "Zona volcanica",
+        ZONAS_ORDEN,
+        format_func=lambda z: z if z == "(Todas las zonas)" else ZONA_LABELS.get(z, z),
+        index=0,
+    )
 
     # Filtrar y ordenar N→S dentro de la zona
     if zona_sel == "(Todas las zonas)":
         volcanes_zona = sorted(VOLCANES, key=lambda v: v["lat"], reverse=True)
     else:
         volcanes_zona = sorted(
-            [v for v in VOLCANES if ZONA_VOLCANICA.get(v.get("region", "")) == zona_sel],
+            [v for v in VOLCANES if v.get("zona", "") == zona_sel],
             key=lambda v: v["lat"],
             reverse=True,   # lat menos negativa = mas al norte = primero
         )
@@ -337,7 +336,7 @@ if volcan:
     e, n, zone = latlon_a_utm(lat, lon)
     hemi       = "S" if lat < 0 else "N"
 
-    zona_volc = ZONA_VOLCANICA.get(volcan.get("region", ""), "-")
+    zona_volc = ZONA_LABELS.get(volcan.get("zona", ""), volcan.get("zona", "-"))
     st.markdown(f"### {volcan['nombre']} &nbsp;<small style='color:#999;font-size:0.6em'>{zona_volc}</small>",
                 unsafe_allow_html=True)
     # Fila 1: identidad del volcan
