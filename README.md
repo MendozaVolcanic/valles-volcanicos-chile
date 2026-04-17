@@ -1,6 +1,6 @@
 # Valles Volcanicos Chile
 
-Dashboard de quebradas, rios y valles para los 43 volcanes monitoreados por OVDAS-SERNAGEOMIN.
+Dashboard de quebradas, rios y valles para los 44 volcanes monitoreados por OVDAS-SERNAGEOMIN.
 
 **Dashboard publico:** https://valles-volcanicos-chile.streamlit.app  
 **Repositorio:** https://github.com/MendozaVolcanic/valles-volcanicos-chile  
@@ -16,7 +16,7 @@ Identificar todas las quebradas, valles y rios que nacen o pasan por el area de 
 
 | Script | Estado | Resultado |
 |---|---|---|
-| `01_download_hydro.py` | Completado | 28.870 tramos OSM, 43 volcanes |
+| `01_download_hydro.py` | Completado | 28.870 tramos OSM, 44 volcanes |
 | `02_download_dem.py` | Completado | 43 DEMs SRTM 30m (AWS S3) |
 | `03_watershed.py` | Completado | 22.915 tramos en zonas de influencia |
 | `04_census.py` | Pendiente descarga manual | Requiere manzanas INE 2024 |
@@ -79,10 +79,10 @@ Los datos de manzanas del Censo 2024 requieren descarga manual:
 
 ## Funcionalidades del dashboard
 
-- **Vista general**: mapa de Chile con los 43 volcanes y sus zonas de influencia (50 km)
+- **Vista general**: mapa de Chile con los 44 volcanes y sus zonas de influencia (50 km)
 - **Vista por volcan**: zoom automatico, estadisticas UTM, quebradas nombradas con etiquetas
 - **Capas tematicas**: zona de influencia, quebradas/rios, nombres, marcadores de volcanes
-- **Capas de contexto**: limites comunales (WMS BCN Chile) + ciudades y pueblos (~45 localidades)
+- **Capas de contexto**: limites comunales (WMS BCN Chile) + ciudades y pueblos (~45 localidades) + zonas de peligro volcanico (SERNAGEOMIN, Alto/Medio/Bajo)
 - **Fondo**: satelital ESRI World Imagery + rotulos de referencia
 - **Tabla**: lista de quebradas con nombre, tipo y tramos OSM
 - **Exportar**: descarga CSV con quebradas del volcan seleccionado
