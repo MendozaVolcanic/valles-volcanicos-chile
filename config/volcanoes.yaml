@@ -143,6 +143,13 @@ volcanes:
     region: "Atacama"
     codigo: INC
 
+  - nombre: Nevados de Chillan
+    lat: -36.8631
+    lon: -71.3772
+    elevacion: 3212
+    region: "Nuble"
+    codigo: NCH
+
   - nombre: Antuco
     lat: -37.4000
     lon: -71.3667

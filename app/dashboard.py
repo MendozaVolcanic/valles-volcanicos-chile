@@ -206,6 +206,15 @@ def cargar_drenajes(codigo: str) -> dict | None:
 
 
 @st.cache_data
+def cargar_peligros() -> dict | None:
+    p = PROCESSED / "peligros_volcanicos.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
+@st.cache_data
 def cargar_poblacion() -> pd.DataFrame | None:
     p = PROCESSED / "resumen_poblacion.csv"
     return pd.read_csv(str(p)) if p.exists() else None
@@ -225,6 +234,7 @@ except Exception as exc:
     st.error(f"Error cargando cuencas.geojson: {exc}")
     st.stop()
 
+peligros_gj = cargar_peligros()
 poblacion_df = cargar_poblacion()
 
 # ---------------------------------------------------------------------------
@@ -262,6 +272,7 @@ with st.sidebar:
     st.markdown("**Capas de contexto**")
     mostrar_comunas  = st.checkbox("Limites comunales",          value=False)
     mostrar_ciudades = st.checkbox("Ciudades y pueblos",         value=True)
+    mostrar_peligros = st.checkbox("Zonas de peligro volcanico", value=False)
 
     st.divider()
     opacidad = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
@@ -356,6 +367,36 @@ if mostrar_comunas:
         opacity=0.85,
         show=True,
     ).add_to(m)
+
+# -- Zonas de peligro volcanico (SERNAGEOMIN shapefile) --
+if mostrar_peligros and peligros_gj:
+    PELIGRO_COLORS = {"Alto": "#cc0000", "Medio": "#ff8800", "Bajo": "#ffcc00"}
+    feats_p = peligros_gj.get("features", [])
+    if volcan:
+        # Filtrar por el volcan seleccionado (comparacion laxa: nombre contenido)
+        nombre_v = volcan["nombre"].lower()
+        feats_p = [
+            f for f in feats_p
+            if nombre_v in (f["properties"].get("volcan") or "").lower()
+        ]
+    if feats_p:
+        folium.GeoJson(
+            {"type": "FeatureCollection", "features": feats_p},
+            name="Zonas de peligro",
+            style_function=lambda f: {
+                "fillColor":   PELIGRO_COLORS.get(
+                                   f["properties"].get("peligro", "Bajo"), "#ffcc00"),
+                "color":       PELIGRO_COLORS.get(
+                                   f["properties"].get("peligro", "Bajo"), "#ffcc00"),
+                "weight":      1.5,
+                "fillOpacity": 0.40,
+                "opacity":     0.85,
+            },
+            tooltip=folium.GeoJsonTooltip(
+                fields=["volcan", "peligro"],
+                aliases=["Volcan", "Nivel de peligro"],
+            ),
+        ).add_to(m)
 
 # -- Zona de influencia --
 if mostrar_cuencas and cuencas_gj:
