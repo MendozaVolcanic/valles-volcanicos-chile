@@ -220,6 +220,33 @@ def cargar_poblacion() -> pd.DataFrame | None:
     return pd.read_csv(str(p)) if p.exists() else None
 
 
+@st.cache_data
+def cargar_vial() -> dict | None:
+    p = PROCESSED / "red_vial.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
+@st.cache_data
+def cargar_infraestructura() -> dict | None:
+    p = PROCESSED / "infraestructura.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
+@st.cache_data
+def cargar_centros_poblados() -> dict | None:
+    p = PROCESSED / "centros_poblados.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
 # Carga inicial
 try:
     config   = cargar_config()
@@ -234,8 +261,11 @@ except Exception as exc:
     st.error(f"Error cargando cuencas.geojson: {exc}")
     st.stop()
 
-peligros_gj = cargar_peligros()
-poblacion_df = cargar_poblacion()
+peligros_gj      = cargar_peligros()
+vial_gj          = cargar_vial()
+infraestructura_gj = cargar_infraestructura()
+centros_gj       = cargar_centros_poblados()
+poblacion_df     = cargar_poblacion()
 
 # ---------------------------------------------------------------------------
 # Sidebar
@@ -309,9 +339,12 @@ with st.sidebar:
 
     st.divider()
     st.markdown("**Capas de contexto**")
-    mostrar_comunas  = st.checkbox("Limites comunales",          value=False)
-    mostrar_ciudades = st.checkbox("Ciudades y pueblos",         value=True)
-    mostrar_peligros = st.checkbox("Zonas de peligro volcanico", value=False)
+    mostrar_comunas   = st.checkbox("Limites comunales",           value=False)
+    mostrar_ciudades  = st.checkbox("Ciudades y pueblos",          value=True)
+    mostrar_centros   = st.checkbox("Centros poblados (poligonos)",value=False)
+    mostrar_vial      = st.checkbox("Red vial principal",          value=False)
+    mostrar_infra     = st.checkbox("Infraestructura critica",     value=False)
+    mostrar_peligros  = st.checkbox("Zonas de peligro volcanico",  value=False)
 
     st.divider()
     opacidad = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
@@ -438,6 +471,113 @@ if mostrar_peligros and peligros_gj:
                 aliases=["Volcan", "Nivel de peligro"],
             ),
         ).add_to(m)
+
+# -- Centros poblados (poligonos OSM) --
+if mostrar_centros and centros_gj:
+    feats_cp = centros_gj.get("features", [])
+    if volcan:
+        # Filtrar al bbox del volcan (+/- 0.6 grados ~70km)
+        lat_v, lon_v = volcan["lat"], volcan["lon"]
+        feats_cp = [
+            f for f in feats_cp
+            if f["geometry"]["type"] == "Polygon" and
+               abs(f["geometry"]["coordinates"][0][0][1] - lat_v) < 0.6 and
+               abs(f["geometry"]["coordinates"][0][0][0] - lon_v) < 0.6
+        ]
+    if feats_cp:
+        folium.GeoJson(
+            {"type": "FeatureCollection", "features": feats_cp},
+            name="Centros poblados",
+            style_function=lambda f: {
+                "fillColor":   "#ffd166",
+                "color":       "#f4a261",
+                "weight":      1.2,
+                "fillOpacity": 0.35,
+            },
+            tooltip=folium.GeoJsonTooltip(
+                fields=["nombre", "tipo", "poblacion"],
+                aliases=["Localidad", "Tipo", "Poblacion"],
+            ),
+        ).add_to(m)
+
+# -- Red vial principal --
+if mostrar_vial and vial_gj:
+    VIAL_STYLE = {
+        "motorway": {"color": "#e63946", "weight": 3.5, "opacity": 0.9},
+        "trunk":    {"color": "#f4a261", "weight": 2.5, "opacity": 0.85},
+        "primary":  {"color": "#f9c74f", "weight": 1.8, "opacity": 0.8},
+    }
+    feats_v = vial_gj.get("features", [])
+    if volcan:
+        lat_v, lon_v = volcan["lat"], volcan["lon"]
+        delta = 0.6
+        feats_v = [
+            f for f in feats_v
+            if any(
+                abs(c[1] - lat_v) < delta and abs(c[0] - lon_v) < delta
+                for c in f["geometry"]["coordinates"]
+            )
+        ]
+    if feats_v:
+        folium.GeoJson(
+            {"type": "FeatureCollection", "features": feats_v},
+            name="Red vial",
+            style_function=lambda f: VIAL_STYLE.get(
+                f["properties"].get("tipo", "primary"),
+                {"color": "#f9c74f", "weight": 1.5, "opacity": 0.7},
+            ),
+            tooltip=folium.GeoJsonTooltip(
+                fields=["tipo", "nombre", "ref"],
+                aliases=["Tipo", "Nombre", "Ruta"],
+            ),
+        ).add_to(m)
+
+# -- Infraestructura critica --
+if mostrar_infra and infraestructura_gj:
+    INFRA_COLORS = {
+        "hospital":         "#e63946",
+        "clinic":           "#ff8fa3",
+        "helipuerto":       "#00b4d8",
+        "represa":          "#0077b6",
+        "planta_electrica": "#f9c74f",
+    }
+    INFRA_LABELS = {
+        "hospital":         "Hospital",
+        "clinic":           "Clinica",
+        "helipuerto":       "Helipuerto",
+        "represa":          "Represa",
+        "planta_electrica": "Central electrica",
+    }
+    grupo_infra = folium.FeatureGroup(name="Infraestructura critica", show=True)
+    feats_i = infraestructura_gj.get("features", [])
+    if volcan:
+        lat_v, lon_v = volcan["lat"], volcan["lon"]
+        feats_i = [
+            f for f in feats_i
+            if abs(f["geometry"]["coordinates"][1] - lat_v) < 0.6 and
+               abs(f["geometry"]["coordinates"][0] - lon_v) < 0.6
+        ]
+    for ft in feats_i:
+        props = ft["properties"]
+        tipo  = props.get("tipo", "")
+        lon_i, lat_i = ft["geometry"]["coordinates"]
+        color = INFRA_COLORS.get(tipo, "#aaa")
+        label = INFRA_LABELS.get(tipo, tipo)
+        icono = props.get("icono", "·")
+        folium.CircleMarker(
+            location=[lat_i, lon_i],
+            radius=6,
+            color=color,
+            fill=True,
+            fill_color=color,
+            fill_opacity=0.85,
+            tooltip=f"{icono} {label}: {props.get('nombre', '')}",
+            popup=folium.Popup(
+                f"<b>{icono} {label}</b><br>{props.get('nombre', 'Sin nombre')}",
+                max_width=200,
+            ),
+        ).add_to(grupo_infra)
+    grupo_infra.add_to(m)
 
 # -- Zona de influencia --
 if mostrar_cuencas and cuencas_gj:
