@@ -308,26 +308,29 @@ for _z in _ZONAS_ORDEN:
                key=lambda v: v["lat"], reverse=True)
     )
 
-def _fmt_volcan(nombre: str) -> str:
-    """Muestra 'ZVN · Taapaca' en el selector."""
-    if nombre == "(Todos los volcanes)":
-        return f"Todos los volcanes ({len(VOLCANES)})"
-    v = next((x for x in VOLCANES if x["nombre"] == nombre), None)
-    if v:
-        return f"{ZONA_SHORT.get(v.get('zona',''), '·')} · {nombre}"
-    return nombre
+# Opciones con prefijo de zona embebido en el string (no depende de format_func)
+_OPCION_TODOS = f"Todos los volcanes ({len(VOLCANES)})"
+_OPCIONES_VOLCAN = [_OPCION_TODOS] + [
+    f"{ZONA_SHORT.get(v.get('zona', ''), '·')} · {v['nombre']}"
+    for v in VOLCANES_ORDENADOS
+]
+# Mapa inverso: label -> nombre limpio
+_LABEL_A_NOMBRE = {
+    f"{ZONA_SHORT.get(v.get('zona', ''), '·')} · {v['nombre']}": v["nombre"]
+    for v in VOLCANES_ORDENADOS
+}
 
 with st.sidebar:
     st.markdown("## Valles Volcanicos")
     st.markdown("**OVDAS · SERNAGEOMIN**")
     st.divider()
 
-    opciones_volcan = ["(Todos los volcanes)"] + [v["nombre"] for v in VOLCANES_ORDENADOS]
-    seleccion = st.selectbox(
-        "Volcan",
-        opciones_volcan,
-        format_func=_fmt_volcan,
-        index=0,
+    seleccion_label = st.selectbox("Volcan", _OPCIONES_VOLCAN, index=0)
+    # Resolver nombre limpio para buscar en VOLCANES
+    seleccion = (
+        "(Todos los volcanes)"
+        if seleccion_label == _OPCION_TODOS
+        else _LABEL_A_NOMBRE.get(seleccion_label, seleccion_label)
     )
 
     st.divider()
