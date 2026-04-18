@@ -290,7 +290,7 @@ REGION_COLORS = {
     "Aysen":              "#ff6bdb",
 }
 
-# Zonas volcanicas OVDAS (campo 'zona' en volcanoes.yaml)
+# Zonas volcanicas OVDAS
 ZONA_SHORT = {"Norte": "ZVN", "Centro": "ZVC", "Sur": "ZVS", "Austral": "ZVA"}
 ZONA_LABELS = {
     "Norte":   "ZVN — Zona Norte",
@@ -299,24 +299,36 @@ ZONA_LABELS = {
     "Austral": "ZVA — Zona Austral",
 }
 
-# Lista unica ordenada: zona N→S, dentro de cada zona N→S por latitud
+def _zona_volcan(v: dict) -> str:
+    """Devuelve zona desde el campo 'zona' del yaml, con fallback por latitud."""
+    z = v.get("zona", "")
+    if z in ZONA_SHORT:
+        return z
+    # Fallback: clasificar por latitud si el campo zona falta o es invalido
+    lat = v.get("lat", 0)
+    if lat >= -28:  return "Norte"
+    if lat >= -38:  return "Centro"
+    if lat >= -43:  return "Sur"
+    return "Austral"
+
+# Lista unica ordenada N→S: zona primero, luego por latitud dentro de zona
 _ZONAS_ORDEN = ["Norte", "Centro", "Sur", "Austral"]
 VOLCANES_ORDENADOS = []
 for _z in _ZONAS_ORDEN:
     VOLCANES_ORDENADOS.extend(
-        sorted([v for v in VOLCANES if v.get("zona") == _z],
+        sorted([v for v in VOLCANES if _zona_volcan(v) == _z],
                key=lambda v: v["lat"], reverse=True)
     )
 
-# Opciones con prefijo de zona embebido en el string (no depende de format_func)
+# Opciones con prefijo de zona embebido directamente en el string
 _OPCION_TODOS = f"Todos los volcanes ({len(VOLCANES)})"
 _OPCIONES_VOLCAN = [_OPCION_TODOS] + [
-    f"{ZONA_SHORT.get(v.get('zona', ''), '·')} · {v['nombre']}"
+    f"{ZONA_SHORT[_zona_volcan(v)]} · {v['nombre']}"
     for v in VOLCANES_ORDENADOS
 ]
-# Mapa inverso: label -> nombre limpio
+# Mapa inverso label → nombre limpio
 _LABEL_A_NOMBRE = {
-    f"{ZONA_SHORT.get(v.get('zona', ''), '·')} · {v['nombre']}": v["nombre"]
+    f"{ZONA_SHORT[_zona_volcan(v)]} · {v['nombre']}": v["nombre"]
     for v in VOLCANES_ORDENADOS
 }
 
@@ -326,7 +338,6 @@ with st.sidebar:
     st.divider()
 
     seleccion_label = st.selectbox("Volcan", _OPCIONES_VOLCAN, index=0)
-    # Resolver nombre limpio para buscar en VOLCANES
     seleccion = (
         "(Todos los volcanes)"
         if seleccion_label == _OPCION_TODOS
