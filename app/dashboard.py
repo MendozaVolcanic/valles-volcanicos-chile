@@ -261,7 +261,7 @@ REGION_COLORS = {
 }
 
 # Zonas volcanicas OVDAS (campo 'zona' en volcanoes.yaml)
-ZONAS_ORDEN = ["(Todas las zonas)", "Norte", "Centro", "Sur", "Austral"]
+ZONA_SHORT = {"Norte": "ZVN", "Centro": "ZVC", "Sur": "ZVS", "Austral": "ZVA"}
 ZONA_LABELS = {
     "Norte":   "ZVN — Zona Norte",
     "Centro":  "ZVC — Zona Centro",
@@ -269,31 +269,36 @@ ZONA_LABELS = {
     "Austral": "ZVA — Zona Austral",
 }
 
+# Lista unica ordenada: zona N→S, dentro de cada zona N→S por latitud
+_ZONAS_ORDEN = ["Norte", "Centro", "Sur", "Austral"]
+VOLCANES_ORDENADOS = []
+for _z in _ZONAS_ORDEN:
+    VOLCANES_ORDENADOS.extend(
+        sorted([v for v in VOLCANES if v.get("zona") == _z],
+               key=lambda v: v["lat"], reverse=True)
+    )
+
+def _fmt_volcan(nombre: str) -> str:
+    """Muestra 'ZVN · Taapaca' en el selector."""
+    if nombre == "(Todos los volcanes)":
+        return f"Todos los volcanes ({len(VOLCANES)})"
+    v = next((x for x in VOLCANES if x["nombre"] == nombre), None)
+    if v:
+        return f"{ZONA_SHORT.get(v.get('zona',''), '·')} · {nombre}"
+    return nombre
+
 with st.sidebar:
     st.markdown("## Valles Volcanicos")
     st.markdown("**OVDAS · SERNAGEOMIN**")
     st.divider()
 
-    # Selector de zona
-    zona_sel = st.selectbox(
-        "Zona volcanica",
-        ZONAS_ORDEN,
-        format_func=lambda z: z if z == "(Todas las zonas)" else ZONA_LABELS.get(z, z),
+    opciones_volcan = ["(Todos los volcanes)"] + [v["nombre"] for v in VOLCANES_ORDENADOS]
+    seleccion = st.selectbox(
+        "Volcan",
+        opciones_volcan,
+        format_func=_fmt_volcan,
         index=0,
     )
-
-    # Filtrar y ordenar N→S dentro de la zona
-    if zona_sel == "(Todas las zonas)":
-        volcanes_zona = sorted(VOLCANES, key=lambda v: v["lat"], reverse=True)
-    else:
-        volcanes_zona = sorted(
-            [v for v in VOLCANES if v.get("zona", "") == zona_sel],
-            key=lambda v: v["lat"],
-            reverse=True,   # lat menos negativa = mas al norte = primero
-        )
-
-    opciones_volcan = ["(Todos los volcanes)"] + [v["nombre"] for v in volcanes_zona]
-    seleccion = st.selectbox("Volcan", opciones_volcan, index=0)
 
     st.divider()
     st.markdown("**Capas tematicas**")
