@@ -1,6 +1,7 @@
-# 43 volcanes monitoreados por OVDAS - SERNAGEOMIN
+# 59 volcanes activos de Chile (43 monitoreados OVDAS + 16 adicionales SERNAGEOMIN)
 # Fuente: Catalogo de Volcanes Activos de Chile (SERNAGEOMIN) / Copernicus-v1
 # Zonas: Norte (ZVN) / Centro (ZVC) / Sur (ZVS) / Austral (ZVA)
+# Campo 'monitoreado_ovdas': true para los 43 oficiales con instrumentacion permanente
 # Encoding: UTF-8
 
 volcanes:
@@ -70,6 +71,134 @@ volcanes:
     region: "Antofagasta"
     zona: "Norte"
     codigo: LAS
+
+  # ─── ZVN — Volcanes adicionales (no monitoreados oficialmente OVDAS) ───────
+
+  - nombre: Tata Sabaya
+    lat: -19.12
+    lon: -68.53
+    elevacion: 5430
+    region: "Tarapaca"
+    zona: "Norte"
+    codigo: TAT
+    monitoreado_ovdas: false
+
+  - nombre: Olca-Paruma
+    lat: -20.93
+    lon: -68.48
+    elevacion: 5407
+    region: "Tarapaca"
+    zona: "Norte"
+    codigo: OLC
+    monitoreado_ovdas: false
+
+  - nombre: Putana
+    lat: -22.58
+    lon: -67.87
+    elevacion: 5890
+    region: "Antofagasta"
+    zona: "Norte"
+    codigo: PUT
+    monitoreado_ovdas: false
+
+  - nombre: Socompa
+    lat: -24.38
+    lon: -68.23
+    elevacion: 6051
+    region: "Antofagasta"
+    zona: "Norte"
+    codigo: SOC
+    monitoreado_ovdas: false
+
+  - nombre: Llullaillaco
+    lat: -24.72
+    lon: -68.53
+    elevacion: 6739
+    region: "Antofagasta"
+    zona: "Norte"
+    codigo: LLU
+    monitoreado_ovdas: false
+
+  - nombre: Lastarria
+    lat: -25.17
+    lon: -68.52
+    elevacion: 5697
+    region: "Antofagasta"
+    zona: "Norte"
+    codigo: LST
+    monitoreado_ovdas: false
+
+  - nombre: Azufre
+    lat: -25.33
+    lon: -68.52
+    elevacion: 5480
+    region: "Atacama"
+    zona: "Norte"
+    codigo: AZU
+    monitoreado_ovdas: false
+
+  - nombre: Bayo
+    lat: -25.37
+    lon: -68.50
+    elevacion: 4802
+    region: "Atacama"
+    zona: "Norte"
+    codigo: BAY
+    monitoreado_ovdas: false
+
+  - nombre: San Francisco
+    lat: -26.88
+    lon: -68.28
+    elevacion: 6018
+    region: "Atacama"
+    zona: "Norte"
+    codigo: SFR
+    monitoreado_ovdas: false
+
+  - nombre: Incahuasi
+    lat: -27.02
+    lon: -68.30
+    elevacion: 6621
+    region: "Atacama"
+    zona: "Norte"
+    codigo: INC
+    monitoreado_ovdas: false
+
+  - nombre: Nevado Tres Cruces
+    lat: -27.08
+    lon: -68.78
+    elevacion: 6749
+    region: "Atacama"
+    zona: "Norte"
+    codigo: NTC
+    monitoreado_ovdas: false
+
+  - nombre: Ojos del Salado
+    lat: -27.12
+    lon: -68.53
+    elevacion: 6891
+    region: "Atacama"
+    zona: "Norte"
+    codigo: ODS
+    monitoreado_ovdas: false
+
+  - nombre: Copiapo
+    lat: -27.15
+    lon: -69.02
+    elevacion: 6052
+    region: "Atacama"
+    zona: "Norte"
+    codigo: COP
+    monitoreado_ovdas: false
+
+  - nombre: Tipas
+    lat: -27.20
+    lon: -68.67
+    elevacion: 6660
+    region: "Atacama"
+    zona: "Norte"
+    codigo: TIP
+    monitoreado_ovdas: false
 
   # ─── ZONA CENTRO (ZVC) ─── 9 volcanes ──────────────────────────────────────
 
@@ -251,6 +380,17 @@ volcanes:
     zona: "Sur"
     codigo: ACA
 
+  # ─── ZVS — Volcan adicional ────────────────────────────────────────────────
+
+  - nombre: Puntiagudo
+    lat: -40.97
+    lon: -72.27
+    elevacion: 2493
+    region: "Los Lagos"
+    zona: "Sur"
+    codigo: PUN
+    monitoreado_ovdas: false
+
   # ─── ZONA AUSTRAL (ZVA) ─── 13 volcanes ────────────────────────────────────
 
   - nombre: Osorno
@@ -268,6 +408,15 @@ volcanes:
     region: "Los Lagos"
     zona: "Austral"
     codigo: CLB
+
+  - nombre: Tronador
+    lat: -41.17
+    lon: -71.88
+    elevacion: 3491
+    region: "Los Lagos"
+    zona: "Austral"
+    codigo: TRO
+    monitoreado_ovdas: false
 
   - nombre: Yate
     lat: -41.76

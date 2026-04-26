@@ -10,10 +10,12 @@ import sys
 from pathlib import Path
 
 SCRIPTS = [
-    ("01 — Hidrografía OSM",  "scripts/01_download_hydro.py"),
-    ("02 — DEM SRTM",         "scripts/02_download_dem.py"),
-    ("03 — Cuencas",          "scripts/03_watershed.py"),
-    ("04 — Censo / Población","scripts/04_census.py"),
+    ("01 — Hidrografía OSM",      "scripts/01_download_hydro.py"),
+    ("02 — DEM SRTM",             "scripts/02_download_dem.py"),
+    ("03 — Cuencas + drenajes",   "scripts/03_watershed.py"),
+    ("04 — Censo / Población",    "scripts/04_census.py"),
+    ("05 — Contexto OSM",         "scripts/05_osm_context.py"),
+    ("06 — Exportar GeoJSON",     "scripts/export_geojson.py"),
 ]
 
 def run(label, script):

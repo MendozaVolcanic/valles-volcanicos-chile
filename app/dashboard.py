@@ -11,7 +11,19 @@ import folium
 from streamlit_folium import st_folium
 from collections import defaultdict
 from pathlib import Path
-import yaml, json, math
+import yaml, json, math, unicodedata, re
+
+
+def _normalizar(s: str) -> str:
+    """Normaliza texto para comparaciones robustas: minusculas, sin tildes,
+    guiones/espacios colapsados a un solo separador."""
+    if not s:
+        return ""
+    s = unicodedata.normalize("NFKD", str(s))
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = s.lower().strip()
+    s = re.sub(r"[\s\-_]+", " ", s)
+    return s
 
 # ---------------------------------------------------------------------------
 # Configuracion de pagina
@@ -53,6 +65,22 @@ st.markdown("""
         color: #f0f0f0 !important;
     }
     .stDataFrame { border-radius: 6px; }
+
+    /* Badges OVDAS oficial / adicional */
+    .badge {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        vertical-align: middle;
+        margin-left: 8px;
+    }
+    .badge-ovdas { background: #ff6b35; color: #fff; }
+    .badge-extra { background: #555; color: #ddd; }
+    .badge-zona  { background: #1e2530; color: #6bdbff; border: 1px solid #6bdbff44; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -304,14 +332,17 @@ def _zona_volcan(v: dict) -> str:
     z = v.get("zona", "")
     if z in ZONA_SHORT:
         return z
-    # Fallback: clasificar por latitud si el campo zona falta o es invalido
     lat = v.get("lat", 0)
     if lat >= -28:  return "Norte"
     if lat >= -38:  return "Centro"
     if lat >= -43:  return "Sur"
     return "Austral"
 
-# Lista unica ordenada N→S: zona primero, luego por latitud dentro de zona
+def _es_ovdas(v: dict) -> bool:
+    """True si el volcan es monitoreado oficialmente por OVDAS (default true)."""
+    return v.get("monitoreado_ovdas", True)
+
+# Lista ordenada N→S: zona primero, luego por latitud dentro de zona
 _ZONAS_ORDEN = ["Norte", "Centro", "Sur", "Austral"]
 VOLCANES_ORDENADOS = []
 for _z in _ZONAS_ORDEN:
@@ -320,24 +351,86 @@ for _z in _ZONAS_ORDEN:
                key=lambda v: v["lat"], reverse=True)
     )
 
-# Opciones con prefijo de zona embebido directamente en el string
-_OPCION_TODOS = f"Todos los volcanes ({len(VOLCANES)})"
-_OPCIONES_VOLCAN = [_OPCION_TODOS] + [
-    f"{ZONA_SHORT[_zona_volcan(v)]} · {v['nombre']}"
-    for v in VOLCANES_ORDENADOS
-]
-# Mapa inverso label → nombre limpio
-_LABEL_A_NOMBRE = {
-    f"{ZONA_SHORT[_zona_volcan(v)]} · {v['nombre']}": v["nombre"]
-    for v in VOLCANES_ORDENADOS
+# Filtros de zona y tipo (OVDAS oficial vs adicional)
+ZONAS_FILTRO = ["Todas", "Norte (ZVN)", "Centro (ZVC)", "Sur (ZVS)", "Austral (ZVA)"]
+_ZONA_FILTRO_MAP = {
+    "Norte (ZVN)": "Norte", "Centro (ZVC)": "Centro",
+    "Sur (ZVS)": "Sur", "Austral (ZVA)": "Austral",
 }
+
+# Indice global de quebradas nombradas (volcan_codigo, nombre, tipo)
+@st.cache_data
+def construir_indice_quebradas() -> pd.DataFrame:
+    """Lista todas las quebradas nombradas de todos los volcanes (~10s primera carga)."""
+    rows = []
+    for v in VOLCANES:
+        gj = cargar_drenajes(v["codigo"])
+        if not gj:
+            continue
+        seen = set()
+        for f in gj.get("features", []):
+            n = f["properties"].get("nombre", "Sin nombre")
+            if n == "Sin nombre" or n in seen:
+                continue
+            seen.add(n)
+            rows.append({
+                "quebrada": n,
+                "tipo":     f["properties"].get("tipo", ""),
+                "volcan":   v["nombre"],
+                "codigo":   v["codigo"],
+            })
+    return pd.DataFrame(rows)
+
+# ─── Permalinks: leer query params al cargar ───────────────────────────────
+_qp = st.query_params
+_qp_volcan    = _qp.get("volcan", "")
+_qp_capas     = _qp.get("capas", "")
+_qp_zona      = _qp.get("zona", "Todas")
+_qp_solo_ovd  = _qp.get("ovdas", "false") == "true"
+_qp_full      = _qp.get("full", "false") == "true"
 
 with st.sidebar:
     st.markdown("## Valles Volcanicos")
     st.markdown("**OVDAS · SERNAGEOMIN**")
     st.divider()
 
-    seleccion_label = st.selectbox("Volcan", _OPCIONES_VOLCAN, index=0)
+    # Filtros de zona y tipo
+    col_z1, col_z2 = st.columns([1, 1])
+    zona_filtro = col_z1.selectbox(
+        "Zona",
+        ZONAS_FILTRO,
+        index=ZONAS_FILTRO.index(_qp_zona) if _qp_zona in ZONAS_FILTRO else 0,
+    )
+    solo_ovdas = col_z2.toggle("Solo OVDAS", value=_qp_solo_ovd,
+                                help="Mostrar solo los 43 volcanes monitoreados oficialmente por OVDAS")
+
+    # Aplicar filtros
+    _vols_filtrados = VOLCANES_ORDENADOS
+    if zona_filtro != "Todas":
+        _vols_filtrados = [v for v in _vols_filtrados
+                           if _zona_volcan(v) == _ZONA_FILTRO_MAP[zona_filtro]]
+    if solo_ovdas:
+        _vols_filtrados = [v for v in _vols_filtrados if _es_ovdas(v)]
+
+    _OPCION_TODOS = f"Todos los volcanes ({len(_vols_filtrados)})"
+    _OPCIONES_VOLCAN = [_OPCION_TODOS] + [
+        f"{ZONA_SHORT[_zona_volcan(v)]} · {v['nombre']}{'' if _es_ovdas(v) else ' *'}"
+        for v in _vols_filtrados
+    ]
+    _LABEL_A_NOMBRE = {
+        f"{ZONA_SHORT[_zona_volcan(v)]} · {v['nombre']}{'' if _es_ovdas(v) else ' *'}": v["nombre"]
+        for v in _vols_filtrados
+    }
+    # Indice por defecto desde permalink
+    _idx_default = 0
+    if _qp_volcan:
+        for i, lbl in enumerate(_OPCIONES_VOLCAN):
+            if _LABEL_A_NOMBRE.get(lbl) == _qp_volcan:
+                _idx_default = i
+                break
+
+    seleccion_label = st.selectbox("Volcan", _OPCIONES_VOLCAN, index=_idx_default,
+                                    help="* = no monitoreado oficialmente por OVDAS")
     seleccion = (
         "(Todos los volcanes)"
         if seleccion_label == _OPCION_TODOS
@@ -345,25 +438,93 @@ with st.sidebar:
     )
 
     st.divider()
+
+    # Buscador global de quebradas (entre todos los volcanes)
+    with st.expander("Buscar quebrada o rio", expanded=False):
+        try:
+            _idx_qb = construir_indice_quebradas()
+            _q = st.text_input("Nombre o palabra clave", placeholder="ej: Pichillancahue")
+            if _q and len(_q) >= 2:
+                _q_norm = _normalizar(_q)
+                _hits = _idx_qb[_idx_qb["quebrada"].apply(lambda x: _q_norm in _normalizar(x))]
+                if len(_hits) > 0:
+                    st.caption(f"{len(_hits)} coincidencias en {_hits['volcan'].nunique()} volcanes")
+                    st.dataframe(_hits[["quebrada", "tipo", "volcan"]].head(30),
+                                 use_container_width=True, hide_index=True, height=200)
+                else:
+                    st.caption("Sin coincidencias")
+        except Exception as exc:
+            st.caption(f"Indice no disponible: {exc}")
+
+    st.divider()
     st.markdown("**Capas tematicas**")
-    mostrar_cuencas  = st.checkbox("Zona de influencia (50 km)", value=True)
-    mostrar_drenajes = st.checkbox("Quebradas y rios",           value=True)
-    mostrar_nombres  = st.checkbox("Nombres de quebradas",       value=True)
-    mostrar_volcanes = st.checkbox("Marcadores de volcanes",     value=True)
+    _capas_set = set(_qp_capas.split(",")) if _qp_capas else None
+    def _capa_default(key, default):
+        return key in _capas_set if _capas_set is not None else default
+    mostrar_cuencas  = st.checkbox("Zona de influencia (50 km)", value=_capa_default("cuencas", True))
+    mostrar_drenajes = st.checkbox("Quebradas y rios",           value=_capa_default("drenajes", True))
+    mostrar_nombres  = st.checkbox("Nombres de quebradas",       value=_capa_default("nombres", True))
+    mostrar_volcanes = st.checkbox("Marcadores de volcanes",     value=_capa_default("volcanes", True))
 
     st.divider()
     st.markdown("**Capas de contexto**")
-    mostrar_comunas   = st.checkbox("Limites comunales",           value=False)
-    mostrar_ciudades  = st.checkbox("Ciudades y pueblos",          value=True)
-    mostrar_centros   = st.checkbox("Centros poblados (poligonos)",value=False)
-    mostrar_vial      = st.checkbox("Red vial principal",          value=False)
-    mostrar_infra     = st.checkbox("Infraestructura critica",     value=False)
-    mostrar_peligros  = st.checkbox("Zonas de peligro volcanico",  value=False)
+    mostrar_comunas   = st.checkbox("Limites comunales",           value=_capa_default("comunas", False))
+    mostrar_ciudades  = st.checkbox("Ciudades y pueblos",          value=_capa_default("ciudades", True))
+    mostrar_centros   = st.checkbox("Centros poblados (poligonos)",value=_capa_default("centros", False))
+    mostrar_vial      = st.checkbox("Red vial principal",          value=_capa_default("vial", False))
+    mostrar_infra     = st.checkbox("Infraestructura critica",     value=_capa_default("infra", False))
+    mostrar_peligros  = st.checkbox("Zonas de peligro volcanico",  value=_capa_default("peligros", False))
+    mostrar_snaspe    = st.checkbox("Areas protegidas (SNASPE)",   value=_capa_default("snaspe", False),
+                                     help="WMS oficial SAG/CONAF — Parques nacionales y reservas")
 
     st.divider()
-    opacidad = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
+    opacidad     = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
+    modo_full    = st.toggle("Modo operacional (fullscreen)", value=_qp_full,
+                              help="Oculta sidebar y maximiza el mapa para sala de monitoreo")
+
     st.divider()
-    st.caption("Fuentes: SERNAGEOMIN · OSM · BCN · INE")
+    # Boton de permalink
+    _capas_activas = ",".join(k for k, v in {
+        "cuencas": mostrar_cuencas, "drenajes": mostrar_drenajes,
+        "nombres": mostrar_nombres, "volcanes": mostrar_volcanes,
+        "comunas": mostrar_comunas, "ciudades": mostrar_ciudades,
+        "centros": mostrar_centros, "vial": mostrar_vial,
+        "infra": mostrar_infra, "peligros": mostrar_peligros,
+        "snaspe": mostrar_snaspe,
+    }.items() if v)
+
+    with st.expander("Compartir vista (permalink)"):
+        _params = {
+            "volcan": seleccion if seleccion != "(Todos los volcanes)" else "",
+            "zona":   zona_filtro,
+            "ovdas":  "true" if solo_ovdas else "false",
+            "capas":  _capas_activas,
+            "full":   "true" if modo_full else "false",
+        }
+        _qs = "&".join(f"{k}={v}" for k, v in _params.items() if v)
+        st.code(f"?{_qs}", language=None)
+        st.caption("Copia y pega tras la URL del dashboard")
+
+    st.caption("Fuentes: SERNAGEOMIN · OSM · BCN · INE · CONAF/SAG")
+
+# Aplicar permalink al state actual (escribir query params)
+st.query_params.update({
+    "volcan": seleccion if seleccion != "(Todos los volcanes)" else "",
+    "zona":   zona_filtro,
+    "ovdas":  "true" if solo_ovdas else "false",
+    "capas":  _capas_activas,
+    "full":   "true" if modo_full else "false",
+})
+
+# Modo operacional: ocultar sidebar via CSS
+if modo_full:
+    st.markdown("""
+    <style>
+        section[data-testid="stSidebar"] { display: none !important; }
+        .main .block-container { padding-top: 1rem !important; max-width: 100% !important; }
+        header[data-testid="stHeader"] { display: none !important; }
+    </style>
+    """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # Volcan seleccionado y datos derivados (calculados una sola vez)
@@ -388,9 +549,18 @@ if volcan:
     e, n, zone = latlon_a_utm(lat, lon)
     hemi       = "S" if lat < 0 else "N"
 
-    zona_volc = ZONA_LABELS.get(volcan.get("zona", ""), volcan.get("zona", "-"))
-    st.markdown(f"### {volcan['nombre']} &nbsp;<small style='color:#999;font-size:0.6em'>{zona_volc}</small>",
-                unsafe_allow_html=True)
+    zona_volc = ZONA_LABELS.get(_zona_volcan(volcan), "-")
+    badge_ovdas = (
+        '<span class="badge badge-ovdas">OVDAS</span>'
+        if _es_ovdas(volcan)
+        else '<span class="badge badge-extra">Adicional</span>'
+    )
+    badge_zona = f'<span class="badge badge-zona">{ZONA_SHORT[_zona_volcan(volcan)]}</span>'
+    st.markdown(
+        f"### {volcan['nombre']} {badge_zona}{badge_ovdas} "
+        f"&nbsp;<small style='color:#999;font-size:0.6em'>{zona_volc}</small>",
+        unsafe_allow_html=True,
+    )
     # Fila 1: identidad del volcan
     c1, c2, c3, c4, c5 = st.columns([1.6, 1.0, 1.6, 1.6, 0.8])
     c1.metric("Region",    volcan.get("region", "-"))
@@ -398,15 +568,39 @@ if volcan:
     c3.metric("Este UTM",  f"{e:,.0f} m")
     c4.metric("Norte UTM", f"{n:,.0f} m")
     c5.metric("Zona",      f"{zone}{hemi}")
-    # Fila 2: estadisticas de drenaje
-    c6, c7, _ = st.columns([1, 1.3, 4.3])
+    # Fila 2: estadisticas de drenaje + mini-mapa Chile (contexto geografico)
+    c6, c7, c_mini = st.columns([1.2, 1.6, 4.0])
     c6.metric("Tramos OSM",           f"{len(feats):,}")
     c7.metric("Quebradas con nombre", f"{len(nombres_unicos):,}")
+    # Mini-mapa SVG inline: silueta de Chile con marca del volcan
+    # Latitudes: -17 (norte) a -56 (austral); proyeccion lineal simple
+    _lat_min, _lat_max = -56, -17
+    _y = (volcan["lat"] - _lat_max) / (_lat_min - _lat_max) * 200  # 0-200 px
+    _mini_svg = f"""
+    <div style='background:#1e2530;border-radius:8px;padding:8px;
+                border-left:3px solid #ff6b35;height:90px;display:flex;
+                align-items:center;gap:12px;'>
+      <svg width="22" height="220" viewBox="0 0 22 220" style='flex-shrink:0;margin:-65px 0;'>
+        <rect x="9" y="0" width="4" height="220" fill="#444" rx="2"/>
+        <circle cx="11" cy="{_y:.0f}" r="6" fill="#ff6b35" stroke="#fff" stroke-width="1.5"/>
+        <text x="20" y="6"   fill="#666" font-size="9" font-family="monospace">17°S</text>
+        <text x="20" y="220" fill="#666" font-size="9" font-family="monospace">56°S</text>
+      </svg>
+      <div style='font-family:monospace;font-size:0.75rem;color:#aaa;'>
+        <div style='color:#ff6b35;font-weight:bold;'>{volcan['nombre']}</div>
+        <div>Lat: {volcan['lat']:.2f}°S</div>
+        <div>Lon: {abs(volcan['lon']):.2f}°W</div>
+      </div>
+    </div>
+    """
+    c_mini.markdown(_mini_svg, unsafe_allow_html=True)
 else:
     st.markdown("### Todos los volcanes monitoreados")
-    c1, c2 = st.columns(2)
-    c1.metric("Volcanes activos",   len(VOLCANES))
-    c2.metric("Cuencas procesadas", len(cuencas_gj.get("features", [])) if cuencas_gj else 0)
+    c1, c2, c3 = st.columns(3)
+    _ovdas_count = sum(1 for v in VOLCANES if _es_ovdas(v))
+    c1.metric("Volcanes monitoreados OVDAS", _ovdas_count)
+    c2.metric("Volcanes adicionales",        len(VOLCANES) - _ovdas_count)
+    c3.metric("Cuencas procesadas",          len(cuencas_gj.get("features", [])) if cuencas_gj else 0)
 
 # ---------------------------------------------------------------------------
 # Mapa Folium
@@ -456,16 +650,37 @@ if mostrar_comunas:
         show=True,
     ).add_to(m)
 
+# -- SNASPE: Sistema Nacional de Areas Silvestres Protegidas (CONAF/SAG) --
+if mostrar_snaspe:
+    folium.WmsTileLayer(
+        url="https://geoportal.sag.gob.cl/server/services/SNASPE/MapServer/WMSServer",
+        layers="0",
+        fmt="image/png",
+        transparent=True,
+        name="SNASPE (CONAF)",
+        overlay=True,
+        control=True,
+        opacity=0.55,
+        show=True,
+    ).add_to(m)
+
 # -- Zonas de peligro volcanico (SERNAGEOMIN shapefile) --
 if mostrar_peligros and peligros_gj:
     PELIGRO_COLORS = {"Alto": "#cc0000", "Medio": "#ff8800", "Bajo": "#ffcc00"}
     feats_p = peligros_gj.get("features", [])
     if volcan:
-        # Filtrar por el volcan seleccionado (comparacion laxa: nombre contenido)
-        nombre_v = volcan["nombre"].lower()
+        # Comparacion robusta: normalizar tildes/guiones/mayusculas
+        # (peligros_volcanicos.geojson usa nombres con tildes y separadores
+        # diferentes al yaml: ej. "Mocho - Choshuenco" vs "Mocho-Choshuenco")
+        nv_norm = _normalizar(volcan["nombre"])
+        # Tambien matchear nombre truncado: "Nevado de Longavi" → "Longavi"
+        partes_v = nv_norm.split()
         feats_p = [
             f for f in feats_p
-            if nombre_v in (f["properties"].get("volcan") or "").lower()
+            if (lambda pn: nv_norm in pn or pn in nv_norm
+                          or any(p in pn for p in partes_v if len(p) > 4))(
+                _normalizar(f["properties"].get("volcan") or "")
+            )
         ]
     if feats_p:
         folium.GeoJson(
@@ -490,14 +705,18 @@ if mostrar_peligros and peligros_gj:
 if mostrar_centros and centros_gj:
     feats_cp = centros_gj.get("features", [])
     if volcan:
-        # Filtrar al bbox del volcan (+/- 0.6 grados ~70km)
+        # Filtrar por centroide del poligono (no por primer nodo)
         lat_v, lon_v = volcan["lat"], volcan["lon"]
-        feats_cp = [
-            f for f in feats_cp
-            if f["geometry"]["type"] == "Polygon" and
-               abs(f["geometry"]["coordinates"][0][0][1] - lat_v) < 0.6 and
-               abs(f["geometry"]["coordinates"][0][0][0] - lon_v) < 0.6
-        ]
+        def _en_bbox_poly(feat, lat_c, lon_c, delta=0.6):
+            if feat["geometry"]["type"] != "Polygon":
+                return False
+            ring = feat["geometry"]["coordinates"][0]
+            if not ring:
+                return False
+            cx = sum(p[0] for p in ring) / len(ring)
+            cy = sum(p[1] for p in ring) / len(ring)
+            return abs(cy - lat_c) < delta and abs(cx - lon_c) < delta
+        feats_cp = [f for f in feats_cp if _en_bbox_poly(f, lat_v, lon_v)]
     if feats_cp:
         folium.GeoJson(
             {"type": "FeatureCollection", "features": feats_cp},
