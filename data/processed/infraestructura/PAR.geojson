@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "PAR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "Centro de Salud Sajama", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -68.97479, -18.13458 ] } },
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "P.S. Chachacomani", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -68.94726, -18.35486 ] } },
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "P.S. Lagunas", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -68.9372, -18.22393 ] } }
+]
+}

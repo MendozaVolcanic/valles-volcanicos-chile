@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "SOL",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "Sala de primeros auxilios", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -71.33019, -38.95111 ] } },
+{ "type": "Feature", "properties": { "tipo": "helipuerto", "nombre": "Sin nombre", "icono": "🚁", "color": "#00b4d8" }, "geometry": { "type": "Point", "coordinates": [ -71.63499, -38.7736 ] } }
+]
+}

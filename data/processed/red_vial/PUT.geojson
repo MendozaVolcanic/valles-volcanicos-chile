@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "PUT",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 27 CH", "ref": "27", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -67.72584, -22.90617 ], [ -67.70649, -22.92209 ], [ -67.69183, -22.93704 ], [ -67.67354, -22.95625 ], [ -67.65445, -22.97333 ], [ -67.62332, -22.99535 ], [ -67.6122, -23.022 ], [ -67.61343, -23.04693 ], [ -67.60417, -23.07493 ], [ -67.58481, -23.08769 ], [ -67.56429, -23.09909 ], [ -67.52143, -23.12939 ], [ -67.49587, -23.12299 ], [ -67.49655, -23.09665 ], [ -67.50545, -23.07615 ], [ -67.49971, -23.05519 ], [ -67.48062, -23.06444 ], [ -67.46449, -23.07955 ], [ -67.44351, -23.0989 ], [ -67.43024, -23.11918 ], [ -67.42455, -23.14276 ], [ -67.4042, -23.15476 ], [ -67.39417, -23.17385 ], [ -67.37771, -23.19161 ], [ -67.37357, -23.19682 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 27 CH", "ref": "27", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.12185, -22.91833 ], [ -68.08723, -22.92273 ], [ -68.0621, -22.92203 ], [ -68.03646, -22.91572 ], [ -68.00923, -22.91103 ], [ -67.98772, -22.91022 ], [ -67.9635, -22.90857 ], [ -67.93605, -22.91188 ], [ -67.91478, -22.91585 ], [ -67.88851, -22.91948 ], [ -67.86694, -22.92839 ], [ -67.83842, -22.92095 ], [ -67.81579, -22.92356 ], [ -67.79183, -22.91388 ], [ -67.76834, -22.91716 ], [ -67.74475, -22.90313 ], [ -67.72584, -22.90617 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Bypass San Pedro de Atacama", "ref": "", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.16989, -22.9146 ], [ -68.16903, -22.91426 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 27 CH", "ref": "27", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.16762, -22.91439 ], [ -68.12605, -22.91803 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 27 CH", "ref": "27", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.16903, -22.91426 ], [ -68.16762, -22.91439 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Bypass San Pedro de Atacama", "ref": "", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.17141, -22.9158 ], [ -68.16989, -22.9146 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Bypass San Pedro de Atacama", "ref": "", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.1836, -22.92549 ], [ -68.17141, -22.9158 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 27 CH", "ref": "27", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.12605, -22.91803 ], [ -68.12438, -22.91818 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 27 CH", "ref": "27", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.12438, -22.91818 ], [ -68.12298, -22.91826 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 27 CH", "ref": "27", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.12298, -22.91826 ], [ -68.12185, -22.91833 ] ] } }
+]
+}

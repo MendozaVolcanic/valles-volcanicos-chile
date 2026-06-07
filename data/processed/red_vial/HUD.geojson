@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "HUD",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.80119, -46.19066 ], [ -72.80335, -46.21433 ], [ -72.79764, -46.23786 ], [ -72.79762, -46.26167 ], [ -72.80349, -46.28558 ], [ -72.79164, -46.30626 ], [ -72.78056, -46.32932 ], [ -72.77177, -46.334 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.3367, -46.15952 ], [ -72.35998, -46.15932 ], [ -72.38635, -46.14662 ], [ -72.40633, -46.13726 ], [ -72.4267, -46.13409 ], [ -72.44706, -46.13285 ], [ -72.46934, -46.13234 ], [ -72.48566, -46.12637 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.48566, -46.12637 ], [ -72.48588, -46.12622 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.57361, -46.13207 ], [ -72.59537, -46.1364 ], [ -72.61639, -46.14217 ], [ -72.63266, -46.15741 ], [ -72.63658, -46.1634 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.57319, -46.13213 ], [ -72.57361, -46.13207 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.63658, -46.1634 ], [ -72.63681, -46.16347 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.48588, -46.12622 ], [ -72.50675, -46.12163 ], [ -72.52797, -46.11923 ], [ -72.54793, -46.12236 ], [ -72.56844, -46.13281 ], [ -72.57319, -46.13213 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.80079, -46.19056 ], [ -72.80119, -46.19066 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Carretera Austral", "ref": "7", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.63681, -46.16347 ], [ -72.66277, -46.16605 ], [ -72.68503, -46.1706 ], [ -72.70485, -46.16694 ], [ -72.72803, -46.17134 ], [ -72.75097, -46.18333 ], [ -72.77583, -46.19144 ], [ -72.80079, -46.19056 ] ] } }
+]
+}

@@ -1,10 +1,17 @@
 data/raw/
 data/processed/*.csv
-# GeoJSON y GeoPackage se incluyen en el repo para deploy en Streamlit Cloud
+!data/processed/indice_quebradas.csv
+!data/processed/resumen_drenaje.csv
+data/processed/*.gpkg
+# GeoJSONs se incluyen en el repo para deploy en Streamlit Cloud (los .gpkg son intermedios regenerables)
 __pycache__/
+data/test_mapa.html
+mapas/
 *.pyc
 .env
 *.tif
 *.zip
 *.hgt
 .streamlit/secrets.toml
+.claude/
+.pytest_cache/

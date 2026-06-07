@@ -20,7 +20,6 @@ Salida: data/processed/cuencas.gpkg
 
 import geopandas as gpd
 import pandas as pd
-import numpy as np
 import yaml
 from pathlib import Path
 from shapely.geometry import Point
@@ -33,28 +32,31 @@ PROCESSED.mkdir(parents=True, exist_ok=True)
 CONFIG   = yaml.safe_load(open("config/volcanoes.yaml"))
 VOLCANES = CONFIG["volcanes"]
 
-# Radio de influencia alrededor de cada volcan
-# Los lahares tipicamente se propagan 30-80 km desde el volcan
-RADIO_KM = 50
+# Radio default si el volcan no declara radio_influencia_km en el yaml.
+# Los lahares tipicamente se propagan 30-80 km desde el cono; valores por
+# volcan deberian basarse en historia eruptiva / VEI maximo conocido.
+RADIO_KM_DEFAULT = 50
 
 
 def crear_buffer_km(lat, lon, radio_km):
     """
-    Crea un buffer circular aproximado en grados (no proyectado).
-    Para Chile, 1 grado lat ~ 111 km; 1 grado lon ~ 111*cos(lat) km.
+    Buffer circular geodesicamente correcto.
+    Reproyecta a UTM zona local (metros), bufferea en metros, vuelve a WGS84.
+    Evita el sesgo NS/EW del buffer en grados (~30% en lat -45°).
     """
-    delta_lat = radio_km / 111.0
-    delta_lon = radio_km / (111.0 * abs(np.cos(np.radians(lat))))
-    # Usar shapely Point buffer con grados (aproximacion suficiente a esta escala)
-    return Point(lon, lat).buffer(min(delta_lat, delta_lon))
+    zone = int((lon + 180) / 6) + 1
+    epsg_utm = 32700 + zone if lat < 0 else 32600 + zone  # WGS84/UTM hemi
+    pt = gpd.GeoSeries([Point(lon, lat)], crs="EPSG:4326")
+    return pt.to_crs(epsg_utm).buffer(radio_km * 1000).to_crs("EPSG:4326").iloc[0]
 
 
 def procesar_volcan(v, osm_gdf):
     nombre  = v["nombre"]
     codigo  = v["codigo"]
     lat, lon = v["lat"], v["lon"]
+    radio_km = v.get("radio_influencia_km", RADIO_KM_DEFAULT)
 
-    buffer_poly = crear_buffer_km(lat, lon, RADIO_KM)
+    buffer_poly = crear_buffer_km(lat, lon, radio_km)
 
     # Cursos de agua en el area de influencia del volcan
     # Tomamos los del layer OSM ya filtrado por volcan (bbox ~50km)
@@ -77,7 +79,7 @@ def procesar_volcan(v, osm_gdf):
         "elevacion":      v.get("elevacion", 0),
         "lat":            lat,
         "lon":            lon,
-        "radio_km":       RADIO_KM,
+        "radio_km":       radio_km,
         "n_tramos":       len(dentro),
         "n_nombrados":    len(nombrados),
     }], crs="EPSG:4326")
@@ -94,7 +96,7 @@ def main():
     osm = gpd.read_file(RAW_HYDRO)
     print(f"  {len(osm):,} tramos cargados\n")
 
-    print(f"Procesando {len(VOLCANES)} volcanes (radio {RADIO_KM} km)...\n")
+    print(f"Procesando {len(VOLCANES)} volcanes (radio default {RADIO_KM_DEFAULT} km)...\n")
 
     all_cuencas  = []
     all_drenajes = []

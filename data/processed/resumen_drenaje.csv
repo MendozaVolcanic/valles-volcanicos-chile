@@ -1,0 +1,60 @@
+volcan_codigo,nombre,region,zona,monitoreado_ovdas,tramos_total,tramos_drenan,pct_drena,nombrados_total,nombrados_drenan
+LAN,Lanin,La Araucania,Sur,True,7131,393,5.51,1040,223
+CPA,Copahue,Biobio,Sur,True,1025,104,10.15,218,52
+NLO,Nevado de Longavi,Maule,Centro,True,2259,100,4.43,468,37
+PAR,Parinacota,Arica y Parinacota,Norte,True,1213,89,7.34,253,58
+NCH,Nevados de Chillan,Nuble,Centro,True,1544,83,5.38,337,34
+VIL,Villarrica,La Araucania,Sur,True,771,69,8.95,192,35
+TRO,Tronador,Los Lagos,Austral,False,1315,69,5.25,233,37
+PLP,Planchon-Peteroa,Maule,Centro,True,1294,68,5.26,254,32
+GUA,Guallatiri,Arica y Parinacota,Norte,True,1008,63,6.25,224,51
+LDM,Laguna del Maule,Maule,Centro,True,1006,57,5.67,244,25
+ANT,Antuco,Biobio,Sur,True,1075,55,5.12,202,24
+QUE,Quetrupillan,La Araucania,Sur,True,2764,51,1.85,461,27
+MCH,Mocho-Choshuenco,Los Rios,Sur,True,955,49,5.13,268,20
+DGR,Descabezado Grande,Maule,Centro,True,1069,46,4.3,284,25
+SOL,Sollipulli,La Araucania,Sur,True,589,42,7.13,234,26
+TUP,Tupungatito,Metropolitana,Centro,True,529,41,7.75,141,26
+SJO,San Jose,Metropolitana,Centro,True,471,40,8.49,210,21
+CLB,Calbuco,Los Lagos,Austral,True,443,39,8.8,172,24
+TIN,Tinguiririca,O'Higgins,Centro,True,1062,38,3.58,264,21
+LLA,Llaima,La Araucania,Sur,True,411,35,8.52,156,26
+TAA,Taapaca,Arica y Parinacota,Norte,True,473,35,7.4,263,20
+INC,Incahuasi,Atacama,Norte,False,449,31,6.9,30,10
+TSP,Tatara-San Pedro,Maule,Centro,True,1447,30,2.07,370,18
+LLU,Llullaillaco,Antofagasta,Norte,False,323,29,8.98,30,5
+NTC,Nevado Tres Cruces,Atacama,Norte,False,284,28,9.86,65,7
+LON,Lonquimay,La Araucania,Sur,True,806,28,3.47,191,22
+CAL,Callaqui,Biobio,Sur,True,1635,28,1.71,270,19
+MAC,Maca,Aysen,Austral,True,136,28,20.59,13,3
+ODS,Ojos del Salado,Atacama,Norte,False,422,28,6.64,48,10
+ISL,Isluga,Tarapaca,Norte,True,339,25,7.37,120,17
+PCC,Puyehue-Cordon Caulle,Los Rios,Sur,True,1188,25,2.1,203,14
+MIC,Michinmahuida,Los Lagos,Austral,True,374,23,6.15,97,14
+ACA,Antillanca-Casablanca,Los Lagos,Sur,True,983,23,2.34,148,16
+SFR,San Francisco,Atacama,Norte,False,439,21,4.78,31,5
+SDP,San Pedro,Antofagasta,Norte,True,278,21,7.55,132,19
+PUT,Putana,Antofagasta,Norte,False,477,18,3.77,116,13
+LAS,Lascar,Antofagasta,Norte,True,182,16,8.79,139,16
+CLV,Carran-Los Venados,Los Rios,Sur,True,1266,16,1.26,257,14
+COR,Corcovado,Los Lagos,Austral,True,388,14,3.61,57,6
+MEL,Melimoyu,Aysen,Austral,True,635,13,2.05,48,13
+OLC,Olca-Paruma,Tarapaca,Norte,False,364,13,3.57,155,7
+LST,Lastarria,Antofagasta,Norte,False,339,12,3.54,7,0
+CAY,Cay,Aysen,Austral,True,179,12,6.7,23,1
+YAT,Yate,Los Lagos,Austral,True,306,12,3.92,114,8
+PUN,Puntiagudo,Los Lagos,Sur,False,633,11,1.74,131,5
+OSO,Osorno,Los Lagos,Austral,True,316,11,3.48,135,10
+HUE,Huequi,Los Lagos,Austral,True,228,10,4.39,59,4
+CHA,Chaiten,Los Lagos,Austral,True,303,10,3.3,72,6
+HOR,Hornopiren,Los Lagos,Austral,True,221,8,3.62,79,3
+TAT,Tata Sabaya,Tarapaca,Norte,False,395,8,2.03,100,2
+TIP,Tipas,Atacama,Norte,False,357,7,1.96,50,0
+AZU,Azufre,Atacama,Norte,False,377,6,1.59,5,0
+SOC,Socompa,Antofagasta,Norte,False,231,6,2.6,30,1
+MEN,Mentolat,Aysen,Austral,True,86,5,5.81,8,0
+IRR,Irruputuncu,Tarapaca,Norte,True,344,4,1.16,120,2
+BAY,Bayo,Atacama,Norte,False,373,4,1.07,5,0
+COP,Copiapo,Atacama,Norte,False,238,1,0.42,79,1
+HUD,Hudson,Aysen,Austral,True,306,1,0.33,46,1
+OLL,Ollague,Antofagasta,Norte,True,415,0,0.0,64,0

@@ -17,11 +17,12 @@ Identificar todas las quebradas, valles y rios que nacen o pasan por el area de 
 | Script | Estado | Resultado |
 |---|---|---|
 | `01_download_hydro.py` | Completado | 52.578 tramos OSM, 59 volcanes |
-| `02_download_dem.py` | Completado | DEMs SRTM 30m (AWS S3) |
-| `03_watershed.py` | Completado | 41.000+ tramos en zonas de influencia |
+| `02_download_dem.py` | Completado | DEMs SRTM 30m AWS S3, 59/59 volcanes |
+| `03_watershed.py` | Completado | Buffer geodésico 50 km (UTM por zona), 46.469 tramos identificados |
 | `04_census.py` | Pendiente descarga manual | Requiere manzanas INE 2024 |
-| `05_osm_context.py` | Completado | Red vial 7.4 MB, infraestructura 349 KB, centros poblados 4.4 MB |
-| `export_geojson.py` | Completado | Convierte GPKG → GeoJSON para deploy en Streamlit Cloud |
+| `05_osm_context.py` | Completado | Red vial, infraestructura, centros poblados |
+| `06_watershed_pysheds.py` | Completado | Clasificación hidrológica real: `drena_volcan` por tramo (D8 downstream desde edificio) |
+| `export_geojson.py` | Completado | Shardea drenajes y capas de contexto por volcán + índice global precomputado |
 
 ## Stack
 
@@ -56,10 +57,13 @@ python scripts/run_pipeline.py
 
 O paso a paso:
 ```bash
-python scripts/01_download_hydro.py   # Hidrografia OSM (~25 min)
-python scripts/02_download_dem.py     # DEM SRTM desde AWS (~12 min)
-python scripts/03_watershed.py        # Zonas de influencia + quebradas (~1 min)
-python scripts/04_census.py           # Poblacion censal
+python scripts/01_download_hydro.py        # Hidrografia OSM (~25 min)
+python scripts/02_download_dem.py          # DEM SRTM desde AWS (~12 min)
+python scripts/03_watershed.py             # Buffer 50 km + interseccion OSM (~1 min)
+python scripts/05_osm_context.py           # Red vial + infra + centros poblados
+python scripts/06_watershed_pysheds.py     # Drenaje hidrologico real (~20 min)
+python scripts/export_geojson.py           # Shards + indice para Streamlit Cloud
+python scripts/04_census.py                # Poblacion censal
 ```
 
 ### 2. Lanzar dashboard
@@ -81,6 +85,7 @@ Los datos de manzanas del Censo 2024 requieren descarga manual:
 
 ## Funcionalidades del dashboard
 
+- **Filtro hidrológico**: toggle "solo quebradas que drenan desde el edificio" — usa D8 flow tracing sobre DEM SRTM 30m, descarta tramos dentro del buffer 50 km que no reciben flujo del cono volcánico (relevante para evaluación de lahares)
 - **Vista general**: mapa de Chile con los 59 volcanes y sus zonas de influencia (50 km)
 - **Selector inteligente**: filtro por zona volcánica (ZVN/ZVC/ZVS/ZVA) + toggle "solo OVDAS" + indicador `*` para volcanes adicionales no monitoreados oficialmente
 - **Buscador de quebradas**: busqueda global por nombre entre todos los volcanes
@@ -110,10 +115,11 @@ valles-volcanicos-chile/
 ├── scripts/
 │   ├── 01_download_hydro.py  # OSM via Overpass API
 │   ├── 02_download_dem.py    # SRTM desde AWS S3
-│   ├── 03_watershed.py       # buffer + interseccion OSM
+│   ├── 03_watershed.py       # buffer geodesico (UTM) + interseccion OSM
 │   ├── 04_census.py          # poblacion censal (manual INE 2024)
 │   ├── 05_osm_context.py     # red vial + infraestructura + centros poblados
-│   ├── export_geojson.py     # GPKG → GeoJSON para Streamlit Cloud
+│   ├── 06_watershed_pysheds.py  # clasificacion hidrologica real D8 (drena_volcan)
+│   ├── export_geojson.py     # shards por volcan + indice global
 │   └── run_pipeline.py       # ejecuta todo en secuencia
 ├── app/
 │   └── dashboard.py          # Streamlit + Folium

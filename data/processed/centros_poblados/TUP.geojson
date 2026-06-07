@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "TUP",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "nombre": "Arroyo Grande", "tipo": "neighbourhood", "poblacion": 0 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -69.3342, -33.5847 ], [ -69.32707, -33.58525 ], [ -69.3269, -33.58564 ], [ -69.32205, -33.58644 ], [ -69.32245, -33.58766 ], [ -69.32702, -33.58704 ], [ -69.32763, -33.58794 ], [ -69.33013, -33.58911 ], [ -69.33313, -33.58828 ], [ -69.3342, -33.5847 ] ] ] } }
+]
+}

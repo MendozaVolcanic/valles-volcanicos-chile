@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "QUE",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Cruz Roja", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -72.16155, -39.48686 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "CECOSF Neltume", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.94059, -39.85015 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Sin nombre", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.97452, -39.27793 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Centro Médico Trapp", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.97413, -39.27804 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "CDI Pucón", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.97468, -39.27819 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "CESFAM Choshuenco", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -72.08338, -39.8367 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "CESFAM Rural Pucón", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.97353, -39.27894 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "CECOSF Liquiñe", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.85393, -39.74673 ] } }
+]
+}

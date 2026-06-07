@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "CAL",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "CESFAM Ralco", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.63891, -37.88084 ] } },
+{ "type": "Feature", "properties": { "tipo": "planta_electrica", "nombre": "Central Hidroeléctrica Ralco", "icono": "⚡", "color": "#f9c74f" }, "geometry": { "type": "Point", "coordinates": [ -71.51935, -38.00089 ] } },
+{ "type": "Feature", "properties": { "tipo": "planta_electrica", "nombre": "Central Hidroeléctrica Palmucho", "icono": "⚡", "color": "#f9c74f" }, "geometry": { "type": "Point", "coordinates": [ -71.47798, -38.04298 ] } }
+]
+}

@@ -2,6 +2,9 @@
 # Fuente: Catalogo de Volcanes Activos de Chile (SERNAGEOMIN) / Copernicus-v1
 # Zonas: Norte (ZVN) / Centro (ZVC) / Sur (ZVS) / Austral (ZVA)
 # Campo 'monitoreado_ovdas': true para los 43 oficiales con instrumentacion permanente
+# Campo 'radio_influencia_km' (opcional): radio del buffer de influencia para
+#   identificacion de valles. Default 50 km (lahares 30-80 km tipicos).
+#   Override por volcan segun VEI maximo / historia eruptiva validada por SERNAGEOMIN.
 # Encoding: UTF-8
 
 volcanes:

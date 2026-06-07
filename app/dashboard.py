@@ -10,20 +10,15 @@ import pandas as pd
 import folium
 from streamlit_folium import st_folium
 from collections import defaultdict
-from pathlib import Path
-import yaml, json, math, unicodedata, re
+from urllib.parse import urlencode
 
-
-def _normalizar(s: str) -> str:
-    """Normaliza texto para comparaciones robustas: minusculas, sin tildes,
-    guiones/espacios colapsados a un solo separador."""
-    if not s:
-        return ""
-    s = unicodedata.normalize("NFKD", str(s))
-    s = "".join(c for c in s if not unicodedata.combining(c))
-    s = s.lower().strip()
-    s = re.sub(r"[\s\-_]+", " ", s)
-    return s
+from loaders import (
+    cargar_config, cargar_cuencas, cargar_drenajes, cargar_peligros,
+    cargar_poblacion, cargar_vial, cargar_infraestructura,
+    cargar_centros_poblados, cargar_ciudades, cargar_indice_quebradas,
+    wms_disponible,
+)
+from geo_utils import normalizar as _normalizar, latlon_a_utm, midpoint_geojson
 
 # ---------------------------------------------------------------------------
 # Configuracion de pagina
@@ -84,195 +79,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------------------------------------------------------------------
-# Rutas absolutas (funciona local y en Streamlit Cloud)
-# ---------------------------------------------------------------------------
-
-ROOT        = Path(__file__).resolve().parent.parent
-PROCESSED   = ROOT / "data" / "processed"
-CONFIG_PATH = ROOT / "config" / "volcanoes.yaml"
-
-# ---------------------------------------------------------------------------
-# Datos estaticos: ciudades y pueblos de Chile (zonas volcanicas)
-# Fuente: OpenStreetMap / INE. pop = poblacion aproximada.
-# ---------------------------------------------------------------------------
-
-CIUDADES = [
-    # Arica y Parinacota
-    {"nombre": "Arica",               "lat": -18.4783, "lon": -70.3126, "pop": 222000},
-    {"nombre": "Putre",               "lat": -18.1969, "lon": -69.5644, "pop":   2500},
-    # Tarapaca
-    {"nombre": "Iquique",             "lat": -20.2307, "lon": -70.1357, "pop": 191000},
-    {"nombre": "Colchane",            "lat": -19.2667, "lon": -68.6333, "pop":    800},
-    # Antofagasta
-    {"nombre": "Calama",              "lat": -22.4558, "lon": -68.9271, "pop": 165000},
-    {"nombre": "San Pedro de Atacama","lat": -22.9087, "lon": -68.1997, "pop":  10000},
-    {"nombre": "Antofagasta",         "lat": -23.6509, "lon": -70.3975, "pop": 402000},
-    {"nombre": "Toconao",             "lat": -23.1833, "lon": -67.9833, "pop":    600},
-    # Atacama
-    {"nombre": "Copiapo",             "lat": -27.3668, "lon": -70.3323, "pop": 158000},
-    {"nombre": "Tierra Amarilla",     "lat": -27.4931, "lon": -70.2703, "pop":  13000},
-    {"nombre": "Fiambalá",            "lat": -27.7000, "lon": -67.6167, "pop":   2000},
-    # Biobio
-    {"nombre": "Los Angeles",         "lat": -37.4670, "lon": -72.3526, "pop": 211000},
-    {"nombre": "Mulchen",             "lat": -37.7167, "lon": -72.2333, "pop":  25000},
-    {"nombre": "Angol",               "lat": -37.7945, "lon": -72.7095, "pop":  54000},
-    # La Araucania
-    {"nombre": "Temuco",              "lat": -38.7396, "lon": -72.5900, "pop": 282000},
-    {"nombre": "Curacautin",          "lat": -38.4231, "lon": -71.8832, "pop":  16000},
-    {"nombre": "Lonquimay",           "lat": -38.4372, "lon": -71.5700, "pop":   7000},
-    {"nombre": "Victoria",            "lat": -38.2352, "lon": -72.3394, "pop":  32000},
-    {"nombre": "Villarrica",          "lat": -39.2812, "lon": -72.2232, "pop":  51000},
-    {"nombre": "Pucon",               "lat": -39.2731, "lon": -71.9789, "pop":  22000},
-    {"nombre": "Loncoche",            "lat": -39.3703, "lon": -72.6311, "pop":  20000},
-    {"nombre": "Curarrehue",          "lat": -39.3833, "lon": -71.5500, "pop":   6000},
-    {"nombre": "Licanray",            "lat": -39.4833, "lon": -72.1500, "pop":   4000},
-    # Los Rios
-    {"nombre": "Valdivia",            "lat": -39.8196, "lon": -73.2452, "pop": 154000},
-    {"nombre": "Panguipulli",         "lat": -39.6375, "lon": -72.3356, "pop":  19000},
-    {"nombre": "Conaripe",            "lat": -39.6136, "lon": -71.9875, "pop":   2000},
-    {"nombre": "Futrono",             "lat": -40.1283, "lon": -72.3897, "pop":   9000},
-    {"nombre": "La Union",            "lat": -40.2919, "lon": -73.0841, "pop":  40000},
-    # Los Lagos
-    {"nombre": "Osorno",              "lat": -40.5736, "lon": -73.1337, "pop": 145000},
-    {"nombre": "Entre Lagos",         "lat": -40.6833, "lon": -72.6000, "pop":   5000},
-    {"nombre": "Puerto Octay",        "lat": -40.9667, "lon": -72.9167, "pop":   5000},
-    {"nombre": "Frutillar",           "lat": -41.1247, "lon": -73.0564, "pop":  16000},
-    {"nombre": "Puerto Varas",        "lat": -41.3194, "lon": -72.9887, "pop":  41000},
-    {"nombre": "Ensenada",            "lat": -41.2167, "lon": -72.6167, "pop":   2000},
-    {"nombre": "Puerto Montt",        "lat": -41.4693, "lon": -72.9424, "pop": 245000},
-    {"nombre": "Cochamo",             "lat": -41.4833, "lon": -72.3333, "pop":   1500},
-    {"nombre": "Hornopiren",          "lat": -41.9167, "lon": -72.4333, "pop":   2500},
-    {"nombre": "Chaiten",             "lat": -42.9167, "lon": -72.7000, "pop":   4000},
-    {"nombre": "Futaleufu",           "lat": -43.1833, "lon": -71.8667, "pop":   2500},
-    {"nombre": "Palena",              "lat": -43.6167, "lon": -71.8167, "pop":   2000},
-    # Aysen
-    {"nombre": "La Junta",            "lat": -43.9667, "lon": -72.4167, "pop":   1500},
-    {"nombre": "Puyuhuapi",           "lat": -44.3333, "lon": -72.5667, "pop":    500},
-    {"nombre": "Cisnes",              "lat": -44.7500, "lon": -72.6833, "pop":   1000},
-    {"nombre": "Coyhaique",           "lat": -45.5752, "lon": -72.0662, "pop":  55000},
-    {"nombre": "Puerto Aysen",        "lat": -45.4019, "lon": -72.6988, "pop":  16000},
-    {"nombre": "Chile Chico",         "lat": -46.5333, "lon": -71.7333, "pop":   4500},
-]
-
-# ---------------------------------------------------------------------------
-# Utilidades geograficas (puro Python, sin librerias nativas)
-# ---------------------------------------------------------------------------
-
-def latlon_a_utm(lat: float, lon: float) -> tuple[float, float, int]:
-    """Convierte WGS84 a UTM. Formula directa Karney/USGS, precision metrica."""
-    zone    = int((lon + 180) / 6) + 1
-    lon_rad = math.radians(lon)
-    lat_rad = math.radians(lat)
-    a   = 6378137.0
-    f   = 1 / 298.257223563
-    e2  = 1 - (1 - f) ** 2
-    lon0 = math.radians((zone - 1) * 6 - 180 + 3)
-    N    = a / math.sqrt(1 - e2 * math.sin(lat_rad) ** 2)
-    T    = math.tan(lat_rad) ** 2
-    C    = e2 / (1 - e2) * math.cos(lat_rad) ** 2
-    A    = math.cos(lat_rad) * (lon_rad - lon0)
-    M    = a * (
-        (1 - e2/4 - 3*e2**2/64 - 5*e2**3/256)  * lat_rad
-        - (3*e2/8 + 3*e2**2/32 + 45*e2**3/1024) * math.sin(2*lat_rad)
-        + (15*e2**2/256 + 45*e2**3/1024)         * math.sin(4*lat_rad)
-        - (35*e2**3/3072)                         * math.sin(6*lat_rad)
-    )
-    easting = 500000.0 + 0.9996 * N * (
-        A + (1 - T + C) * A**3 / 6
-        + (5 - 18*T + T**2 + 72*C - 58*(e2/(1-e2))) * A**5 / 120
-    )
-    northing = (0.0 if lat >= 0 else 10_000_000.0) + 0.9996 * (
-        M + N * math.tan(lat_rad) * (
-            A**2 / 2
-            + (5 - T + 9*C + 4*C**2) * A**4 / 24
-            + (61 - 58*T + T**2 + 600*C - 330*(e2/(1-e2))) * A**6 / 720
-        )
-    )
-    return easting, northing, zone
-
-
-def midpoint_geojson(feature: dict) -> tuple[float, float] | None:
-    """Coordenada media de LineString/MultiLineString para etiquetas."""
-    try:
-        geom   = feature["geometry"]
-        coords = geom["coordinates"]
-        if geom["type"] == "MultiLineString":
-            coords = coords[0]
-        mid = coords[len(coords) // 2]
-        return mid[1], mid[0]
-    except (KeyError, IndexError, TypeError):
-        return None
-
-# ---------------------------------------------------------------------------
-# Carga de datos con cache
-# ---------------------------------------------------------------------------
-
-@st.cache_data
-def cargar_config() -> dict:
-    with open(str(CONFIG_PATH), encoding="utf-8") as f:
-        return yaml.safe_load(f)
-
-
-@st.cache_data
-def cargar_cuencas() -> dict | None:
-    p = PROCESSED / "cuencas.geojson"
-    if not p.exists():
-        return None
-    with open(str(p), encoding="utf-8") as f:
-        return json.load(f)
-
-
-@st.cache_data
-def cargar_drenajes(codigo: str) -> dict | None:
-    """Carga lazy: solo el GeoJSON del volcan seleccionado (~200-400 KB)."""
-    p = PROCESSED / "drenajes" / f"{codigo}.geojson"
-    if not p.exists():
-        return None
-    with open(str(p), encoding="utf-8") as f:
-        return json.load(f)
-
-
-@st.cache_data
-def cargar_peligros() -> dict | None:
-    p = PROCESSED / "peligros_volcanicos.geojson"
-    if not p.exists():
-        return None
-    with open(str(p), encoding="utf-8") as f:
-        return json.load(f)
-
-
-@st.cache_data
-def cargar_poblacion() -> pd.DataFrame | None:
-    p = PROCESSED / "resumen_poblacion.csv"
-    return pd.read_csv(str(p)) if p.exists() else None
-
-
-@st.cache_data
-def cargar_vial() -> dict | None:
-    p = PROCESSED / "red_vial.geojson"
-    if not p.exists():
-        return None
-    with open(str(p), encoding="utf-8") as f:
-        return json.load(f)
-
-
-@st.cache_data
-def cargar_infraestructura() -> dict | None:
-    p = PROCESSED / "infraestructura.geojson"
-    if not p.exists():
-        return None
-    with open(str(p), encoding="utf-8") as f:
-        return json.load(f)
-
-
-@st.cache_data
-def cargar_centros_poblados() -> dict | None:
-    p = PROCESSED / "centros_poblados.geojson"
-    if not p.exists():
-        return None
-    with open(str(p), encoding="utf-8") as f:
-        return json.load(f)
+# Cargas y utilidades viven en app/loaders.py y app/geo_utils.py
 
 
 # Carga inicial
@@ -290,10 +97,8 @@ except Exception as exc:
     st.stop()
 
 peligros_gj      = cargar_peligros()
-vial_gj          = cargar_vial()
-infraestructura_gj = cargar_infraestructura()
-centros_gj       = cargar_centros_poblados()
 poblacion_df     = cargar_poblacion()
+CIUDADES         = cargar_ciudades()
 
 # ---------------------------------------------------------------------------
 # Sidebar
@@ -358,28 +163,7 @@ _ZONA_FILTRO_MAP = {
     "Sur (ZVS)": "Sur", "Austral (ZVA)": "Austral",
 }
 
-# Indice global de quebradas nombradas (volcan_codigo, nombre, tipo)
-@st.cache_data
-def construir_indice_quebradas() -> pd.DataFrame:
-    """Lista todas las quebradas nombradas de todos los volcanes (~10s primera carga)."""
-    rows = []
-    for v in VOLCANES:
-        gj = cargar_drenajes(v["codigo"])
-        if not gj:
-            continue
-        seen = set()
-        for f in gj.get("features", []):
-            n = f["properties"].get("nombre", "Sin nombre")
-            if n == "Sin nombre" or n in seen:
-                continue
-            seen.add(n)
-            rows.append({
-                "quebrada": n,
-                "tipo":     f["properties"].get("tipo", ""),
-                "volcan":   v["nombre"],
-                "codigo":   v["codigo"],
-            })
-    return pd.DataFrame(rows)
+# Indice de quebradas: precomputado en export_geojson.py — carga inmediata.
 
 # ─── Permalinks: leer query params al cargar ───────────────────────────────
 _qp = st.query_params
@@ -442,7 +226,7 @@ with st.sidebar:
     # Buscador global de quebradas (entre todos los volcanes)
     with st.expander("Buscar quebrada o rio", expanded=False):
         try:
-            _idx_qb = construir_indice_quebradas()
+            _idx_qb = cargar_indice_quebradas()
             _q = st.text_input("Nombre o palabra clave", placeholder="ej: Pichillancahue")
             if _q and len(_q) >= 2:
                 _q_norm = _normalizar(_q)
@@ -465,6 +249,10 @@ with st.sidebar:
     mostrar_drenajes = st.checkbox("Quebradas y rios",           value=_capa_default("drenajes", True))
     mostrar_nombres  = st.checkbox("Nombres de quebradas",       value=_capa_default("nombres", True))
     mostrar_volcanes = st.checkbox("Marcadores de volcanes",     value=_capa_default("volcanes", True))
+    solo_drena       = st.checkbox("Solo quebradas que drenan desde el edificio",
+                                    value=_capa_default("drena", False),
+                                    help="Filtra a las quebradas hidrologicamente conectadas al cono (pysheds, DEM SRTM 30m). "
+                                         "Esconde tramos dentro del buffer 50 km que NO reciben flujo desde el volcan.")
 
     st.divider()
     st.markdown("**Capas de contexto**")
@@ -490,7 +278,7 @@ with st.sidebar:
         "comunas": mostrar_comunas, "ciudades": mostrar_ciudades,
         "centros": mostrar_centros, "vial": mostrar_vial,
         "infra": mostrar_infra, "peligros": mostrar_peligros,
-        "snaspe": mostrar_snaspe,
+        "snaspe": mostrar_snaspe, "drena": solo_drena,
     }.items() if v)
 
     with st.expander("Compartir vista (permalink)"):
@@ -501,7 +289,7 @@ with st.sidebar:
             "capas":  _capas_activas,
             "full":   "true" if modo_full else "false",
         }
-        _qs = "&".join(f"{k}={v}" for k, v in _params.items() if v)
+        _qs = urlencode({k: v for k, v in _params.items() if v})
         st.code(f"?{_qs}", language=None)
         st.caption("Copia y pega tras la URL del dashboard")
 
@@ -536,6 +324,12 @@ volcan = None if seleccion == "(Todos los volcanes)" else next(
 
 drenajes_gj    = cargar_drenajes(volcan["codigo"]) if volcan else None
 feats          = drenajes_gj.get("features", []) if drenajes_gj else []
+# Filtro hidrologico opcional: solo tramos que drenan desde el edificio.
+# Si el campo 'drena_volcan' no esta en los datos (pysheds no corrido aun),
+# el toggle no hace efecto — feats queda sin cambios.
+hay_drena_attr = any("drena_volcan" in f.get("properties", {}) for f in feats)
+if solo_drena and hay_drena_attr:
+    feats = [f for f in feats if f["properties"].get("drena_volcan")]
 nombrados      = [f for f in feats
                   if f["properties"].get("nombre", "Sin nombre") != "Sin nombre"]
 nombres_unicos = {f["properties"]["nombre"] for f in nombrados}
@@ -569,9 +363,19 @@ if volcan:
     c4.metric("Norte UTM", f"{n:,.0f} m")
     c5.metric("Zona",      f"{zone}{hemi}")
     # Fila 2: estadisticas de drenaje + mini-mapa Chile (contexto geografico)
-    c6, c7, c_mini = st.columns([1.2, 1.6, 4.0])
+    n_drena = sum(1 for f in feats if f["properties"].get("drena_volcan"))
+    c6, c7, c_drena, c_mini = st.columns([1.2, 1.4, 1.4, 4.0])
     c6.metric("Tramos OSM",           f"{len(feats):,}")
-    c7.metric("Quebradas con nombre", f"{len(nombres_unicos):,}")
+    c7.metric("Con nombre",           f"{len(nombres_unicos):,}")
+    if hay_drena_attr and not solo_drena:
+        pct = (n_drena / len(feats) * 100) if feats else 0
+        c_drena.metric("Drenan del volcán", f"{n_drena:,}",
+                       delta=f"{pct:.1f}% del total", delta_color="off",
+                       help="Tramos OSM hidrológicamente conectados al edificio (D8 SRTM 30m)")
+    elif hay_drena_attr and solo_drena:
+        c_drena.metric("Drenan del volcán", f"{n_drena:,}", help="Filtro activo")
+    else:
+        c_drena.metric("Drenan del volcán", "—", help="Correr scripts/06_watershed_pysheds.py")
     # Mini-mapa SVG inline: silueta de Chile con marca del volcan
     # Latitudes: -17 (norte) a -56 (austral); proyeccion lineal simple
     _lat_min, _lat_max = -56, -17
@@ -638,31 +442,39 @@ folium.TileLayer(
 # -- Limites comunales (WMS BCN Chile) --
 # Servicio: Biblioteca del Congreso Nacional, SIIT
 if mostrar_comunas:
-    folium.WmsTileLayer(
-        url="https://siit2.bcn.cl/mapas_geoserver/BCN/wms",
-        layers="BCN:lim_comunal_2016_WGS84",
-        fmt="image/png",
-        transparent=True,
-        name="Comunas (BCN)",
-        overlay=True,
-        control=True,
-        opacity=0.85,
-        show=True,
-    ).add_to(m)
+    _bcn_url = "https://siit2.bcn.cl/mapas_geoserver/BCN/wms"
+    if wms_disponible(_bcn_url):
+        folium.WmsTileLayer(
+            url=_bcn_url,
+            layers="BCN:lim_comunal_2016_WGS84",
+            fmt="image/png",
+            transparent=True,
+            name="Comunas (BCN)",
+            overlay=True,
+            control=True,
+            opacity=0.85,
+            show=True,
+        ).add_to(m)
+    else:
+        st.warning("WMS BCN no responde — capa de comunas no disponible. Reintentar en unos minutos.", icon="⚠️")
 
 # -- SNASPE: Sistema Nacional de Areas Silvestres Protegidas (CONAF/SAG) --
 if mostrar_snaspe:
-    folium.WmsTileLayer(
-        url="https://geoportal.sag.gob.cl/server/services/SNASPE/MapServer/WMSServer",
-        layers="0",
-        fmt="image/png",
-        transparent=True,
-        name="SNASPE (CONAF)",
-        overlay=True,
-        control=True,
-        opacity=0.55,
-        show=True,
-    ).add_to(m)
+    _sag_url = "https://geoportal.sag.gob.cl/server/services/SNASPE/MapServer/WMSServer"
+    if wms_disponible(_sag_url):
+        folium.WmsTileLayer(
+            url=_sag_url,
+            layers="0",
+            fmt="image/png",
+            transparent=True,
+            name="SNASPE (CONAF)",
+            overlay=True,
+            control=True,
+            opacity=0.55,
+            show=True,
+        ).add_to(m)
+    else:
+        st.warning("WMS SAG/CONAF no responde — capa SNASPE no disponible.", icon="⚠️")
 
 # -- Zonas de peligro volcanico (SERNAGEOMIN shapefile) --
 if mostrar_peligros and peligros_gj:
@@ -702,21 +514,10 @@ if mostrar_peligros and peligros_gj:
         ).add_to(m)
 
 # -- Centros poblados (poligonos OSM) --
+# Carga lazy: si hay volcan, shard precomputado (~5 KB). Si no, global.
+centros_gj = cargar_centros_poblados(volcan["codigo"] if volcan else None) if mostrar_centros else None
 if mostrar_centros and centros_gj:
     feats_cp = centros_gj.get("features", [])
-    if volcan:
-        # Filtrar por centroide del poligono (no por primer nodo)
-        lat_v, lon_v = volcan["lat"], volcan["lon"]
-        def _en_bbox_poly(feat, lat_c, lon_c, delta=0.6):
-            if feat["geometry"]["type"] != "Polygon":
-                return False
-            ring = feat["geometry"]["coordinates"][0]
-            if not ring:
-                return False
-            cx = sum(p[0] for p in ring) / len(ring)
-            cy = sum(p[1] for p in ring) / len(ring)
-            return abs(cy - lat_c) < delta and abs(cx - lon_c) < delta
-        feats_cp = [f for f in feats_cp if _en_bbox_poly(f, lat_v, lon_v)]
     if feats_cp:
         folium.GeoJson(
             {"type": "FeatureCollection", "features": feats_cp},
@@ -734,6 +535,7 @@ if mostrar_centros and centros_gj:
         ).add_to(m)
 
 # -- Red vial principal --
+vial_gj = cargar_vial(volcan["codigo"] if volcan else None) if mostrar_vial else None
 if mostrar_vial and vial_gj:
     VIAL_STYLE = {
         "motorway": {"color": "#e63946", "weight": 3.5, "opacity": 0.9},
@@ -741,16 +543,6 @@ if mostrar_vial and vial_gj:
         "primary":  {"color": "#f9c74f", "weight": 1.8, "opacity": 0.8},
     }
     feats_v = vial_gj.get("features", [])
-    if volcan:
-        lat_v, lon_v = volcan["lat"], volcan["lon"]
-        delta = 0.6
-        feats_v = [
-            f for f in feats_v
-            if any(
-                abs(c[1] - lat_v) < delta and abs(c[0] - lon_v) < delta
-                for c in f["geometry"]["coordinates"]
-            )
-        ]
     if feats_v:
         folium.GeoJson(
             {"type": "FeatureCollection", "features": feats_v},
@@ -766,6 +558,7 @@ if mostrar_vial and vial_gj:
         ).add_to(m)
 
 # -- Infraestructura critica --
+infraestructura_gj = cargar_infraestructura(volcan["codigo"] if volcan else None) if mostrar_infra else None
 if mostrar_infra and infraestructura_gj:
     INFRA_COLORS = {
         "hospital":         "#e63946",
@@ -783,13 +576,6 @@ if mostrar_infra and infraestructura_gj:
     }
     grupo_infra = folium.FeatureGroup(name="Infraestructura critica", show=True)
     feats_i = infraestructura_gj.get("features", [])
-    if volcan:
-        lat_v, lon_v = volcan["lat"], volcan["lon"]
-        feats_i = [
-            f for f in feats_i
-            if abs(f["geometry"]["coordinates"][1] - lat_v) < 0.6 and
-               abs(f["geometry"]["coordinates"][0] - lon_v) < 0.6
-        ]
     for ft in feats_i:
         props = ft["properties"]
         tipo  = props.get("tipo", "")
@@ -836,15 +622,38 @@ if mostrar_cuencas and cuencas_gj:
         ).add_to(m)
 
 # -- Quebradas y rios --
+# Tramos que drenan desde el edificio se ven en naranja (mismo color que el
+# volcan en el resto del dashboard). Los que NO drenan se ven azules tenues.
+# Si los datos no tienen drena_volcan, se usa el estilo legacy (azules).
+def _estilo_drenaje(f):
+    props  = f["properties"]
+    es_rio = props.get("tipo") == "river"
+    drena  = props.get("drena_volcan", False) if hay_drena_attr else None
+    if hay_drena_attr and drena:
+        return {
+            "color":   "#ff6b35" if es_rio else "#ffaa66",
+            "weight":  3.0       if es_rio else 1.8,
+            "opacity": 0.95,
+        }
+    # Tramo dentro del buffer pero NO drena: azul tenue
+    if hay_drena_attr and not drena:
+        return {
+            "color":   "#3a5a7a" if es_rio else "#446680",
+            "weight":  1.5       if es_rio else 0.8,
+            "opacity": 0.55,
+        }
+    # Legacy (sin drena_volcan): comportamiento previo
+    return {
+        "color":   "#00aaff" if es_rio else "#66ccff",
+        "weight":  2.5       if es_rio else 1.2,
+        "opacity": 0.9,
+    }
+
 if mostrar_drenajes and feats:
     folium.GeoJson(
-        drenajes_gj,
+        {"type": "FeatureCollection", "features": feats},
         name="Quebradas y rios",
-        style_function=lambda f: {
-            "color":   "#00aaff" if f["properties"].get("tipo") == "river" else "#66ccff",
-            "weight":  2.5       if f["properties"].get("tipo") == "river" else 1.2,
-            "opacity": 0.9,
-        },
+        style_function=_estilo_drenaje,
         tooltip=folium.GeoJsonTooltip(
             fields=["nombre", "tipo"],
             aliases=["Nombre", "Tipo"],
@@ -978,17 +787,28 @@ if volcan and drenajes_gj:
     col_t.markdown("#### Quebradas y rios identificados")
 
     if nombrados:
-        grupos: dict[str, dict] = defaultdict(lambda: {"tipo": "", "tramos": 0})
+        grupos: dict[str, dict] = defaultdict(lambda: {"tipo": "", "tramos": 0, "drena": 0})
         for f in nombrados:
             p = f["properties"]
             k = p.get("nombre", "")
             grupos[k]["tipo"]    = p.get("tipo", "")
             grupos[k]["tramos"] += 1
+            if p.get("drena_volcan"):
+                grupos[k]["drena"] += 1
 
-        resumen = pd.DataFrame([
-            {"Nombre": k, "Tipo": v["tipo"], "Tramos OSM": v["tramos"]}
-            for k, v in grupos.items()
-        ]).sort_values(["Tipo", "Nombre"]).reset_index(drop=True)
+        if hay_drena_attr:
+            resumen = pd.DataFrame([
+                {"Nombre": k, "Tipo": v["tipo"], "Tramos OSM": v["tramos"],
+                 "Drena del volcán": "sí" if v["drena"] > 0 else "no",
+                 "Tramos hidrol.": v["drena"]}
+                for k, v in grupos.items()
+            ]).sort_values(["Drena del volcán", "Tipo", "Nombre"],
+                           ascending=[False, True, True]).reset_index(drop=True)
+        else:
+            resumen = pd.DataFrame([
+                {"Nombre": k, "Tipo": v["tipo"], "Tramos OSM": v["tramos"]}
+                for k, v in grupos.items()
+            ]).sort_values(["Tipo", "Nombre"]).reset_index(drop=True)
 
         csv = resumen.to_csv(index=False).encode("utf-8")
         col_dl.download_button(

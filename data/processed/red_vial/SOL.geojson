@@ -1,0 +1,32 @@
+{
+"type": "FeatureCollection",
+"name": "SOL",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49278, -38.56611 ], [ -71.49267, -38.56648 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49771, -38.55838 ], [ -71.49631, -38.55976 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49679, -38.55932 ], [ -71.49764, -38.55835 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49631, -38.55976 ], [ -71.49278, -38.56611 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.47059, -38.56168 ], [ -71.44781, -38.55655 ], [ -71.4386, -38.55138 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.41945, -38.54986 ], [ -71.40246, -38.53079 ], [ -71.38597, -38.51405 ], [ -71.37668, -38.49594 ], [ -71.3721, -38.48839 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.43367, -38.55329 ], [ -71.43318, -38.55337 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.43662, -38.54948 ], [ -71.43459, -38.55245 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.4989, -38.55646 ], [ -71.49834, -38.5577 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.51633, -38.5179 ], [ -71.4989, -38.55646 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49631, -38.55976 ], [ -71.49679, -38.55932 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.41995, -38.55013 ], [ -71.41945, -38.54986 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.43318, -38.55337 ], [ -71.41995, -38.55013 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.43459, -38.55245 ], [ -71.43367, -38.55329 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.4386, -38.55138 ], [ -71.43662, -38.54948 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.47262, -38.56223 ], [ -71.47059, -38.56168 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.47674, -38.56335 ], [ -71.47262, -38.56223 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.47982, -38.56421 ], [ -71.47873, -38.56391 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49267, -38.56648 ], [ -71.47982, -38.56421 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49785, -38.55827 ], [ -71.49771, -38.55838 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49834, -38.5577 ], [ -71.49785, -38.55827 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49777, -38.55823 ], [ -71.49834, -38.5577 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.49764, -38.55835 ], [ -71.49777, -38.55823 ] ] } },
+{ "type": "Feature", "properties": { "tipo": "trunk", "nombre": "Ruta 181 CH", "ref": "181", "color": "#f4a261" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.47873, -38.56391 ], [ -71.47674, -38.56335 ] ] } }
+]
+}

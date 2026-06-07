@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "TRO",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "helipuerto", "nombre": "Sin nombre", "icono": "🚁", "color": "#00b4d8" }, "geometry": { "type": "Point", "coordinates": [ -71.81337, -41.024 ] } },
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "Clínica San Fernando", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -71.31252, -41.1383 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Laboratorio Bioquimico Rodriguez", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.30119, -41.13496 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Instituto Medico Otorrinolaringológico", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.30118, -41.13488 ] } },
+{ "type": "Feature", "properties": { "tipo": "helipuerto", "nombre": "Sin nombre", "icono": "🚁", "color": "#00b4d8" }, "geometry": { "type": "Point", "coordinates": [ -71.87548, -41.23077 ] } },
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "Instituto Materno Infantil", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -71.30733, -41.13637 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "CAPS Manso Inferior", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.73256, -41.60121 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Centro De Salud Ojo De Agua", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.31597, -41.17557 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Centro De Salud Lera", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.28664, -41.14805 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Centro De Salud Industrial", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.31443, -41.13838 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Centro de Salud 34 Hectáreas", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.3361, -41.17093 ] } },
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "Sanatorio San Carlos S.A", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -71.32071, -41.13247 ] } },
+{ "type": "Feature", "properties": { "tipo": "hospital", "nombre": "Hospital de Día Esperanza", "icono": "🏥", "color": "#e63946" }, "geometry": { "type": "Point", "coordinates": [ -71.30544, -41.14981 ] } },
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Sin nombre", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -71.64354, -40.76626 ] } },
+{ "type": "Feature", "properties": { "tipo": "helipuerto", "nombre": "Sin nombre", "icono": "🚁", "color": "#00b4d8" }, "geometry": { "type": "Point", "coordinates": [ -71.877, -41.0475 ] } }
+]
+}

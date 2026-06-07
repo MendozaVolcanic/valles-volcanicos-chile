@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "LAS",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "nombre": "ALMA housing", "tipo": "residential", "poblacion": 0 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -67.9825, -23.07121 ], [ -67.98264, -23.0704 ], [ -67.98247, -23.07037 ], [ -67.98276, -23.06995 ], [ -67.98263, -23.06984 ], [ -67.9817, -23.07029 ], [ -67.98141, -23.07077 ], [ -67.9825, -23.07121 ] ] ] } }
+]
+}

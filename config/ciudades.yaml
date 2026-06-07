@@ -1,0 +1,60 @@
+# Ciudades y pueblos de Chile en zonas volcanicas activas.
+# Fuente: OpenStreetMap / INE (poblacion aproximada).
+# Usado por app/dashboard.py como capa de referencia poblacional.
+
+ciudades:
+  # Arica y Parinacota
+  - {nombre: Arica,                lat: -18.4783, lon: -70.3126, pop: 222000}
+  - {nombre: Putre,                lat: -18.1969, lon: -69.5644, pop:   2500}
+  # Tarapaca
+  - {nombre: Iquique,              lat: -20.2307, lon: -70.1357, pop: 191000}
+  - {nombre: Colchane,             lat: -19.2667, lon: -68.6333, pop:    800}
+  # Antofagasta
+  - {nombre: Calama,               lat: -22.4558, lon: -68.9271, pop: 165000}
+  - {nombre: San Pedro de Atacama, lat: -22.9087, lon: -68.1997, pop:  10000}
+  - {nombre: Antofagasta,          lat: -23.6509, lon: -70.3975, pop: 402000}
+  - {nombre: Toconao,              lat: -23.1833, lon: -67.9833, pop:    600}
+  # Atacama
+  - {nombre: Copiapo,              lat: -27.3668, lon: -70.3323, pop: 158000}
+  - {nombre: Tierra Amarilla,      lat: -27.4931, lon: -70.2703, pop:  13000}
+  - {nombre: Fiambalá,             lat: -27.7000, lon: -67.6167, pop:   2000}
+  # Biobio
+  - {nombre: Los Angeles,          lat: -37.4670, lon: -72.3526, pop: 211000}
+  - {nombre: Mulchen,              lat: -37.7167, lon: -72.2333, pop:  25000}
+  - {nombre: Angol,                lat: -37.7945, lon: -72.7095, pop:  54000}
+  # La Araucania
+  - {nombre: Temuco,               lat: -38.7396, lon: -72.5900, pop: 282000}
+  - {nombre: Curacautin,           lat: -38.4231, lon: -71.8832, pop:  16000}
+  - {nombre: Lonquimay,            lat: -38.4372, lon: -71.5700, pop:   7000}
+  - {nombre: Victoria,             lat: -38.2352, lon: -72.3394, pop:  32000}
+  - {nombre: Villarrica,           lat: -39.2812, lon: -72.2232, pop:  51000}
+  - {nombre: Pucon,                lat: -39.2731, lon: -71.9789, pop:  22000}
+  - {nombre: Loncoche,             lat: -39.3703, lon: -72.6311, pop:  20000}
+  - {nombre: Curarrehue,           lat: -39.3833, lon: -71.5500, pop:   6000}
+  - {nombre: Licanray,             lat: -39.4833, lon: -72.1500, pop:   4000}
+  # Los Rios
+  - {nombre: Valdivia,             lat: -39.8196, lon: -73.2452, pop: 154000}
+  - {nombre: Panguipulli,          lat: -39.6375, lon: -72.3356, pop:  19000}
+  - {nombre: Conaripe,             lat: -39.6136, lon: -71.9875, pop:   2000}
+  - {nombre: Futrono,              lat: -40.1283, lon: -72.3897, pop:   9000}
+  - {nombre: La Union,             lat: -40.2919, lon: -73.0841, pop:  40000}
+  # Los Lagos
+  - {nombre: Osorno,               lat: -40.5736, lon: -73.1337, pop: 145000}
+  - {nombre: Entre Lagos,          lat: -40.6833, lon: -72.6000, pop:   5000}
+  - {nombre: Puerto Octay,         lat: -40.9667, lon: -72.9167, pop:   5000}
+  - {nombre: Frutillar,            lat: -41.1247, lon: -73.0564, pop:  16000}
+  - {nombre: Puerto Varas,         lat: -41.3194, lon: -72.9887, pop:  41000}
+  - {nombre: Ensenada,             lat: -41.2167, lon: -72.6167, pop:   2000}
+  - {nombre: Puerto Montt,         lat: -41.4693, lon: -72.9424, pop: 245000}
+  - {nombre: Cochamo,              lat: -41.4833, lon: -72.3333, pop:   1500}
+  - {nombre: Hornopiren,           lat: -41.9167, lon: -72.4333, pop:   2500}
+  - {nombre: Chaiten,              lat: -42.9167, lon: -72.7000, pop:   4000}
+  - {nombre: Futaleufu,            lat: -43.1833, lon: -71.8667, pop:   2500}
+  - {nombre: Palena,               lat: -43.6167, lon: -71.8167, pop:   2000}
+  # Aysen
+  - {nombre: La Junta,             lat: -43.9667, lon: -72.4167, pop:   1500}
+  - {nombre: Puyuhuapi,            lat: -44.3333, lon: -72.5667, pop:    500}
+  - {nombre: Cisnes,               lat: -44.7500, lon: -72.6833, pop:   1000}
+  - {nombre: Coyhaique,            lat: -45.5752, lon: -72.0662, pop:  55000}
+  - {nombre: Puerto Aysen,         lat: -45.4019, lon: -72.6988, pop:  16000}
+  - {nombre: Chile Chico,          lat: -46.5333, lon: -71.7333, pop:   4500}

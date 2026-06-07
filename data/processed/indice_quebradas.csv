@@ -1,0 +1,4209 @@
+quebrada,tipo,volcan,codigo,tramos
+30 de Marzo,stream,Michinmahuida,MIC,1
+Aducción Maule,canal,Descabezado Grande,DGR,2
+Aducción Maule,canal,Laguna del Maule,LDM,2
+Aducción Maule,canal,Nevado de Longavi,NLO,2
+Aducción Maule,canal,Tatara-San Pedro,TSP,2
+Alerzal o Esperanza,river,HornopirÃ©n,HOR,1
+Ancoa,stream,Nevado de Longavi,NLO,1
+Arroyo Acol,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Acol,river,Mocho-Choshuenco,MCH,1
+Arroyo Agua Dulce,stream,Incahuasi,INC,3
+Arroyo Agua Dulce,stream,Nevado Tres Cruces,NTC,3
+Arroyo Agua Dulce,stream,Ojos del Salado,ODS,3
+Arroyo Agua Dulce,stream,San Francisco,SFR,3
+Arroyo Agua Dulce,stream,Tipas,TIP,3
+Arroyo Aguas Calientes,stream,Putana,PUT,1
+Arroyo Ailín-Co,stream,Sollipulli,SOL,7
+Arroyo Alambre,river,Copahue,CPA,1
+Arroyo Alejandro,stream,Michinmahuida,MIC,5
+Arroyo Allinco,river,Laguna del Maule,LDM,2
+Arroyo Ancanluco,river,Antillanca-Casablanca,ACA,1
+Arroyo Ancanluco,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Ancanluco,river,Puntiagudo,PUN,1
+Arroyo Ancanluco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Ancuta,stream,Guallatiri,GUA,3
+Arroyo Ancuta,stream,Parinacota,PAR,3
+Arroyo Ancuta,stream,Taapaca,TAA,3
+Arroyo Angostura,river,Tronador,TRO,1
+Arroyo Apoco,river,Tronador,TRO,1
+Arroyo Arenas Blancas,stream,Descabezado Grande,DGR,3
+Arroyo Arenas Blancas,stream,Laguna del Maule,LDM,3
+Arroyo Arenas Blancas,stream,Tatara-San Pedro,TSP,3
+Arroyo Arguilén,stream,Nevados de Chillan,NCH,4
+Arroyo Aseret,stream,Lanin,LAN,6
+Arroyo Aseret,river,QuetrupillÃ¡n,QUE,2
+Arroyo Atreuco,stream,Lanin,LAN,22
+Arroyo Avilés,stream,Tronador,TRO,2
+Arroyo Ayhuin,river,Antillanca-Casablanca,ACA,1
+Arroyo Ayhuin,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Ayhuin,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Azul,river,Antuco,ANT,1
+Arroyo Azul,river,Nevados de Chillan,NCH,1
+Arroyo Añihueraqui,stream,Lanin,LAN,2
+Arroyo Añihueraqui,stream,QuetrupillÃ¡n,QUE,2
+Arroyo Barros Negros,stream,Nevado de Longavi,NLO,2
+Arroyo Bayo,stream,Tinguiririca,TIN,2
+Arroyo Baños,stream,Antuco,ANT,1
+Arroyo Baños,stream,Callaqui,CAL,1
+Arroyo Baños,stream,Copahue,CPA,1
+Arroyo Blanco,river,Antillanca-Casablanca,ACA,1
+Arroyo Blanco,river,Callaqui,CAL,5
+Arroyo Blanco,river,Copahue,CPA,5
+Arroyo Blanco,stream,Laguna del Maule,LDM,2
+Arroyo Blanco,river,Lanin,LAN,1
+Arroyo Blanco,stream,Llaima,LLA,1
+Arroyo Blanco,stream,Puntiagudo,PUN,2
+Arroyo Blanco,river,QuetrupillÃ¡n,QUE,1
+Arroyo Blanco,stream,Sollipulli,SOL,2
+Arroyo Blanco,stream,Tronador,TRO,3
+Arroyo Blanco Chico,stream,Hudson,HUD,2
+Arroyo Blest,river,Antillanca-Casablanca,ACA,1
+Arroyo Blest,river,Puntiagudo,PUN,1
+Arroyo Blest,river,Tronador,TRO,1
+Arroyo Bravo,river,Antillanca-Casablanca,ACA,1
+Arroyo Bravo,river,Puntiagudo,PUN,1
+Arroyo Bravo,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Bravo,river,Tronador,TRO,1
+Arroyo Burriquete,river,Lanin,LAN,2
+Arroyo Burriquete,river,Mocho-Choshuenco,MCH,2
+Arroyo Burriquete,river,QuetrupillÃ¡n,QUE,2
+Arroyo Burriquete,river,Villarrica,VIL,2
+Arroyo Buta Mallin,stream,Laguna del Maule,LDM,2
+Arroyo Buta Mallín,river,Copahue,CPA,1
+Arroyo Butahuao,river,Copahue,CPA,4
+Arroyo Butalón,river,Copahue,CPA,1
+Arroyo Cacho,river,Antillanca-Casablanca,ACA,4
+Arroyo Cacho,river,CarrÃ¡n-Los Venados,CLV,4
+Arroyo Cacho,river,Puyehue-CordÃ³n Caulle,PCC,4
+Arroyo Cacho Sur,stream,Antillanca-Casablanca,ACA,1
+Arroyo Cacho Sur,stream,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Cacho Sur,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Caduco,river,Antillanca-Casablanca,ACA,1
+Arroyo Caduco,river,Puntiagudo,PUN,1
+Arroyo Caduco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Caduco,river,Tronador,TRO,1
+Arroyo Cajón Chico,river,Antuco,ANT,1
+Arroyo Cajón Chico,river,Callaqui,CAL,1
+Arroyo Cajón Chico,river,Copahue,CPA,6
+Arroyo Cajón Choroyes,river,Laguna del Maule,LDM,1
+Arroyo Cajón Choroyes,river,Tatara-San Pedro,TSP,1
+Arroyo Cajón Matancilla,river,Nevado de Longavi,NLO,1
+Arroyo Cajón Negro,river,CarrÃ¡n-Los Venados,CLV,3
+Arroyo Cajón Negro,stream,Nevados de Chillan,NCH,1
+Arroyo Cajón Negro,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Cajón Nuevo,river,Antuco,ANT,1
+Arroyo Cajón Nuevo,river,Nevados de Chillan,NCH,1
+Arroyo Cajón de Araya,river,Antuco,ANT,2
+Arroyo Cajón de Araya,river,Copahue,CPA,2
+Arroyo Cajón de Benítez,river,Laguna del Maule,LDM,1
+Arroyo Cajón de Benítez,river,Tatara-San Pedro,TSP,1
+Arroyo Cajón de la Burra,river,Laguna del Maule,LDM,1
+Arroyo Cajón de la Burra,river,Tatara-San Pedro,TSP,1
+Arroyo Cajón de los Bueyes,river,Antuco,ANT,1
+Arroyo Cajón de los Bueyes,river,Callaqui,CAL,1
+Arroyo Cajón de los Bueyes,river,Copahue,CPA,1
+Arroyo Calfiquiera,river,Lanin,LAN,2
+Arroyo Calfiquiera,river,QuetrupillÃ¡n,QUE,2
+Arroyo Calfiquiera,river,Sollipulli,SOL,2
+Arroyo Callvuco,stream,Tronador,TRO,2
+Arroyo Calquinco,river,Antillanca-Casablanca,ACA,1
+Arroyo Calquinco,river,Puntiagudo,PUN,1
+Arroyo Calquinco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Calquinco,river,Tronador,TRO,1
+Arroyo Caquituco,river,Lanin,LAN,1
+Arroyo Caquituco,river,Mocho-Choshuenco,MCH,1
+Arroyo Caquituco,river,QuetrupillÃ¡n,QUE,1
+Arroyo Caquituco,river,Villarrica,VIL,1
+Arroyo Cargadero,stream,Sollipulli,SOL,3
+Arroyo Carilafquen,stream,Lanin,LAN,2
+Arroyo Carilafquen,stream,Mocho-Choshuenco,MCH,2
+Arroyo Carilafquen,stream,QuetrupillÃ¡n,QUE,2
+Arroyo Carilafquen,stream,Villarrica,VIL,2
+Arroyo Carlil,river,Sollipulli,SOL,1
+Arroyo Casa de Piedra,stream,Tronador,TRO,2
+Arroyo Casalata,stream,Tronador,TRO,3
+Arroyo Castaño Overa,river,Tronador,TRO,2
+Arroyo Catrinao,river,Nevado de Longavi,NLO,1
+Arroyo Cauquenes,stream,Puntiagudo,PUN,1
+Arroyo Cauquenes,stream,Tronador,TRO,1
+Arroyo Cañadón de los Aserraderos,stream,Lanin,LAN,3
+Arroyo Cañadón de los Aserraderos,stream,QuetrupillÃ¡n,QUE,3
+Arroyo Chacaico,river,Laguna del Maule,LDM,4
+Arroyo Chachín,river,CarrÃ¡n-Los Venados,CLV,2
+Arroyo Chachín,river,Mocho-Choshuenco,MCH,2
+Arroyo Chachín,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Chaquiras,stream,Nevados de Chillan,NCH,1
+Arroyo Charcú,river,Antuco,ANT,1
+Arroyo Charcú,river,Copahue,CPA,1
+Arroyo Chayuco,stream,Tronador,TRO,1
+Arroyo Chañas,river,Laguna del Maule,LDM,2
+Arroyo Chañas,river,Nevado de Longavi,NLO,2
+Arroyo Chañas,river,Tatara-San Pedro,TSP,2
+Arroyo Chañy,river,Sollipulli,SOL,3
+Arroyo Chico,river,Copahue,CPA,1
+Arroyo China Muerta,river,Sollipulli,SOL,3
+Arroyo Chiquilihuín,stream,Lanin,LAN,17
+Arroyo Churio,river,Tronador,TRO,2
+Arroyo Ciruelillo,stream,Melimoyu,MEL,1
+Arroyo Claco,stream,CarrÃ¡n-Los Venados,CLV,3
+Arroyo Claco,stream,Puyehue-CordÃ³n Caulle,PCC,3
+Arroyo Clou Clouco,river,Antillanca-Casablanca,ACA,1
+Arroyo Clou Clouco,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Clou Clouco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Colgado,stream,Lanin,LAN,1
+Arroyo Coli Mallín,stream,Laguna del Maule,LDM,1
+Arroyo Colimamel,river,Laguna del Maule,LDM,1
+Arroyo Collun-Có,river,Lanin,LAN,2
+Arroyo Coloco,river,QuetrupillÃ¡n,QUE,1
+Arroyo Coloco,river,Sollipulli,SOL,2
+Arroyo Colorado,river,Antillanca-Casablanca,ACA,1
+Arroyo Colorado,stream,Lanin,LAN,3
+Arroyo Colorado,river,Nevado de Longavi,NLO,3
+Arroyo Colorado,river,Nevados de Chillan,NCH,3
+Arroyo Colorado,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Colorado,river,Tronador,TRO,2
+Arroyo Colquis,stream,Lanin,LAN,1
+Arroyo Colquis,stream,Mocho-Choshuenco,MCH,1
+Arroyo Colquis,stream,QuetrupillÃ¡n,QUE,1
+Arroyo Colquis,stream,Villarrica,VIL,1
+Arroyo Colt,stream,Antillanca-Casablanca,ACA,2
+Arroyo Colt,stream,Puntiagudo,PUN,1
+Arroyo Colt,stream,Puyehue-CordÃ³n Caulle,PCC,2
+Arroyo Colt,stream,Tronador,TRO,2
+Arroyo Coluco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Coluco,river,Tronador,TRO,1
+Arroyo Colí Colico,stream,Antillanca-Casablanca,ACA,2
+Arroyo Colí Colico,stream,Puntiagudo,PUN,2
+Arroyo Colí Colico,stream,Tronador,TRO,2
+Arroyo Commonpulli,river,Lanin,LAN,1
+Arroyo Commonpulli,river,Mocho-Choshuenco,MCH,1
+Arroyo Commonpulli,river,QuetrupillÃ¡n,QUE,1
+Arroyo Commonpulli,river,Villarrica,VIL,1
+Arroyo Comodón,river,CarrÃ¡n-Los Venados,CLV,4
+Arroyo Conmeco,stream,Sollipulli,SOL,4
+Arroyo Copulhue,river,Antuco,ANT,1
+Arroyo Copulhue,river,Callaqui,CAL,1
+Arroyo Copulhue,river,Copahue,CPA,1
+Arroyo Correntoso,stream,Lanin,LAN,5
+Arroyo Correntoso,stream,QuetrupillÃ¡n,QUE,4
+Arroyo Corruco,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Cucúm o Coipocahué,stream,Sollipulli,SOL,5
+Arroyo Cuerno,river,Antillanca-Casablanca,ACA,1
+Arroyo Cuerno,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Cuerno,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Curamileu,river,Nevados de Chillan,NCH,2
+Arroyo Curamilio,river,Laguna del Maule,LDM,4
+Arroyo Curamilio,river,Tatara-San Pedro,TSP,4
+Arroyo Curicó,river,Lanin,LAN,1
+Arroyo De La Estacada,river,Tronador,TRO,3
+Arroyo Del Medio,river,Tronador,TRO,1
+Arroyo Del Salto,river,CarrÃ¡n-Los Venados,CLV,3
+Arroyo Del Salto,river,Mocho-Choshuenco,MCH,2
+Arroyo Del Salto,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Desecho,stream,Antuco,ANT,1
+Arroyo Desecho,stream,Copahue,CPA,1
+Arroyo Dulce,stream,Callaqui,CAL,3
+Arroyo Dulce,stream,Copahue,CPA,3
+Arroyo Ecufué,stream,Lanin,LAN,1
+Arroyo Ecufué,stream,QuetrupillÃ¡n,QUE,1
+Arroyo Ecufué,stream,Villarrica,VIL,1
+Arroyo El Corral,stream,Sollipulli,SOL,3
+Arroyo El Desecho,stream,Planchon-Peteroa,PLP,1
+Arroyo El Desecho,stream,Tinguiririca,TIN,2
+Arroyo El Gorro,river,San Jose,SJO,1
+Arroyo El Montañes,river,Descabezado Grande,DGR,1
+Arroyo El Montañes,river,Planchon-Peteroa,PLP,1
+Arroyo El Muelle,stream,Melimoyu,MEL,2
+Arroyo El Pino,river,Copahue,CPA,1
+Arroyo El Saco,stream,Llaima,LLA,1
+Arroyo El Saco,stream,Sollipulli,SOL,1
+Arroyo El Seguro,river,Descabezado Grande,DGR,1
+Arroyo El Seguro,river,Planchon-Peteroa,PLP,1
+Arroyo El Yeso,river,Planchon-Peteroa,PLP,1
+Arroyo Escalera,stream,Tronador,TRO,1
+Arroyo Este del Cerro Alto,stream,Lanin,LAN,1
+Arroyo Expedicionario,river,Tronador,TRO,1
+Arroyo Feo,river,Copahue,CPA,2
+Arroyo Fray Carlos,river,Planchon-Peteroa,PLP,3
+Arroyo Fray Carlos,river,Tinguiririca,TIN,3
+Arroyo Fresco,river,Tronador,TRO,2
+Arroyo Fresco 1ro,stream,Tronador,TRO,1
+Arroyo Fresco 2do,stream,Tronador,TRO,1
+Arroyo Gallardo,river,Antillanca-Casablanca,ACA,1
+Arroyo Gallardo,river,Puntiagudo,PUN,1
+Arroyo Gallardo,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Gallardo,river,Tronador,TRO,1
+Arroyo Gliunco Hue,river,Antillanca-Casablanca,ACA,1
+Arroyo Gliunco Hue,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Gliunco Hue,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Goye,stream,Tronador,TRO,2
+Arroyo Grande,river,Tupungatito,TUP,1
+Arroyo Grande del Portillo,stream,San Jose,SJO,1
+Arroyo Grande del Portillo,stream,Tupungatito,TUP,2
+Arroyo Guanaco,river,Laguna del Maule,LDM,1
+Arroyo Guanaco,river,Tatara-San Pedro,TSP,1
+Arroyo Guanaco,stream,Tronador,TRO,5
+Arroyo Guillelmo,river,Tronador,TRO,3
+Arroyo Gómez,stream,Lanin,LAN,1
+Arroyo Hondo,river,Laguna del Maule,LDM,2
+Arroyo Hondo,river,Nevado de Longavi,NLO,1
+Arroyo Hondo,river,Tatara-San Pedro,TSP,2
+Arroyo Huaca Mamuil,stream,Lanin,LAN,41
+Arroyo Huaca Mamuil,stream,QuetrupillÃ¡n,QUE,41
+Arroyo Hualcupén,stream,Callaqui,CAL,2
+Arroyo Hualcupén,stream,Copahue,CPA,2
+Arroyo Huamanco,stream,Tronador,TRO,1
+Arroyo Huangui,stream,Lanin,LAN,10
+Arroyo Huanuco,river,Copahue,CPA,1
+Arroyo Hueyelthué,river,Lanin,LAN,4
+Arroyo Hueyelthué,river,QuetrupillÃ¡n,QUE,4
+Arroyo Hui Hui,river,Lanin,LAN,4
+Arroyo Hui Hui,river,QuetrupillÃ¡n,QUE,4
+Arroyo Hui Hui,river,Sollipulli,SOL,4
+Arroyo Jara,stream,Callaqui,CAL,1
+Arroyo Jara,stream,Copahue,CPA,1
+Arroyo Juan Esteban,stream,Antuco,ANT,2
+Arroyo La Cantera,stream,CarrÃ¡n-Los Venados,CLV,1
+Arroyo La Cantera,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo La Cascada,stream,Tronador,TRO,7
+Arroyo La Crianza,river,Laguna del Maule,LDM,1
+Arroyo La Crianza,river,Tatara-San Pedro,TSP,1
+Arroyo La Fortuna,stream,CarrÃ¡n-Los Venados,CLV,2
+Arroyo La Fortuna,stream,Mocho-Choshuenco,MCH,2
+Arroyo La Ofelia,stream,Lanin,LAN,1
+Arroyo La Parva,river,Laguna del Maule,LDM,4
+Arroyo La Parva,river,Tatara-San Pedro,TSP,4
+Arroyo La Romaza,river,Antuco,ANT,1
+Arroyo Laguna Zancudo,stream,Melimoyu,MEL,1
+Arroyo Lamedero,stream,Laguna del Maule,LDM,1
+Arroyo Lamedero,stream,Nevado de Longavi,NLO,1
+Arroyo Lamedero,stream,Tatara-San Pedro,TSP,1
+Arroyo Las Barrancas,river,HornopirÃ©n,HOR,1
+Arroyo Las Lecheras,river,Callaqui,CAL,1
+Arroyo Las Lecheras,river,Copahue,CPA,1
+Arroyo Las Leñas,stream,Tinguiririca,TIN,7
+Arroyo Las Piedritas,stream,Tronador,TRO,7
+Arroyo Las Salimas,river,Laguna del Maule,LDM,1
+Arroyo Las Ánimas,river,Llaima,LLA,3
+Arroyo Las Ánimas,river,Sollipulli,SOL,3
+Arroyo Lengantu,stream,Sollipulli,SOL,3
+Arroyo Leña Malal,stream,Antuco,ANT,2
+Arroyo Leña Malal,stream,Nevados de Chillan,NCH,1
+Arroyo Linco,stream,Tronador,TRO,1
+Arroyo Liu-Cullín,stream,Sollipulli,SOL,7
+Arroyo Livco,river,Tronador,TRO,1
+Arroyo Liveo,river,Tronador,TRO,2
+Arroyo Llamue,stream,Lanin,LAN,17
+Arroyo Lluvuco,stream,Tronador,TRO,1
+Arroyo Lonco Loán,stream,Lanin,LAN,9
+Arroyo Loro,stream,Melimoyu,MEL,1
+Arroyo Los Angeles,river,Descabezado Grande,DGR,1
+Arroyo Los Angeles,river,Laguna del Maule,LDM,1
+Arroyo Los Barros,river,Callaqui,CAL,1
+Arroyo Los Barros,river,Copahue,CPA,2
+Arroyo Los Baños,stream,Laguna del Maule,LDM,1
+Arroyo Los Baños,stream,Nevado de Longavi,NLO,1
+Arroyo Los Baños,stream,Tatara-San Pedro,TSP,1
+Arroyo Los Chenques,river,Laguna del Maule,LDM,1
+Arroyo Los Chenques,river,Nevado de Longavi,NLO,1
+Arroyo Los Chenques,river,Tatara-San Pedro,TSP,1
+Arroyo Los Curas,stream,Melimoyu,MEL,1
+Arroyo Los Césares,stream,Tronador,TRO,1
+Arroyo Los Enamorados,stream,Calbuco,CLB,1
+Arroyo Los Enamorados,stream,Osorno,OSO,1
+Arroyo Los Enamorados,stream,Puntiagudo,PUN,1
+Arroyo Los Hoyos,stream,Nevado de Longavi,NLO,2
+Arroyo Los Hoyos,stream,Nevados de Chillan,NCH,2
+Arroyo Los Maitenes,stream,Nevado de Longavi,NLO,4
+Arroyo Los Maitenes,stream,Nevados de Chillan,NCH,4
+Arroyo Los Manzanos,stream,Tronador,TRO,2
+Arroyo Los Molinos,river,Nevado de Longavi,NLO,1
+Arroyo Los Molinos,river,Nevados de Chillan,NCH,1
+Arroyo Los Nevados,river,Laguna del Maule,LDM,1
+Arroyo Los Nevados,river,Tatara-San Pedro,TSP,1
+Arroyo Los Pajaritos,river,Nevados de Chillan,NCH,1
+Arroyo Los Palcos,stream,Antuco,ANT,1
+Arroyo Los Patos,stream,Antuco,ANT,1
+Arroyo Los Patos,stream,Nevados de Chillan,NCH,1
+Arroyo Los Picudos,stream,Descabezado Grande,DGR,1
+Arroyo Los Picudos,stream,Planchon-Peteroa,PLP,1
+Arroyo Los Picudos,stream,Tatara-San Pedro,TSP,1
+Arroyo Los Pinos,river,Antuco,ANT,2
+Arroyo Los Pinos,river,Callaqui,CAL,2
+Arroyo Los Pinos,river,Copahue,CPA,2
+Arroyo Los Rucos,stream,Antuco,ANT,1
+Arroyo Los Rucos,stream,Nevados de Chillan,NCH,1
+Arroyo Los Troncos,river,Planchon-Peteroa,PLP,1
+Arroyo Los Ñires,river,Copahue,CPA,1
+Arroyo Lumabia,river,Nevados de Chillan,NCH,1
+Arroyo López,stream,Tronador,TRO,2
+Arroyo Machico,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Maiaico,river,Lanin,LAN,4
+Arroyo Maiaico,river,QuetrupillÃ¡n,QUE,4
+Arroyo Maiaico,river,Sollipulli,SOL,4
+Arroyo Malal,river,Antuco,ANT,1
+Arroyo Malal,river,Callaqui,CAL,1
+Arroyo Malal,river,Copahue,CPA,1
+Arroyo Malalco,river,Lanin,LAN,1
+Arroyo Malalco,river,Sollipulli,SOL,1
+Arroyo Malo,stream,Tinguiririca,TIN,1
+Arroyo Mamuil Malal,stream,Lanin,LAN,158
+Arroyo Mamuil Malal,stream,QuetrupillÃ¡n,QUE,144
+Arroyo Manzano Quemado,stream,Copahue,CPA,3
+Arroyo Mapio,river,Sollipulli,SOL,1
+Arroyo Maravillas,stream,Nevado de Longavi,NLO,2
+Arroyo Maravillas,stream,Nevados de Chillan,NCH,2
+Arroyo Mencué,stream,Sollipulli,SOL,3
+Arroyo Metrenco,stream,Lanin,LAN,1
+Arroyo Metrenco,stream,QuetrupillÃ¡n,QUE,1
+Arroyo Milla Licen,stream,Lanin,LAN,2
+Arroyo Milla Licen,stream,QuetrupillÃ¡n,QUE,2
+Arroyo Milla Licen,stream,Villarrica,VIL,2
+Arroyo Millaqueo,river,Tronador,TRO,1
+Arroyo Moca,stream,Llaima,LLA,1
+Arroyo Moca,stream,Sollipulli,SOL,1
+Arroyo Monioso,river,Lanin,LAN,1
+Arroyo Montañesito,river,Descabezado Grande,DGR,1
+Arroyo Montañesito,river,Planchon-Peteroa,PLP,1
+Arroyo Nalea,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Nalea,river,Lanin,LAN,2
+Arroyo Nalea,river,Mocho-Choshuenco,MCH,2
+Arroyo Negro,river,San Jose,SJO,1
+Arroyo Negro,river,Tupungatito,TUP,1
+Arroyo Neuquenco,stream,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Neuquenco,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Nivinco,river,CarrÃ¡n-Los Venados,CLV,2
+Arroyo Nivinco,river,Puyehue-CordÃ³n Caulle,PCC,2
+Arroyo Nompehuen,river,Sollipulli,SOL,1
+Arroyo Nontthué,stream,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Nontthué,stream,Mocho-Choshuenco,MCH,1
+Arroyo Norte del Cerro Alto,stream,Lanin,LAN,1
+Arroyo Numerados,stream,San Jose,SJO,1
+Arroyo Oeste del Cerro Alto,stream,Lanin,LAN,1
+Arroyo Olmos,stream,San Jose,SJO,1
+Arroyo Olmos,stream,Tupungatito,TUP,1
+Arroyo Paiva,stream,Laguna del Maule,LDM,2
+Arroyo Paiva,stream,Nevado de Longavi,NLO,2
+Arroyo Paiva,stream,Tatara-San Pedro,TSP,2
+Arroyo Pancu Lehué,river,Laguna del Maule,LDM,1
+Arroyo Pancu Lehué,river,Tatara-San Pedro,TSP,1
+Arroyo Pantanoso,stream,Tronador,TRO,1
+Arroyo Patiruco,river,Antillanca-Casablanca,ACA,1
+Arroyo Patiruco,river,Tronador,TRO,1
+Arroyo Pehuenche,river,Laguna del Maule,LDM,7
+Arroyo Pehuenche,river,Nevado de Longavi,NLO,2
+Arroyo Pehuenche,river,Tatara-San Pedro,TSP,7
+Arroyo Pez,stream,Melimoyu,MEL,3
+Arroyo Pichachén,river,Antuco,ANT,1
+Arroyo Pichachén,river,Copahue,CPA,1
+Arroyo Pichi Curruhué,river,Lanin,LAN,1
+Arroyo Pichi Curruhué,river,QuetrupillÃ¡n,QUE,1
+Arroyo Pichi Hua-Hum o Fortín,river,CarrÃ¡n-Los Venados,CLV,4
+Arroyo Pichi Hua-Hum o Fortín,river,Lanin,LAN,2
+Arroyo Pichi Hua-Hum o Fortín,river,Mocho-Choshuenco,MCH,4
+Arroyo Pichi Quinquin,river,Lanin,LAN,1
+Arroyo Pichi Quinquin,river,QuetrupillÃ¡n,QUE,1
+Arroyo Pichi Quinquin,river,Sollipulli,SOL,1
+Arroyo Pichincó,stream,Copahue,CPA,1
+Arroyo Pichí Moncol,river,Antuco,ANT,1
+Arroyo Piedra Grande,river,Antuco,ANT,1
+Arroyo Piedra Grande,river,Copahue,CPA,1
+Arroyo Pilhué,river,Sollipulli,SOL,2
+Arroyo Pilpilco,stream,Sollipulli,SOL,3
+Arroyo Pilunchaya,river,Antuco,ANT,1
+Arroyo Pilunchaya,river,Callaqui,CAL,1
+Arroyo Pilunchaya,river,Copahue,CPA,1
+Arroyo Pincheira,river,Nevados de Chillan,NCH,3
+Arroyo Pircas,river,Tupungatito,TUP,7
+Arroyo Piuquenes,river,Antuco,ANT,1
+Arroyo Piuquenes,river,Nevado de Longavi,NLO,1
+Arroyo Piuquenes,river,Nevados de Chillan,NCH,1
+Arroyo Piuquetue,stream,Sollipulli,SOL,5
+Arroyo Poi Pucón,stream,Sollipulli,SOL,1
+Arroyo Poitavoco,river,Antillanca-Casablanca,ACA,1
+Arroyo Poitavoco,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Poitavoco,river,Puntiagudo,PUN,1
+Arroyo Poitavoco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Pucará,river,CarrÃ¡n-Los Venados,CLV,5
+Arroyo Pucará,river,Mocho-Choshuenco,MCH,5
+Arroyo Puente de Tierra,river,Laguna del Maule,LDM,3
+Arroyo Puente de Tierra,river,Tatara-San Pedro,TSP,3
+Arroyo Punilla,river,Descabezado Grande,DGR,1
+Arroyo Punilla,river,Planchon-Peteroa,PLP,1
+Arroyo Punilla,river,Tinguiririca,TIN,1
+Arroyo Purumeco,stream,Sollipulli,SOL,3
+Arroyo Quebrada Honda,river,Nevados de Chillan,NCH,2
+Arroyo Quebrada La Greda,river,Nevado de Longavi,NLO,1
+Arroyo Quechuquina,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Quechuquina,river,Mocho-Choshuenco,MCH,1
+Arroyo Quemado,stream,Tronador,TRO,1
+Arroyo Quetrucó,river,Copahue,CPA,1
+Arroyo Queñi,river,CarrÃ¡n-Los Venados,CLV,4
+Arroyo Queñi,river,Mocho-Choshuenco,MCH,4
+Arroyo Quilinahué,stream,Sollipulli,SOL,1
+Arroyo Quiñilhue,stream,Mocho-Choshuenco,MCH,3
+Arroyo Rancha Larga,stream,Melimoyu,MEL,1
+Arroyo Ranquilcó,river,Copahue,CPA,1
+Arroyo Raquiduanco,river,Antillanca-Casablanca,ACA,1
+Arroyo Raquiduanco,river,Tronador,TRO,1
+Arroyo Raquithué,stream,Lanin,LAN,2
+Arroyo Raquithué,stream,QuetrupillÃ¡n,QUE,2
+Arroyo Raíces,stream,Nevados de Chillan,NCH,4
+Arroyo Rañinco,river,Antillanca-Casablanca,ACA,1
+Arroyo Rañinco,river,CarrÃ¡n-Los Venados,CLV,1
+Arroyo Rañinco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Arroyo Relem,stream,Sollipulli,SOL,2
+Arroyo Remecó,river,Llaima,LLA,1
+Arroyo Remecó,river,Sollipulli,SOL,2
+Arroyo Rezago,river,Nevado de Longavi,NLO,1
+Arroyo Rimeco,stream,Lanin,LAN,1
+Arroyo Rimeco,stream,Mocho-Choshuenco,MCH,1
+Arroyo Rimeco,stream,QuetrupillÃ¡n,QUE,1
+Arroyo Rimeco,stream,Villarrica,VIL,1
+Arroyo Romero,stream,Sollipulli,SOL,3
+Arroyo Ruca-Ñire,stream,Mocho-Choshuenco,MCH,1
+Arroyo Rucu Leufú,river,Lanin,LAN,1
+Arroyo Rucu Leufú,river,QuetrupillÃ¡n,QUE,1
+Arroyo Rucu Leufú,river,Villarrica,VIL,1
+Arroyo Salto Grande,river,Lanin,LAN,1
+Arroyo Salto Grande,river,Mocho-Choshuenco,MCH,1
+Arroyo Salto Grande,river,QuetrupillÃ¡n,QUE,1
+Arroyo Salto Grande,river,Villarrica,VIL,1
+Arroyo San Francisco,river,Descabezado Grande,DGR,6
+Arroyo San Francisco,river,Laguna del Maule,LDM,6
+Arroyo San Francisco,stream,Planchon-Peteroa,PLP,2
+Arroyo San Francisco,river,Tatara-San Pedro,TSP,5
+Arroyo San Germán,river,Lanin,LAN,1
+Arroyo San Germán,river,QuetrupillÃ¡n,QUE,1
+Arroyo San Sebastián,river,Hudson,HUD,1
+Arroyo Santa Elena,stream,Planchon-Peteroa,PLP,2
+Arroyo Santa Elena,stream,Tinguiririca,TIN,2
+Arroyo Santana,stream,Melimoyu,MEL,1
+Arroyo Seco,stream,Melimoyu,MEL,1
+Arroyo Seco,stream,Tronador,TRO,1
+Arroyo Sin Destino,river,Antuco,ANT,2
+Arroyo Sin Destino,river,Copahue,CPA,2
+Arroyo Sin Nombre,stream,Hudson,HUD,2
+Arroyo Socuchó,river,Copahue,CPA,1
+Arroyo Sur del Cerro Alto,stream,Lanin,LAN,1
+Arroyo Tauss,stream,Lanin,LAN,3
+Arroyo Tauss,stream,QuetrupillÃ¡n,QUE,3
+Arroyo Tigre,river,Michinmahuida,MIC,1
+Arroyo Torrentoso,river,Antuco,ANT,1
+Arroyo Torrentoso,river,Copahue,CPA,1
+Arroyo Torrontegui,stream,Tronador,TRO,1
+Arroyo Tracalén,river,Copahue,CPA,1
+Arroyo Tres Picos o Teta Mojada,stream,Lanin,LAN,14
+Arroyo Trobuncó,river,Antuco,ANT,1
+Arroyo Trole Trole,stream,Sollipulli,SOL,1
+Arroyo Trolope,river,Antuco,ANT,1
+Arroyo Trolope,river,Callaqui,CAL,1
+Arroyo Trolope,river,Copahue,CPA,2
+Arroyo Trolón,river,Copahue,CPA,1
+Arroyo Trovunco,stream,Laguna del Maule,LDM,1
+Arroyo Tuqueco,stream,Tronador,TRO,1
+Arroyo Turbio,stream,Lanin,LAN,3
+Arroyo Turbio,stream,QuetrupillÃ¡n,QUE,3
+Arroyo Tábanos,river,Antuco,ANT,1
+Arroyo Uhueco,stream,Tronador,TRO,1
+Arroyo Vaca Lauquen,river,Nevados de Chillan,NCH,1
+Arroyo Valle Alegre,stream,Nevado de Longavi,NLO,2
+Arroyo Valle Alegre,stream,Nevados de Chillan,NCH,2
+Arroyo Van Titter,stream,Tronador,TRO,1
+Arroyo Varvarco,river,Laguna del Maule,LDM,1
+Arroyo Varvarco,river,Tatara-San Pedro,TSP,1
+Arroyo Veco (Caritaya),river,Isluga,ISL,1
+Arroyo Verde,stream,Llaima,LLA,2
+Arroyo Verde,stream,Sollipulli,SOL,2
+Arroyo Verde o Carico,stream,Llaima,LLA,1
+Arroyo Verde o Carico,stream,Sollipulli,SOL,1
+Arroyo Vinagre,river,Tronador,TRO,1
+Arroyo Yocondo,river,Tronador,TRO,3
+Arroyo Yumu Yumu,river,Copahue,CPA,2
+Arroyo de Abajo,river,Copahue,CPA,1
+Arroyo de Bagres,river,Nevado de Longavi,NLO,8
+Arroyo de Bagres,river,Tatara-San Pedro,TSP,6
+Arroyo de Brait,stream,Tronador,TRO,1
+Arroyo de La Carga,river,Planchon-Peteroa,PLP,2
+Arroyo de La Carga,river,Tinguiririca,TIN,2
+Arroyo de Méndez,stream,Nevado de Longavi,NLO,1
+Arroyo de Palitué,stream,Lanin,LAN,1
+Arroyo de Pellejo,stream,Planchon-Peteroa,PLP,2
+Arroyo de Pellejo,stream,Tinguiririca,TIN,2
+Arroyo de Toro,stream,Laguna del Maule,LDM,3
+Arroyo de Toro,stream,Nevado de Longavi,NLO,3
+Arroyo de Toro,stream,Tatara-San Pedro,TSP,3
+Arroyo de Valdés,stream,Laguna del Maule,LDM,2
+Arroyo de Valdés,stream,Nevado de Longavi,NLO,2
+Arroyo de Valdés,stream,Tatara-San Pedro,TSP,2
+Arroyo de Vergara,stream,Descabezado Grande,DGR,1
+Arroyo de Vergara,stream,Planchon-Peteroa,PLP,6
+Arroyo de Vergara,stream,Tinguiririca,TIN,6
+Arroyo de la Cascada o Rucacó,stream,Tronador,TRO,1
+Arroyo de la Cebada,stream,Sollipulli,SOL,1
+Arroyo de la Laguna,river,Antuco,ANT,1
+Arroyo de la Laguna,river,Copahue,CPA,1
+Arroyo de la Magdalena,river,Lanin,LAN,1
+Arroyo de la Magdalena,river,QuetrupillÃ¡n,QUE,1
+Arroyo de la Menta,stream,Tronador,TRO,1
+Arroyo de la Piedra de la Vírgen,stream,Lanin,LAN,6
+Arroyo de la Usina,stream,Callaqui,CAL,1
+Arroyo de la Usina,stream,Copahue,CPA,1
+Arroyo de la Virgen,stream,Tronador,TRO,3
+Arroyo de las Tierras Coloradas,stream,Lanin,LAN,1
+Arroyo de las Tierras Coloradas,stream,QuetrupillÃ¡n,QUE,1
+Arroyo de las Tres Lagunitas,stream,Lanin,LAN,5
+Arroyo de las Yeguas,river,Copahue,CPA,1
+Arroyo de los Baños,stream,Antuco,ANT,2
+Arroyo de los Baños,stream,Callaqui,CAL,3
+Arroyo de los Baños,stream,Copahue,CPA,3
+Arroyo de los Baños,river,Descabezado Grande,DGR,3
+Arroyo de los Baños,river,Planchon-Peteroa,PLP,3
+Arroyo de los Burros,river,Copahue,CPA,1
+Arroyo de los Chenques,stream,Lanin,LAN,12
+Arroyo de los Humos,stream,Planchon-Peteroa,PLP,1
+Arroyo de los Humos,stream,Tinguiririca,TIN,1
+Arroyo de los Paramillos,stream,San Jose,SJO,1
+Arroyo de los Pinos,river,Lanin,LAN,1
+Arroyo de los Pinos,river,QuetrupillÃ¡n,QUE,1
+Arroyo de los Pozos,stream,Lanin,LAN,1
+Arroyo de los Ranchos,stream,Sollipulli,SOL,1
+Arroyo de los Raulies,stream,Lanin,LAN,1
+Arroyo de los Raulies,stream,QuetrupillÃ¡n,QUE,1
+Arroyo de los Tábanos,river,Copahue,CPA,2
+Arroyo del Abra Quillehue,stream,Lanin,LAN,3
+Arroyo del Abra Quillehue,stream,QuetrupillÃ¡n,QUE,3
+Arroyo del Abra Quillehue,stream,Villarrica,VIL,3
+Arroyo del Abra Tromen I,stream,Lanin,LAN,2
+Arroyo del Abra Tromen I,stream,QuetrupillÃ¡n,QUE,2
+Arroyo del Abra Tromen II,stream,Lanin,LAN,2
+Arroyo del Abra Tromen II,stream,QuetrupillÃ¡n,QUE,2
+Arroyo del Abra Tromen II,stream,Villarrica,VIL,2
+Arroyo del Arco,stream,Sollipulli,SOL,1
+Arroyo del Boquete,river,Lanin,LAN,3
+Arroyo del Boquete,river,Mocho-Choshuenco,MCH,3
+Arroyo del Burro,river,Planchon-Peteroa,PLP,1
+Arroyo del Burro,river,Tinguiririca,TIN,1
+Arroyo del Cacique,stream,Copahue,CPA,4
+Arroyo del Cajón Bayo,stream,Laguna del Maule,LDM,1
+Arroyo del Cajón Bayo,stream,Tatara-San Pedro,TSP,1
+Arroyo del Camping,stream,Callaqui,CAL,3
+Arroyo del Camping,stream,Copahue,CPA,3
+Arroyo del Cañadón Chico,stream,Lanin,LAN,3
+Arroyo del Cañadón Chico,stream,QuetrupillÃ¡n,QUE,3
+Arroyo del Cañadón Grande,stream,Lanin,LAN,1
+Arroyo del Cañadón Grande,stream,QuetrupillÃ¡n,QUE,1
+Arroyo del Cañadón de las Yeguadas,stream,Lanin,LAN,4
+Arroyo del Cañadón de las Yeguadas,stream,QuetrupillÃ¡n,QUE,4
+Arroyo del Coironal,stream,Antuco,ANT,1
+Arroyo del Coironal,stream,Copahue,CPA,1
+Arroyo del Cura,river,Descabezado Grande,DGR,1
+Arroyo del Cura,river,Planchon-Peteroa,PLP,1
+Arroyo del Cura,river,Tinguiririca,TIN,1
+Arroyo del Escorial,stream,Lanin,LAN,1
+Arroyo del Escorial,stream,QuetrupillÃ¡n,QUE,1
+Arroyo del Guanaco,river,Planchon-Peteroa,PLP,1
+Arroyo del Guanaco,river,Tinguiririca,TIN,1
+Arroyo del Guindo,stream,San Jose,SJO,1
+Arroyo del Guindo,stream,Tupungatito,TUP,1
+Arroyo del León,river,Lanin,LAN,5
+Arroyo del León,river,Mocho-Choshuenco,MCH,2
+Arroyo del León,river,QuetrupillÃ¡n,QUE,1
+Arroyo del Macho,stream,Laguna del Maule,LDM,1
+Arroyo del Macho,stream,Nevado de Longavi,NLO,1
+Arroyo del Macho,stream,Tatara-San Pedro,TSP,1
+Arroyo del Mallín de López,stream,Lanin,LAN,1
+Arroyo del Perdido,river,Planchon-Peteroa,PLP,2
+Arroyo del Perdido,river,Tinguiririca,TIN,2
+Arroyo del Portezuelo,stream,Callaqui,CAL,4
+Arroyo del Portezuelo,stream,Copahue,CPA,4
+Arroyo del Salto,stream,Lanin,LAN,5
+Arroyo del Salto,stream,QuetrupillÃ¡n,QUE,3
+Arroyo del Salto,stream,Villarrica,VIL,3
+Arroyo del Tiburcio,river,Descabezado Grande,DGR,1
+Arroyo del Tiburcio,river,Planchon-Peteroa,PLP,2
+Arroyo del Tiburcio,river,Tinguiririca,TIN,2
+Arroyo la Nasa,river,Nevados de Chillan,NCH,1
+Arroyo Ñireco,river,Copahue,CPA,1
+Arroyo Ñirecó,stream,Antuco,ANT,1
+Bravo,stream,Michinmahuida,MIC,1
+Caida Paso Nevado,canal,Descabezado Grande,DGR,1
+Caida Paso Nevado,canal,Tatara-San Pedro,TSP,1
+Cajón de Chenque Pehuén,river,Copahue,CPA,1
+Cajón de las Cerradas,stream,Lanin,LAN,2
+Cajón de las Cerradas,stream,QuetrupillÃ¡n,QUE,2
+Cajón de los Caballos,stream,Nevados de Chillan,NCH,2
+Cajón del A. Grande,stream,Lanin,LAN,1
+Cajón del A. Grande,stream,QuetrupillÃ¡n,QUE,1
+Canal Abé,canal,Melimoyu,MEL,1
+Canal Burro Muerto,stream,Lascar,LAS,1
+Canal El Melado,canal,Descabezado Grande,DGR,27
+Canal El Melado,canal,Laguna del Maule,LDM,25
+Canal El Melado,canal,Nevado de Longavi,NLO,27
+Canal El Melado,canal,Tatara-San Pedro,TSP,27
+Canal Garrao,canal,Melimoyu,MEL,1
+Canal La Mina,canal,Descabezado Grande,DGR,1
+Canal La Mina,canal,Laguna del Maule,LDM,1
+Canal La Mina,canal,Tatara-San Pedro,TSP,1
+Canal Lauca,canal,Guallatiri,GUA,14
+Canal Lauca,canal,Parinacota,PAR,14
+Canal Lauca,canal,Taapaca,TAA,14
+Canal Maule Norte Alto,canal,Descabezado Grande,DGR,22
+Canal Maule Norte Alto,canal,Tatara-San Pedro,TSP,12
+Canal Melado,canal,Descabezado Grande,DGR,1
+Canal Melado,canal,Nevado de Longavi,NLO,1
+Canal Melado,canal,Tatara-San Pedro,TSP,1
+Canal Restitución Central Hidroeléctrica Trueno,canal,Llaima,LLA,2
+Canal Roblería,canal,Nevado de Longavi,NLO,11
+Canal Roblería,canal,Tatara-San Pedro,TSP,7
+Canal Uchusuma,canal,Taapaca,TAA,10
+Canal VCL-2,stream,Llullaillaco,LLU,1
+Canal VCL-3,stream,Llullaillaco,LLU,1
+Canal Vilama,canal,Putana,PUT,6
+Canal Zañartu,canal,Antuco,ANT,2
+Canal aducción Central Hidroeléctrica Trueno,canal,Llaima,LLA,1
+Canal aducción Central Hidroeléctrica Trueno,canal,Lonquimay,LON,1
+Canal de Aducción Común,canal,Antuco,ANT,3
+Canal de Aducción Común Laja/Polcura,canal,Antuco,ANT,1
+Canal de Aducción Laja,canal,Antuco,ANT,10
+Canal de Aducción Pichipolcura,canal,Antuco,ANT,1
+Canal de Aducción Polcura,canal,Antuco,ANT,2
+Canal de Aducción Polcura,canal,Nevados de Chillan,NCH,2
+Canal de Descarga Central Hidroeléctrica Trueno,canal,Llaima,LLA,1
+Canal de aducción Central Abanico,canal,Antuco,ANT,3
+Canal de las Aguas Geotermales,canal,Putana,PUT,1
+Canal devolución La Mina,canal,Descabezado Grande,DGR,3
+Canal devolución La Mina,canal,Laguna del Maule,LDM,3
+Canal devolución La Mina,canal,Tatara-San Pedro,TSP,3
+Canelo,river,Michinmahuida,MIC,1
+Caroma,stream,Taapaca,TAA,1
+Cascada La Corbata,stream,Tronador,TRO,1
+Caunahue River,river,CarrÃ¡n-Los Venados,CLV,6
+Caunahue River,river,Mocho-Choshuenco,MCH,6
+Cazadero,river,Incahuasi,INC,1
+Cazadero,river,Nevado Tres Cruces,NTC,1
+Cazadero,river,Ojos del Salado,ODS,1
+Cazadero,river,San Francisco,SFR,1
+Cazadero,river,Tipas,TIP,1
+Cañada La Rejilla,stream,Antuco,ANT,1
+Cañada La Rejilla,stream,Callaqui,CAL,1
+Cañada La Rejilla,stream,Copahue,CPA,1
+Cañadón Grande,stream,Lanin,LAN,1
+Cañadón Grande,stream,QuetrupillÃ¡n,QUE,1
+Chai Chai,river,ChaitÃ©n,CHA,1
+Chai Chai,river,Corcovado,COR,1
+Chai Chai,river,Michinmahuida,MIC,1
+Chorro de la Vieja,stream,Planchon-Peteroa,PLP,1
+Chorro de la Vieja,stream,Tinguiririca,TIN,1
+Coihueco,river,Antillanca-Casablanca,ACA,1
+Coihueco,river,Osorno,OSO,1
+Coihueco,river,Puntiagudo,PUN,1
+Coihueco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Colpitas,stream,Parinacota,PAR,1
+Colpitas,stream,Taapaca,TAA,1
+De Paso Viejo,stream,Huequi,HUE,1
+De Paso Viejo,stream,Michinmahuida,MIC,3
+Decarga Ralco,canal,Callaqui,CAL,1
+Decarga Ralco,canal,Copahue,CPA,1
+Decarga Ralco,canal,Lonquimay,LON,1
+Desvio a Digua,canal,Nevado de Longavi,NLO,1
+EStero El Quemado,stream,Antuco,ANT,1
+EStero El Quemado,stream,Callaqui,CAL,1
+EStero El Quemado,stream,Copahue,CPA,1
+Edtero Chaichaiguen,stream,CarrÃ¡n-Los Venados,CLV,1
+Edtero Chaichaiguen,stream,Mocho-Choshuenco,MCH,1
+Elefante,stream,Osorno,OSO,1
+Elefante,stream,Tronador,TRO,1
+Elefante,stream,Yate,YAT,1
+Estero Aguas Blancas,stream,Mocho-Choshuenco,MCH,1
+Estero Aguirre,river,Descabezado Grande,DGR,1
+Estero Aguirre,river,Laguna del Maule,LDM,1
+Estero Aguirre,river,Tatara-San Pedro,TSP,1
+Estero Aihue,stream,Lanin,LAN,1
+Estero Aihue,stream,Mocho-Choshuenco,MCH,1
+Estero Aihue,stream,QuetrupillÃ¡n,QUE,1
+Estero Aihue,stream,Villarrica,VIL,1
+Estero Alalén,river,Villarrica,VIL,1
+Estero Amancay,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Amancay,stream,Mocho-Choshuenco,MCH,1
+Estero Andrade,stream,Nevado de Longavi,NLO,2
+Estero Antivero,river,Tinguiririca,TIN,1
+Estero Armerillo,stream,Descabezado Grande,DGR,5
+Estero Armerillo,stream,Tatara-San Pedro,TSP,5
+Estero Arrayán,stream,Calbuco,CLB,1
+Estero Arrayán,stream,Osorno,OSO,1
+Estero Arriaza,stream,Tinguiririca,TIN,1
+Estero Atravesado,stream,Antuco,ANT,1
+Estero Atravesado,stream,Nevados de Chillan,NCH,1
+Estero Aucayes,stream,San Jose,SJO,1
+Estero Aucayes,stream,Tupungatito,TUP,1
+Estero Avellano,stream,Calbuco,CLB,3
+Estero Avellano,river,Osorno,OSO,1
+Estero Azul Chico,river,Antuco,ANT,1
+Estero Azul Chico,river,Callaqui,CAL,1
+Estero Azul Chico,river,Copahue,CPA,1
+Estero Añihueraqui,stream,Lanin,LAN,1
+Estero Añihueraqui,stream,QuetrupillÃ¡n,QUE,1
+Estero Añihueraqui,stream,Villarrica,VIL,1
+Estero Balmaceda,stream,Tinguiririca,TIN,1
+Estero Barriga,stream,San Jose,SJO,1
+Estero Blanco,stream,Mocho-Choshuenco,MCH,2
+Estero Blanco,river,San Jose,SJO,2
+Estero Blanco,stream,Villarrica,VIL,2
+Estero Blanco Mallín,stream,Nevado de Longavi,NLO,4
+Estero Blanco Mallín,stream,Nevados de Chillan,NCH,4
+Estero Blandas Aguas,stream,San Jose,SJO,1
+Estero Blandas Aguas,stream,Tupungatito,TUP,1
+Estero Bobadilla,river,Descabezado Grande,DGR,1
+Estero Bobadilla,river,Laguna del Maule,LDM,1
+Estero Bobadilla,river,Tatara-San Pedro,TSP,1
+Estero Bolbarán,stream,Planchon-Peteroa,PLP,2
+Estero Bordón,stream,Tupungatito,TUP,1
+Estero Cabrera,stream,Descabezado Grande,DGR,1
+Estero Cabrera,stream,Planchon-Peteroa,PLP,1
+Estero Cajón de Acuña,stream,Nevados de Chillan,NCH,2
+Estero Cajón del Toro,stream,Nevados de Chillan,NCH,2
+Estero Caldera,stream,San Jose,SJO,1
+Estero Cancán,stream,Antuco,ANT,1
+Estero Cancán,stream,Callaqui,CAL,1
+Estero Cancán,stream,Copahue,CPA,1
+Estero Canoas del Diablo,stream,Callaqui,CAL,2
+Estero Canoas del Diablo,stream,Lonquimay,LON,2
+Estero Caracoles,stream,Llaima,LLA,2
+Estero Caracoles,stream,Lonquimay,LON,2
+Estero Caracoles,stream,Sollipulli,SOL,2
+Estero Casablanca,stream,Antillanca-Casablanca,ACA,1
+Estero Casablanca,stream,Nevados de Chillan,NCH,2
+Estero Casablanca,stream,Osorno,OSO,1
+Estero Casablanca,stream,Puntiagudo,PUN,1
+Estero Casablanca,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Casablanca,stream,Tronador,TRO,1
+Estero Castillo,stream,Laguna del Maule,LDM,2
+Estero Castillo,stream,Nevado de Longavi,NLO,4
+Estero Castillo,stream,Tatara-San Pedro,TSP,4
+Estero Catedral,stream,San Jose,SJO,1
+Estero Catrico,stream,Villarrica,VIL,1
+Estero Cayetano,stream,Planchon-Peteroa,PLP,2
+Estero Cayetano,stream,Tinguiririca,TIN,2
+Estero Chacayal,stream,San Jose,SJO,5
+Estero Chacayal,stream,Tupungatito,TUP,5
+Estero Chaillupén,stream,Mocho-Choshuenco,MCH,1
+Estero Chaillupén,stream,QuetrupillÃ¡n,QUE,2
+Estero Chaillupén,stream,Villarrica,VIL,2
+Estero Chancamalal,stream,Antuco,ANT,1
+Estero Chancamalal,stream,Callaqui,CAL,1
+Estero Chancamalal,stream,Copahue,CPA,1
+Estero Chaura,river,Villarrica,VIL,2
+Estero Chilcoco,stream,Antillanca-Casablanca,ACA,1
+Estero Chilcoco,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Chilcoco,stream,Mocho-Choshuenco,MCH,1
+Estero Chilcoco,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Chimbarongo,stream,Planchon-Peteroa,PLP,1
+Estero Chipanco,stream,Antillanca-Casablanca,ACA,1
+Estero Chipanco,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Chipanco,stream,Mocho-Choshuenco,MCH,1
+Estero Chipanco,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Chorrillos,stream,Callaqui,CAL,2
+Estero Chorrillos,stream,Lonquimay,LON,2
+Estero Chávez,stream,Calbuco,CLB,5
+Estero Chávez,stream,Osorno,OSO,4
+Estero Cipreses,stream,Antuco,ANT,2
+Estero Cipresillos,stream,Tinguiririca,TIN,1
+Estero Codihue,river,Llaima,LLA,2
+Estero Codihue,river,Sollipulli,SOL,1
+Estero Codihue,river,Villarrica,VIL,2
+Estero Coihueco,stream,Nevados de Chillan,NCH,9
+Estero Coique,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Coique,stream,Mocho-Choshuenco,MCH,1
+Estero Coironal,stream,San Jose,SJO,2
+Estero Coironal,stream,Tupungatito,TUP,2
+Estero Colina,stream,San Jose,SJO,1
+Estero Colina,stream,Tupungatito,TUP,1
+Estero Collico,river,Antillanca-Casablanca,ACA,2
+Estero Collico,river,CarrÃ¡n-Los Venados,CLV,2
+Estero Collico,river,Mocho-Choshuenco,MCH,2
+Estero Collico,river,Puyehue-CordÃ³n Caulle,PCC,2
+Estero Colliguay,stream,Nevado de Longavi,NLO,2
+Estero Comonahue,stream,Mocho-Choshuenco,MCH,9
+Estero Comonahue,stream,QuetrupillÃ¡n,QUE,9
+Estero Comonahue,stream,Villarrica,VIL,9
+Estero Conico,stream,Mocho-Choshuenco,MCH,1
+Estero Copo del Diablo,stream,Callaqui,CAL,2
+Estero Copo del Diablo,stream,Lonquimay,LON,2
+Estero Cordillera Ferrosa,stream,Tupungatito,TUP,1
+Estero Correntoso,river,CarrÃ¡n-Los Venados,CLV,3
+Estero Correntoso,river,Mocho-Choshuenco,MCH,3
+Estero Correntoso,river,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Coshue,stream,Mocho-Choshuenco,MCH,3
+Estero Coyanco,stream,San Jose,SJO,1
+Estero Cudico,stream,CarrÃ¡n-Los Venados,CLV,3
+Estero Cudico,stream,Mocho-Choshuenco,MCH,3
+Estero Cudico,stream,Puyehue-CordÃ³n Caulle,PCC,3
+Estero Cunco,stream,Llaima,LLA,1
+Estero Curacalpu,stream,Llaima,LLA,1
+Estero Curacalpu,stream,Sollipulli,SOL,1
+Estero Curaco,stream,Mocho-Choshuenco,MCH,1
+Estero Curaco,stream,Villarrica,VIL,1
+Estero Cuyano,stream,Callaqui,CAL,2
+Estero Cuyano,stream,Lonquimay,LON,2
+Estero Cuyaqui,river,Callaqui,CAL,1
+Estero Dingle,river,Cay,CAY,2
+Estero Dingle,river,Hudson,HUD,2
+Estero Dingle,river,Maca,MAC,2
+Estero El Africano,stream,CarrÃ¡n-Los Venados,CLV,2
+Estero El Africano,stream,Mocho-Choshuenco,MCH,2
+Estero El Aguada o El Volcán,stream,Antuco,ANT,1
+Estero El Aguada o El Volcán,stream,Copahue,CPA,1
+Estero El Avellano,stream,Callaqui,CAL,1
+Estero El Avellano,stream,Copahue,CPA,1
+Estero El Avellano,stream,Lonquimay,LON,1
+Estero El Barco,stream,San Jose,SJO,1
+Estero El Barco,stream,Tupungatito,TUP,1
+Estero El Baule,stream,Tinguiririca,TIN,2
+Estero El Blanco,stream,Callaqui,CAL,2
+Estero El Bolsico,stream,Nevados de Chillan,NCH,3
+Estero El Buey,stream,Callaqui,CAL,5
+Estero El Bulle,stream,Planchon-Peteroa,PLP,2
+Estero El Candelaria,river,QuetrupillÃ¡n,QUE,3
+Estero El Candelaria,river,Villarrica,VIL,3
+Estero El Canelo,stream,Llaima,LLA,1
+Estero El Canelo,stream,Sollipulli,SOL,1
+Estero El Carmelito,river,Lanin,LAN,1
+Estero El Carmelito,river,QuetrupillÃ¡n,QUE,1
+Estero El Carmelito,river,Villarrica,VIL,1
+Estero El Cepo o Paramillos,stream,Tupungatito,TUP,1
+Estero El Circo,stream,San Jose,SJO,1
+Estero El Claro,stream,Llaima,LLA,3
+Estero El Claro,stream,Lonquimay,LON,3
+Estero El Claro,stream,Sollipulli,SOL,3
+Estero El Coihue,river,Descabezado Grande,DGR,1
+Estero El Coihue,river,Laguna del Maule,LDM,1
+Estero El Coihue,river,Nevado de Longavi,NLO,1
+Estero El Coihue,river,Tatara-San Pedro,TSP,1
+Estero El Derrumbe,river,HornopirÃ©n,HOR,1
+Estero El Derrumbe,river,Yate,YAT,1
+Estero El Despalmado,stream,Descabezado Grande,DGR,1
+Estero El Despalmado,stream,Planchon-Peteroa,PLP,1
+Estero El Despalmado,stream,Tatara-San Pedro,TSP,1
+Estero El Diablo,stream,Mocho-Choshuenco,MCH,1
+Estero El Encanto,stream,Planchon-Peteroa,PLP,1
+Estero El Enemigo,stream,Descabezado Grande,DGR,1
+Estero El Enemigo,stream,Laguna del Maule,LDM,1
+Estero El Enemigo,stream,Nevado de Longavi,NLO,1
+Estero El Enemigo,stream,Tatara-San Pedro,TSP,1
+Estero El Extravío,stream,San Jose,SJO,1
+Estero El Guanaco,stream,Planchon-Peteroa,PLP,2
+Estero El Guanaco,stream,Tinguiririca,TIN,2
+Estero El Ingenio,stream,San Jose,SJO,1
+Estero El Maitén,river,Llaima,LLA,1
+Estero El Maitén,river,Sollipulli,SOL,1
+Estero El Manzano,river,Antillanca-Casablanca,ACA,2
+Estero El Manzano,river,CarrÃ¡n-Los Venados,CLV,2
+Estero El Manzano,stream,Llaima,LLA,1
+Estero El Manzano,river,Mocho-Choshuenco,MCH,1
+Estero El Manzano,river,Osorno,OSO,1
+Estero El Manzano,river,Puntiagudo,PUN,1
+Estero El Manzano,river,Puyehue-CordÃ³n Caulle,PCC,2
+Estero El Manzano,stream,Sollipulli,SOL,1
+Estero El Membrillo,river,Llaima,LLA,1
+Estero El Membrillo,river,Sollipulli,SOL,1
+Estero El Mocho,stream,Antillanca-Casablanca,ACA,1
+Estero El Mocho,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero El Mocho,stream,Puntiagudo,PUN,1
+Estero El Mocho,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero El Morado,stream,San Jose,SJO,3
+Estero El Morado,stream,Tupungatito,TUP,3
+Estero El Novillo,stream,Descabezado Grande,DGR,1
+Estero El Novillo,stream,Laguna del Maule,LDM,2
+Estero El Novillo,stream,Nevado de Longavi,NLO,2
+Estero El Novillo,stream,Tatara-San Pedro,TSP,2
+Estero El Pangal,stream,Descabezado Grande,DGR,2
+Estero El Pangal,stream,Planchon-Peteroa,PLP,2
+Estero El Pellado,stream,Descabezado Grande,DGR,1
+Estero El Pellado,stream,Laguna del Maule,LDM,2
+Estero El Pellado,stream,Nevado de Longavi,NLO,2
+Estero El Pellado,stream,Tatara-San Pedro,TSP,2
+Estero El Piojo,stream,Descabezado Grande,DGR,1
+Estero El Plomo,stream,Tupungatito,TUP,1
+Estero El Poco,stream,Mocho-Choshuenco,MCH,2
+Estero El Poco,stream,Villarrica,VIL,2
+Estero El Potro,stream,Antuco,ANT,1
+Estero El Potro,stream,Nevados de Chillan,NCH,1
+Estero El Prisionero,stream,Callaqui,CAL,3
+Estero El Prisionero,stream,Copahue,CPA,3
+Estero El Quebrado,stream,Nevados de Chillan,NCH,4
+Estero El Ranchillo,stream,Descabezado Grande,DGR,2
+Estero El Ranchillo,stream,Planchon-Peteroa,PLP,2
+Estero El Saltillo,stream,Llaima,LLA,1
+Estero El Saltillo,stream,Sollipulli,SOL,1
+Estero El Saltillo de San Pedro,stream,Callaqui,CAL,1
+Estero El Saltillo de San Pedro,stream,Copahue,CPA,1
+Estero El Saltillo de San Pedro,stream,Lonquimay,LON,1
+Estero El Salto,stream,Antillanca-Casablanca,ACA,1
+Estero El Salto,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero El Salto,stream,Llaima,LLA,1
+Estero El Salto,stream,Puntiagudo,PUN,1
+Estero El Salto,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero El Sauce,stream,San Jose,SJO,5
+Estero El Seco,stream,Llaima,LLA,4
+Estero El Seco,stream,Lonquimay,LON,3
+Estero El Seco,stream,Sollipulli,SOL,2
+Estero El Sillón,stream,Planchon-Peteroa,PLP,1
+Estero El Sillón,stream,Tinguiririca,TIN,1
+Estero El Toro,stream,Antuco,ANT,6
+Estero El Toro,stream,Descabezado Grande,DGR,1
+Estero El Toro,stream,Laguna del Maule,LDM,1
+Estero El Toro,stream,Nevado de Longavi,NLO,2
+Estero El Toro,stream,Tatara-San Pedro,TSP,2
+Estero El Túnel,stream,Callaqui,CAL,2
+Estero El Volcán,stream,Descabezado Grande,DGR,2
+Estero El Volcán,stream,Planchon-Peteroa,PLP,2
+Estero El Volcán,stream,Tatara-San Pedro,TSP,1
+Estero Escondido,stream,Nevado de Longavi,NLO,2
+Estero Escondido,stream,Nevados de Chillan,NCH,2
+Estero Esmeralda,stream,Tupungatito,TUP,1
+Estero Favio o de la Puerta,stream,Planchon-Peteroa,PLP,3
+Estero Favio o de la Puerta,stream,Tinguiririca,TIN,3
+Estero Fiuco,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Fiuco,stream,Mocho-Choshuenco,MCH,1
+Estero Fiuco,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Gonzalo,river,ChaitÃ©n,CHA,2
+Estero Gonzalo,river,Huequi,HUE,2
+Estero Gonzalo,river,Michinmahuida,MIC,2
+Estero Guampoe,river,Lanin,LAN,1
+Estero Guampoe,river,QuetrupillÃ¡n,QUE,1
+Estero Guampoe,river,Sollipulli,SOL,1
+Estero Guampoe,river,Villarrica,VIL,1
+Estero Guapitrio,stream,Callaqui,CAL,1
+Estero Guapitrio,stream,Copahue,CPA,1
+Estero Guapitrio,stream,Lonquimay,LON,1
+Estero Guayalí,stream,Callaqui,CAL,1
+Estero Guayalí,stream,Copahue,CPA,1
+Estero Guayalí,stream,Lonquimay,LON,1
+Estero Hospital,stream,Callaqui,CAL,3
+Estero Huechelepun,river,Llaima,LLA,1
+Estero Huechelepun,river,Sollipulli,SOL,1
+Estero Huechicoyan,stream,Antuco,ANT,3
+Estero Huechicoyan,stream,Callaqui,CAL,3
+Estero Huechicoyan,stream,Copahue,CPA,3
+Estero Huelón,river,Antuco,ANT,1
+Estero Huelón,river,Callaqui,CAL,1
+Estero Huelón,river,Copahue,CPA,1
+Estero Huemul,river,Llaima,LLA,3
+Estero Huemul,river,Lonquimay,LON,3
+Estero Huemul,river,Sollipulli,SOL,3
+Estero Huichatio,stream,QuetrupillÃ¡n,QUE,3
+Estero Huichatio,stream,Villarrica,VIL,3
+Estero Huililco,river,Lanin,LAN,1
+Estero Huililco,river,QuetrupillÃ¡n,QUE,1
+Estero Huililco,river,Sollipulli,SOL,1
+Estero Huililco,river,Villarrica,VIL,1
+Estero Huillinlebu,stream,Llaima,LLA,6
+Estero Huillinlebu,stream,Lonquimay,LON,6
+Estero Hullilelfun,stream,Mocho-Choshuenco,MCH,1
+Estero Hullilelfun,stream,Villarrica,VIL,1
+Estero Icalma,river,Llaima,LLA,1
+Estero Icalma,river,Sollipulli,SOL,1
+Estero Jeria,stream,San Jose,SJO,1
+Estero Joyel O Corrales,stream,CarrÃ¡n-Los Venados,CLV,2
+Estero Joyel O Corrales,stream,Mocho-Choshuenco,MCH,2
+Estero Joyel O Corrales,stream,Puyehue-CordÃ³n Caulle,PCC,2
+Estero Junta de Lomas,stream,Planchon-Peteroa,PLP,3
+Estero Katalapi,stream,Calbuco,CLB,1
+Estero Katalapi,stream,HornopirÃ©n,HOR,1
+Estero Katalapi,stream,Yate,YAT,1
+Estero La Agonía,stream,Descabezado Grande,DGR,2
+Estero La Agonía,stream,Planchon-Peteroa,PLP,2
+Estero La Basa,stream,Melimoyu,MEL,1
+Estero La Cajuela,stream,Nevado de Longavi,NLO,3
+Estero La Cajuela,stream,Nevados de Chillan,NCH,2
+Estero La Calchona,stream,San Jose,SJO,3
+Estero La Cascada,stream,Llaima,LLA,2
+Estero La Cascada,stream,Lonquimay,LON,2
+Estero La Correana,stream,Planchon-Peteroa,PLP,2
+Estero La Correana,stream,Tinguiririca,TIN,2
+Estero La Desgraciada,stream,Callaqui,CAL,2
+Estero La Engorda,stream,San Jose,SJO,1
+Estero La Engorda,stream,Tupungatito,TUP,1
+Estero La Fusta,stream,Llaima,LLA,1
+Estero La Fusta,stream,Lonquimay,LON,1
+Estero La Fusta,stream,Sollipulli,SOL,1
+Estero La Gloria,river,Nevado de Longavi,NLO,3
+Estero La Gloria,stream,San Jose,SJO,1
+Estero La Gloria,river,Tatara-San Pedro,TSP,3
+Estero La Gloria,stream,Tupungatito,TUP,1
+Estero La Hoyada,stream,Nevados de Chillan,NCH,2
+Estero La Invernadita,stream,Nevado de Longavi,NLO,4
+Estero La Invernadita,stream,Nevados de Chillan,NCH,4
+Estero La Isla,stream,Antillanca-Casablanca,ACA,2
+Estero La Isla,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero La Isla,stream,Puyehue-CordÃ³n Caulle,PCC,2
+Estero La Jaula,stream,Planchon-Peteroa,PLP,3
+Estero La Jaula,stream,Tinguiririca,TIN,3
+Estero La Leonera,stream,Tupungatito,TUP,1
+Estero La Luisa,stream,Nevados de Chillan,NCH,4
+Estero La Mula,river,Callaqui,CAL,3
+Estero La Mula,river,Copahue,CPA,1
+Estero La Mula,stream,Lonquimay,LON,2
+Estero La Olleta,stream,Callaqui,CAL,3
+Estero La Olleta,stream,Lonquimay,LON,1
+Estero La Paloma,stream,Calbuco,CLB,4
+Estero La Paloma,stream,San Jose,SJO,1
+Estero La Paloma,stream,Tupungatito,TUP,1
+Estero La Salle,stream,Nevados de Chillan,NCH,2
+Estero La Sombra,stream,Laguna del Maule,LDM,2
+Estero La Sombra,stream,Nevado de Longavi,NLO,2
+Estero La Sombra,stream,Tatara-San Pedro,TSP,2
+Estero La Turbina,stream,CarrÃ¡n-Los Venados,CLV,2
+Estero La Turbina,stream,Mocho-Choshuenco,MCH,2
+Estero La Vaca,stream,San Jose,SJO,3
+Estero La Vaca,stream,Tupungatito,TUP,3
+Estero La Zorra,river,Calbuco,CLB,1
+Estero La Zorra,stream,Nevados de Chillan,NCH,2
+Estero La Zorra,river,Osorno,OSO,1
+Estero La Zorra,river,Yate,YAT,1
+Estero Lancoino,stream,Llaima,LLA,1
+Estero Lancoino,stream,Lonquimay,LON,1
+Estero Lancoino,stream,Sollipulli,SOL,1
+Estero Lara,stream,Nevado de Longavi,NLO,2
+Estero Lara,stream,Nevados de Chillan,NCH,3
+Estero Las Barretas,stream,Nevado de Longavi,NLO,2
+Estero Las Barretas,stream,Tatara-San Pedro,TSP,2
+Estero Las Bayas,stream,Tupungatito,TUP,5
+Estero Las Camelias,stream,Calbuco,CLB,4
+Estero Las Carpas,stream,Callaqui,CAL,1
+Estero Las Carpas,stream,Copahue,CPA,1
+Estero Las Carpas,stream,Lonquimay,LON,1
+Estero Las Catalinas,stream,Laguna del Maule,LDM,2
+Estero Las Catalinas,stream,Nevado de Longavi,NLO,2
+Estero Las Catalinas,stream,Tatara-San Pedro,TSP,2
+Estero Las Corrientes,stream,Descabezado Grande,DGR,1
+Estero Las Corrientes,stream,Laguna del Maule,LDM,1
+Estero Las Corrientes,stream,Tatara-San Pedro,TSP,1
+Estero Las Damas,stream,Nevados de Chillan,NCH,3
+Estero Las Diucas,stream,Nevado de Longavi,NLO,4
+Estero Las Diucas,stream,Nevados de Chillan,NCH,4
+Estero Las Garzas,stream,Calbuco,CLB,7
+Estero Las Iguanas,stream,Descabezado Grande,DGR,2
+Estero Las Islas,stream,Descabezado Grande,DGR,2
+Estero Las Islas,stream,Planchon-Peteroa,PLP,2
+Estero Las Lumas,stream,Mocho-Choshuenco,MCH,1
+Estero Las Lumas,stream,Villarrica,VIL,1
+Estero Las Minas,river,San Jose,SJO,1
+Estero Las Niñas,stream,Llaima,LLA,1
+Estero Las Niñas,stream,Sollipulli,SOL,1
+Estero Las Peñas,stream,Planchon-Peteroa,PLP,2
+Estero Las Peñas,stream,Tinguiririca,TIN,2
+Estero Las Piedras,stream,Descabezado Grande,DGR,3
+Estero Las Placas,stream,San Jose,SJO,1
+Estero Las Placas,stream,Tupungatito,TUP,1
+Estero Las Ramadas,stream,Tupungatito,TUP,1
+Estero Las Tablas,stream,Descabezado Grande,DGR,2
+Estero Las Tablas,stream,Nevado de Longavi,NLO,2
+Estero Las Tablas,stream,Planchon-Peteroa,PLP,2
+Estero Las Tinajas,stream,Tupungatito,TUP,1
+Estero Las Veguitas,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Las Veguitas,stream,Mocho-Choshuenco,MCH,1
+Estero Las Yaretas,stream,Tupungatito,TUP,1
+Estero Las Ánimas,river,Nevado de Longavi,NLO,2
+Estero Las Ánimas,river,Tatara-San Pedro,TSP,2
+Estero Lejía,stream,Nevados de Chillan,NCH,2
+Estero Leu,stream,Callaqui,CAL,1
+Estero Leu,stream,Copahue,CPA,1
+Estero Leu,stream,Lonquimay,LON,1
+Estero Llallalca,stream,Mocho-Choshuenco,MCH,1
+Estero Llallalca,stream,QuetrupillÃ¡n,QUE,1
+Estero Llallalca,stream,Villarrica,VIL,1
+Estero Llasquenco,stream,CarrÃ¡n-Los Venados,CLV,3
+Estero Llasquenco,stream,Mocho-Choshuenco,MCH,3
+Estero Llau Llau,stream,Villarrica,VIL,1
+Estero Lleuque,stream,Nevado de Longavi,NLO,3
+Estero Lleuque,stream,Nevados de Chillan,NCH,3
+Estero Lo Valdés,stream,San Jose,SJO,1
+Estero Lobos,stream,Calbuco,CLB,10
+Estero Lomas Coloradas,stream,Tupungatito,TUP,1
+Estero Loncotahue,river,Callaqui,CAL,1
+Estero Loncotahue,river,Copahue,CPA,1
+Estero Los Bastos,stream,Llaima,LLA,1
+Estero Los Bastos,stream,Sollipulli,SOL,1
+Estero Los Baños,stream,Planchon-Peteroa,PLP,1
+Estero Los Baños,stream,Tinguiririca,TIN,1
+Estero Los Bueyes,stream,Nevado de Longavi,NLO,5
+Estero Los Bueyes,stream,Nevados de Chillan,NCH,2
+Estero Los Bueyes,stream,Tatara-San Pedro,TSP,3
+Estero Los Capados,river,Planchon-Peteroa,PLP,1
+Estero Los Capados,river,Tinguiririca,TIN,1
+Estero Los Castaños,stream,Tupungatito,TUP,1
+Estero Los Chilcos,river,QuetrupillÃ¡n,QUE,1
+Estero Los Chilcos,river,Villarrica,VIL,1
+Estero Los Coihues,stream,Callaqui,CAL,1
+Estero Los Coltrohues,stream,Nevados de Chillan,NCH,3
+Estero Los Cruceros,stream,Callaqui,CAL,1
+Estero Los Cruceros,stream,Copahue,CPA,1
+Estero Los Cruceros,stream,Lonquimay,LON,1
+Estero Los Cruceros,stream,Tinguiririca,TIN,1
+Estero Los Cuyanos,stream,Planchon-Peteroa,PLP,1
+Estero Los Cuyanos,stream,Tinguiririca,TIN,1
+Estero Los Escalones,stream,San Jose,SJO,1
+Estero Los Guachi,stream,Nevado de Longavi,NLO,2
+Estero Los Guachi,stream,Nevados de Chillan,NCH,2
+Estero Los Guanacos,stream,Tinguiririca,TIN,1
+Estero Los Guayes,stream,Nevado de Longavi,NLO,2
+Estero Los Guayes,stream,Tatara-San Pedro,TSP,1
+Estero Los Guindos,stream,Nevados de Chillan,NCH,2
+Estero Los Helados,stream,Planchon-Peteroa,PLP,1
+Estero Los Helados,stream,Tinguiririca,TIN,1
+Estero Los Jilgueros,stream,Nevado de Longavi,NLO,2
+Estero Los Jilgueros,stream,Nevados de Chillan,NCH,2
+Estero Los Leones,stream,Tinguiririca,TIN,1
+Estero Los Lleuques,stream,Descabezado Grande,DGR,1
+Estero Los Lleuques,stream,Laguna del Maule,LDM,2
+Estero Los Lleuques,stream,Nevado de Longavi,NLO,2
+Estero Los Lleuques,stream,Tatara-San Pedro,TSP,2
+Estero Los Noques,stream,Tinguiririca,TIN,1
+Estero Los Pacos,stream,Nevado de Longavi,NLO,2
+Estero Los Pacos,stream,Nevados de Chillan,NCH,2
+Estero Los Pajaritos,stream,Nevados de Chillan,NCH,3
+Estero Los Patos,river,Nevado de Longavi,NLO,1
+Estero Los Patos,river,Tatara-San Pedro,TSP,1
+Estero Los Pejerreyes,stream,Planchon-Peteroa,PLP,1
+Estero Los Pejerreyes,stream,Tinguiririca,TIN,1
+Estero Los Pelambres,stream,Laguna del Maule,LDM,3
+Estero Los Pelambres,stream,Nevado de Longavi,NLO,3
+Estero Los Pelambres,stream,San Jose,SJO,1
+Estero Los Pelambres,stream,Tatara-San Pedro,TSP,3
+Estero Los Pinos,stream,Antuco,ANT,1
+Estero Los Pinos,stream,Callaqui,CAL,3
+Estero Los Pinos,stream,Copahue,CPA,1
+Estero Los Pinos,stream,Lonquimay,LON,2
+Estero Los Pozos,stream,Nevado de Longavi,NLO,1
+Estero Los Pozos,stream,Tatara-San Pedro,TSP,1
+Estero Los Queñes,stream,Descabezado Grande,DGR,2
+Estero Los Queñes,stream,Planchon-Peteroa,PLP,2
+Estero Los Quillayes,stream,Planchon-Peteroa,PLP,2
+Estero Los Rabones,stream,Nevados de Chillan,NCH,5
+Estero Los Robles,stream,Descabezado Grande,DGR,2
+Estero Los Robles,stream,Planchon-Peteroa,PLP,2
+Estero Los Sulfatos,stream,Tupungatito,TUP,1
+Estero Los Temos,stream,Descabezado Grande,DGR,2
+Estero Los Temos,stream,Planchon-Peteroa,PLP,2
+Estero Los Troncos,stream,Descabezado Grande,DGR,1
+Estero Los Tábanos,stream,Nevados de Chillan,NCH,3
+Estero Lumaco,stream,Mocho-Choshuenco,MCH,3
+Estero Maillén,stream,Calbuco,CLB,3
+Estero Maitenes,stream,San Jose,SJO,1
+Estero Maitenes,stream,Tupungatito,TUP,1
+Estero Malal Grande,river,Antuco,ANT,1
+Estero Malal Grande,river,Callaqui,CAL,1
+Estero Malal Grande,river,Copahue,CPA,1
+Estero Malalco,stream,Lanin,LAN,2
+Estero Malalco,stream,QuetrupillÃ¡n,QUE,2
+Estero Malalco,stream,Sollipulli,SOL,2
+Estero Malalcura,stream,Antuco,ANT,3
+Estero Malla Chico o de La Piedra,river,Antuco,ANT,1
+Estero Malla Chico o de La Piedra,river,Callaqui,CAL,1
+Estero Malla Chico o de La Piedra,river,Copahue,CPA,1
+Estero Malleco,stream,Callaqui,CAL,3
+Estero Malleco,stream,Lonquimay,LON,3
+Estero Malvina,stream,Callaqui,CAL,1
+Estero Mancilla,stream,Nevado de Longavi,NLO,3
+Estero Mancilla,stream,Nevados de Chillan,NCH,2
+Estero Manzanito,stream,San Jose,SJO,1
+Estero Manzano,stream,Descabezado Grande,DGR,2
+Estero Manzano,stream,Planchon-Peteroa,PLP,2
+Estero Mapocho,river,Llaima,LLA,1
+Estero Mapocho,river,Lonquimay,LON,1
+Estero Mapocho,river,Sollipulli,SOL,1
+Estero Mapotrel,stream,Callaqui,CAL,2
+Estero Maranto,stream,Nevados de Chillan,NCH,4
+Estero Marcial,river,Llaima,LLA,1
+Estero Marcial,river,Sollipulli,SOL,1
+Estero Martínez,stream,Nevado de Longavi,NLO,2
+Estero Martínez,stream,Tatara-San Pedro,TSP,2
+Estero Maruco,stream,ChaitÃ©n,CHA,1
+Estero Maruco,stream,Huequi,HUE,1
+Estero Maruco,stream,Michinmahuida,MIC,1
+Estero Melilahuen,stream,Mocho-Choshuenco,MCH,1
+Estero Melilahuen,stream,QuetrupillÃ¡n,QUE,1
+Estero Melilahuen,stream,Villarrica,VIL,1
+Estero Mellizo N°1,river,Antillanca-Casablanca,ACA,1
+Estero Mellizo N°1,river,CarrÃ¡n-Los Venados,CLV,1
+Estero Mellizo N°1,river,Mocho-Choshuenco,MCH,1
+Estero Mellizo N°1,river,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Mellizo N°2,river,Antillanca-Casablanca,ACA,1
+Estero Mellizo N°2,river,CarrÃ¡n-Los Venados,CLV,1
+Estero Mellizo N°2,river,Mocho-Choshuenco,MCH,1
+Estero Mellizo N°2,river,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Mellizo N°3,river,Antillanca-Casablanca,ACA,1
+Estero Mellizo N°3,river,CarrÃ¡n-Los Venados,CLV,1
+Estero Mellizo N°3,river,Mocho-Choshuenco,MCH,1
+Estero Mellizo N°3,river,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Mellizos,stream,Callaqui,CAL,2
+Estero Mellizos,stream,Lonquimay,LON,2
+Estero Minte,stream,Calbuco,CLB,1
+Estero Minte,stream,Osorno,OSO,1
+Estero Molina,stream,Nevado de Longavi,NLO,2
+Estero Monos de Agua,river,Tupungatito,TUP,1
+Estero Montecarabi,stream,Isluga,ISL,5
+Estero Montecarabi,stream,Tata Sabaya,TAT,5
+Estero Mulpún,stream,Mocho-Choshuenco,MCH,1
+Estero Mulpún,stream,QuetrupillÃ¡n,QUE,1
+Estero Mulpún,stream,Villarrica,VIL,2
+Estero Nacimiento,stream,Laguna del Maule,LDM,2
+Estero Nacimiento,stream,Nevado de Longavi,NLO,2
+Estero Nacimiento,stream,Tatara-San Pedro,TSP,2
+Estero Nacimientos,stream,Tupungatito,TUP,1
+Estero Nahuelcura,river,Llaima,LLA,3
+Estero Nahuelcura,river,Sollipulli,SOL,1
+Estero Nalcahue,stream,Antillanca-Casablanca,ACA,2
+Estero Nalcahue,stream,CarrÃ¡n-Los Venados,CLV,2
+Estero Nalcahue,stream,Mocho-Choshuenco,MCH,2
+Estero Nalcahue,stream,Puyehue-CordÃ³n Caulle,PCC,2
+Estero Namoncay,river,QuetrupillÃ¡n,QUE,1
+Estero Namoncay,river,Sollipulli,SOL,1
+Estero Namoncay,river,Villarrica,VIL,1
+Estero Namuncahue,river,QuetrupillÃ¡n,QUE,1
+Estero Namuncahue,river,Sollipulli,SOL,1
+Estero Namuncahue,river,Villarrica,VIL,1
+Estero Nevado,stream,Nevado de Longavi,NLO,2
+Estero Nevado,stream,Tatara-San Pedro,TSP,2
+Estero Nevado del Negro,stream,Tupungatito,TUP,1
+Estero Nieves Negras,river,San Jose,SJO,1
+Estero Ojos de Agua,stream,Planchon-Peteroa,PLP,1
+Estero Overa,stream,Tinguiririca,TIN,1
+Estero Pacopaco,stream,Olca-Paruma,OLC,1
+Estero Pallanilahue,river,Llaima,LLA,1
+Estero Pallanilahue,river,Sollipulli,SOL,1
+Estero Palo Seco,stream,Nevado de Longavi,NLO,2
+Estero Palo Seco,stream,Nevados de Chillan,NCH,5
+Estero Pangue,stream,Nevados de Chillan,NCH,2
+Estero Panqueco,stream,Mocho-Choshuenco,MCH,1
+Estero Parraguirre,stream,San Jose,SJO,1
+Estero Parraguirre,stream,Tupungatito,TUP,1
+Estero Parrilla,stream,CarrÃ¡n-Los Venados,CLV,2
+Estero Parrilla,stream,Mocho-Choshuenco,MCH,2
+Estero Pehuenco,stream,Callaqui,CAL,2
+Estero Pehuenco,stream,Llaima,LLA,1
+Estero Pehuenco,stream,Lonquimay,LON,3
+Estero Peladillas,stream,Nevados de Chillan,NCH,1
+Estero Pelahuenco,stream,Callaqui,CAL,1
+Estero Pelahuenco,stream,Copahue,CPA,1
+Estero Pelahuenco,stream,Lonquimay,LON,1
+Estero Pelluco,stream,Calbuco,CLB,3
+Estero Pelúes,stream,Calbuco,CLB,6
+Estero Pesquero,stream,Mocho-Choshuenco,MCH,1
+Estero Picarte,stream,Tupungatito,TUP,1
+Estero Picazo,stream,Descabezado Grande,DGR,2
+Estero Pichichanleufu,river,Antillanca-Casablanca,ACA,1
+Estero Pichichanleufu,river,CarrÃ¡n-Los Venados,CLV,1
+Estero Pichichanleufu,river,Osorno,OSO,1
+Estero Pichichanleufu,river,Puntiagudo,PUN,1
+Estero Pichichanleufu,river,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Pichico,stream,Antillanca-Casablanca,ACA,1
+Estero Pichico,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Pichico,stream,Mocho-Choshuenco,MCH,1
+Estero Pichico,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Pichicoyahue,river,Antuco,ANT,6
+Estero Pichicoyahue,river,Callaqui,CAL,1
+Estero Pichicoyahue,river,Copahue,CPA,6
+Estero Pichidamas,stream,Osorno,OSO,4
+Estero Pichidumo,stream,Lonquimay,LON,1
+Estero Pichilolco,stream,Callaqui,CAL,1
+Estero Pichilolco,stream,Copahue,CPA,1
+Estero Pichilolco,stream,Lonquimay,LON,1
+Estero Pichimulchén,stream,Callaqui,CAL,2
+Estero Pichipelluco,stream,Calbuco,CLB,9
+Estero Pidenco,stream,Llaima,LLA,1
+Estero Pidenco,stream,Lonquimay,LON,1
+Estero Piedra Colorada,stream,Llaima,LLA,1
+Estero Piedra Colorada,stream,Sollipulli,SOL,1
+Estero Piedra Grande,stream,Callaqui,CAL,2
+Estero Piernas Blancas,stream,Nevados de Chillan,NCH,2
+Estero Pilunchaya,stream,Antuco,ANT,1
+Estero Pilunchaya,stream,Callaqui,CAL,1
+Estero Pilunchaya,stream,Copahue,CPA,1
+Estero Pirinet,stream,Mocho-Choshuenco,MCH,1
+Estero Pirquinco,stream,Antuco,ANT,2
+Estero Pirquinco,stream,Callaqui,CAL,4
+Estero Pirquinco,stream,Copahue,CPA,1
+Estero Pitreño,river,CarrÃ¡n-Los Venados,CLV,1
+Estero Pitreño,river,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Piuquencillo,stream,San Jose,SJO,1
+Estero Piutel,stream,Mocho-Choshuenco,MCH,1
+Estero Ponce,stream,Nevado de Longavi,NLO,5
+Estero Ponce,stream,Tatara-San Pedro,TSP,5
+Estero Porfiado,river,Antillanca-Casablanca,ACA,1
+Estero Porfiado,river,CarrÃ¡n-Los Venados,CLV,1
+Estero Porfiado,river,Mocho-Choshuenco,MCH,1
+Estero Porfiado,river,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Potrero Grande,stream,Descabezado Grande,DGR,3
+Estero Potrero Grande,stream,Laguna del Maule,LDM,3
+Estero Potrero Grande,stream,Nevado de Longavi,NLO,4
+Estero Potrero Grande,stream,Planchon-Peteroa,PLP,4
+Estero Potrero Grande,stream,Tatara-San Pedro,TSP,4
+Estero Potrillos,stream,Tupungatito,TUP,1
+Estero Pullami,stream,Nevados de Chillan,NCH,3
+Estero Quetroleufu,stream,QuetrupillÃ¡n,QUE,1
+Estero Quetroleufu,stream,Sollipulli,SOL,1
+Estero Quetroleufu,stream,Villarrica,VIL,1
+Estero Queñi,stream,Mocho-Choshuenco,MCH,1
+Estero Quilapulli,stream,Mocho-Choshuenco,MCH,1
+Estero Quilleco,stream,Antuco,ANT,1
+Estero Quiman,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Quiman,stream,Mocho-Choshuenco,MCH,1
+Estero Quiman Chico,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Quiman Chico,stream,Mocho-Choshuenco,MCH,1
+Estero Quingua,stream,San Jose,SJO,1
+Estero Quingua,stream,Tupungatito,TUP,1
+Estero Quiseuco,stream,Mocho-Choshuenco,MCH,1
+Estero Quiuquenes,stream,Nevado de Longavi,NLO,1
+Estero Quiñilón,stream,Callaqui,CAL,1
+Estero Quiñilón,stream,Copahue,CPA,1
+Estero Quiñilón,stream,Lonquimay,LON,1
+Estero Rabicano,stream,San Jose,SJO,1
+Estero Rabicano,stream,Tupungatito,TUP,1
+Estero Ranchillos,stream,Tinguiririca,TIN,1
+Estero Rari,river,Nevado de Longavi,NLO,3
+Estero Recinto,stream,Nevados de Chillan,NCH,1
+Estero Relbunco,stream,Nevados de Chillan,NCH,1
+Estero Relín,stream,Villarrica,VIL,2
+Estero Remehue,stream,Mocho-Choshuenco,MCH,1
+Estero Renegado,stream,Nevados de Chillan,NCH,3
+Estero Riecillo,stream,Nevado de Longavi,NLO,2
+Estero Riecillo,stream,Tatara-San Pedro,TSP,2
+Estero Rincón del Norte,stream,CarrÃ¡n-Los Venados,CLV,2
+Estero Rincón del Norte,stream,Mocho-Choshuenco,MCH,2
+Estero Rincón del Sur,river,CarrÃ¡n-Los Venados,CLV,2
+Estero Rincón del Sur,river,Mocho-Choshuenco,MCH,2
+Estero Riquelme,stream,Planchon-Peteroa,PLP,3
+Estero Riquelme,stream,Tinguiririca,TIN,3
+Estero Rondalero,stream,Planchon-Peteroa,PLP,1
+Estero Rondalero,stream,Tinguiririca,TIN,1
+Estero Rumiñañe,stream,Llaima,LLA,1
+Estero Rumiñañe,stream,Sollipulli,SOL,1
+Estero Salinillas,stream,San Jose,SJO,1
+Estero Salinillas,stream,Tupungatito,TUP,1
+Estero Saltillo Los Mellizos,stream,Antuco,ANT,1
+Estero Saltillo Los Mellizos,stream,Callaqui,CAL,1
+Estero Saltillo Los Mellizos,stream,Copahue,CPA,1
+Estero Salvaje,river,Melimoyu,MEL,1
+Estero San Alfonso,stream,San Jose,SJO,2
+Estero San Gabriel,stream,San Jose,SJO,1
+Estero San Ignacio,stream,San Jose,SJO,1
+Estero San Jorge,stream,Callaqui,CAL,2
+Estero San Jorge,stream,Lonquimay,LON,2
+Estero San Jose,stream,Descabezado Grande,DGR,2
+Estero San Jose,stream,Planchon-Peteroa,PLP,2
+Estero San José,river,Nevados de Chillan,NCH,2
+Estero San José,stream,San Jose,SJO,2
+Estero San Nicolás,stream,San Jose,SJO,1
+Estero San Nicolás,stream,Tupungatito,TUP,1
+Estero San Salvador,stream,Callaqui,CAL,3
+Estero San Salvador,stream,Lonquimay,LON,3
+Estero Santa Inés,stream,Llaima,LLA,1
+Estero Santa Inés,stream,QuetrupillÃ¡n,QUE,1
+Estero Santa Inés,stream,Sollipulli,SOL,1
+Estero Santa Inés,stream,Villarrica,VIL,1
+Estero Santa Rosa,stream,Lanin,LAN,1
+Estero Santa Rosa,stream,QuetrupillÃ¡n,QUE,1
+Estero Santa Rosa,stream,Sollipulli,SOL,1
+Estero Santa Rosa,stream,Villarrica,VIL,1
+Estero Seco,stream,Llaima,LLA,1
+Estero Seco,stream,Lonquimay,LON,1
+Estero Seco,stream,Mocho-Choshuenco,MCH,1
+Estero Seco,stream,QuetrupillÃ¡n,QUE,1
+Estero Seco,stream,Sollipulli,SOL,1
+Estero Seco,stream,Villarrica,VIL,1
+Estero Sierra Negra,stream,Tinguiririca,TIN,3
+Estero Simbra,river,Nevado de Longavi,NLO,1
+Estero Simbra,river,Tatara-San Pedro,TSP,1
+Estero Sotomó,stream,Calbuco,CLB,1
+Estero Sotomó,stream,HornopirÃ©n,HOR,1
+Estero Sotomó,stream,Yate,YAT,1
+Estero Tabolango,stream,Tupungatito,TUP,1
+Estero Tambillos,stream,San Jose,SJO,1
+Estero Tambillos,stream,Tupungatito,TUP,1
+Estero Teatinos,river,Descabezado Grande,DGR,1
+Estero Teatinos,river,Tatara-San Pedro,TSP,1
+Estero Temuco,stream,Nevados de Chillan,NCH,1
+Estero Temuleufu,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Temuleufu,stream,Mocho-Choshuenco,MCH,1
+Estero Temuleufu,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Tiburcio,stream,Planchon-Peteroa,PLP,3
+Estero Tiburcio,stream,Tinguiririca,TIN,3
+Estero Tralco,stream,Lanin,LAN,1
+Estero Tralco,stream,Mocho-Choshuenco,MCH,2
+Estero Tralco,stream,QuetrupillÃ¡n,QUE,2
+Estero Tralco,stream,Villarrica,VIL,2
+Estero Tricahue,river,Descabezado Grande,DGR,1
+Estero Tricahue,stream,Nevado de Longavi,NLO,2
+Estero Tricahue,stream,Nevados de Chillan,NCH,2
+Estero Tricahue,river,Tatara-San Pedro,TSP,1
+Estero Tringlo,stream,CarrÃ¡n-Los Venados,CLV,11
+Estero Tringlo,stream,Puyehue-CordÃ³n Caulle,PCC,11
+Estero Troliguán,river,ChaitÃ©n,CHA,3
+Estero Troliguán,river,Huequi,HUE,3
+Estero Troliguán,river,Michinmahuida,MIC,3
+Estero Tropelhuén,stream,Antuco,ANT,1
+Estero Tropelhuén,stream,Callaqui,CAL,1
+Estero Tropelhuén,stream,Copahue,CPA,1
+Estero Trubunleo,stream,Antuco,ANT,1
+Estero Truful,river,CarrÃ¡n-Los Venados,CLV,1
+Estero Truful,river,Mocho-Choshuenco,MCH,1
+Estero Truful,river,QuetrupillÃ¡n,QUE,1
+Estero Truful,river,Villarrica,VIL,1
+Estero Tumuñan,stream,Planchon-Peteroa,PLP,1
+Estero Tumuñan,stream,Tinguiririca,TIN,2
+Estero Tupungatito,stream,San Jose,SJO,4
+Estero Tupungatito,stream,Tupungatito,TUP,4
+Estero Upeo,stream,Descabezado Grande,DGR,1
+Estero Upeo,river,Planchon-Peteroa,PLP,3
+Estero Valenzuela,stream,Tinguiririca,TIN,1
+Estero Vallejos,stream,Nevado de Longavi,NLO,1
+Estero Vallejos,stream,Nevados de Chillan,NCH,3
+Estero Vega de Salas,stream,Nevado de Longavi,NLO,4
+Estero Vega de Salas,stream,Tatara-San Pedro,TSP,3
+Estero Vergara,stream,Llaima,LLA,1
+Estero Vergara,stream,Lonquimay,LON,1
+Estero Vergara,stream,Sollipulli,SOL,1
+Estero Vilches,stream,Descabezado Grande,DGR,1
+Estero Vilcuncura,stream,Callaqui,CAL,1
+Estero Vilcuncura,stream,Copahue,CPA,1
+Estero Vilcuncura,stream,Lonquimay,LON,1
+Estero Villagra,stream,Descabezado Grande,DGR,2
+Estero Villagra,stream,Planchon-Peteroa,PLP,2
+Estero Villagra,stream,Tinguiririca,TIN,2
+Estero Villalobos,river,Nevado de Longavi,NLO,2
+Estero Villalobos,river,Tatara-San Pedro,TSP,2
+Estero Yolque,stream,Antillanca-Casablanca,ACA,1
+Estero Yolque,stream,CarrÃ¡n-Los Venados,CLV,1
+Estero Yolque,stream,Mocho-Choshuenco,MCH,1
+Estero Yolque,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero de Chureo,stream,Nevados de Chillan,NCH,3
+Estero de La Jarilla,stream,San Jose,SJO,1
+Estero de La Jarilla,stream,Tupungatito,TUP,1
+Estero de La Laguna,stream,CopiapÃ³,COP,1
+Estero de La Mona,stream,San Jose,SJO,1
+Estero de La Mona,stream,Tupungatito,TUP,1
+Estero de Las Casas de Piedra,stream,San Jose,SJO,1
+Estero de Las Casas de Piedra,stream,Tupungatito,TUP,1
+Estero de Las Pircas,stream,Tupungatito,TUP,1
+Estero de Las Tragedias,stream,Nevado de Longavi,NLO,2
+Estero de Las Tragedias,stream,Nevados de Chillan,NCH,2
+Estero de Las Yeguas Muertas,stream,San Jose,SJO,1
+Estero de Las Yeguas Muertas,stream,Tupungatito,TUP,1
+Estero de Los Toyos,stream,San Jose,SJO,2
+Estero de Mora,stream,Tinguiririca,TIN,1
+Estero de Pejerreyes,stream,Nevado de Longavi,NLO,3
+Estero de Pejerreyes,stream,Tatara-San Pedro,TSP,1
+Estero de Pellejo,stream,Planchon-Peteroa,PLP,2
+Estero de Pellejo,stream,Tinguiririca,TIN,2
+Estero de Piedras,stream,Nevado de Longavi,NLO,1
+Estero de Piedras,stream,Nevados de Chillan,NCH,1
+Estero de Santos,stream,Planchon-Peteroa,PLP,1
+Estero de Santos,stream,Tinguiririca,TIN,1
+Estero de Sepulveda,stream,Laguna del Maule,LDM,2
+Estero de Sepulveda,stream,Tatara-San Pedro,TSP,2
+Estero de Trapatrapa,river,Antuco,ANT,1
+Estero de Trapatrapa,river,Callaqui,CAL,1
+Estero de Trapatrapa,river,Copahue,CPA,1
+Estero de la Palma,stream,Planchon-Peteroa,PLP,2
+Estero de la Palma,stream,Tinguiririca,TIN,2
+Estero de los Bueyes,stream,Planchon-Peteroa,PLP,2
+Estero de los Calabozos,stream,Laguna del Maule,LDM,1
+Estero de los Calabozos,stream,Nevado de Longavi,NLO,1
+Estero de los Calabozos,stream,Tatara-San Pedro,TSP,1
+Estero de los Pangues,stream,Tinguiririca,TIN,1
+Estero del Aparejo,stream,San Jose,SJO,1
+Estero del Aparejo,stream,Tupungatito,TUP,1
+Estero del Azufre,stream,San Jose,SJO,1
+Estero del Azufre,stream,Tupungatito,TUP,1
+Estero del Búfalo,stream,Callaqui,CAL,3
+Estero del Calabozo,stream,Tatara-San Pedro,TSP,1
+Estero del Cepo,stream,Tupungatito,TUP,2
+Estero del Diablo,stream,San Jose,SJO,1
+Estero del Durazno,stream,San Jose,SJO,1
+Estero del Durazno,stream,Tupungatito,TUP,1
+Estero del Encañado,stream,San Jose,SJO,1
+Estero del Encañado,stream,Tupungatito,TUP,1
+Estero del Manzanito,river,San Jose,SJO,2
+Estero del Manzanito,river,Tupungatito,TUP,2
+Estero del Medio,stream,San Jose,SJO,1
+Estero del Medio,stream,Tupungatito,TUP,1
+Estero del Plomo,stream,San Jose,SJO,1
+Estero del Plomo,stream,Tupungatito,TUP,1
+Estero del Quebrado,stream,San Jose,SJO,1
+Estero del Quebrado,stream,Tupungatito,TUP,1
+Estero del Relvo,stream,San Jose,SJO,1
+Estero del Relvo,stream,Tupungatito,TUP,1
+Estero del Temblor,stream,San Jose,SJO,1
+Estero del Valle,river,Descabezado Grande,DGR,1
+Estero del Valle,river,Laguna del Maule,LDM,1
+Estero del Valle,river,Nevado de Longavi,NLO,1
+Estero del Valle,river,Tatara-San Pedro,TSP,1
+Estero el Peñón,river,Descabezado Grande,DGR,1
+Estero el Peñón,river,Planchon-Peteroa,PLP,1
+Estero grande,stream,Nevado de Longavi,NLO,1
+Estero grande,stream,Nevados de Chillan,NCH,1
+Estero la Gloria,stream,Tinguiririca,TIN,1
+Estero Ñilfe,stream,QuetrupillÃ¡n,QUE,1
+Estero Ñilfe,stream,Villarrica,VIL,1
+Estero Ñilque,stream,Antillanca-Casablanca,ACA,1
+Estero Ñilque,stream,Osorno,OSO,1
+Estero Ñilque,stream,Puntiagudo,PUN,1
+Estero Ñilque,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Estero Ñireco,stream,Callaqui,CAL,1
+Estero Ñireco,stream,Copahue,CPA,1
+Estero Ñireco,stream,Lonquimay,LON,1
+Estero Ñirehueco,stream,Antuco,ANT,1
+Estero Ñirehueco,stream,Callaqui,CAL,1
+Estero Ñirehueco,stream,Copahue,CPA,1
+Evacuador de crecidas,drain,Taapaca,TAA,1
+Guancarare,stream,Taapaca,TAA,5
+Guanchin,river,Incahuasi,INC,7
+Guanchin,river,Ojos del Salado,ODS,7
+Guanchin,river,San Francisco,SFR,5
+Las Ventanas,stream,Tupungatito,TUP,1
+Llaguepe,river,HornopirÃ©n,HOR,1
+Llaguepe,river,Yate,YAT,1
+Loncontraro,stream,QuetrupillÃ¡n,QUE,1
+Loncontraro,stream,Villarrica,VIL,1
+Los Alerces,river,Michinmahuida,MIC,1
+Los Chilcos,river,QuetrupillÃ¡n,QUE,1
+Los Chilcos,river,Villarrica,VIL,1
+Los Gigios,stream,ChaitÃ©n,CHA,1
+Los Gigios,stream,Corcovado,COR,1
+Los Gigios,stream,Huequi,HUE,1
+Los Gigios,stream,Michinmahuida,MIC,1
+Los Patos,river,Calbuco,CLB,1
+Los Patos,river,Osorno,OSO,1
+None,stream,Corcovado,COR,1
+None,stream,Huequi,HUE,1
+None,river,Melimoyu,MEL,1
+None,stream,Michinmahuida,MIC,1
+Picacho,river,Cay,CAY,1
+Picacho,river,Mentolat,MEN,1
+Pichi Bureo,river,Callaqui,CAL,1
+Puente Canal Laja/Est. El Toro,canal,Antuco,ANT,1
+Pusuma,stream,Taapaca,TAA,1
+Quebrada Acache,stream,Irruputuncu,IRR,1
+Quebrada Acache,stream,Olca-Paruma,OLC,1
+Quebrada Acamarachi,stream,Lascar,LAS,3
+Quebrada Acamarachi Chica,stream,Lascar,LAS,3
+Quebrada Achacagua,stream,Guallatiri,GUA,1
+Quebrada Agua Amarga,stream,Lascar,LAS,1
+Quebrada Agua Blanca,stream,San Jose,SJO,2
+Quebrada Agua Blanca,stream,Tupungatito,TUP,1
+Quebrada Agua Brava,stream,Putana,PUT,1
+Quebrada Agua Colorada,stream,Lascar,LAS,1
+Quebrada Agua Delgada,stream,Socompa,SOC,1
+Quebrada Agua Fría,stream,Nevado de Longavi,NLO,3
+Quebrada Agua Fría,stream,Nevados de Chillan,NCH,2
+Quebrada Agua Mala,stream,OllagÃ¼e,OLL,2
+Quebrada Agua Mala,stream,San Pedro,SDP,2
+Quebrada Agua Milagro,stream,Irruputuncu,IRR,1
+Quebrada Agua Milagro,stream,Olca-Paruma,OLC,1
+Quebrada Agua Tapada,stream,San Jose,SJO,1
+Quebrada Agua Verde,stream,Irruputuncu,IRR,3
+Quebrada Agua Verde,stream,Olca-Paruma,OLC,3
+Quebrada Agua del Coihue,stream,Descabezado Grande,DGR,2
+Quebrada Agua del Coihue,stream,Planchon-Peteroa,PLP,2
+Quebrada Aguas Calientes,stream,Azufre,AZU,1
+Quebrada Aguas Calientes,stream,Bayo,BAY,1
+Quebrada Aguas Calientes,stream,Lascar,LAS,1
+Quebrada Aguas Calientes,stream,Lastarria,LST,1
+Quebrada Aguas Calientes,stream,Llullaillaco,LLU,1
+Quebrada Aguilucho,stream,San Pedro,SDP,1
+Quebrada Ahcoma,stream,Taapaca,TAA,1
+Quebrada Alex,stream,Lascar,LAS,1
+Quebrada Alfalfalito,stream,San Jose,SJO,1
+Quebrada Algarrobilla,stream,Lascar,LAS,1
+Quebrada Algarrobo,stream,Lascar,LAS,1
+Quebrada Alitar,river,Lascar,LAS,2
+Quebrada Allana,stream,Lascar,LAS,1
+Quebrada Allane,river,Parinacota,PAR,7
+Quebrada Allane,river,Taapaca,TAA,7
+Quebrada Alpaguast,stream,San Pedro,SDP,5
+Quebrada Amarilla,stream,Olca-Paruma,OLC,1
+Quebrada Amarilla,stream,OllagÃ¼e,OLL,1
+Quebrada Amarilla,stream,Putana,PUT,1
+Quebrada Amarilla,stream,San Pedro,SDP,1
+Quebrada Amincha,stream,Olca-Paruma,OLC,5
+Quebrada Amincha,stream,OllagÃ¼e,OLL,5
+Quebrada Ancha,stream,Nevado de Longavi,NLO,2
+Quebrada Ancha,stream,Nevados de Chillan,NCH,2
+Quebrada Angosta,stream,Tupungatito,TUP,1
+Quebrada Angostura,stream,Irruputuncu,IRR,1
+Quebrada Angostura,stream,Olca-Paruma,OLC,1
+Quebrada Aquilaxo,stream,Isluga,ISL,5
+Quebrada Aquilaxo,stream,Tata Sabaya,TAT,5
+Quebrada Aras,stream,Llullaillaco,LLU,1
+Quebrada Aras,stream,Socompa,SOC,1
+Quebrada Arenosa,stream,CopiapÃ³,COP,1
+Quebrada Aritano,stream,Lascar,LAS,1
+Quebrada Aroma,stream,Guallatiri,GUA,1
+Quebrada Aroma,stream,Parinacota,PAR,3
+Quebrada Aroma,stream,Taapaca,TAA,4
+Quebrada Arroyo Sencata,stream,Isluga,ISL,3
+Quebrada Arroyo Sencata,stream,Tata Sabaya,TAT,3
+Quebrada Atana,stream,Lascar,LAS,1
+Quebrada Aurelio,stream,Nevado de Longavi,NLO,2
+Quebrada Aurelio,stream,Nevados de Chillan,NCH,2
+Quebrada Ayenera,stream,San Pedro,SDP,1
+Quebrada Azufre,stream,CopiapÃ³,COP,1
+Quebrada Azufre,stream,Nevado Tres Cruces,NTC,1
+Quebrada Azufre Quemado,stream,Azufre,AZU,1
+Quebrada Azufre Quemado,stream,Bayo,BAY,1
+Quebrada Azufre Quemado,stream,Lastarria,LST,1
+Quebrada Ballico,stream,Nevado de Longavi,NLO,2
+Quebrada Barinaco,stream,Irruputuncu,IRR,1
+Quebrada Barinaco,stream,Olca-Paruma,OLC,1
+Quebrada Barrancane,stream,OllagÃ¼e,OLL,1
+Quebrada Barrancane,stream,San Pedro,SDP,1
+Quebrada Belen,stream,Guallatiri,GUA,1
+Quebrada Belen,stream,Parinacota,PAR,1
+Quebrada Belen,stream,Taapaca,TAA,1
+Quebrada Blanca,stream,Irruputuncu,IRR,4
+Quebrada Blanca,stream,Lascar,LAS,1
+Quebrada Blanca,stream,Llullaillaco,LLU,1
+Quebrada Blanca,stream,Olca-Paruma,OLC,4
+Quebrada Blanca,stream,Socompa,SOC,1
+Quebrada Blanco,stream,Putana,PUT,1
+Quebrada Bollenar,stream,Tinguiririca,TIN,1
+Quebrada Bolsico,stream,San Jose,SJO,1
+Quebrada Borgollones,stream,Tinguiririca,TIN,1
+Quebrada Caballo Muerto,stream,CopiapÃ³,COP,1
+Quebrada Caballo Muerto,stream,Lascar,LAS,1
+Quebrada Caballo Muerto,stream,Nevado Tres Cruces,NTC,1
+Quebrada Caballuno,stream,Irruputuncu,IRR,1
+Quebrada Caballuno,stream,Olca-Paruma,OLC,1
+Quebrada Cabeza de Novillo,stream,San Jose,SJO,1
+Quebrada Cablor,stream,Putana,PUT,1
+Quebrada Cachiyuyo,stream,Llullaillaco,LLU,2
+Quebrada Caichape,stream,Olca-Paruma,OLC,1
+Quebrada Caichape,stream,OllagÃ¼e,OLL,1
+Quebrada Caico,stream,Isluga,ISL,1
+Quebrada Caiconte,stream,Lascar,LAS,1
+Quebrada Caillama,stream,Guallatiri,GUA,1
+Quebrada Caillama,stream,Parinacota,PAR,3
+Quebrada Caillama,stream,Taapaca,TAA,3
+Quebrada Caracarani,stream,Taapaca,TAA,4
+Quebrada Carampas,stream,Lascar,LAS,1
+Quebrada Carampas,stream,Putana,PUT,1
+Quebrada Carcanal,stream,San Pedro,SDP,1
+Quebrada Cardones,stream,Taapaca,TAA,7
+Quebrada Cardonquis,stream,Lascar,LAS,3
+Quebrada Cares,stream,Lascar,LAS,3
+Quebrada Caritaya,river,Isluga,ISL,2
+Quebrada Carrasco,stream,Laguna del Maule,LDM,2
+Quebrada Carrasco,stream,Nevado de Longavi,NLO,2
+Quebrada Carrasco,stream,Tatara-San Pedro,TSP,2
+Quebrada Carrenito,stream,San Jose,SJO,1
+Quebrada Carrizal,stream,Descabezado Grande,DGR,1
+Quebrada Carrizal,stream,Laguna del Maule,LDM,1
+Quebrada Carrizal,stream,Nevado de Longavi,NLO,1
+Quebrada Carrizal,stream,Tatara-San Pedro,TSP,1
+Quebrada Casa Quemada,stream,San Pedro,SDP,1
+Quebrada Casa de Piedra,stream,Nevados de Chillan,NCH,2
+Quebrada Casoxalla,stream,Isluga,ISL,11
+Quebrada Casoxalla,stream,Tata Sabaya,TAT,11
+Quebrada Catarape,stream,Lascar,LAS,1
+Quebrada Caunire,stream,Taapaca,TAA,1
+Quebrada Caurtoro,stream,Lascar,LAS,1
+Quebrada Caytri,stream,Isluga,ISL,1
+Quebrada Caytri,stream,Tata Sabaya,TAT,1
+Quebrada Cebollar,stream,OllagÃ¼e,OLL,3
+Quebrada Cebollar,stream,San Pedro,SDP,3
+Quebrada Cejas,stream,Olca-Paruma,OLC,1
+Quebrada Cerro Blanco,stream,Azufre,AZU,1
+Quebrada Cerro Blanco,stream,Bayo,BAY,1
+Quebrada Cerro Blanco,stream,Tinguiririca,TIN,1
+Quebrada Cerro Colorado,stream,CopiapÃ³,COP,1
+Quebrada Cerro Colorado,stream,Nevado Tres Cruces,NTC,1
+Quebrada Cerro Colorado,stream,Ojos del Salado,ODS,1
+Quebrada Cerro Colorado,stream,Tipas,TIP,1
+Quebrada Cerroqui,stream,San Pedro,SDP,3
+Quebrada Chac-Inca,stream,OllagÃ¼e,OLL,1
+Quebrada Chac-Inca,stream,San Pedro,SDP,1
+Quebrada Chacayal,stream,San Jose,SJO,1
+Quebrada Chacayes,stream,San Jose,SJO,2
+Quebrada Chacia,stream,Isluga,ISL,1
+Quebrada Chaja,stream,Olca-Paruma,OLC,1
+Quebrada Chajta,stream,Guallatiri,GUA,1
+Quebrada Chajta,stream,Parinacota,PAR,1
+Quebrada Chajta,stream,Taapaca,TAA,1
+Quebrada Chala,stream,San Pedro,SDP,1
+Quebrada Challavilque,stream,Isluga,ISL,1
+Quebrada Challavilque,stream,Tata Sabaya,TAT,1
+Quebrada Chana,stream,Irruputuncu,IRR,1
+Quebrada Chana,stream,Olca-Paruma,OLC,1
+Quebrada Chancaca,stream,San Jose,SJO,1
+Quebrada Chancaquita,stream,San Jose,SJO,1
+Quebrada Chano,stream,Guallatiri,GUA,1
+Quebrada Chano,stream,Parinacota,PAR,1
+Quebrada Chara,stream,Irruputuncu,IRR,1
+Quebrada Chaxas,stream,Putana,PUT,1
+Quebrada Chela,stream,Olca-Paruma,OLC,1
+Quebrada Chela,stream,OllagÃ¼e,OLL,1
+Quebrada Chelani,stream,Isluga,ISL,1
+Quebrada Chelani,stream,Tata Sabaya,TAT,1
+Quebrada Chicaltopo,stream,Lascar,LAS,1
+Quebrada Chicarhuayani,stream,Irruputuncu,IRR,1
+Quebrada Chicarhuayani,stream,Olca-Paruma,OLC,1
+Quebrada Chichura,stream,Isluga,ISL,1
+Quebrada Chillaguar,stream,Putana,PUT,1
+Quebrada Chillanejo,stream,Descabezado Grande,DGR,2
+Quebrada Chillanejo,stream,Laguna del Maule,LDM,2
+Quebrada Chillanejo,stream,Nevado de Longavi,NLO,2
+Quebrada Chillanejo,stream,Tatara-San Pedro,TSP,2
+Quebrada Chinches,stream,CopiapÃ³,COP,2
+Quebrada Chingue,stream,Nevado de Longavi,NLO,2
+Quebrada Chipana,stream,Irruputuncu,IRR,1
+Quebrada Chiqueros,stream,Lascar,LAS,5
+Quebrada Chislluma,stream,Taapaca,TAA,5
+Quebrada Chococolloani,stream,Isluga,ISL,1
+Quebrada Chococolloani,stream,Tata Sabaya,TAT,3
+Quebrada Choile,stream,Lascar,LAS,1
+Quebrada Cholcha,stream,Llullaillaco,LLU,7
+Quebrada Cholcha,stream,Socompa,SOC,7
+Quebrada Chora,stream,Irruputuncu,IRR,3
+Quebrada Chora,stream,Olca-Paruma,OLC,3
+Quebrada Chorillos,stream,Planchon-Peteroa,PLP,1
+Quebrada Chorquina,stream,Irruputuncu,IRR,3
+Quebrada Chorquina,stream,Olca-Paruma,OLC,3
+Quebrada Choscana,stream,Llullaillaco,LLU,1
+Quebrada Choscana,stream,Socompa,SOC,1
+Quebrada Choscuaya,stream,Parinacota,PAR,3
+Quebrada Choscuaya,stream,Taapaca,TAA,3
+Quebrada Choyota,stream,Parinacota,PAR,1
+Quebrada Choyota,stream,Taapaca,TAA,1
+Quebrada Chuba,stream,Guallatiri,GUA,3
+Quebrada Chuba,stream,Parinacota,PAR,3
+Quebrada Chuba,stream,Taapaca,TAA,3
+Quebrada Chuglla,stream,Lascar,LAS,1
+Quebrada Chulpaguaico,stream,Olca-Paruma,OLC,1
+Quebrada Chulpaguaico,stream,OllagÃ¼e,OLL,1
+Quebrada Chunar,stream,Lascar,LAS,1
+Quebrada Chunjullo,stream,Irruputuncu,IRR,1
+Quebrada Chunjullo,stream,Olca-Paruma,OLC,1
+Quebrada Chuquilananta,stream,Taapaca,TAA,3
+Quebrada Chuschul,stream,Putana,PUT,1
+Quebrada Chusquina,stream,Irruputuncu,IRR,4
+Quebrada Chusquina,stream,Olca-Paruma,OLC,4
+Quebrada Cienaga,stream,CopiapÃ³,COP,5
+Quebrada Cienaga,stream,Nevado Tres Cruces,NTC,5
+Quebrada Cienaga,stream,Tipas,TIP,5
+Quebrada Cilanane,stream,Guallatiri,GUA,3
+Quebrada Cilanane,stream,Parinacota,PAR,3
+Quebrada Codocedo,stream,CopiapÃ³,COP,1
+Quebrada Coico,stream,Isluga,ISL,1
+Quebrada Cola de Zorra,stream,Nevado de Longavi,NLO,3
+Quebrada Colana,stream,San Pedro,SDP,1
+Quebrada Colina,stream,San Jose,SJO,1
+Quebrada Collio,stream,Descabezado Grande,DGR,1
+Quebrada Collio,stream,Planchon-Peteroa,PLP,1
+Quebrada Colorada,stream,CopiapÃ³,COP,1
+Quebrada Colorada,stream,Lascar,LAS,1
+Quebrada Colorada,stream,Llullaillaco,LLU,1
+Quebrada Colorada,stream,Nevado Tres Cruces,NTC,1
+Quebrada Colorada,stream,Ojos del Salado,ODS,1
+Quebrada Colorada,stream,San Jose,SJO,1
+Quebrada Colorada,stream,Socompa,SOC,1
+Quebrada Colorada,stream,Tipas,TIP,1
+Quebrada Colpitas,river,Parinacota,PAR,1
+Quebrada Colpitas,river,Taapaca,TAA,1
+Quebrada Concoha o Concocha,stream,San Pedro,SDP,4
+Quebrada Condoroma,stream,San Pedro,SDP,1
+Quebrada Copahue,stream,Antuco,ANT,1
+Quebrada Copahue,stream,Callaqui,CAL,1
+Quebrada Copahue,stream,Copahue,CPA,1
+Quebrada Corral Negro,stream,Irruputuncu,IRR,1
+Quebrada Corral Negro,stream,Olca-Paruma,OLC,1
+Quebrada Corral Quemado,stream,San Pedro,SDP,1
+Quebrada Corrales Blancos,stream,Putana,PUT,1
+Quebrada Cosca,stream,Irruputuncu,IRR,1
+Quebrada Cosca,stream,Olca-Paruma,OLC,1
+Quebrada Cosca,stream,OllagÃ¼e,OLL,1
+Quebrada Cotari,stream,San Pedro,SDP,1
+Quebrada Coya,stream,Irruputuncu,IRR,1
+Quebrada Coya,stream,Olca-Paruma,OLC,1
+Quebrada Coya,stream,Putana,PUT,1
+Quebrada Coyahuasito,stream,Irruputuncu,IRR,1
+Quebrada Coyahuasito,stream,Olca-Paruma,OLC,1
+Quebrada Cuanune,stream,Taapaca,TAA,1
+Quebrada Cucala,stream,Lascar,LAS,3
+Quebrada Cuchabrache,stream,Putana,PUT,1
+Quebrada Cuevitas,stream,OllagÃ¼e,OLL,1
+Quebrada Cuevitas,stream,San Pedro,SDP,1
+Quebrada Culco,stream,Guallatiri,GUA,3
+Quebrada Culco,stream,Parinacota,PAR,3
+Quebrada Culiculine,stream,Guallatiri,GUA,4
+Quebrada Culiculine,stream,Parinacota,PAR,4
+Quebrada Culiculine,stream,Taapaca,TAA,4
+Quebrada Cuta,stream,Llullaillaco,LLU,1
+Quebrada Cuta,stream,Socompa,SOC,1
+Quebrada Dalmacia,stream,Nevado de Longavi,NLO,1
+Quebrada Divisoco,stream,San Pedro,SDP,3
+Quebrada El Arenal,stream,Laguna del Maule,LDM,2
+Quebrada El Arenal,stream,Nevado de Longavi,NLO,2
+Quebrada El Arenal,stream,San Pedro,SDP,3
+Quebrada El Arenal,stream,Tatara-San Pedro,TSP,2
+Quebrada El Bolito,stream,CopiapÃ³,COP,1
+Quebrada El Buitre,stream,Nevado de Longavi,NLO,2
+Quebrada El Calabozo,stream,Descabezado Grande,DGR,2
+Quebrada El Calabozo,stream,Laguna del Maule,LDM,1
+Quebrada El Calabozo,stream,Nevado de Longavi,NLO,2
+Quebrada El Calabozo,stream,Tatara-San Pedro,TSP,2
+Quebrada El Canelo,stream,Tinguiririca,TIN,9
+Quebrada El Carao,stream,Planchon-Peteroa,PLP,1
+Quebrada El Carao,stream,Tinguiririca,TIN,1
+Quebrada El Cardo,stream,Nevado de Longavi,NLO,2
+Quebrada El Cardo,stream,Nevados de Chillan,NCH,2
+Quebrada El Carrizal,stream,Planchon-Peteroa,PLP,1
+Quebrada El Carrizal,stream,Tinguiririca,TIN,3
+Quebrada El Chico,stream,Nevados de Chillan,NCH,3
+Quebrada El Chiquero,stream,San Jose,SJO,1
+Quebrada El Chivato,stream,Nevado de Longavi,NLO,1
+Quebrada El Chivato,stream,Nevados de Chillan,NCH,2
+Quebrada El Chorro,stream,Lascar,LAS,3
+Quebrada El Chureo,river,Laguna del Maule,LDM,2
+Quebrada El Chureo,river,Nevado de Longavi,NLO,2
+Quebrada El Chureo,river,Tatara-San Pedro,TSP,2
+Quebrada El Ciruelo,stream,Planchon-Peteroa,PLP,1
+Quebrada El Ciruelo,stream,Tinguiririca,TIN,1
+Quebrada El Cobre,stream,San Jose,SJO,2
+Quebrada El Coihue,stream,Descabezado Grande,DGR,2
+Quebrada El Coihue,stream,Planchon-Peteroa,PLP,2
+Quebrada El Coligual,stream,Descabezado Grande,DGR,2
+Quebrada El Coligual,stream,Planchon-Peteroa,PLP,2
+Quebrada El Colorado,stream,Tinguiririca,TIN,1
+Quebrada El Desague,stream,CopiapÃ³,COP,1
+Quebrada El Descabezado,stream,Descabezado Grande,DGR,2
+Quebrada El Descabezado,stream,Laguna del Maule,LDM,1
+Quebrada El Descabezado,stream,Planchon-Peteroa,PLP,2
+Quebrada El Descabezado,stream,Tatara-San Pedro,TSP,2
+Quebrada El Feo,stream,Nevados de Chillan,NCH,3
+Quebrada El Fraile,stream,Incahuasi,INC,1
+Quebrada El Fraile,stream,Nevado Tres Cruces,NTC,1
+Quebrada El Fraile,stream,Ojos del Salado,ODS,1
+Quebrada El Fraile,stream,San Francisco,SFR,1
+Quebrada El Fraile,stream,Tipas,TIP,1
+Quebrada El Gordo,stream,Irruputuncu,IRR,1
+Quebrada El Gordo,stream,Olca-Paruma,OLC,1
+Quebrada El Horno,stream,Irruputuncu,IRR,1
+Quebrada El Horno,stream,Olca-Paruma,OLC,1
+Quebrada El Hoyo,stream,Nevado de Longavi,NLO,2
+Quebrada El Indio,stream,Tinguiririca,TIN,1
+Quebrada El Infiernillo,stream,CopiapÃ³,COP,1
+Quebrada El Laurel,stream,San Jose,SJO,1
+Quebrada El Laurel,stream,Tupungatito,TUP,1
+Quebrada El León,stream,Lastarria,LST,1
+Quebrada El León,stream,Llullaillaco,LLU,1
+Quebrada El León,stream,Nevado de Longavi,NLO,2
+Quebrada El León,stream,Nevados de Chillan,NCH,2
+Quebrada El Lloradero,stream,San Pedro,SDP,1
+Quebrada El Loro,stream,Putana,PUT,1
+Quebrada El Manzano,stream,Planchon-Peteroa,PLP,3
+Quebrada El Manzano,stream,Tinguiririca,TIN,5
+Quebrada El Maqui,stream,Planchon-Peteroa,PLP,2
+Quebrada El Membrillo,stream,Planchon-Peteroa,PLP,1
+Quebrada El Membrillo,stream,Tinguiririca,TIN,3
+Quebrada El Minero,stream,Tinguiririca,TIN,1
+Quebrada El Mosco,stream,Laguna del Maule,LDM,2
+Quebrada El Mosco,stream,Nevado de Longavi,NLO,2
+Quebrada El Mosco,stream,Tatara-San Pedro,TSP,2
+Quebrada El Negreal,stream,Lascar,LAS,1
+Quebrada El Nuco,stream,Descabezado Grande,DGR,1
+Quebrada El Nuco,stream,Laguna del Maule,LDM,2
+Quebrada El Nuco,stream,Nevado de Longavi,NLO,2
+Quebrada El Nuco,stream,Tatara-San Pedro,TSP,2
+Quebrada El Paradero,stream,San Jose,SJO,1
+Quebrada El Pañuelo,stream,Nevado de Longavi,NLO,2
+Quebrada El Peral,stream,Planchon-Peteroa,PLP,1
+Quebrada El Peral,stream,Tinguiririca,TIN,1
+Quebrada El Peñón,stream,Planchon-Peteroa,PLP,2
+Quebrada El Quemado,stream,San Jose,SJO,1
+Quebrada El Quemado,stream,Tupungatito,TUP,1
+Quebrada El Quillay,stream,Planchon-Peteroa,PLP,1
+Quebrada El Quillay,stream,Tinguiririca,TIN,1
+Quebrada El Quince,stream,Irruputuncu,IRR,3
+Quebrada El Quince,stream,Olca-Paruma,OLC,3
+Quebrada El Quince,stream,OllagÃ¼e,OLL,3
+Quebrada El Retamo,stream,Planchon-Peteroa,PLP,1
+Quebrada El Retamo,stream,Tinguiririca,TIN,1
+Quebrada El Rodeo de Los Bueyes,stream,San Jose,SJO,1
+Quebrada El Salado,stream,Llullaillaco,LLU,1
+Quebrada El Salado,stream,Socompa,SOC,1
+Quebrada El Salto,stream,Llullaillaco,LLU,1
+Quebrada El Salto,stream,San Jose,SJO,1
+Quebrada El Salto,stream,Socompa,SOC,1
+Quebrada El Salto Chico,stream,Llullaillaco,LLU,1
+Quebrada El Salto Chico,stream,Socompa,SOC,1
+Quebrada El Sillón,stream,Planchon-Peteroa,PLP,2
+Quebrada El Sillón,stream,Tinguiririca,TIN,2
+Quebrada El Sombrerito,stream,CopiapÃ³,COP,1
+Quebrada El Toro,river,Antuco,ANT,1
+Quebrada El Toro,river,Callaqui,CAL,1
+Quebrada El Toro,river,Copahue,CPA,1
+Quebrada El Toro,stream,CopiapÃ³,COP,1
+Quebrada El Toro,stream,Laguna del Maule,LDM,3
+Quebrada El Toro,stream,Lascar,LAS,3
+Quebrada El Toro,stream,Nevado Tres Cruces,NTC,1
+Quebrada El Toro,stream,Nevado de Longavi,NLO,4
+Quebrada El Toro,stream,Planchon-Peteroa,PLP,1
+Quebrada El Toro,stream,Tatara-San Pedro,TSP,4
+Quebrada El Toro,stream,Tinguiririca,TIN,2
+Quebrada El Trecientos,stream,San Jose,SJO,1
+Quebrada El Trecientos,stream,Tupungatito,TUP,1
+Quebrada El Tránsito,stream,San Jose,SJO,1
+Quebrada El Valle Chico,stream,Putana,PUT,3
+Quebrada El Venado,stream,Planchon-Peteroa,PLP,1
+Quebrada El Venado,stream,Tinguiririca,TIN,1
+Quebrada El Yeso,stream,Putana,PUT,1
+Quebrada El Yeso,stream,Tinguiririca,TIN,1
+Quebrada El Zarso,stream,Lascar,LAS,1
+Quebrada El Zarso,stream,Putana,PUT,1
+Quebrada El Zorro,stream,San Jose,SJO,1
+Quebrada Enterrada,stream,Lascar,LAS,1
+Quebrada Escapiña,stream,Isluga,ISL,1
+Quebrada Escapiña,stream,Tata Sabaya,TAT,1
+Quebrada Esquina,stream,Olca-Paruma,OLC,1
+Quebrada Estero Puchultisa,stream,Isluga,ISL,3
+Quebrada Falso Azufre,stream,Incahuasi,INC,1
+Quebrada Falso Azufre,stream,Nevado Tres Cruces,NTC,1
+Quebrada Falso Azufre,stream,Ojos del Salado,ODS,1
+Quebrada Falso Azufre,stream,San Francisco,SFR,1
+Quebrada Falso Azufre,stream,Tipas,TIP,1
+Quebrada Feta,stream,Irruputuncu,IRR,1
+Quebrada Feta,stream,Olca-Paruma,OLC,1
+Quebrada Finado José,stream,Olca-Paruma,OLC,1
+Quebrada Finado José,stream,OllagÃ¼e,OLL,1
+Quebrada Gallinazos de Concordia,stream,Taapaca,TAA,4
+Quebrada Garcés,stream,Planchon-Peteroa,PLP,3
+Quebrada Garcés,stream,Tinguiririca,TIN,3
+Quebrada Garrapatani,stream,Irruputuncu,IRR,1
+Quebrada Guacapeque,stream,Guallatiri,GUA,4
+Quebrada Guacapeque,stream,Parinacota,PAR,4
+Quebrada Guacapeque,stream,Taapaca,TAA,4
+Quebrada Guaichera,stream,Olca-Paruma,OLC,1
+Quebrada Guaichera,stream,OllagÃ¼e,OLL,1
+Quebrada Guaillane,stream,Isluga,ISL,1
+Quebrada Guallatani,stream,Irruputuncu,IRR,1
+Quebrada Guallatani,stream,Olca-Paruma,OLC,1
+Quebrada Guallatani,stream,OllagÃ¼e,OLL,1
+Quebrada Gualqueverini,stream,Guallatiri,GUA,1
+Quebrada Gualqueverini,stream,Parinacota,PAR,1
+Quebrada Gualqueverini,stream,Taapaca,TAA,1
+Quebrada Guanaqueros,stream,Llullaillaco,LLU,1
+Quebrada Guanaqueros,stream,Socompa,SOC,1
+Quebrada Guanca,stream,Isluga,ISL,3
+Quebrada Guarcaqua,stream,Isluga,ISL,1
+Quebrada Guarcaqua,stream,Tata Sabaya,TAT,1
+Quebrada Guastipa,stream,Irruputuncu,IRR,1
+Quebrada Guastipa,stream,Olca-Paruma,OLC,1
+Quebrada Guatacondo,stream,Irruputuncu,IRR,3
+Quebrada Guatacondo,stream,Olca-Paruma,OLC,3
+Quebrada Guayacán,stream,San Jose,SJO,1
+Quebrada Honar,stream,Lascar,LAS,1
+Quebrada Honda,stream,Lascar,LAS,4
+Quebrada Honda,stream,Llaima,LLA,1
+Quebrada Honda,stream,Lonquimay,LON,1
+Quebrada Honda,stream,Planchon-Peteroa,PLP,3
+Quebrada Honda,stream,Taapaca,TAA,3
+Quebrada Hornito,stream,San Jose,SJO,1
+Quebrada Hospital,stream,San Jose,SJO,2
+Quebrada Hospital,stream,Tupungatito,TUP,1
+Quebrada Hoyada,stream,Nevado de Longavi,NLO,2
+Quebrada Huaijata,stream,Isluga,ISL,1
+Quebrada Huaillajara,stream,Irruputuncu,IRR,1
+Quebrada Huaillajara,stream,Olca-Paruma,OLC,1
+Quebrada Huayllokho,stream,Guallatiri,GUA,2
+Quebrada Huayllokho,stream,Parinacota,PAR,2
+Quebrada Huiquintipo,stream,Irruputuncu,IRR,3
+Quebrada Huiquintipo,stream,Olca-Paruma,OLC,3
+Quebrada Incahuasi,stream,Putana,PUT,2
+Quebrada Infiernillo,stream,Irruputuncu,IRR,1
+Quebrada Infiernillo,stream,Olca-Paruma,OLC,1
+Quebrada Iquilla,stream,Parinacota,PAR,2
+Quebrada Iquilla,stream,Taapaca,TAA,2
+Quebrada Jacha Khaua,stream,Irruputuncu,IRR,1
+Quebrada Jacha Khaua,stream,Olca-Paruma,OLC,1
+Quebrada Jacha Uma,stream,Parinacota,PAR,1
+Quebrada Jacha Uma,stream,Taapaca,TAA,1
+Quebrada Japu,stream,Guallatiri,GUA,3
+Quebrada Japu,stream,Parinacota,PAR,3
+Quebrada Japu,stream,Taapaca,TAA,3
+Quebrada Jorquencal,stream,Putana,PUT,2
+Quebrada Jovita,stream,Irruputuncu,IRR,1
+Quebrada Jovita,stream,Olca-Paruma,OLC,1
+Quebrada Juan Ríos,stream,Nevado de Longavi,NLO,1
+Quebrada Juchuchurchicha,stream,Irruputuncu,IRR,5
+Quebrada Juchuchurchicha,stream,Olca-Paruma,OLC,5
+Quebrada Juchuchurchicha,stream,OllagÃ¼e,OLL,5
+Quebrada Juncalito,stream,San Jose,SJO,1
+Quebrada Junquillar,stream,Putana,PUT,2
+Quebrada Kohuiri,stream,Guallatiri,GUA,1
+Quebrada Kohuiri,stream,Parinacota,PAR,1
+Quebrada La Aguada,stream,Descabezado Grande,DGR,3
+Quebrada La Aguada,stream,Tatara-San Pedro,TSP,3
+Quebrada La Apacheta,stream,Olca-Paruma,OLC,1
+Quebrada La Apacheta,stream,OllagÃ¼e,OLL,1
+Quebrada La Bandera,stream,Tinguiririca,TIN,1
+Quebrada La Barda,stream,Lastarria,LST,1
+Quebrada La Barda,stream,Llullaillaco,LLU,1
+Quebrada La Buitrera,stream,San Jose,SJO,1
+Quebrada La Chascona,stream,Nevado de Longavi,NLO,1
+Quebrada La Chilena,stream,Irruputuncu,IRR,1
+Quebrada La Chinchilla,stream,Olca-Paruma,OLC,1
+Quebrada La Chinchilla,stream,OllagÃ¼e,OLL,1
+Quebrada La Coipa,stream,CopiapÃ³,COP,1
+Quebrada La Coipa,stream,Nevado Tres Cruces,NTC,1
+Quebrada La Cuesta,stream,Tupungatito,TUP,1
+Quebrada La Dama,stream,Planchon-Peteroa,PLP,1
+Quebrada La Dama,stream,Tinguiririca,TIN,1
+Quebrada La Engorda,stream,Planchon-Peteroa,PLP,1
+Quebrada La Engorda,stream,Tinguiririca,TIN,1
+Quebrada La Escondida,stream,Nevado de Longavi,NLO,4
+Quebrada La Fría,stream,Descabezado Grande,DGR,1
+Quebrada La Fría,stream,Tatara-San Pedro,TSP,1
+Quebrada La Guacapa,stream,CopiapÃ³,COP,3
+Quebrada La Guacapa,stream,Nevado Tres Cruces,NTC,3
+Quebrada La Guacapa,stream,Ojos del Salado,ODS,1
+Quebrada La Guacapa,stream,Tipas,TIP,3
+Quebrada La Guanaca,stream,CopiapÃ³,COP,1
+Quebrada La Hedionda,stream,San Jose,SJO,1
+Quebrada La Invernada,stream,Nevado de Longavi,NLO,3
+Quebrada La Invernada,stream,Tatara-San Pedro,TSP,3
+Quebrada La Labranza,stream,Descabezado Grande,DGR,3
+Quebrada La Labranza,stream,Laguna del Maule,LDM,1
+Quebrada La Labranza,stream,Tatara-San Pedro,TSP,3
+Quebrada La Laguna,stream,Incahuasi,INC,1
+Quebrada La Laguna,stream,Nevado Tres Cruces,NTC,1
+Quebrada La Laguna,stream,Ojos del Salado,ODS,1
+Quebrada La Laguna,stream,San Francisco,SFR,1
+Quebrada La Leña,stream,Lascar,LAS,1
+Quebrada La MIna,stream,Descabezado Grande,DGR,1
+Quebrada La MIna,stream,Laguna del Maule,LDM,1
+Quebrada La MIna,stream,Tatara-San Pedro,TSP,1
+Quebrada La Nata,stream,Tinguiririca,TIN,1
+Quebrada La Pandina,stream,Tinguiririca,TIN,2
+Quebrada La Pastora,stream,Descabezado Grande,DGR,3
+Quebrada La Pastora,stream,Laguna del Maule,LDM,3
+Quebrada La Pastora,stream,Nevado de Longavi,NLO,3
+Quebrada La Pastora,stream,Tatara-San Pedro,TSP,3
+Quebrada La Perdiz,stream,San Pedro,SDP,1
+Quebrada La Pila,stream,Nevados de Chillan,NCH,2
+Quebrada La Pinache,stream,Descabezado Grande,DGR,1
+Quebrada La Pinache,stream,Laguna del Maule,LDM,1
+Quebrada La Pinache,stream,Nevado de Longavi,NLO,1
+Quebrada La Pinache,stream,Tatara-San Pedro,TSP,1
+Quebrada La Placeta de Piedra,stream,Descabezado Grande,DGR,1
+Quebrada La Placeta de Piedra,stream,Laguna del Maule,LDM,1
+Quebrada La Placeta de Piedra,stream,Nevado de Longavi,NLO,1
+Quebrada La Placeta de Piedra,stream,Tatara-San Pedro,TSP,1
+Quebrada La Puerta,stream,Nevado de Longavi,NLO,3
+Quebrada La Puerta,stream,Nevados de Chillan,NCH,3
+Quebrada La Rossa,stream,Azufre,AZU,1
+Quebrada La Rossa,stream,Bayo,BAY,1
+Quebrada La Rossa,stream,Lastarria,LST,1
+Quebrada La Tola,stream,CopiapÃ³,COP,1
+Quebrada La Turbia,stream,Descabezado Grande,DGR,1
+Quebrada La Turbia,stream,Laguna del Maule,LDM,1
+Quebrada La Turbia,stream,Tatara-San Pedro,TSP,1
+Quebrada La Vinilla,stream,San Jose,SJO,3
+Quebrada La Viña,stream,Nevado de Longavi,NLO,4
+Quebrada La Viña,stream,Nevados de Chillan,NCH,4
+Quebrada La Zorra,stream,Nevados de Chillan,NCH,2
+Quebrada Laguinitas,stream,CopiapÃ³,COP,3
+Quebrada Laguinitas,stream,Nevado Tres Cruces,NTC,1
+Quebrada Laguna Seca,stream,Irruputuncu,IRR,1
+Quebrada Laguna Seca,stream,Olca-Paruma,OLC,1
+Quebrada Laguna Seca,stream,OllagÃ¼e,OLL,1
+Quebrada Laguna Verde,stream,Lascar,LAS,2
+Quebrada Lampasar,stream,Lascar,LAS,1
+Quebrada Lampayar,stream,Putana,PUT,3
+Quebrada Larga,stream,CopiapÃ³,COP,1
+Quebrada Las Amarillas,stream,Incahuasi,INC,2
+Quebrada Las Amarillas,stream,Nevado Tres Cruces,NTC,1
+Quebrada Las Amarillas,stream,Ojos del Salado,ODS,2
+Quebrada Las Amarillas,stream,San Francisco,SFR,2
+Quebrada Las Amarillas,stream,San Jose,SJO,2
+Quebrada Las Amarillas,stream,Tipas,TIP,1
+Quebrada Las Bateas,stream,Lascar,LAS,1
+Quebrada Las Bateas,stream,Putana,PUT,1
+Quebrada Las Bayas,stream,San Jose,SJO,1
+Quebrada Las Cascajales,stream,Tupungatito,TUP,1
+Quebrada Las Cenizas,stream,Descabezado Grande,DGR,2
+Quebrada Las Cenizas,stream,Planchon-Peteroa,PLP,2
+Quebrada Las Damas,stream,San Jose,SJO,1
+Quebrada Las Lagunas,stream,Laguna del Maule,LDM,2
+Quebrada Las Lagunas,stream,Nevado de Longavi,NLO,2
+Quebrada Las Lagunas,stream,Tatara-San Pedro,TSP,2
+Quebrada Las Lajitas,stream,CopiapÃ³,COP,3
+Quebrada Las Lajitas,stream,Nevado Tres Cruces,NTC,3
+Quebrada Las Lajitas,stream,Ojos del Salado,ODS,3
+Quebrada Las Lajitas,stream,San Jose,SJO,1
+Quebrada Las Lajitas,stream,Tipas,TIP,3
+Quebrada Las Melosas,stream,San Jose,SJO,1
+Quebrada Las Mulas,stream,Descabezado Grande,DGR,1
+Quebrada Las Mulas,stream,Tatara-San Pedro,TSP,1
+Quebrada Las Ortigas,stream,Descabezado Grande,DGR,2
+Quebrada Las Ortigas,stream,Planchon-Peteroa,PLP,2
+Quebrada Las Profundidades,stream,Planchon-Peteroa,PLP,2
+Quebrada Las Quilas,stream,Nevado de Longavi,NLO,2
+Quebrada Las Quilas,stream,Tatara-San Pedro,TSP,2
+Quebrada Las Romazas,stream,Planchon-Peteroa,PLP,1
+Quebrada Las Rucias,stream,Laguna del Maule,LDM,2
+Quebrada Las Rucias,stream,Nevado de Longavi,NLO,2
+Quebrada Las Rucias,stream,Tatara-San Pedro,TSP,2
+Quebrada Las Tinajas,stream,Putana,PUT,1
+Quebrada Las Tinas,stream,Olca-Paruma,OLC,1
+Quebrada Las Tinas,stream,OllagÃ¼e,OLL,1
+Quebrada Las Torres,stream,CopiapÃ³,COP,1
+Quebrada Las Torres,stream,Nevado Tres Cruces,NTC,1
+Quebrada Las Torres,stream,Ojos del Salado,ODS,1
+Quebrada Las Torres,stream,Tipas,TIP,1
+Quebrada Las Tortolas,stream,San Jose,SJO,1
+Quebrada Las Tortolas,stream,Tupungatito,TUP,1
+Quebrada Las Trancas,stream,Planchon-Peteroa,PLP,2
+Quebrada Las Vizcachas,stream,Lascar,LAS,1
+Quebrada Las Zorras,stream,Laguna del Maule,LDM,2
+Quebrada Las Zorras,stream,Nevado de Longavi,NLO,2
+Quebrada Las Zorras,stream,Tatara-San Pedro,TSP,2
+Quebrada Las Ánimas,stream,CopiapÃ³,COP,1
+Quebrada Las Ánimas,stream,Nevado de Longavi,NLO,2
+Quebrada Lava,stream,Lascar,LAS,1
+Quebrada Leandro,stream,Nevado de Longavi,NLO,2
+Quebrada Leoncito,stream,Socompa,SOC,1
+Quebrada León Guasi,stream,Olca-Paruma,OLC,1
+Quebrada León Guasi,stream,OllagÃ¼e,OLL,1
+Quebrada Linzor,stream,Putana,PUT,3
+Quebrada Lllajta Waykho,stream,OllagÃ¼e,OLL,1
+Quebrada Llullaillaco,stream,Llullaillaco,LLU,1
+Quebrada Llunhuiri,stream,Isluga,ISL,3
+Quebrada Llunhuiri,stream,Tata Sabaya,TAT,3
+Quebrada Loma Ancha,stream,Descabezado Grande,DGR,1
+Quebrada Loma Ancha,stream,Laguna del Maule,LDM,1
+Quebrada Loma Ancha,stream,Nevado de Longavi,NLO,1
+Quebrada Loma Ancha,stream,Tatara-San Pedro,TSP,1
+Quebrada Los Algodones,stream,Descabezado Grande,DGR,2
+Quebrada Los Algodones,stream,Planchon-Peteroa,PLP,2
+Quebrada Los Arenales,stream,Tupungatito,TUP,1
+Quebrada Los Arrayanes,stream,Tinguiririca,TIN,1
+Quebrada Los Barriales,stream,Incahuasi,INC,3
+Quebrada Los Barriales,stream,Nevado Tres Cruces,NTC,3
+Quebrada Los Barriales,stream,Ojos del Salado,ODS,3
+Quebrada Los Barriales,stream,San Francisco,SFR,3
+Quebrada Los Barriales,stream,Tipas,TIP,3
+Quebrada Los Caballos,stream,San Jose,SJO,5
+Quebrada Los Caballos,stream,Tupungatito,TUP,3
+Quebrada Los Canelos,stream,Planchon-Peteroa,PLP,1
+Quebrada Los Canelos,stream,Tinguiririca,TIN,6
+Quebrada Los Chacayes,stream,San Jose,SJO,3
+Quebrada Los Chacayes,stream,Tupungatito,TUP,1
+Quebrada Los Chorrillos,stream,Nevados de Chillan,NCH,2
+Quebrada Los Cipreses,stream,Planchon-Peteroa,PLP,1
+Quebrada Los Cipreses,stream,Tinguiririca,TIN,1
+Quebrada Los Cojudos,stream,San Jose,SJO,1
+Quebrada Los Colorados,stream,Olca-Paruma,OLC,1
+Quebrada Los Colorados,stream,OllagÃ¼e,OLL,1
+Quebrada Los Colorados,stream,San Pedro,SDP,1
+Quebrada Los Corralitos,stream,San Jose,SJO,1
+Quebrada Los Guiones,stream,Nevado de Longavi,NLO,4
+Quebrada Los Helados,stream,Planchon-Peteroa,PLP,1
+Quebrada Los Helados,stream,Tinguiririca,TIN,1
+Quebrada Los Lleuques,stream,Nevado de Longavi,NLO,2
+Quebrada Los Lleuques,stream,Tatara-San Pedro,TSP,2
+Quebrada Los Loros,stream,San Jose,SJO,1
+Quebrada Los Lunes,stream,San Jose,SJO,3
+Quebrada Los Mellizos,stream,Descabezado Grande,DGR,3
+Quebrada Los Mellizos,stream,Tatara-San Pedro,TSP,3
+Quebrada Los Moya,stream,Nevado de Longavi,NLO,2
+Quebrada Los Negriales,stream,Putana,PUT,1
+Quebrada Los Nilhues,stream,Nevado de Longavi,NLO,5
+Quebrada Los Nilhues,stream,Nevados de Chillan,NCH,5
+Quebrada Los Palitos,stream,San Jose,SJO,1
+Quebrada Los Panules,stream,Nevado de Longavi,NLO,2
+Quebrada Los Patas,stream,CopiapÃ³,COP,1
+Quebrada Los Patas,stream,Nevado Tres Cruces,NTC,1
+Quebrada Los Patas,stream,Ojos del Salado,ODS,1
+Quebrada Los Patas,stream,Tipas,TIP,1
+Quebrada Los Perros,stream,Descabezado Grande,DGR,2
+Quebrada Los Perros,stream,Planchon-Peteroa,PLP,2
+Quebrada Los Picudos,stream,Descabezado Grande,DGR,1
+Quebrada Los Picudos,stream,Tatara-San Pedro,TSP,1
+Quebrada Los Puentes,stream,San Jose,SJO,1
+Quebrada Los Sapos,stream,San Jose,SJO,1
+Quebrada Los Yuyos,stream,Tinguiririca,TIN,1
+Quebrada Luco,stream,Guallatiri,GUA,4
+Quebrada Luco,stream,Parinacota,PAR,6
+Quebrada Luco,stream,Taapaca,TAA,10
+Quebrada Luna de Abarca,stream,San Jose,SJO,1
+Quebrada Luna de Abarca,stream,Tupungatito,TUP,1
+Quebrada Lupita,stream,Guallatiri,GUA,4
+Quebrada Lupita,stream,Parinacota,PAR,1
+Quebrada Lupita,stream,Taapaca,TAA,4
+Quebrada Luqueri,stream,Isluga,ISL,1
+Quebrada Luqueri,stream,Tata Sabaya,TAT,1
+Quebrada Lámpara,stream,Lascar,LAS,1
+Quebrada Macho Muerto,stream,San Pedro,SDP,1
+Quebrada Machur Khaua,stream,Guallatiri,GUA,1
+Quebrada Machur Khaua,stream,Parinacota,PAR,1
+Quebrada Maimaja,river,Isluga,ISL,1
+Quebrada Maitencitos,stream,Tinguiririca,TIN,1
+Quebrada Maitén Seco,stream,San Jose,SJO,1
+Quebrada Maitén Seco,stream,Tupungatito,TUP,1
+Quebrada Majada,stream,Irruputuncu,IRR,1
+Quebrada Mal Paso,stream,Irruputuncu,IRR,1
+Quebrada Mal Paso,stream,Lascar,LAS,3
+Quebrada Mal Paso,stream,Olca-Paruma,OLC,1
+Quebrada Mal Paso,stream,OllagÃ¼e,OLL,1
+Quebrada Mal Paso,stream,San Pedro,SDP,1
+Quebrada Mallepongo,stream,San Pedro,SDP,1
+Quebrada Mallín de las Yeguas,stream,Antuco,ANT,1
+Quebrada Mallín de las Yeguas,stream,Callaqui,CAL,1
+Quebrada Mallín de las Yeguas,stream,Copahue,CPA,1
+Quebrada Manga de Almira,stream,San Jose,SJO,1
+Quebrada Melocotón,stream,San Jose,SJO,1
+Quebrada Mil Hojas,stream,Tupungatito,TUP,1
+Quebrada Millu Wilquijahuira,stream,Isluga,ISL,1
+Quebrada Millu Wilquijahuira,stream,Tata Sabaya,TAT,1
+Quebrada Millunu,stream,Irruputuncu,IRR,1
+Quebrada Millunu,stream,Olca-Paruma,OLC,1
+Quebrada Monardes,stream,CopiapÃ³,COP,1
+Quebrada Monasterio,stream,San Jose,SJO,3
+Quebrada Montanilla,stream,Nevado de Longavi,NLO,2
+Quebrada Montanilla,stream,Tatara-San Pedro,TSP,2
+Quebrada Montañosa,stream,Nevado de Longavi,NLO,2
+Quebrada Morales,stream,San Jose,SJO,2
+Quebrada Morales,stream,Tupungatito,TUP,2
+Quebrada Mulas Muertas,stream,CopiapÃ³,COP,1
+Quebrada Mulas Muertas,stream,Incahuasi,INC,1
+Quebrada Mulas Muertas,stream,Nevado Tres Cruces,NTC,1
+Quebrada Mulas Muertas,stream,Ojos del Salado,ODS,1
+Quebrada Mulas Muertas,stream,San Francisco,SFR,1
+Quebrada Mulas Muertas,stream,Tipas,TIP,1
+Quebrada Mulluri,river,Isluga,ISL,1
+Quebrada Nacimiento,stream,Lascar,LAS,2
+Quebrada Nevados del Juncalito,stream,CopiapÃ³,COP,1
+Quebrada Nevados del Juncalito,stream,Nevado Tres Cruces,NTC,1
+Quebrada Nevados del Juncalito,stream,Ojos del Salado,ODS,1
+Quebrada Nevados del Juncalito,stream,Tipas,TIP,1
+Quebrada Nicolas,stream,Irruputuncu,IRR,1
+Quebrada Nicolas,stream,Olca-Paruma,OLC,1
+Quebrada Novillo Muerto,stream,San Pedro,SDP,1
+Quebrada Ojo Bravo,stream,Olca-Paruma,OLC,1
+Quebrada Ojos del Salado,stream,CopiapÃ³,COP,1
+Quebrada Ojos del Salado,stream,Incahuasi,INC,3
+Quebrada Ojos del Salado,stream,Nevado Tres Cruces,NTC,3
+Quebrada Ojos del Salado,stream,Ojos del Salado,ODS,3
+Quebrada Ojos del Salado,stream,San Francisco,SFR,3
+Quebrada Ojos del Salado,stream,Tipas,TIP,3
+Quebrada Orcotunco,stream,Guallatiri,GUA,3
+Quebrada Orcotunco,stream,Parinacota,PAR,3
+Quebrada Orienter,stream,Lascar,LAS,1
+Quebrada Oxa,stream,Guallatiri,GUA,5
+Quebrada Pabellón,stream,Olca-Paruma,OLC,1
+Quebrada Pabellón,stream,OllagÃ¼e,OLL,2
+Quebrada Pabellón,stream,Putana,PUT,1
+Quebrada Pabellón,stream,San Pedro,SDP,1
+Quebrada Pachixa,stream,Isluga,ISL,1
+Quebrada Pachixa,stream,Tata Sabaya,TAT,1
+Quebrada Pacopaco,stream,San Pedro,SDP,1
+Quebrada Pacopampa,stream,Guallatiri,GUA,1
+Quebrada Pacopampa,stream,Parinacota,PAR,1
+Quebrada Pacopampa,stream,Taapaca,TAA,1
+Quebrada Paguana,stream,Irruputuncu,IRR,1
+Quebrada Paguana,stream,Olca-Paruma,OLC,1
+Quebrada Paipote,stream,CopiapÃ³,COP,6
+Quebrada Pajonales,stream,Llullaillaco,LLU,1
+Quebrada Pajonales,stream,Socompa,SOC,2
+Quebrada Pallinga,stream,San Pedro,SDP,3
+Quebrada Palmani,stream,Taapaca,TAA,2
+Quebrada Palo Plantado,stream,San Jose,SJO,1
+Quebrada Palos Blancos,stream,Descabezado Grande,DGR,1
+Quebrada Palos Blancos,stream,Laguna del Maule,LDM,1
+Quebrada Palos Blancos,stream,Nevado de Longavi,NLO,1
+Quebrada Palos Blancos,stream,Tatara-San Pedro,TSP,1
+Quebrada Palpana,stream,Irruputuncu,IRR,1
+Quebrada Palpana,stream,Olca-Paruma,OLC,1
+Quebrada Palpana,stream,OllagÃ¼e,OLL,1
+Quebrada Pampa,stream,Olca-Paruma,OLC,1
+Quebrada Panavinto,stream,Isluga,ISL,1
+Quebrada Panavinto,stream,Tata Sabaya,TAT,1
+Quebrada Panire,stream,San Pedro,SDP,1
+Quebrada Panizo,stream,San Pedro,SDP,7
+Quebrada Pantanillo,stream,CopiapÃ³,COP,1
+Quebrada Pantanillo,stream,Nevado Tres Cruces,NTC,1
+Quebrada Pantanillo,stream,Tipas,TIP,1
+Quebrada Papajoy,stream,Olca-Paruma,OLC,1
+Quebrada Pasaca,stream,Irruputuncu,IRR,1
+Quebrada Pasaca,stream,Olca-Paruma,OLC,1
+Quebrada Paso Hondo,stream,San Jose,SJO,2
+Quebrada Pastillos,stream,CopiapÃ³,COP,1
+Quebrada Pastillos,stream,Irruputuncu,IRR,3
+Quebrada Pastillos,stream,Nevado Tres Cruces,NTC,1
+Quebrada Pastillos,stream,Olca-Paruma,OLC,3
+Quebrada Pastillos,stream,Tipas,TIP,1
+Quebrada Pastos Grandes,stream,Olca-Paruma,OLC,3
+Quebrada Pastos Grandes,stream,OllagÃ¼e,OLL,3
+Quebrada Pastos Largos,stream,CopiapÃ³,COP,1
+Quebrada Pastos Largos,stream,Nevado Tres Cruces,NTC,1
+Quebrada Patos,stream,San Jose,SJO,1
+Quebrada Peine,stream,Lascar,LAS,3
+Quebrada Pena Blanquita,stream,Lascar,LAS,1
+Quebrada Peña Blanca,stream,Lascar,LAS,3
+Quebrada Peña Blanca,stream,OllagÃ¼e,OLL,3
+Quebrada Peña Blanca,stream,San Pedro,SDP,3
+Quebrada Piedra Pomez,stream,CopiapÃ³,COP,4
+Quebrada Piedra Pomez,stream,Incahuasi,INC,1
+Quebrada Piedra Pomez,stream,Nevado Tres Cruces,NTC,4
+Quebrada Piedra Pomez,stream,Ojos del Salado,ODS,4
+Quebrada Piedra Pomez,stream,San Francisco,SFR,1
+Quebrada Piedra Pomez,stream,Tipas,TIP,4
+Quebrada Pilpila,stream,Putana,PUT,1
+Quebrada Piscala,stream,Olca-Paruma,OLC,1
+Quebrada Pituase,stream,Olca-Paruma,OLC,1
+Quebrada Placeta Nogales,stream,Tinguiririca,TIN,1
+Quebrada Playitas,stream,San Pedro,SDP,1
+Quebrada Plazuela,stream,Guallatiri,GUA,3
+Quebrada Plazuela,stream,Parinacota,PAR,3
+Quebrada Plazuela,stream,Taapaca,TAA,2
+Quebrada Porqueza,stream,Irruputuncu,IRR,1
+Quebrada Porqueza,stream,Olca-Paruma,OLC,1
+Quebrada Posullo,stream,Isluga,ISL,1
+Quebrada Posullo,stream,Tata Sabaya,TAT,1
+Quebrada Potor,stream,Lascar,LAS,1
+Quebrada Principal,stream,Nevado de Longavi,NLO,2
+Quebrada Principal,stream,Nevados de Chillan,NCH,3
+Quebrada Puchuni,stream,Guallatiri,GUA,2
+Quebrada Puchuni,stream,Parinacota,PAR,2
+Quebrada Pucupueune,stream,Guallatiri,GUA,1
+Quebrada Puente,stream,OllagÃ¼e,OLL,1
+Quebrada Puente de Madera,stream,Putana,PUT,1
+Quebrada Puente de Madera,stream,San Pedro,SDP,1
+Quebrada Puente del Diablo,stream,Putana,PUT,1
+Quebrada Pular,stream,Socompa,SOC,1
+Quebrada Pumane,stream,Guallatiri,GUA,2
+Quebrada Pumane,stream,Parinacota,PAR,1
+Quebrada Pumane,stream,Taapaca,TAA,2
+Quebrada Punta del Indio,stream,CopiapÃ³,COP,1
+Quebrada Punta del Indio,stream,Incahuasi,INC,1
+Quebrada Punta del Indio,stream,Nevado Tres Cruces,NTC,1
+Quebrada Punta del Indio,stream,Ojos del Salado,ODS,1
+Quebrada Punta del Indio,stream,San Francisco,SFR,1
+Quebrada Punta del Indio,stream,Tipas,TIP,1
+Quebrada Puquio,stream,Irruputuncu,IRR,1
+Quebrada Puquio,stream,Olca-Paruma,OLC,1
+Quebrada Puquios,stream,Nevado de Longavi,NLO,3
+Quebrada Puquitos,stream,Socompa,SOC,4
+Quebrada Puxuma,stream,Parinacota,PAR,1
+Quebrada Puxuma,stream,Taapaca,TAA,1
+Quebrada Pérez,stream,OllagÃ¼e,OLL,1
+Quebrada Quehuita o Bartolo,stream,Irruputuncu,IRR,1
+Quebrada Quehuita o Bartolo,stream,Olca-Paruma,OLC,1
+Quebrada Quelcocha,stream,Irruputuncu,IRR,5
+Quebrada Quelcocha,stream,Olca-Paruma,OLC,5
+Quebrada Queniza,stream,Isluga,ISL,3
+Quebrada Queniza,stream,Tata Sabaya,TAT,3
+Quebrada Quepe,stream,Lascar,LAS,1
+Quebrada Quepiaco,river,Lascar,LAS,2
+Quebrada Querico,stream,Lascar,LAS,1
+Quebrada Queumahuña,stream,Parinacota,PAR,1
+Quebrada Queumahuña,stream,Taapaca,TAA,1
+Quebrada Queñales,stream,Olca-Paruma,OLC,1
+Quebrada Quine,stream,Nevado de Longavi,NLO,1
+Quebrada Quinuta,stream,Isluga,ISL,1
+Quebrada Quiscoma,stream,Irruputuncu,IRR,1
+Quebrada Quiscoma,stream,Olca-Paruma,OLC,1
+Quebrada Quival,stream,Putana,PUT,1
+Quebrada Quiñuani,stream,Irruputuncu,IRR,1
+Quebrada Quiñuani,stream,Olca-Paruma,OLC,1
+Quebrada Rajadura,stream,Lascar,LAS,1
+Quebrada Ramucho,stream,Irruputuncu,IRR,1
+Quebrada Ramucho,stream,Olca-Paruma,OLC,1
+Quebrada Ranchillos,stream,Tinguiririca,TIN,1
+Quebrada Ratones,stream,San Jose,SJO,1
+Quebrada Refresco,stream,Olca-Paruma,OLC,1
+Quebrada Rio Juncalitos,stream,CopiapÃ³,COP,1
+Quebrada Rio Juncalitos,stream,Nevado Tres Cruces,NTC,1
+Quebrada Rio Juncalitos,stream,Ojos del Salado,ODS,1
+Quebrada Rio Juncalitos,stream,Tipas,TIP,1
+Quebrada Rio Negro,stream,CopiapÃ³,COP,1
+Quebrada Rio Negro,stream,Nevado Tres Cruces,NTC,1
+Quebrada Rio Negro,stream,Ojos del Salado,ODS,1
+Quebrada Rio Negro,stream,Tipas,TIP,1
+Quebrada Rio Seco,stream,Parinacota,PAR,3
+Quebrada Rio Seco,stream,Taapaca,TAA,3
+Quebrada Romazas,stream,Nevado de Longavi,NLO,2
+Quebrada Romazas,stream,Nevados de Chillan,NCH,1
+Quebrada Rosales,stream,San Jose,SJO,1
+Quebrada Río Lauca,stream,Guallatiri,GUA,1
+Quebrada Río Lauca,stream,Parinacota,PAR,1
+Quebrada Río Lauca,stream,Taapaca,TAA,1
+Quebrada Sacapunta,stream,Olca-Paruma,OLC,1
+Quebrada Sajalla,stream,Isluga,ISL,3
+Quebrada Sajalla,stream,Tata Sabaya,TAT,1
+Quebrada Salas,stream,Irruputuncu,IRR,1
+Quebrada Salas,stream,Olca-Paruma,OLC,1
+Quebrada Salitral,stream,CopiapÃ³,COP,3
+Quebrada Salitral,stream,Nevado Tres Cruces,NTC,1
+Quebrada Sallihuinca,stream,Irruputuncu,IRR,1
+Quebrada Sallihuinca,stream,Olca-Paruma,OLC,1
+Quebrada Saltos de Agua,stream,Nevado de Longavi,NLO,2
+Quebrada Saltos de Agua,stream,Tatara-San Pedro,TSP,2
+Quebrada Salva,stream,Olca-Paruma,OLC,1
+Quebrada Salva,stream,OllagÃ¼e,OLL,1
+Quebrada Samata,stream,San Pedro,SDP,1
+Quebrada San Daniel,stream,Irruputuncu,IRR,1
+Quebrada San Daniel,stream,Olca-Paruma,OLC,1
+Quebrada San Francisco,stream,Incahuasi,INC,1
+Quebrada San Francisco,stream,Nevado Tres Cruces,NTC,1
+Quebrada San Francisco,stream,Ojos del Salado,ODS,1
+Quebrada San Francisco,stream,San Francisco,SFR,1
+Quebrada San Francisco,stream,Tipas,TIP,1
+Quebrada San Hilario,stream,Tinguiririca,TIN,1
+Quebrada San Miguel,stream,Irruputuncu,IRR,1
+Quebrada San Miguel,stream,Olca-Paruma,OLC,1
+Quebrada Santana,stream,OllagÃ¼e,OLL,1
+Quebrada Santana,stream,San Pedro,SDP,1
+Quebrada Seca,stream,Lascar,LAS,1
+Quebrada Seca,stream,San Pedro,SDP,1
+Quebrada Sichalcito,stream,San Pedro,SDP,1
+Quebrada Sicipo,stream,Lascar,LAS,1
+Quebrada Silapeti,stream,Lascar,LAS,3
+Quebrada Sin Puerta,stream,Nevado de Longavi,NLO,2
+Quebrada Siso,stream,Isluga,ISL,3
+Quebrada Siso,stream,Tata Sabaya,TAT,3
+Quebrada Socaire,stream,Lascar,LAS,3
+Quebrada Socoroma,stream,Parinacota,PAR,1
+Quebrada Socoroma,stream,Taapaca,TAA,1
+Quebrada Sonámbulo,stream,San Jose,SJO,1
+Quebrada Suarez,stream,Descabezado Grande,DGR,1
+Quebrada Suarez,stream,Laguna del Maule,LDM,1
+Quebrada Suarez,stream,Nevado de Longavi,NLO,1
+Quebrada Suarez,stream,Tatara-San Pedro,TSP,1
+Quebrada Taiplcollo,stream,Isluga,ISL,3
+Quebrada Taiplcollo,stream,Tata Sabaya,TAT,3
+Quebrada Talabre,stream,Lascar,LAS,1
+Quebrada Tamberia,stream,CopiapÃ³,COP,1
+Quebrada Tamberia,stream,Incahuasi,INC,1
+Quebrada Tamberia,stream,Nevado Tres Cruces,NTC,1
+Quebrada Tamberia,stream,Ojos del Salado,ODS,1
+Quebrada Tamberia,stream,San Francisco,SFR,1
+Quebrada Tamberia,stream,Tipas,TIP,1
+Quebrada Tauna,stream,Lascar,LAS,1
+Quebrada Tiwaykho,stream,OllagÃ¼e,OLL,1
+Quebrada Tocomar,stream,Lastarria,LST,1
+Quebrada Tocomar,stream,Llullaillaco,LLU,1
+Quebrada Tocorpuri,stream,Putana,PUT,1
+Quebrada Toja,stream,Isluga,ISL,1
+Quebrada Toja,stream,Tata Sabaya,TAT,1
+Quebrada Tolasilo,stream,Olca-Paruma,OLC,1
+Quebrada Tolaun,stream,Irruputuncu,IRR,3
+Quebrada Tolaun,stream,Olca-Paruma,OLC,3
+Quebrada Toro,stream,Lascar,LAS,1
+Quebrada Toro,stream,Olca-Paruma,OLC,1
+Quebrada Toro Blanco,stream,Lascar,LAS,1
+Quebrada Toroni,stream,Isluga,ISL,3
+Quebrada Toroni,stream,Tata Sabaya,TAT,3
+Quebrada Torriuna,stream,San Pedro,SDP,1
+Quebrada Trabon,stream,Irruputuncu,IRR,1
+Quebrada Tres Aguas,stream,Lascar,LAS,1
+Quebrada Trumao,stream,Nevado de Longavi,NLO,2
+Quebrada Tumeya,stream,Guallatiri,GUA,3
+Quebrada Tumeya,stream,Parinacota,PAR,1
+Quebrada Tumisa,stream,Lascar,LAS,1
+Quebrada Turi,stream,San Pedro,SDP,1
+Quebrada Turipite,stream,Putana,PUT,1
+Quebrada Tábanos,stream,Nevados de Chillan,NCH,4
+Quebrada Ucuma,stream,Irruputuncu,IRR,1
+Quebrada Ucuma,stream,Olca-Paruma,OLC,1
+Quebrada Ujina,stream,Irruputuncu,IRR,7
+Quebrada Ujina,stream,Olca-Paruma,OLC,7
+Quebrada Upila,stream,Isluga,ISL,1
+Quebrada Upila,stream,Tata Sabaya,TAT,1
+Quebrada Vacas Muertas,stream,Descabezado Grande,DGR,2
+Quebrada Vacas Muertas,stream,Laguna del Maule,LDM,1
+Quebrada Vacas Muertas,stream,Nevado de Longavi,NLO,2
+Quebrada Vacas Muertas,stream,Tatara-San Pedro,TSP,2
+Quebrada Vado del Relvo,stream,Tinguiririca,TIN,1
+Quebrada Vallacollo,stream,Guallatiri,GUA,1
+Quebrada Vallacollo,stream,Parinacota,PAR,1
+Quebrada Velaque,stream,Guallatiri,GUA,2
+Quebrada Velaque,stream,Parinacota,PAR,2
+Quebrada Velaque,stream,Taapaca,TAA,2
+Quebrada Veta Verde,stream,Irruputuncu,IRR,1
+Quebrada Veta Verde,stream,Olca-Paruma,OLC,1
+Quebrada Vichuta,stream,Guallatiri,GUA,5
+Quebrada Vichuta,stream,Parinacota,PAR,5
+Quebrada Vicuña,stream,Irruputuncu,IRR,1
+Quebrada Vicuña,stream,Olca-Paruma,OLC,1
+Quebrada Vicuñería,stream,Irruputuncu,IRR,2
+Quebrada Vicuñería,stream,Olca-Paruma,OLC,1
+Quebrada Vicuñería,stream,OllagÃ¼e,OLL,1
+Quebrada Vilaque,stream,Guallatiri,GUA,4
+Quebrada Vilaque,stream,Parinacota,PAR,4
+Quebrada Vilaque,stream,Taapaca,TAA,4
+Quebrada Vilavilani,stream,Taapaca,TAA,2
+Quebrada Viscachani,stream,Guallatiri,GUA,2
+Quebrada Viscachani,stream,Parinacota,PAR,2
+Quebrada Vizcachas,stream,CopiapÃ³,COP,2
+Quebrada Vizcachas,stream,Nevado Tres Cruces,NTC,1
+Quebrada Yabricoyita,stream,Irruputuncu,IRR,3
+Quebrada Yabricoyita,stream,Olca-Paruma,OLC,3
+Quebrada Yalqui,stream,Putana,PUT,1
+Quebrada Yanaconda,stream,Irruputuncu,IRR,1
+Quebrada Yanaconda,stream,Olca-Paruma,OLC,1
+Quebrada Yuruguaico,stream,Irruputuncu,IRR,1
+Quebrada Yuruguaico,stream,Olca-Paruma,OLC,1
+Quebrada Yusinta,stream,Olca-Paruma,OLC,1
+Quebrada Yusta,stream,Putana,PUT,1
+Quebrada Zanjones,stream,Llullaillaco,LLU,1
+Quebrada Zanjones,stream,Socompa,SOC,1
+Quebrada Zanjón Hondo,stream,Calbuco,CLB,1
+Quebrada Zanjón Hondo,stream,HornopirÃ©n,HOR,1
+Quebrada Zanjón Hondo,stream,Osorno,OSO,1
+Quebrada Zanjón Hondo,stream,Yate,YAT,1
+Quebrada Zapaques,stream,Lascar,LAS,2
+Quebrada Zapar,stream,Lascar,LAS,5
+Quebrada Zorras,stream,Llullaillaco,LLU,1
+Quebrada Zorras,stream,Socompa,SOC,1
+Quebrada de Abra Pampa,stream,Putana,PUT,1
+Quebrada de Agua Escondida,stream,Lascar,LAS,3
+Quebrada de Aguanez,stream,Descabezado Grande,DGR,1
+Quebrada de Aguanez,stream,Tatara-San Pedro,TSP,1
+Quebrada de Aguas Blancas,stream,Lascar,LAS,2
+Quebrada de Alona,stream,Irruputuncu,IRR,1
+Quebrada de Aroma,stream,Isluga,ISL,3
+Quebrada de Aucanqui,stream,Irruputuncu,IRR,1
+Quebrada de Aucanqui,stream,Olca-Paruma,OLC,1
+Quebrada de Aucanqui,stream,OllagÃ¼e,OLL,1
+Quebrada de Camar,stream,Lascar,LAS,3
+Quebrada de Camiña,river,Isluga,ISL,2
+Quebrada de Chamaca,stream,Lascar,LAS,1
+Quebrada de Cotón,stream,Tinguiririca,TIN,1
+Quebrada de Cupo,stream,San Pedro,SDP,5
+Quebrada de Escritos,stream,Taapaca,TAA,1
+Quebrada de Gálvez,stream,Tinguiririca,TIN,1
+Quebrada de Huasco,stream,Irruputuncu,IRR,1
+Quebrada de Ichuno,stream,San Pedro,SDP,1
+Quebrada de Jere,stream,Lascar,LAS,3
+Quebrada de La Sal,stream,CopiapÃ³,COP,1
+Quebrada de La Sal,stream,Nevado Tres Cruces,NTC,1
+Quebrada de La Sal,stream,Tipas,TIP,1
+Quebrada de Las Tinajas,stream,Lascar,LAS,1
+Quebrada de Las Zorritas,stream,Llullaillaco,LLU,1
+Quebrada de Las Zorritas,stream,Socompa,SOC,1
+Quebrada de Loma Seca,stream,Descabezado Grande,DGR,1
+Quebrada de Loma Seca,stream,Tatara-San Pedro,TSP,1
+Quebrada de Los Arroyos,stream,Nevado Tres Cruces,NTC,1
+Quebrada de Macurquima,stream,Isluga,ISL,1
+Quebrada de Medina,stream,Tinguiririca,TIN,1
+Quebrada de Ocana,stream,Irruputuncu,IRR,1
+Quebrada de Ocana,stream,Olca-Paruma,OLC,1
+Quebrada de Olmedo,stream,Tinguiririca,TIN,1
+Quebrada de Pafica,stream,Putana,PUT,1
+Quebrada de Paqui,stream,San Pedro,SDP,1
+Quebrada de Pili,stream,Lascar,LAS,1
+Quebrada de Puca,stream,Putana,PUT,1
+Quebrada de Quintana,stream,San Jose,SJO,1
+Quebrada de Quintana,stream,Tupungatito,TUP,1
+Quebrada de Quisquiro,stream,Lascar,LAS,1
+Quebrada de Sallín,stream,Socompa,SOC,1
+Quebrada de Solches,stream,OllagÃ¼e,OLL,1
+Quebrada de Solches,stream,San Pedro,SDP,1
+Quebrada de Soncer,stream,Lascar,LAS,1
+Quebrada de Soncor,stream,Lascar,LAS,3
+Quebrada de Soto,stream,San Jose,SJO,1
+Quebrada de Taira,stream,San Pedro,SDP,3
+Quebrada de Tapia,stream,CopiapÃ³,COP,1
+Quebrada de Tarajne,stream,Lascar,LAS,1
+Quebrada de Toro,stream,Laguna del Maule,LDM,2
+Quebrada de Toro,stream,Tatara-San Pedro,TSP,2
+Quebrada de Valdés,river,Laguna del Maule,LDM,2
+Quebrada de Valdés,river,Nevado de Longavi,NLO,2
+Quebrada de Valdés,river,Tatara-San Pedro,TSP,2
+Quebrada de Vitor,river,Guallatiri,GUA,1
+Quebrada de la Casa de Piedra Colorada,stream,Tinguiririca,TIN,1
+Quebrada de la Engorda,stream,San Jose,SJO,1
+Quebrada de la Engorda,stream,Tupungatito,TUP,1
+Quebrada de la Laguna,stream,Tinguiririca,TIN,1
+Quebrada de la Plata,stream,Putana,PUT,1
+Quebrada de las Lagunas,stream,Tinguiririca,TIN,1
+Quebrada de los Arrieros,stream,Tinguiririca,TIN,1
+Quebrada de los Piuquenes,stream,Tinguiririca,TIN,1
+Quebrada del Abra,stream,Lascar,LAS,1
+Quebrada del Afligido,stream,Descabezado Grande,DGR,1
+Quebrada del Agua Colorada,stream,Socompa,SOC,1
+Quebrada del Alto,stream,Planchon-Peteroa,PLP,2
+Quebrada del Azufre,stream,CopiapÃ³,COP,5
+Quebrada del Azufre,stream,Nevado Tres Cruces,NTC,2
+Quebrada del Barrial,stream,Lascar,LAS,1
+Quebrada del Brujo,stream,Tinguiririca,TIN,1
+Quebrada del Cabrito,stream,San Pedro,SDP,1
+Quebrada del Cajón,stream,Putana,PUT,2
+Quebrada del Camino,stream,Incahuasi,INC,1
+Quebrada del Camino,stream,Nevado Tres Cruces,NTC,1
+Quebrada del Camino,stream,Ojos del Salado,ODS,1
+Quebrada del Camino,stream,San Francisco,SFR,1
+Quebrada del Cepillo,stream,Tinguiririca,TIN,1
+Quebrada del Choco,stream,Nevado de Longavi,NLO,2
+Quebrada del Choco,stream,Nevados de Chillan,NCH,2
+Quebrada del Chorro,stream,Lascar,LAS,1
+Quebrada del Colorado,stream,Tinguiririca,TIN,1
+Quebrada del Corregido,stream,Irruputuncu,IRR,1
+Quebrada del Cunaco,stream,Nevado Tres Cruces,NTC,1
+Quebrada del Cunaco,stream,San Francisco,SFR,1
+Quebrada del Inca,stream,Olca-Paruma,OLC,1
+Quebrada del Inca,stream,OllagÃ¼e,OLL,2
+Quebrada del Inca,stream,San Pedro,SDP,1
+Quebrada del Juncalito,stream,CopiapÃ³,COP,1
+Quebrada del Juncalito,stream,Incahuasi,INC,1
+Quebrada del Juncalito,stream,Nevado Tres Cruces,NTC,1
+Quebrada del Juncalito,stream,Ojos del Salado,ODS,1
+Quebrada del Juncalito,stream,San Francisco,SFR,1
+Quebrada del Juncalito,stream,Tipas,TIP,1
+Quebrada del Leon Unito,stream,Irruputuncu,IRR,3
+Quebrada del Leon Unito,stream,Olca-Paruma,OLC,3
+Quebrada del León,stream,San Pedro,SDP,1
+Quebrada del Llano,stream,CopiapÃ³,COP,1
+Quebrada del Pato o Malango,stream,Planchon-Peteroa,PLP,2
+Quebrada del Pato o Malango,stream,Tinguiririca,TIN,2
+Quebrada del Perdido,stream,San Jose,SJO,1
+Quebrada del Perdido,stream,Tupungatito,TUP,1
+Quebrada del Peumo,stream,Planchon-Peteroa,PLP,2
+Quebrada del Peumo,stream,Tinguiririca,TIN,2
+Quebrada del Potrero,stream,San Pedro,SDP,1
+Quebrada del Relvo,stream,Tinguiririca,TIN,1
+Quebrada del Toro,stream,Lascar,LAS,1
+Quebrada del Tucur,stream,Lascar,LAS,3
+Quebrada el Manzanito,stream,Descabezado Grande,DGR,1
+Quebrada el Paine,stream,Descabezado Grande,DGR,1
+Quebrada el Paine,stream,Tatara-San Pedro,TSP,1
+Quebrada la Burda,stream,Azufre,AZU,1
+Quebrada la Burda,stream,Bayo,BAY,1
+Quebrada la Burda,stream,Lastarria,LST,1
+Quebrada los Piuquenes,stream,Tinguiririca,TIN,1
+Quebradas Los Boldos,stream,Descabezado Grande,DGR,1
+Quebradas Los Boldos,stream,Nevado de Longavi,NLO,1
+Quebradas Los Boldos,stream,Tatara-San Pedro,TSP,1
+Querada Pedregal,stream,Putana,PUT,4
+Querada Pedregal,stream,San Pedro,SDP,1
+Riachuelo Ancuta,stream,Guallatiri,GUA,1
+Riachuelo Ancuta,stream,Parinacota,PAR,1
+Riachuelo Ancuta,stream,Taapaca,TAA,1
+Rio Achuta,river,Parinacota,PAR,2
+Rio Astaburuaga,river,CopiapÃ³,COP,2
+Rio Aychuta,stream,Guallatiri,GUA,1
+Rio Aychuta,stream,Parinacota,PAR,1
+Rio Azul,river,Tronador,TRO,1
+Rio Bella Vista,stream,Isluga,ISL,1
+Rio Bella Vista,stream,Tata Sabaya,TAT,1
+Rio Blanco,river,CarrÃ¡n-Los Venados,CLV,2
+Rio Blanco,river,Mocho-Choshuenco,MCH,2
+Rio Blanco,river,Parinacota,PAR,7
+Rio Blanco,river,Puyehue-CordÃ³n Caulle,PCC,2
+Rio Blanco,river,Taapaca,TAA,1
+Rio Cana,stream,Irruputuncu,IRR,2
+Rio Cana,stream,Olca-Paruma,OLC,2
+Rio Carangas,stream,Isluga,ISL,1
+Rio Carangas,stream,Tata Sabaya,TAT,1
+Rio Chaca,stream,Irruputuncu,IRR,1
+Rio Chaca,stream,Olca-Paruma,OLC,1
+Rio Chaichayen O Maihue,river,Antillanca-Casablanca,ACA,1
+Rio Chaichayen O Maihue,river,CarrÃ¡n-Los Venados,CLV,1
+Rio Chaichayen O Maihue,river,Mocho-Choshuenco,MCH,1
+Rio Chaichayen O Maihue,river,Puyehue-CordÃ³n Caulle,PCC,1
+Rio Chico,river,Descabezado Grande,DGR,1
+Rio Chico,river,Laguna del Maule,LDM,2
+Rio Chico,river,Tatara-San Pedro,TSP,1
+Rio Chihua,stream,Irruputuncu,IRR,1
+Rio Chihua,stream,Olca-Paruma,OLC,1
+Rio Chilcachiri,river,Isluga,ISL,1
+Rio Chilcachiri,river,Tata Sabaya,TAT,1
+Rio Coique,river,CarrÃ¡n-Los Venados,CLV,3
+Rio Coique,river,Mocho-Choshuenco,MCH,3
+Rio Curinilahue,river,CarrÃ¡n-Los Venados,CLV,2
+Rio Curinilahue,river,Mocho-Choshuenco,MCH,2
+Rio Curinilahue,river,Puyehue-CordÃ³n Caulle,PCC,2
+Rio Empexa,river,Irruputuncu,IRR,2
+Rio Empexa,river,Olca-Paruma,OLC,2
+Rio Guayaques Chico,stream,Putana,PUT,2
+Rio Huaylla Unu,stream,OllagÃ¼e,OLL,1
+Rio Jachcha Huancollo,stream,Guallatiri,GUA,10
+Rio Jachcha Huancollo,stream,Parinacota,PAR,10
+Rio Jachcha Huancollo,stream,Taapaca,TAA,4
+Rio Jalsuri,river,Isluga,ISL,1
+Rio Jalsuri,river,Tata Sabaya,TAT,1
+Rio Jaruma,stream,Guallatiri,GUA,2
+Rio Jaruma,stream,Parinacota,PAR,2
+Rio Jinchu Khala,river,Isluga,ISL,1
+Rio Jinchu Khala,river,Tata Sabaya,TAT,1
+Rio Junthuma,stream,Guallatiri,GUA,1
+Rio Junthuma,stream,Parinacota,PAR,1
+Rio Khara Uma,stream,Irruputuncu,IRR,1
+Rio Khara Uma,stream,Olca-Paruma,OLC,1
+Rio Lajitas,river,CopiapÃ³,COP,3
+Rio Lajitas,river,Nevado Tres Cruces,NTC,3
+Rio Lajitas,river,Ojos del Salado,ODS,1
+Rio Lajitas,river,Tipas,TIP,3
+Rio Las Trancas,stream,Nevado Tres Cruces,NTC,1
+Rio Las Trancas,stream,San Francisco,SFR,1
+Rio Lauca,river,Tata Sabaya,TAT,4
+Rio Lircay,river,Descabezado Grande,DGR,3
+Rio Lircay,stream,Tatara-San Pedro,TSP,2
+Rio Los Venados,river,Antillanca-Casablanca,ACA,2
+Rio Los Venados,river,CarrÃ¡n-Los Venados,CLV,2
+Rio Los Venados,river,Mocho-Choshuenco,MCH,1
+Rio Los Venados,river,Puyehue-CordÃ³n Caulle,PCC,2
+Rio Maule,river,Descabezado Grande,DGR,1
+Rio Maule,river,Laguna del Maule,LDM,1
+Rio Maule,river,Tatara-San Pedro,TSP,1
+Rio Milluni,stream,Guallatiri,GUA,1
+Rio Milluni,stream,Parinacota,PAR,1
+Rio Nalcahue,river,Mocho-Choshuenco,MCH,1
+Rio Paco Khaua,stream,Guallatiri,GUA,1
+Rio Paco Khaua,stream,Isluga,ISL,2
+Rio Paco Khaua,stream,Tata Sabaya,TAT,2
+Rio Peulla,stream,Antillanca-Casablanca,ACA,1
+Rio Peulla,stream,Puntiagudo,PUN,1
+Rio Peulla,stream,Tronador,TRO,1
+Rio Putraique,river,Mocho-Choshuenco,MCH,2
+Rio Quililche,stream,Llaima,LLA,1
+Rio Quililche,stream,QuetrupillÃ¡n,QUE,1
+Rio Quililche,stream,Sollipulli,SOL,1
+Rio Quililche,stream,Villarrica,VIL,1
+Rio Quiman,river,CarrÃ¡n-Los Venados,CLV,2
+Rio Quiman,river,Mocho-Choshuenco,MCH,2
+Rio Sabaya,river,Isluga,ISL,1
+Rio Sabaya,river,Tata Sabaya,TAT,2
+Rio Sajama,river,Guallatiri,GUA,10
+Rio Sajama,river,Parinacota,PAR,10
+Rio Tambo Quemado,stream,Guallatiri,GUA,3
+Rio Tambo Quemado,stream,Parinacota,PAR,3
+Rio Tapaquillcha,stream,OllagÃ¼e,OLL,1
+Rio Taypi Jahuira,stream,Guallatiri,GUA,2
+Rio Taypi Jahuira,stream,Parinacota,PAR,2
+Rio Taypi Jahuira,stream,Taapaca,TAA,1
+Rio Taypi Puchuni,stream,Guallatiri,GUA,5
+Rio Taypi Puchuni,stream,Parinacota,PAR,5
+Rio Todos Santos,stream,Isluga,ISL,7
+Rio Todos Santos,stream,Tata Sabaya,TAT,7
+Rio Tomarapi,river,Parinacota,PAR,2
+Rio Trafun,river,CarrÃ¡n-Los Venados,CLV,1
+Rio Trafun,river,Mocho-Choshuenco,MCH,1
+Rio Tronador,stream,Antillanca-Casablanca,ACA,1
+Rio Tronador,stream,Puntiagudo,PUN,1
+Rio Tronador,stream,Tronador,TRO,1
+Rio Vega Ancha,stream,Nevado Tres Cruces,NTC,1
+Rio Vega Ancha,stream,San Francisco,SFR,1
+Rio Ñancul,river,Mocho-Choshuenco,MCH,1
+Rucanuco,river,Sollipulli,SOL,1
+RÍo Añihue,river,Melimoyu,MEL,2
+Río Achacagua,river,Guallatiri,GUA,2
+Río Achibueno,river,Nevado de Longavi,NLO,17
+Río Achibueno,river,Tatara-San Pedro,TSP,5
+Río Agrio,stream,Callaqui,CAL,7
+Río Agrio,stream,Copahue,CPA,8
+Río Agrio,stream,Llaima,LLA,1
+Río Agrio,stream,Lonquimay,LON,3
+Río Agrio,stream,Sollipulli,SOL,1
+Río Aguaditas,stream,Putana,PUT,1
+Río Aguas Blancas,stream,Callaqui,CAL,1
+Río Aguas Blancas,stream,Lonquimay,LON,2
+Río Aguas Malas,river,Antillanca-Casablanca,ACA,4
+Río Aguas Malas,river,Osorno,OSO,4
+Río Aguas Malas,river,Puntiagudo,PUN,4
+Río Aguas Malas,river,Puyehue-CordÃ³n Caulle,PCC,4
+Río Aguas Malas,river,Tronador,TRO,4
+Río Aguas Turbias,river,Puntiagudo,PUN,2
+Río Aguas Turbias,river,Tronador,TRO,2
+Río Alerce,river,ChaitÃ©n,CHA,1
+Río Alerce,river,Corcovado,COR,1
+Río Alerce,river,Michinmahuida,MIC,1
+Río Alerce,river,Tronador,TRO,5
+Río Alerce,river,Yate,YAT,1
+Río Allipén,river,Llaima,LLA,9
+Río Allipén,river,Sollipulli,SOL,3
+Río Allipén,river,Villarrica,VIL,5
+Río Alpehue,river,Llaima,LLA,4
+Río Alpehue,river,Sollipulli,SOL,4
+Río Amantible,river,Llaima,LLA,1
+Río Amantible,river,Lonquimay,LON,1
+Río Amarillo,river,ChaitÃ©n,CHA,6
+Río Amarillo,river,Corcovado,COR,6
+Río Amarillo,river,Michinmahuida,MIC,6
+Río Ancoa,river,Descabezado Grande,DGR,4
+Río Ancoa,river,Nevado de Longavi,NLO,17
+Río Ancoa,river,Tatara-San Pedro,TSP,6
+Río Anfiteatro,stream,Osorno,OSO,1
+Río Anfiteatro,stream,Tronador,TRO,1
+Río Anfiteatro,stream,Yate,YAT,1
+Río Apretura,river,Calbuco,CLB,1
+Río Apretura,river,HornopirÃ©n,HOR,1
+Río Apretura,river,Tronador,TRO,1
+Río Apretura,river,Yate,YAT,1
+Río Aquellas,river,ChaitÃ©n,CHA,3
+Río Aquellas,river,Huequi,HUE,3
+Río Aquellas,river,Michinmahuida,MIC,3
+Río Arco Iris,stream,Osorno,OSO,1
+Río Arco Iris,stream,Puntiagudo,PUN,1
+Río Arco Iris,stream,Tronador,TRO,1
+Río Arco Iris,stream,Yate,YAT,1
+Río Arenales,stream,Calbuco,CLB,1
+Río Arenas,river,Calbuco,CLB,1
+Río Arenas,river,Osorno,OSO,1
+Río Astaburuaga,river,CopiapÃ³,COP,1
+Río Astaburuaga,river,Tipas,TIP,1
+Río Atuel,stream,Tinguiririca,TIN,14
+Río Auquinco,river,Lanin,LAN,1
+Río Auquinco,river,QuetrupillÃ¡n,QUE,1
+Río Aysén,river,Cay,CAY,5
+Río Aysén,river,Maca,MAC,3
+Río Azufre,river,Taapaca,TAA,2
+Río Bahía Mala,river,Melimoyu,MEL,3
+Río Barceló,river,ChaitÃ©n,CHA,1
+Río Barceló,river,Huequi,HUE,2
+Río Barceló,river,Michinmahuida,MIC,2
+Río Barraco,river,HornopirÃ©n,HOR,1
+Río Barraco,river,Yate,YAT,1
+Río Barrancas,river,Calbuco,CLB,1
+Río Barrancas,river,HornopirÃ©n,HOR,1
+Río Barrancas,river,Laguna del Maule,LDM,3
+Río Barrancas,river,Tatara-San Pedro,TSP,2
+Río Barrancas,river,Tronador,TRO,1
+Río Barrancas,river,Yate,YAT,1
+Río Barranco,river,Tronador,TRO,1
+Río Barranco,river,Yate,YAT,1
+Río Barriga,stream,Tupungatito,TUP,1
+Río Barroso,river,Descabezado Grande,DGR,2
+Río Barroso,river,Laguna del Maule,LDM,1
+Río Barroso,river,Planchon-Peteroa,PLP,2
+Río Barroso,stream,San Jose,SJO,1
+Río Barroso,river,Tatara-San Pedro,TSP,1
+Río Bayo,river,Hudson,HUD,5
+Río Biobío,river,Callaqui,CAL,14
+Río Biobío,river,Copahue,CPA,10
+Río Biobío,river,Llaima,LLA,1
+Río Biobío,river,Lonquimay,LON,9
+Río Biobío,river,Sollipulli,SOL,2
+Río Blanco,river,Antillanca-Casablanca,ACA,6
+Río Blanco,river,Calbuco,CLB,6
+Río Blanco,river,Callaqui,CAL,1
+Río Blanco,river,CarrÃ¡n-Los Venados,CLV,2
+Río Blanco,river,Cay,CAY,1
+Río Blanco,river,ChaitÃ©n,CHA,4
+Río Blanco,river,Corcovado,COR,3
+Río Blanco,river,Descabezado Grande,DGR,1
+Río Blanco,river,HornopirÃ©n,HOR,2
+Río Blanco,river,Hudson,HUD,8
+Río Blanco,river,Huequi,HUE,3
+Río Blanco,stream,Isluga,ISL,1
+Río Blanco,river,Laguna del Maule,LDM,1
+Río Blanco,river,Lanin,LAN,1
+Río Blanco,river,Llaima,LLA,7
+Río Blanco,river,Lonquimay,LON,7
+Río Blanco,river,Michinmahuida,MIC,4
+Río Blanco,river,Mocho-Choshuenco,MCH,2
+Río Blanco,river,Nevado de Longavi,NLO,9
+Río Blanco,river,Nevados de Chillan,NCH,2
+Río Blanco,stream,Olca-Paruma,OLC,1
+Río Blanco,stream,OllagÃ¼e,OLL,1
+Río Blanco,river,Osorno,OSO,12
+Río Blanco,river,Puntiagudo,PUN,11
+Río Blanco,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Blanco,river,QuetrupillÃ¡n,QUE,1
+Río Blanco,river,San Jose,SJO,2
+Río Blanco,river,Sollipulli,SOL,3
+Río Blanco,river,Tatara-San Pedro,TSP,7
+Río Blanco,river,Tronador,TRO,8
+Río Blanco,river,Villarrica,VIL,1
+Río Blanco,river,Yate,YAT,4
+Río Blanco Arenal,river,Calbuco,CLB,1
+Río Blanco Arenal,river,Osorno,OSO,1
+Río Blanco Arenal,river,Puntiagudo,PUN,1
+Río Blanco Las Cascadas,river,Antillanca-Casablanca,ACA,1
+Río Blanco Las Cascadas,river,Calbuco,CLB,1
+Río Blanco Las Cascadas,river,Osorno,OSO,1
+Río Blanco Las Cascadas,river,Puntiagudo,PUN,1
+Río Blanco Poniente,river,Calbuco,CLB,2
+Río Blanco Poniente,river,HornopirÃ©n,HOR,2
+Río Blanco Poniente,river,Yate,YAT,2
+Río Blanquillo,stream,Antuco,ANT,4
+Río Blanquillo,stream,Descabezado Grande,DGR,6
+Río Blanquillo,stream,Nevados de Chillan,NCH,4
+Río Blanquillo,stream,Planchon-Peteroa,PLP,2
+Río Blanquillo,stream,Tatara-San Pedro,TSP,5
+Río Bonito,river,Antillanca-Casablanca,ACA,4
+Río Bonito,river,Calbuco,CLB,1
+Río Bonito,river,CarrÃ¡n-Los Venados,CLV,3
+Río Bonito,river,Osorno,OSO,1
+Río Bonito,river,Puntiagudo,PUN,4
+Río Bonito,river,Puyehue-CordÃ³n Caulle,PCC,4
+Río Bonito,river,Tronador,TRO,3
+Río Botapiedra,stream,Tronador,TRO,1
+Río Botapiedra,stream,Yate,YAT,1
+Río Buill,river,ChaitÃ©n,CHA,2
+Río Buill,river,Huequi,HUE,2
+Río Buill,river,Michinmahuida,MIC,2
+Río Bullileo,river,Nevado de Longavi,NLO,2
+Río Bullileo,river,Nevados de Chillan,NCH,2
+Río Bullilleo,river,Nevado de Longavi,NLO,3
+Río Buraleo,river,Antuco,ANT,1
+Río Buraleo,river,Nevados de Chillan,NCH,2
+Río Bureo,river,Callaqui,CAL,5
+Río Bureo,river,Lonquimay,LON,4
+Río Burritos,river,Corcovado,COR,1
+Río Burro Muerto,stream,Lascar,LAS,4
+Río Butaco,stream,Callaqui,CAL,2
+Río Butaco,stream,Copahue,CPA,2
+Río Butaco,stream,Lonquimay,LON,2
+Río Cachapoal,river,Tinguiririca,TIN,2
+Río Cacisca,stream,Olca-Paruma,OLC,2
+Río Cacisca,stream,OllagÃ¼e,OLL,2
+Río Cajón,stream,Hudson,HUD,1
+Río Cajón,stream,San Pedro,SDP,2
+Río Cajón Blanco,river,Hudson,HUD,6
+Río Cajón Bravo,river,Hudson,HUD,4
+Río Cajón Grande,river,Descabezado Grande,DGR,1
+Río Cajón Grande,river,Laguna del Maule,LDM,1
+Río Cajón Grande,river,Planchon-Peteroa,PLP,1
+Río Cajón Grande,river,Tatara-San Pedro,TSP,1
+Río Cajón Negro,river,CarrÃ¡n-Los Venados,CLV,5
+Río Cajón Negro,river,Puyehue-CordÃ³n Caulle,PCC,5
+Río Calbuco,river,Llaima,LLA,3
+Río Calbuco,river,Lonquimay,LON,1
+Río Calbuco,river,Sollipulli,SOL,2
+Río Calcurrupe,river,CarrÃ¡n-Los Venados,CLV,6
+Río Calcurrupe,river,Mocho-Choshuenco,MCH,6
+Río Calcurrupe,river,Puyehue-CordÃ³n Caulle,PCC,6
+Río Calzoncillo,stream,Antillanca-Casablanca,ACA,1
+Río Calzoncillo,stream,Osorno,OSO,1
+Río Calzoncillo,stream,Puntiagudo,PUN,1
+Río Calzoncillo,stream,Puyehue-CordÃ³n Caulle,PCC,1
+Río Camahueto,stream,ChaitÃ©n,CHA,1
+Río Camahueto,stream,Huequi,HUE,1
+Río Camahueto,stream,Michinmahuida,MIC,1
+Río Campanario,river,Descabezado Grande,DGR,1
+Río Campanario,river,Laguna del Maule,LDM,1
+Río Campanario,river,Tatara-San Pedro,TSP,1
+Río Caquena,stream,Guallatiri,GUA,9
+Río Caquena,stream,Parinacota,PAR,9
+Río Caquena,stream,Taapaca,TAA,9
+Río Caracol,river,Antillanca-Casablanca,ACA,3
+Río Caracol,river,Puntiagudo,PUN,3
+Río Caracol,river,Puyehue-CordÃ³n Caulle,PCC,3
+Río Caracol,river,Tronador,TRO,3
+Río Carilafquén,river,Llaima,LLA,1
+Río Carilafquén,river,Sollipulli,SOL,1
+Río Caritaya,river,Isluga,ISL,1
+Río Carreño,stream,San Jose,SJO,3
+Río Carrileufú,river,QuetrupillÃ¡n,QUE,5
+Río Carrileufú,river,Sollipulli,SOL,5
+Río Carrileufú,river,Villarrica,VIL,5
+Río Carén,river,Llaima,LLA,1
+Río Carén,river,Sollipulli,SOL,1
+Río Cascajal,river,Calbuco,CLB,1
+Río Cascajal,river,HornopirÃ©n,HOR,1
+Río Cascajal,river,Yate,YAT,1
+Río Caspana,river,Putana,PUT,6
+Río Caspana,river,San Pedro,SDP,2
+Río Cato,river,Nevado de Longavi,NLO,2
+Río Cato,river,Nevados de Chillan,NCH,2
+Río Caunahue,river,CarrÃ¡n-Los Venados,CLV,5
+Río Caunahue,river,Mocho-Choshuenco,MCH,5
+Río Caunahue,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Cautín,river,Llaima,LLA,8
+Río Cautín,river,Lonquimay,LON,4
+Río Cauñicú,river,Antuco,ANT,1
+Río Cauñicú,river,Callaqui,CAL,1
+Río Cauñicú,river,Copahue,CPA,1
+Río Cavisañi,river,Lanin,LAN,1
+Río Cavisañi,river,QuetrupillÃ¡n,QUE,1
+Río Cavisañi,river,Sollipulli,SOL,1
+Río Cavisañi,river,Villarrica,VIL,1
+Río Cañicura,river,Antuco,ANT,1
+Río Cañicura,river,Callaqui,CAL,1
+Río Cedro,river,Calbuco,CLB,1
+Río Cedro,river,HornopirÃ©n,HOR,1
+Río Cedro,river,Osorno,OSO,1
+Río Cedro,river,Yate,YAT,1
+Río Chachín,river,CarrÃ¡n-Los Venados,CLV,1
+Río Chachín,river,Mocho-Choshuenco,MCH,1
+Río Chachín Inferior,river,CarrÃ¡n-Los Venados,CLV,1
+Río Chachín Inferior,river,Mocho-Choshuenco,MCH,1
+Río Chachín Superior,river,CarrÃ¡n-Los Venados,CLV,1
+Río Chachín Superior,river,Mocho-Choshuenco,MCH,1
+Río Chaica,river,Calbuco,CLB,1
+Río Chaica,river,HornopirÃ©n,HOR,1
+Río Chaica,river,Osorno,OSO,1
+Río Chaica,river,Yate,YAT,1
+Río Chaichaiguen,river,Antillanca-Casablanca,ACA,1
+Río Chaichaiguen,river,CarrÃ¡n-Los Venados,CLV,1
+Río Chaichaiguen,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Chaihuiri,stream,Olca-Paruma,OLC,1
+Río Chaihuiri,stream,OllagÃ¼e,OLL,1
+Río Chamiza,river,Calbuco,CLB,5
+Río Chamiza,river,HornopirÃ©n,HOR,1
+Río Chamiza,river,Osorno,OSO,5
+Río Chamiza,river,Yate,YAT,5
+Río Chanleufu,river,Antillanca-Casablanca,ACA,1
+Río Chanleufu,river,CarrÃ¡n-Los Venados,CLV,1
+Río Chanleufu,river,Osorno,OSO,1
+Río Chanleufu,river,Puntiagudo,PUN,1
+Río Chanleufu,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Chaparano,river,Calbuco,CLB,1
+Río Chaparano,river,HornopirÃ©n,HOR,1
+Río Chaparano,river,Yate,YAT,1
+Río Chapuco,river,Antillanca-Casablanca,ACA,1
+Río Chapuco,river,Calbuco,CLB,1
+Río Chapuco,river,Osorno,OSO,1
+Río Chapuco,river,Puntiagudo,PUN,1
+Río Chaquilvín,river,Callaqui,CAL,4
+Río Chaquilvín,river,Copahue,CPA,4
+Río Chaquilvín,river,Lonquimay,LON,4
+Río Chaviquin,river,Callaqui,CAL,4
+Río Chaviquin,river,Copahue,CPA,4
+Río Chaviquin,river,Lonquimay,LON,1
+Río Chela,stream,Olca-Paruma,OLC,1
+Río Chela,stream,OllagÃ¼e,OLL,1
+Río Cherquén,river,Llaima,LLA,2
+Río Cherquén,river,Sollipulli,SOL,2
+Río Chiar Kollu Jahuira,stream,Isluga,ISL,1
+Río Chiar Kollu Jahuira,stream,Tata Sabaya,TAT,1
+Río Chico,river,Calbuco,CLB,1
+Río Chico,stream,Lascar,LAS,1
+Río Chico,river,Osorno,OSO,1
+Río Chico,river,Yate,YAT,1
+Río Chillahuito,stream,Putana,PUT,1
+Río Chillán,river,Nevados de Chillan,NCH,5
+Río Chimehuin,river,Lanin,LAN,52
+Río Chimehuín,river,Lanin,LAN,36
+Río Chin Chin,river,Osorno,OSO,1
+Río Chin Chin,river,Puntiagudo,PUN,1
+Río Chirre,river,Antillanca-Casablanca,ACA,1
+Río Chirre,river,CarrÃ¡n-Los Venados,CLV,1
+Río Chirre,river,Puntiagudo,PUN,1
+Río Chirre,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Cholchol,river,Antillanca-Casablanca,ACA,2
+Río Cholchol,river,CarrÃ¡n-Los Venados,CLV,2
+Río Cholchol,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Cholguán,river,Antuco,ANT,1
+Río Cholguán,river,Nevados de Chillan,NCH,1
+Río Chulipan Kkola,stream,Tata Sabaya,TAT,3
+Río Chupasangral,river,Tupungatito,TUP,1
+Río Chusiavida,river,Guallatiri,GUA,8
+Río Chusiavida,river,Parinacota,PAR,8
+Río Chusiavida,river,Taapaca,TAA,4
+Río Cipreces,river,Descabezado Grande,DGR,5
+Río Cipreces,river,Laguna del Maule,LDM,5
+Río Cipreces,river,Tatara-San Pedro,TSP,5
+Río Cipreses,river,ChaitÃ©n,CHA,1
+Río Cipreses,river,Huequi,HUE,1
+Río Cipreses,river,Michinmahuida,MIC,1
+Río Cisnes,river,Cay,CAY,2
+Río Cisnes,river,Mentolat,MEN,2
+Río Cisternas,stream,Nevado de Longavi,NLO,5
+Río Claro,river,Descabezado Grande,DGR,20
+Río Claro,river,Planchon-Peteroa,PLP,16
+Río Claro,river,QuetrupillÃ¡n,QUE,7
+Río Claro,river,San Jose,SJO,1
+Río Claro,river,Sollipulli,SOL,1
+Río Claro,river,Tatara-San Pedro,TSP,6
+Río Claro,river,Tinguiririca,TIN,7
+Río Claro,river,Villarrica,VIL,7
+Río Claro de Cauquenes,river,Tinguiririca,TIN,1
+Río Cochamo,river,Osorno,OSO,1
+Río Cochamo,river,Tronador,TRO,1
+Río Cochamo,river,Yate,YAT,1
+Río Cochamó,river,Calbuco,CLB,2
+Río Cochamó,river,HornopirÃ©n,HOR,2
+Río Cochamó,river,Osorno,OSO,3
+Río Cochamó,river,Tronador,TRO,3
+Río Cochamó,river,Yate,YAT,3
+Río Coihueco,river,Antillanca-Casablanca,ACA,1
+Río Coihueco,river,Calbuco,CLB,2
+Río Coihueco,river,Osorno,OSO,3
+Río Coihueco,river,Puntiagudo,PUN,2
+Río Coihueco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Colina,river,San Jose,SJO,1
+Río Collico,stream,Mocho-Choshuenco,MCH,1
+Río Collico,river,QuetrupillÃ¡n,QUE,2
+Río Collico,river,Villarrica,VIL,4
+Río Collín,river,Llaima,LLA,2
+Río Collín,river,Lonquimay,LON,1
+Río Colorado,river,Descabezado Grande,DGR,8
+Río Colorado,river,Laguna del Maule,LDM,4
+Río Colorado,river,Llaima,LLA,2
+Río Colorado,river,Lonquimay,LON,2
+Río Colorado,river,Nevado de Longavi,NLO,3
+Río Colorado,river,Planchon-Peteroa,PLP,5
+Río Colorado,stream,San Jose,SJO,9
+Río Colorado,river,Sollipulli,SOL,2
+Río Colorado,river,Tatara-San Pedro,TSP,3
+Río Colorado,stream,Tupungatito,TUP,8
+Río Conchas,river,Calbuco,CLB,3
+Río Conchas,river,Osorno,OSO,3
+Río Conchas,river,Puntiagudo,PUN,3
+Río Conchas,river,Tronador,TRO,3
+Río Condoriri,stream,Guallatiri,GUA,1
+Río Condoriri,stream,Parinacota,PAR,1
+Río Congo,river,Michinmahuida,MIC,1
+Río Conquil,river,Mocho-Choshuenco,MCH,1
+Río Conquil,river,Villarrica,VIL,1
+Río Contao,river,HornopirÃ©n,HOR,1
+Río Contao,river,Yate,YAT,1
+Río Contrafuerte,river,Antillanca-Casablanca,ACA,3
+Río Contrafuerte,river,CarrÃ¡n-Los Venados,CLV,3
+Río Contrafuerte,river,Puyehue-CordÃ³n Caulle,PCC,3
+Río Corcovado,river,Corcovado,COR,1
+Río Correntoso,river,Calbuco,CLB,1
+Río Correntoso,river,ChaitÃ©n,CHA,1
+Río Correntoso,river,Corcovado,COR,1
+Río Correntoso,river,HornopirÃ©n,HOR,1
+Río Correntoso,stream,Lanin,LAN,1
+Río Correntoso,river,Melimoyu,MEL,1
+Río Correntoso,river,Michinmahuida,MIC,1
+Río Correntoso,river,Osorno,OSO,1
+Río Correntoso,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Correntoso,stream,QuetrupillÃ¡n,QUE,4
+Río Correntoso,stream,Sollipulli,SOL,1
+Río Correntoso,stream,Villarrica,VIL,4
+Río Correntoso,river,Yate,YAT,2
+Río Cortaderal,river,Tinguiririca,TIN,9
+Río Cosapa,river,Guallatiri,GUA,1
+Río Cosapilla,river,Parinacota,PAR,5
+Río Cosapilla,river,Taapaca,TAA,6
+Río Coya,stream,San Jose,SJO,1
+Río Cua-Cua,river,Lanin,LAN,3
+Río Cua-Cua,river,Mocho-Choshuenco,MCH,3
+Río Cua-Cua,river,QuetrupillÃ¡n,QUE,3
+Río Cua-Cua,river,Villarrica,VIL,3
+Río Cuchildeo,river,HornopirÃ©n,HOR,1
+Río Cuchildeo,river,Huequi,HUE,1
+Río Cuchildeo,river,Yate,YAT,1
+Río Cuervo,river,Cay,CAY,1
+Río Cuervo,river,Maca,MAC,1
+Río Cululí,river,Calbuco,CLB,2
+Río Cululí,river,HornopirÃ©n,HOR,2
+Río Cululí,river,Osorno,OSO,2
+Río Cululí,river,Yate,YAT,2
+Río Curacalco,stream,Llaima,LLA,1
+Río Curacalco,stream,Sollipulli,SOL,1
+Río Curaco,river,Villarrica,VIL,3
+Río Curilelfu,river,Antillanca-Casablanca,ACA,1
+Río Curilelfu,river,CarrÃ¡n-Los Venados,CLV,1
+Río Curilelfu,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Curringue,river,CarrÃ¡n-Los Venados,CLV,5
+Río Curringue,river,Mocho-Choshuenco,MCH,5
+Río Curringue,river,Puyehue-CordÃ³n Caulle,PCC,3
+Río Curruhué,river,Lanin,LAN,3
+Río Curte,river,Putana,PUT,1
+Río Curte,river,San Pedro,SDP,1
+Río Cuyaima,river,Antillanca-Casablanca,ACA,1
+Río Cuyaima,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Dañicalqui,river,Nevados de Chillan,NCH,1
+Río Desagüe,river,Tronador,TRO,1
+Río Desagüe,river,Yate,YAT,1
+Río Despluyado,river,Hudson,HUD,2
+Río Diablito,stream,Callaqui,CAL,2
+Río Diablito,stream,Lonquimay,LON,2
+Río Diablo,stream,Callaqui,CAL,4
+Río Diablo,stream,Lonquimay,LON,4
+Río Diamante,river,San Jose,SJO,3
+Río Diguillín,stream,Nevados de Chillan,NCH,5
+Río Dillo,river,Callaqui,CAL,3
+Río Dillo,river,Llaima,LLA,4
+Río Dillo,river,Lonquimay,LON,4
+Río Dinamarca,river,Melimoyu,MEL,3
+Río Don Augustin,river,ChaitÃ©n,CHA,1
+Río Don Augustin,river,Huequi,HUE,1
+Río Don Augustin,river,Michinmahuida,MIC,1
+Río Duqueco,river,Antuco,ANT,11
+Río Duqueco,river,Callaqui,CAL,11
+Río Duqueco,river,Copahue,CPA,9
+Río El Arco,stream,Puntiagudo,PUN,1
+Río El Arco,stream,Tronador,TRO,1
+Río El Arco,stream,Yate,YAT,1
+Río El Burro,stream,Calbuco,CLB,2
+Río El Cobre,river,Planchon-Peteroa,PLP,1
+Río El Cobre,river,Tinguiririca,TIN,1
+Río El Manzano,river,Planchon-Peteroa,PLP,1
+Río El Morro,stream,Calbuco,CLB,1
+Río El Morro,stream,HornopirÃ©n,HOR,1
+Río El Morro,stream,Osorno,OSO,1
+Río El Morro,stream,Tronador,TRO,1
+Río El Morro,stream,Yate,YAT,1
+Río El Nevado,river,Descabezado Grande,DGR,1
+Río El Nevado,river,Planchon-Peteroa,PLP,1
+Río El Salto,river,Calbuco,CLB,1
+Río El Salto,river,Cay,CAY,1
+Río El Salto,river,Hudson,HUD,1
+Río El Salto,river,Maca,MAC,1
+Río El Salto,river,Osorno,OSO,1
+Río El Salto,river,Puntiagudo,PUN,1
+Río El Tigre,river,HornopirÃ©n,HOR,1
+Río El Tigre,river,Yate,YAT,1
+Río Enco,river,CarrÃ¡n-Los Venados,CLV,2
+Río Enco,river,Mocho-Choshuenco,MCH,2
+Río Escorial,river,Lanin,LAN,1
+Río Escorial,river,QuetrupillÃ¡n,QUE,1
+Río Espejo,river,Antillanca-Casablanca,ACA,1
+Río Espejo,river,CarrÃ¡n-Los Venados,CLV,1
+Río Espejo,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Espolón,river,Michinmahuida,MIC,2
+Río Este,river,Calbuco,CLB,1
+Río Este,river,Osorno,OSO,1
+Río Este,river,Puntiagudo,PUN,1
+Río Este,river,Yate,YAT,1
+Río Factoría,river,Calbuco,CLB,1
+Río Factoría,river,HornopirÃ©n,HOR,1
+Río Factoría,river,Yate,YAT,1
+Río Farías,river,Laguna del Maule,LDM,3
+Río Farías,river,Nevado de Longavi,NLO,3
+Río Farías,river,Tatara-San Pedro,TSP,3
+Río Fonck,river,Tronador,TRO,2
+Río Fontema,river,Calbuco,CLB,1
+Río Fontema,river,HornopirÃ©n,HOR,1
+Río Fontema,river,Osorno,OSO,1
+Río Fontema,river,Yate,YAT,1
+Río Foyel,river,Tronador,TRO,2
+Río Frey,stream,Tronador,TRO,1
+Río Frio,river,ChaitÃ©n,CHA,3
+Río Frio,river,Corcovado,COR,3
+Río Frio,river,Michinmahuida,MIC,3
+Río Frías,river,Antillanca-Casablanca,ACA,4
+Río Frías,river,Tronador,TRO,4
+Río Frío,river,Corcovado,COR,6
+Río Frío,river,HornopirÃ©n,HOR,1
+Río Frío,stream,Llullaillaco,LLU,1
+Río Frío,river,Yate,YAT,1
+Río Futangue,river,Antillanca-Casablanca,ACA,3
+Río Futangue,river,CarrÃ¡n-Los Venados,CLV,3
+Río Futangue,river,Mocho-Choshuenco,MCH,2
+Río Futangue,river,Puyehue-CordÃ³n Caulle,PCC,3
+Río Fuy,river,Lanin,LAN,5
+Río Fuy,river,Mocho-Choshuenco,MCH,5
+Río Fuy,river,QuetrupillÃ¡n,QUE,5
+Río Fuy,river,Villarrica,VIL,4
+Río Gil de Lemos,stream,Corcovado,COR,1
+Río Golgol,river,Antillanca-Casablanca,ACA,8
+Río Golgol,river,CarrÃ¡n-Los Venados,CLV,8
+Río Golgol,river,Osorno,OSO,1
+Río Golgol,river,Puntiagudo,PUN,8
+Río Golgol,river,Puyehue-CordÃ³n Caulle,PCC,8
+Río Golpeado,stream,Calbuco,CLB,2
+Río Golpeado,stream,HornopirÃ©n,HOR,2
+Río Golpeado,stream,Yate,YAT,2
+Río González,river,Nevado de Longavi,NLO,5
+Río González,river,Nevados de Chillan,NCH,3
+Río Grande,stream,Isluga,ISL,5
+Río Grande,river,Planchon-Peteroa,PLP,1
+Río Grande,river,Putana,PUT,2
+Río Grande,stream,Tata Sabaya,TAT,5
+Río Guaiquivilo,stream,Laguna del Maule,LDM,17
+Río Guaiquivilo,river,Nevado de Longavi,NLO,12
+Río Guaiquivilo,stream,Tatara-San Pedro,TSP,17
+Río Guallatire,river,Guallatiri,GUA,4
+Río Guallatire,river,Parinacota,PAR,4
+Río Guañacos,river,Antuco,ANT,1
+Río Hojalar,stream,Putana,PUT,3
+Río Hojalar,stream,San Pedro,SDP,1
+Río Horquetas,stream,Tinguiririca,TIN,1
+Río Hua-Hum,river,CarrÃ¡n-Los Venados,CLV,2
+Río Hua-Hum,river,Lanin,LAN,1
+Río Hua-Hum,river,Mocho-Choshuenco,MCH,2
+Río Hualaihué,river,HornopirÃ©n,HOR,3
+Río Hualaihué,river,Huequi,HUE,3
+Río Hualaihué,river,Yate,YAT,3
+Río Huanehue,river,Mocho-Choshuenco,MCH,3
+Río Huanehue,river,Villarrica,VIL,3
+Río Huaylla Jara,stream,Putana,PUT,1
+Río Hueinahue,river,CarrÃ¡n-Los Venados,CLV,4
+Río Hueinahue,river,Mocho-Choshuenco,MCH,4
+Río Hueinahue,river,Puyehue-CordÃ³n Caulle,PCC,4
+Río Huemul,river,Tronador,TRO,13
+Río Huemules,river,Hudson,HUD,1
+Río Huemules,river,Nevado de Longavi,NLO,3
+Río Huemules,river,Nevados de Chillan,NCH,1
+Río Hueninca,river,Mocho-Choshuenco,MCH,1
+Río Hueninca,river,QuetrupillÃ¡n,QUE,1
+Río Hueninca,river,Villarrica,VIL,1
+Río Huenteleufo,river,CarrÃ¡n-Los Venados,CLV,1
+Río Huenteleufo,river,Mocho-Choshuenco,MCH,1
+Río Huenteleufo,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Huequecura,river,Antuco,ANT,1
+Río Huequecura,river,Callaqui,CAL,1
+Río Huequecura,river,Copahue,CPA,1
+Río Huequi,river,ChaitÃ©n,CHA,1
+Río Huequi,river,HornopirÃ©n,HOR,2
+Río Huequi,river,Huequi,HUE,3
+Río Huequi,river,Michinmahuida,MIC,1
+Río Hueñu Hueñu,river,Calbuco,CLB,2
+Río Hueñu Hueñu,river,Osorno,OSO,2
+Río Hueñu Hueñu,river,Puntiagudo,PUN,2
+Río Hueñu Hueñu,river,Yate,YAT,1
+Río Huichahue,river,Llaima,LLA,1
+Río Huépil,river,Antuco,ANT,1
+Río Huépil,river,Nevados de Chillan,NCH,1
+Río Ibáñez,river,Hudson,HUD,1
+Río Iculpe,river,CarrÃ¡n-Los Venados,CLV,2
+Río Iculpe,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Ignao,river,Antillanca-Casablanca,ACA,1
+Río Ignao,river,CarrÃ¡n-Los Venados,CLV,2
+Río Ignao,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Indio,river,Llaima,LLA,1
+Río Indio,river,Lonquimay,LON,1
+Río Infiernillo,stream,Planchon-Peteroa,PLP,3
+Río Infiernillo,stream,Tinguiririca,TIN,3
+Río Infiernillo o Curamallín,river,Antuco,ANT,1
+Río Infiernillo o Curamallín,river,Callaqui,CAL,1
+Río Infiernillo o Curamallín,river,Copahue,CPA,1
+Río Ipela o Folit,river,CarrÃ¡n-Los Venados,CLV,2
+Río Ipela o Folit,river,Mocho-Choshuenco,MCH,2
+Río Isluga,stream,Isluga,ISL,7
+Río Isluga,stream,Tata Sabaya,TAT,3
+Río Jalsuri,stream,Isluga,ISL,1
+Río Jalsuri,stream,Tata Sabaya,TAT,1
+Río Juncalito,river,CopiapÃ³,COP,1
+Río Juncalito,river,Nevado Tres Cruces,NTC,1
+Río Juncalito,river,Ojos del Salado,ODS,1
+Río Juncalito,river,Tipas,TIP,1
+Río Junthuma,stream,Guallatiri,GUA,1
+Río Junthuma,stream,Parinacota,PAR,1
+Río Junthuma Khuchu,stream,Guallatiri,GUA,2
+Río Junthuma Khuchu,stream,Parinacota,PAR,2
+Río Junthuma Khuchu,stream,Taapaca,TAA,2
+Río Jurase,stream,Guallatiri,GUA,1
+Río Jurase,stream,Parinacota,PAR,3
+Río Jurase,stream,Taapaca,TAA,3
+Río Kajachi Jahuira,river,Guallatiri,GUA,1
+Río La Cumbre,river,Osorno,OSO,1
+Río La Cumbre,river,Puntiagudo,PUN,1
+Río La Cumbre,river,Tronador,TRO,1
+Río La Invernada,river,Descabezado Grande,DGR,9
+Río La Invernada,river,Laguna del Maule,LDM,9
+Río La Invernada,river,Planchon-Peteroa,PLP,1
+Río La Invernada,river,Tatara-San Pedro,TSP,9
+Río La Junta,river,Osorno,OSO,1
+Río La Junta,river,Puntiagudo,PUN,1
+Río La Junta,river,Tronador,TRO,1
+Río La Junta,river,Yate,YAT,1
+Río La Pera,stream,Corcovado,COR,1
+Río La Poza,stream,Calbuco,CLB,1
+Río La Poza,stream,Osorno,OSO,1
+Río La Poza,stream,Puntiagudo,PUN,1
+Río La Zorra,river,Nevado de Longavi,NLO,3
+Río La Zorra,river,Nevados de Chillan,NCH,3
+Río Lagunillas,river,Cay,CAY,2
+Río Lagunillas,river,Hudson,HUD,2
+Río Lagunillas,river,Maca,MAC,2
+Río Laja,river,Antillanca-Casablanca,ACA,1
+Río Laja,stream,Antuco,ANT,27
+Río Laja,river,Osorno,OSO,1
+Río Laja,river,Puntiagudo,PUN,1
+Río Laja,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Laja,river,Tronador,TRO,1
+Río Lamas,stream,CopiapÃ³,COP,2
+Río Lamas,stream,Nevado Tres Cruces,NTC,2
+Río Lamas,stream,Ojos del Salado,ODS,2
+Río Lamas,stream,Tipas,TIP,2
+Río Largo,stream,Calbuco,CLB,1
+Río Largo,stream,Osorno,OSO,1
+Río Largo,stream,Tronador,TRO,1
+Río Largo,stream,Yate,YAT,1
+Río Larqui,stream,Nevados de Chillan,NCH,2
+Río Laruma,stream,Guallatiri,GUA,2
+Río Las Leñas,stream,Planchon-Peteroa,PLP,1
+Río Las Leñas,river,Tinguiririca,TIN,11
+Río Las Lágrimas,stream,Tinguiririca,TIN,5
+Río Las Marcas,river,Calbuco,CLB,3
+Río Las Marcas,river,Osorno,OSO,3
+Río Las Minas,river,Nevados de Chillan,NCH,7
+Río Las Yeguas,river,Laguna del Maule,LDM,3
+Río Las Yeguas,river,Nevado de Longavi,NLO,3
+Río Las Yeguas,river,Tatara-San Pedro,TSP,3
+Río Lauca,river,Guallatiri,GUA,49
+Río Lauca,river,Parinacota,PAR,47
+Río Lauca,river,Taapaca,TAA,45
+Río Lauca,river,Tata Sabaya,TAT,2
+Río Lenca,river,Calbuco,CLB,2
+Río Lenca,river,HornopirÃ©n,HOR,2
+Río Lenca,river,Yate,YAT,2
+Río Leones,river,Tronador,TRO,1
+Río León,river,Antillanca-Casablanca,ACA,4
+Río León,river,Calbuco,CLB,1
+Río León,river,HornopirÃ©n,HOR,1
+Río León,river,Osorno,OSO,1
+Río León,river,Puntiagudo,PUN,4
+Río León,river,Puyehue-CordÃ³n Caulle,PCC,4
+Río León,river,Tronador,TRO,4
+Río León,river,Yate,YAT,1
+Río Libertador,river,HornopirÃ©n,HOR,1
+Río Libertador,river,Huequi,HUE,4
+Río Libertador,river,Michinmahuida,MIC,4
+Río Licán,river,Antillanca-Casablanca,ACA,1
+Río Licán,river,CarrÃ¡n-Los Venados,CLV,1
+Río Licán,river,Puntiagudo,PUN,1
+Río Licán,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Lileo,river,Antuco,ANT,1
+Río Lileo,river,Nevados de Chillan,NCH,1
+Río Lipinza,river,CarrÃ¡n-Los Venados,CLV,1
+Río Lipinza,river,Lanin,LAN,6
+Río Lipinza,river,Mocho-Choshuenco,MCH,6
+Río Lipinza,river,QuetrupillÃ¡n,QUE,3
+Río Liquiñe,river,Lanin,LAN,4
+Río Liquiñe,river,Mocho-Choshuenco,MCH,4
+Río Liquiñe,river,QuetrupillÃ¡n,QUE,4
+Río Liquiñe,river,Villarrica,VIL,4
+Río Litrán,river,Sollipulli,SOL,1
+Río Liucura,river,Lanin,LAN,1
+Río Liucura,river,QuetrupillÃ¡n,QUE,2
+Río Liucura,river,Sollipulli,SOL,2
+Río Liucura,river,Villarrica,VIL,2
+Río Llaguepe,river,Calbuco,CLB,1
+Río Llaguepe,river,HornopirÃ©n,HOR,1
+Río Llaguepe,river,Yate,YAT,1
+Río Llaima,river,Llaima,LLA,3
+Río Llaima,river,Sollipulli,SOL,3
+Río Llamué,stream,Mocho-Choshuenco,MCH,1
+Río Llamué,stream,Villarrica,VIL,1
+Río Llancahue,stream,Lanin,LAN,3
+Río Llancahue,river,Mocho-Choshuenco,MCH,5
+Río Llancahue,river,QuetrupillÃ¡n,QUE,6
+Río Llancahue,river,Villarrica,VIL,6
+Río Llanquihue,river,Mocho-Choshuenco,MCH,2
+Río Llanquihue,river,QuetrupillÃ¡n,QUE,2
+Río Llanquihue,river,Villarrica,VIL,2
+Río Llanquén,river,Callaqui,CAL,1
+Río Llanquén,river,Copahue,CPA,1
+Río Llanquén,river,Lonquimay,LON,1
+Río Llay,stream,Antuco,ANT,4
+Río Llay,stream,Callaqui,CAL,4
+Río Llay,stream,Copahue,CPA,4
+Río Llizan,river,Lanin,LAN,1
+Río Llizan,river,Mocho-Choshuenco,MCH,1
+Río Llizan,river,QuetrupillÃ¡n,QUE,1
+Río Llizan,river,Villarrica,VIL,1
+Río Lloncochaigua,river,HornopirÃ©n,HOR,1
+Río Lloncochaigua,river,Huequi,HUE,1
+Río Lloncochaigua,river,Michinmahuida,MIC,1
+Río Lluta,river,Taapaca,TAA,7
+Río Loa,stream,Irruputuncu,IRR,1
+Río Loa,stream,Olca-Paruma,OLC,4
+Río Loa,stream,OllagÃ¼e,OLL,1
+Río Loa,river,San Pedro,SDP,8
+Río Lolco,river,Callaqui,CAL,6
+Río Lolco,river,Copahue,CPA,4
+Río Lolco,river,Llaima,LLA,3
+Río Lolco,river,Lonquimay,LON,6
+Río Lolén,stream,Lonquimay,LON,1
+Río Lomín,river,Callaqui,CAL,8
+Río Lomín,river,Copahue,CPA,8
+Río Lomín,river,Lonquimay,LON,3
+Río Long Long,river,Villarrica,VIL,1
+Río Longaví,river,Nevado de Longavi,NLO,3
+Río Lonquimay,river,Llaima,LLA,2
+Río Lonquimay,river,Lonquimay,LON,2
+Río Lonquimay,river,Sollipulli,SOL,2
+Río Lontué,river,Descabezado Grande,DGR,12
+Río Lontué,river,Planchon-Peteroa,PLP,11
+Río Loromita,stream,Putana,PUT,1
+Río Los Baños,river,Nevado de Longavi,NLO,6
+Río Los Baños,stream,Tatara-San Pedro,TSP,4
+Río Los Cachos,stream,Calbuco,CLB,1
+Río Los Cachos,stream,HornopirÃ©n,HOR,1
+Río Los Cachos,stream,Yate,YAT,1
+Río Los Césares,stream,Tronador,TRO,1
+Río Los Palos,river,Cay,CAY,1
+Río Los Palos,river,Maca,MAC,1
+Río Los Parrones o Huirihuiri,river,Callaqui,CAL,1
+Río Los Parrones o Huirihuiri,river,Copahue,CPA,1
+Río Los Parrones o Huirihuiri,river,Lonquimay,LON,1
+Río Los Patos,river,Calbuco,CLB,3
+Río Los Patos,river,Osorno,OSO,3
+Río Los Potreros,river,Llaima,LLA,1
+Río Los Potreros,river,Sollipulli,SOL,1
+Río Los Sauces,river,Nevado de Longavi,NLO,2
+Río Los Sauces,river,Nevados de Chillan,NCH,2
+Río Machuca,river,Putana,PUT,3
+Río Machín,river,Lanin,LAN,2
+Río Machín,river,Llaima,LLA,1
+Río Machín,river,QuetrupillÃ¡n,QUE,2
+Río Machín,river,Sollipulli,SOL,2
+Río Machín,river,Villarrica,VIL,2
+Río Macusa,stream,Guallatiri,GUA,1
+Río Maipo,river,San Jose,SJO,4
+Río Malalcahuello,river,Llaima,LLA,1
+Río Malalcahuello,river,Sollipulli,SOL,1
+Río Malla,river,Callaqui,CAL,1
+Río Malla,river,Copahue,CPA,1
+Río Malla,river,Lonquimay,LON,1
+Río Malleco,river,Callaqui,CAL,4
+Río Malleco,river,Lonquimay,LON,10
+Río Malleo,river,Lanin,LAN,441
+Río Malleo,river,QuetrupillÃ¡n,QUE,42
+Río Mallines,river,ChaitÃ©n,CHA,1
+Río Mallines,river,Corcovado,COR,1
+Río Mallines,river,Michinmahuida,MIC,1
+Río Malo,river,Descabezado Grande,DGR,1
+Río Malo,river,Planchon-Peteroa,PLP,4
+Río Malo,river,Tinguiririca,TIN,4
+Río Manco,river,Antuco,ANT,2
+Río Manso,river,HornopirÃ©n,HOR,1
+Río Manso,river,Tronador,TRO,12
+Río Manso,river,Yate,YAT,1
+Río Manso Superior,river,Puntiagudo,PUN,1
+Río Manso Superior,river,Tronador,TRO,6
+Río María Loreto,river,CarrÃ¡n-Los Venados,CLV,2
+Río María Loreto,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Matadero,river,Nevado de Longavi,NLO,3
+Río Maule,river,Descabezado Grande,DGR,9
+Río Maule,river,Laguna del Maule,LDM,10
+Río Maule,river,Nevado de Longavi,NLO,4
+Río Maule,river,Tatara-San Pedro,TSP,10
+Río Maullín,river,Calbuco,CLB,3
+Río Mañihueico,river,Calbuco,CLB,2
+Río Mañihueico,river,HornopirÃ©n,HOR,2
+Río Mañihueico,river,Yate,YAT,2
+Río Mañío,river,Mocho-Choshuenco,MCH,1
+Río Mañío,river,Villarrica,VIL,1
+Río Melado,river,Descabezado Grande,DGR,4
+Río Melado,river,Laguna del Maule,LDM,1
+Río Melado,river,Nevado de Longavi,NLO,4
+Río Melado,river,Tatara-San Pedro,TSP,4
+Río Melimoyu,river,Melimoyu,MEL,4
+Río Melipue,river,Antillanca-Casablanca,ACA,4
+Río Melipue,river,CarrÃ¡n-Los Venados,CLV,6
+Río Melipue,river,Mocho-Choshuenco,MCH,6
+Río Melipue,river,Puyehue-CordÃ³n Caulle,PCC,6
+Río Michimahuida,river,ChaitÃ©n,CHA,1
+Río Michimahuida,river,Corcovado,COR,1
+Río Michimahuida,river,Michinmahuida,MIC,1
+Río Miraflores,river,Llaima,LLA,1
+Río Miraflores,river,Lonquimay,LON,1
+Río Miraflores,river,Sollipulli,SOL,1
+Río Mogote,river,Hudson,HUD,3
+Río Mulchén,stream,Callaqui,CAL,3
+Río Mulchén,stream,Lonquimay,LON,3
+Río Murta,river,Hudson,HUD,1
+Río Museo,river,San Jose,SJO,1
+Río Museo,river,Tupungatito,TUP,1
+Río Nahueve,river,Nevados de Chillan,NCH,5
+Río Nalcas,river,Callaqui,CAL,3
+Río Nalcas,river,Copahue,CPA,2
+Río Nalcas,river,Llaima,LLA,1
+Río Nalcas,river,Lonquimay,LON,3
+Río Naranjo,river,Llaima,LLA,2
+Río Naranjo,river,Lonquimay,LON,2
+Río Navarro,river,Michinmahuida,MIC,2
+Río Negro,river,Antillanca-Casablanca,ACA,5
+Río Negro,river,Calbuco,CLB,5
+Río Negro,stream,Callaqui,CAL,3
+Río Negro,river,ChaitÃ©n,CHA,3
+Río Negro,river,Corcovado,COR,3
+Río Negro,river,Descabezado Grande,DGR,1
+Río Negro,river,HornopirÃ©n,HOR,1
+Río Negro,river,Huequi,HUE,3
+Río Negro,river,Michinmahuida,MIC,3
+Río Negro,river,Osorno,OSO,5
+Río Negro,river,Planchon-Peteroa,PLP,1
+Río Negro,river,Puntiagudo,PUN,6
+Río Negro,river,Puyehue-CordÃ³n Caulle,PCC,5
+Río Negro,river,San Jose,SJO,1
+Río Negro,river,Tronador,TRO,5
+Río Negro,river,Yate,YAT,3
+Río Neltume,river,Mocho-Choshuenco,MCH,1
+Río Neltume,river,QuetrupillÃ¡n,QUE,1
+Río Neltume,river,Villarrica,VIL,1
+Río Neuquén,stream,Laguna del Maule,LDM,1
+Río Neuquén,river,Nevado de Longavi,NLO,1
+Río Neuquén,stream,Tatara-San Pedro,TSP,1
+Río Nevado,river,Corcovado,COR,1
+Río Nevado,river,QuetrupillÃ¡n,QUE,1
+Río Nevado,river,Sollipulli,SOL,1
+Río Nevado,river,Villarrica,VIL,1
+Río Nevador,river,HornopirÃ©n,HOR,1
+Río Nevador,river,Yate,YAT,1
+Río Niblinto,river,Callaqui,CAL,3
+Río Niblinto,river,Lonquimay,LON,3
+Río Niblinto,river,Nevados de Chillan,NCH,5
+Río Nilahue,river,Antillanca-Casablanca,ACA,2
+Río Nilahue,river,CarrÃ¡n-Los Venados,CLV,3
+Río Nilahue,river,Mocho-Choshuenco,MCH,3
+Río Nilahue,river,Puyehue-CordÃ³n Caulle,PCC,3
+Río Niltre,stream,Mocho-Choshuenco,MCH,1
+Río Niltre,stream,QuetrupillÃ¡n,QUE,1
+Río Niltre,stream,Villarrica,VIL,1
+Río Nonthué,river,CarrÃ¡n-Los Venados,CLV,4
+Río Nonthué,river,Mocho-Choshuenco,MCH,4
+Río Oconi,river,Lanin,LAN,4
+Río Oconi,river,Mocho-Choshuenco,MCH,4
+Río Oconi,river,QuetrupillÃ¡n,QUE,4
+Río Oeste,river,Corcovado,COR,1
+Río Olivares,river,San Jose,SJO,1
+Río Olivares,river,Tupungatito,TUP,1
+Río Oroco,river,Calbuco,CLB,1
+Río Oroco,river,Osorno,OSO,1
+Río Oroco,river,Yate,YAT,1
+Río Ortega,river,Laguna del Maule,LDM,3
+Río Ortega,river,Nevado de Longavi,NLO,3
+Río Ortega,river,Tatara-San Pedro,TSP,3
+Río Ortiz Basualdo,river,Antillanca-Casablanca,ACA,2
+Río Ortiz Basualdo,river,Puntiagudo,PUN,2
+Río Ortiz Basualdo,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Ortiz Basualdo,river,Tronador,TRO,2
+Río Otué,river,Antuco,ANT,2
+Río Otué,river,Callaqui,CAL,2
+Río Otué,river,Copahue,CPA,2
+Río Paimún,river,Lanin,LAN,1
+Río Paimún,river,Mocho-Choshuenco,MCH,1
+Río Paimún,river,QuetrupillÃ¡n,QUE,1
+Río Paimún,river,Villarrica,VIL,1
+Río Palena,river,Melimoyu,MEL,3
+Río Palguín,river,Lanin,LAN,2
+Río Palguín,river,QuetrupillÃ¡n,QUE,2
+Río Palguín,river,Sollipulli,SOL,2
+Río Palguín,river,Villarrica,VIL,2
+Río Paloma,stream,Osorno,OSO,1
+Río Paloma,stream,Puntiagudo,PUN,1
+Río Paloma,stream,Tronador,TRO,1
+Río Paloma,stream,Yate,YAT,1
+Río Palomares,river,San Jose,SJO,1
+Río Palomares,river,Tupungatito,TUP,1
+Río Palpal,river,Nevados de Chillan,NCH,2
+Río Palvitad,river,ChaitÃ©n,CHA,7
+Río Palvitad,river,Corcovado,COR,7
+Río Palvitad,river,Michinmahuida,MIC,7
+Río Pangal,river,Calbuco,CLB,3
+Río Pangal,river,Cay,CAY,1
+Río Pangal,river,HornopirÃ©n,HOR,3
+Río Pangal,river,Osorno,OSO,1
+Río Pangal,river,Yate,YAT,3
+Río Pantojo,river,Antillanca-Casablanca,ACA,2
+Río Pantojo,river,CarrÃ¡n-Los Venados,CLV,2
+Río Pantojo,river,Puntiagudo,PUN,2
+Río Pantojo,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Pantojo,river,Tronador,TRO,2
+Río Paquisa,river,Guallatiri,GUA,3
+Río Paquisa,river,Parinacota,PAR,2
+Río Paralelo,river,Laguna del Maule,LDM,2
+Río Paralelo,river,Nevado de Longavi,NLO,4
+Río Paralelo,river,Tatara-San Pedro,TSP,4
+Río Paredones,stream,San Jose,SJO,1
+Río Pascua,river,Melimoyu,MEL,2
+Río Pedregoso,stream,Callaqui,CAL,2
+Río Pedregoso,river,QuetrupillÃ¡n,QUE,1
+Río Pedregoso,river,Villarrica,VIL,3
+Río Pehuenco,river,Callaqui,CAL,1
+Río Pehuenco,river,Copahue,CPA,1
+Río Pehuenco,river,Lonquimay,LON,1
+Río Pereyra,river,Antillanca-Casablanca,ACA,1
+Río Pereyra,river,CarrÃ¡n-Los Venados,CLV,1
+Río Pereyra,river,Puntiagudo,PUN,1
+Río Pereyra,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Pereyra,river,Tronador,TRO,1
+Río Perquilauquén,stream,Nevado de Longavi,NLO,8
+Río Perquilauquén,stream,Nevados de Chillan,NCH,6
+Río Pescadero,river,Antillanca-Casablanca,ACA,1
+Río Pescadero,river,CarrÃ¡n-Los Venados,CLV,1
+Río Pescadero,river,Osorno,OSO,1
+Río Pescadero,river,Puntiagudo,PUN,1
+Río Pescadero,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Pescado,river,Calbuco,CLB,1
+Río Pescado,river,Osorno,OSO,1
+Río Pescado,river,Puntiagudo,PUN,1
+Río Petrohué,river,Antillanca-Casablanca,ACA,1
+Río Petrohué,river,Calbuco,CLB,8
+Río Petrohué,river,Osorno,OSO,8
+Río Petrohué,river,Puntiagudo,PUN,8
+Río Petrohué,river,Tronador,TRO,3
+Río Petrohué,river,Yate,YAT,5
+Río Peuco,river,Llaima,LLA,3
+Río Peuco,river,Sollipulli,SOL,3
+Río Peulla,river,Antillanca-Casablanca,ACA,5
+Río Peulla,river,Osorno,OSO,1
+Río Peulla,river,Puntiagudo,PUN,5
+Río Peulla,river,Tronador,TRO,5
+Río Picacho,river,Cay,CAY,2
+Río Picacho,river,Mentolat,MEN,2
+Río Pichadinga,river,Llaima,LLA,1
+Río Pichadinga,river,Sollipulli,SOL,1
+Río Pichi Neuquén,river,Nevado de Longavi,NLO,1
+Río Pichi Neuquén,river,Nevados de Chillan,NCH,1
+Río Pichi Traful,river,Antillanca-Casablanca,ACA,1
+Río Pichi Traful,river,CarrÃ¡n-Los Venados,CLV,1
+Río Pichi Traful,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Pichicolo,river,HornopirÃ©n,HOR,1
+Río Pichicolo,river,Huequi,HUE,1
+Río Pichicolo,river,Yate,YAT,1
+Río Pichimalleco,river,Callaqui,CAL,2
+Río Pichimalleco,river,Lonquimay,LON,3
+Río Pichipehuenco,stream,Lonquimay,LON,1
+Río Pichipolcura,river,Antuco,ANT,6
+Río Pichipolcura,river,Nevados de Chillan,NCH,1
+Río Picunleo,river,Antuco,ANT,1
+Río Picunleo,river,Copahue,CPA,1
+Río Piedra,stream,Calbuco,CLB,1
+Río Piedra,stream,Osorno,OSO,1
+Río Piedra,stream,Tronador,TRO,1
+Río Piedra,stream,Yate,YAT,1
+Río Piedras,river,ChaitÃ©n,CHA,1
+Río Piedras,river,Huequi,HUE,1
+Río Piedras,river,Michinmahuida,MIC,1
+Río Piello,river,Calbuco,CLB,1
+Río Piello,river,HornopirÃ©n,HOR,1
+Río Piello,river,Osorno,OSO,1
+Río Piello,river,Yate,YAT,1
+Río Pili,stream,Lascar,LAS,1
+Río Pillanleufu,river,CarrÃ¡n-Los Venados,CLV,2
+Río Pillanleufu,river,Mocho-Choshuenco,MCH,2
+Río Pillanleufu,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Pillanleufú,river,CarrÃ¡n-Los Venados,CLV,4
+Río Pillanleufú,river,Mocho-Choshuenco,MCH,4
+Río Pillanleufú,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Pilmaiquen,river,Puntiagudo,PUN,1
+Río Pilmaiquén,river,Osorno,OSO,1
+Río Pilmaiquén,river,Puntiagudo,PUN,1
+Río Pireco,river,Antillanca-Casablanca,ACA,2
+Río Pireco,river,CarrÃ¡n-Los Venados,CLV,2
+Río Pireco,river,Puntiagudo,PUN,1
+Río Pireco,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Pireco,river,Tronador,TRO,2
+Río Pitote,river,Calbuco,CLB,1
+Río Pitote,river,HornopirÃ©n,HOR,1
+Río Pitote,river,Osorno,OSO,1
+Río Pitote,river,Yate,YAT,1
+Río Plomo,river,Tupungatito,TUP,1
+Río Polcura,river,Antuco,ANT,4
+Río Polcura,river,Nevados de Chillan,NCH,4
+Río Pucón,river,Lanin,LAN,3
+Río Pucón,river,QuetrupillÃ¡n,QUE,15
+Río Pucón,river,Sollipulli,SOL,15
+Río Pucón,river,Villarrica,VIL,15
+Río Puelche,river,Descabezado Grande,DGR,1
+Río Puelche,river,Laguna del Maule,LDM,1
+Río Puelche,river,Tatara-San Pedro,TSP,1
+Río Puelo,river,Calbuco,CLB,4
+Río Puelo,river,HornopirÃ©n,HOR,6
+Río Puelo,river,Yate,YAT,7
+Río Puelo Chico,river,Calbuco,CLB,1
+Río Puelo Chico,river,HornopirÃ©n,HOR,1
+Río Puelo Chico,river,Yate,YAT,1
+Río Pujllucha,stream,Irruputuncu,IRR,1
+Río Pujllucha,stream,Olca-Paruma,OLC,1
+Río Pulelfu,river,Antillanca-Casablanca,ACA,2
+Río Pulelfu,river,CarrÃ¡n-Los Venados,CLV,1
+Río Pulelfu,river,Osorno,OSO,2
+Río Pulelfu,river,Puntiagudo,PUN,2
+Río Pulelfu,river,Puyehue-CordÃ³n Caulle,PCC,2
+Río Pulmari,river,Sollipulli,SOL,1
+Río Pulmarí,river,Sollipulli,SOL,5
+Río Punahue,stream,CarrÃ¡n-Los Venados,CLV,1
+Río Punahue,stream,Mocho-Choshuenco,MCH,1
+Río Punahue,stream,QuetrupillÃ¡n,QUE,1
+Río Punahue,stream,Villarrica,VIL,1
+Río Punta Negra,river,Llaima,LLA,3
+Río Punta Negra,river,Lonquimay,LON,3
+Río Punta Negra,river,Sollipulli,SOL,3
+Río Purilauquén,river,ChaitÃ©n,CHA,3
+Río Purilauquén,river,Huequi,HUE,3
+Río Purilauquén,river,Michinmahuida,MIC,3
+Río Puripica,river,Putana,PUT,3
+Río Puritama,river,Putana,PUT,1
+Río Putagán,river,Nevado de Longavi,NLO,2
+Río Putagán,river,Tatara-San Pedro,TSP,1
+Río Putana,river,Putana,PUT,2
+Río Putani,river,Taapaca,TAA,2
+Río Putre,stream,Parinacota,PAR,9
+Río Putre,stream,Taapaca,TAA,10
+Río Puyehue,river,Antillanca-Casablanca,ACA,1
+Río Puyehue,river,CarrÃ¡n-Los Venados,CLV,1
+Río Puyehue,river,Puntiagudo,PUN,1
+Río Puyehue,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Puyehue,river,Tronador,TRO,1
+Río Puñir,river,Mocho-Choshuenco,MCH,1
+Río Puñir,river,QuetrupillÃ¡n,QUE,1
+Río Puñir,river,Villarrica,VIL,1
+Río Quepe,river,Llaima,LLA,1
+Río Quepuca,river,Callaqui,CAL,1
+Río Quepuca,river,Copahue,CPA,1
+Río Quepuca,river,Lonquimay,LON,1
+Río Quetro,river,Hudson,HUD,1
+Río Queuco,river,Antuco,ANT,4
+Río Queuco,river,Callaqui,CAL,4
+Río Queuco,river,Copahue,CPA,4
+Río Quillahue,river,Llaima,LLA,2
+Río Quillahue,river,Sollipulli,SOL,2
+Río Quillaicahue,river,Callaqui,CAL,3
+Río Quillaicahue,river,Copahue,CPA,3
+Río Quillaicahue,river,Lonquimay,LON,1
+Río Quillén,river,Lanin,LAN,8
+Río Quillén,river,Llaima,LLA,2
+Río Quillén,stream,Lonquimay,LON,1
+Río Quilme,stream,Callaqui,CAL,5
+Río Quilque,river,QuetrupillÃ¡n,QUE,1
+Río Quilque,river,Sollipulli,SOL,1
+Río Quilque,river,Villarrica,VIL,1
+Río Quinquén,river,Llaima,LLA,2
+Río Quinquén,river,Lonquimay,LON,2
+Río Quinquén,river,Sollipulli,SOL,2
+Río Quintupeu,river,HornopirÃ©n,HOR,2
+Río Quintupeu,river,Huequi,HUE,2
+Río Quintupeu,river,Yate,YAT,2
+Río Rahue,river,Callaqui,CAL,1
+Río Rahue,river,Copahue,CPA,2
+Río Rahue,river,Lonquimay,LON,2
+Río Rahue,river,Osorno,OSO,4
+Río Rahue,river,Puntiagudo,PUN,1
+Río Ralco,river,Callaqui,CAL,4
+Río Ralco,river,Copahue,CPA,4
+Río Ralco,river,Lonquimay,LON,1
+Río Rariruca,river,Llaima,LLA,1
+Río Rariruca,river,Lonquimay,LON,1
+Río Raya,river,ChaitÃ©n,CHA,1
+Río Raya,river,Huequi,HUE,1
+Río Raya,river,Michinmahuida,MIC,1
+Río Rayas,river,ChaitÃ©n,CHA,5
+Río Rayas,river,Corcovado,COR,5
+Río Rayas,river,Huequi,HUE,5
+Río Rayas,river,Michinmahuida,MIC,5
+Río Reca,river,Mocho-Choshuenco,MCH,1
+Río Reca,river,QuetrupillÃ¡n,QUE,1
+Río Reca,river,Villarrica,VIL,1
+Río Relbún,stream,Antuco,ANT,1
+Río Relbún,river,Laguna del Maule,LDM,1
+Río Relbún,river,Nevado de Longavi,NLO,1
+Río Relbún,stream,Nevados de Chillan,NCH,1
+Río Relbún,river,Tatara-San Pedro,TSP,1
+Río Reloncaví,river,Calbuco,CLB,1
+Río Reloncaví,river,Osorno,OSO,1
+Río Reloncaví,river,Puntiagudo,PUN,1
+Río Reloncaví,river,Tronador,TRO,1
+Río Reloncaví,river,Yate,YAT,1
+Río Remehue,stream,CarrÃ¡n-Los Venados,CLV,2
+Río Remehue,stream,Mocho-Choshuenco,MCH,3
+Río Renaico,river,Callaqui,CAL,9
+Río Renaico,river,Lonquimay,LON,10
+Río Renegado,river,Nevados de Chillan,NCH,2
+Río Reyehueico,river,Lanin,LAN,3
+Río Reyehueico,river,Mocho-Choshuenco,MCH,3
+Río Reyehueico,river,QuetrupillÃ¡n,QUE,3
+Río Reyehueico,river,Villarrica,VIL,3
+Río Reñihué,river,ChaitÃ©n,CHA,4
+Río Reñihué,river,Huequi,HUE,4
+Río Reñihué,river,Michinmahuida,MIC,4
+Río Reñileuvú,river,Antuco,ANT,9
+Río Risopatrón,river,Melimoyu,MEL,1
+Río Riñinahue,river,Antillanca-Casablanca,ACA,3
+Río Riñinahue,river,CarrÃ¡n-Los Venados,CLV,3
+Río Riñinahue,river,Mocho-Choshuenco,MCH,2
+Río Riñinahue,river,Puyehue-CordÃ³n Caulle,PCC,3
+Río Rodríguez,river,Melimoyu,MEL,3
+Río Rollizo,river,Calbuco,CLB,1
+Río Rollizo,river,HornopirÃ©n,HOR,1
+Río Rollizo,river,Osorno,OSO,1
+Río Rollizo,river,Tronador,TRO,1
+Río Rollizo,river,Yate,YAT,1
+Río Ruca Malén,river,Antillanca-Casablanca,ACA,4
+Río Ruca Malén,river,CarrÃ¡n-Los Venados,CLV,4
+Río Ruca Malén,river,Puyehue-CordÃ³n Caulle,PCC,4
+Río Rucachoroi,river,Sollipulli,SOL,3
+Río Rucatrehue,river,Mocho-Choshuenco,MCH,1
+Río Rucatrehue,river,QuetrupillÃ¡n,QUE,1
+Río Rucatrehue,river,Villarrica,VIL,1
+Río Rucue,river,Antuco,ANT,1
+Río Rucué,river,Antuco,ANT,4
+Río Rupumeica,river,CarrÃ¡n-Los Venados,CLV,15
+Río Rupumeica,river,Mocho-Choshuenco,MCH,9
+Río Rupumeica,river,Puyehue-CordÃ³n Caulle,PCC,14
+Río Ránquil,river,Callaqui,CAL,1
+Río Ránquil,river,Copahue,CPA,1
+Río Ránquil,river,Lonquimay,LON,1
+Río Salado,river,Lascar,LAS,1
+Río Salado,stream,Planchon-Peteroa,PLP,3
+Río Salado,river,Putana,PUT,10
+Río Salado,river,San Pedro,SDP,5
+Río Salado,river,Tinguiririca,TIN,4
+Río Salinillas,river,San Jose,SJO,1
+Río Salinillas,river,Tupungatito,TUP,1
+Río Salitre,river,Nevado de Longavi,NLO,5
+Río Salitre,river,Nevados de Chillan,NCH,8
+Río San Andrés,stream,Tinguiririca,TIN,1
+Río San Antonio,river,Calbuco,CLB,1
+Río San Antonio,river,Osorno,OSO,1
+Río San Antonio,river,Puntiagudo,PUN,1
+Río San Antonio,river,Tronador,TRO,1
+Río San José,river,Taapaca,TAA,2
+Río San José,river,Tinguiririca,TIN,4
+Río San Luis,stream,Cay,CAY,1
+Río San Luis,stream,Mentolat,MEN,1
+Río San Nicolás,river,Melimoyu,MEL,1
+Río San Pedro,river,Mocho-Choshuenco,MCH,1
+Río San Pedro de Atacama,river,Putana,PUT,4
+Río San Pedro de Inacaliri,river,San Pedro,SDP,8
+Río San Víctor,river,Melimoyu,MEL,1
+Río Santa Bárbara,river,ChaitÃ©n,CHA,2
+Río Santa Bárbara,river,Corcovado,COR,2
+Río Santa Bárbara,river,Michinmahuida,MIC,2
+Río Santa Clara,river,Tupungatito,TUP,1
+Río Santa Inés,river,HornopirÃ©n,HOR,2
+Río Santa Inés,river,Yate,YAT,2
+Río Santo Domingo,river,Melimoyu,MEL,3
+Río Sapo,river,Antillanca-Casablanca,ACA,1
+Río Sapo,river,Calbuco,CLB,1
+Río Sapo,river,Osorno,OSO,1
+Río Sapo,river,Puntiagudo,PUN,1
+Río Sapo,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Saso,river,Laguna del Maule,LDM,1
+Río Saso,river,Nevado de Longavi,NLO,1
+Río Saso,river,Tatara-San Pedro,TSP,1
+Río Seco,stream,Guallatiri,GUA,1
+Río Seco,stream,Parinacota,PAR,6
+Río Seco,stream,Taapaca,TAA,16
+Río Silala,stream,San Pedro,SDP,8
+Río Sin Nombre,river,Hudson,HUD,1
+Río Sitani,stream,Isluga,ISL,7
+Río Sitani,stream,Tata Sabaya,TAT,7
+Río Sollipulli,river,Llaima,LLA,1
+Río Sollipulli,river,QuetrupillÃ¡n,QUE,1
+Río Sollipulli,river,Sollipulli,SOL,1
+Río Sorpresa,river,Hudson,HUD,1
+Río Steffen,river,HornopirÃ©n,HOR,1
+Río Steffen,river,Yate,YAT,1
+Río Sur,river,Calbuco,CLB,2
+Río Sur,river,HornopirÃ©n,HOR,1
+Río Sur,river,Osorno,OSO,2
+Río Sur,river,Yate,YAT,1
+Río Tacura,river,Llaima,LLA,1
+Río Tacura,river,Sollipulli,SOL,1
+Río Talicuna,stream,Putana,PUT,1
+Río Tambo Quemado,stream,Guallatiri,GUA,2
+Río Tambo Quemado,stream,Parinacota,PAR,2
+Río Tampe,river,Calbuco,CLB,1
+Río Tampe,river,Osorno,OSO,1
+Río Tapado,river,Tinguiririca,TIN,1
+Río Temuleufu,river,CarrÃ¡n-Los Venados,CLV,1
+Río Temuleufu,river,Mocho-Choshuenco,MCH,1
+Río Temuleufu,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Teno,river,Planchon-Peteroa,PLP,4
+Río Teno,river,Tinguiririca,TIN,3
+Río Tepu,stream,Calbuco,CLB,1
+Río Tepu,stream,Osorno,OSO,1
+Río Tepu,stream,Puntiagudo,PUN,1
+Río Tepual,river,Calbuco,CLB,4
+Río Tepual,river,HornopirÃ©n,HOR,4
+Río Tepual,river,Yate,YAT,4
+Río Tepú,river,Calbuco,CLB,1
+Río Tepú,river,Osorno,OSO,1
+Río Tepú,river,Puntiagudo,PUN,1
+Río Tic-Toc,river,Corcovado,COR,1
+Río Tictoc,river,Corcovado,COR,1
+Río Tictoc,river,Melimoyu,MEL,2
+Río Tignamar,river,Guallatiri,GUA,6
+Río Tignamar,river,Taapaca,TAA,2
+Río Tigre Chico,river,Tronador,TRO,1
+Río Tinguiririca,river,Planchon-Peteroa,PLP,6
+Río Tinguiririca,river,Tinguiririca,TIN,6
+Río Tingüiririca,river,Planchon-Peteroa,PLP,1
+Río Tingüiririca,river,Tinguiririca,TIN,1
+Río Toconce,river,Putana,PUT,4
+Río Toconce,river,San Pedro,SDP,1
+Río Todos Santos,river,Isluga,ISL,3
+Río Todos Santos,river,Tata Sabaya,TAT,3
+Río Toltén,river,Villarrica,VIL,6
+Río Tordillo,river,Planchon-Peteroa,PLP,1
+Río Tordillo,river,Tinguiririca,TIN,1
+Río Totoral,river,Antillanca-Casablanca,ACA,1
+Río Totoral,river,CarrÃ¡n-Los Venados,CLV,1
+Río Totoral,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Traidor,river,HornopirÃ©n,HOR,2
+Río Traidor,river,Osorno,OSO,1
+Río Traidor,river,Puntiagudo,PUN,1
+Río Traidor,river,Tronador,TRO,1
+Río Traidor,river,Yate,YAT,3
+Río Trancura,river,Lanin,LAN,1
+Río Trancura,river,QuetrupillÃ¡n,QUE,1
+Río Trancura,river,Sollipulli,SOL,1
+Río Trancura,river,Villarrica,VIL,1
+Río Tranquil,river,Mocho-Choshuenco,MCH,1
+Río Tranquil,river,QuetrupillÃ¡n,QUE,1
+Río Tranquil,river,Villarrica,VIL,1
+Río Trihuecuicui,stream,Mocho-Choshuenco,MCH,1
+Río Trihuecuicui,stream,QuetrupillÃ¡n,QUE,1
+Río Trihuecuicui,stream,Villarrica,VIL,1
+Río Trilaleo,river,Antuco,ANT,1
+Río Trilaleo,river,Nevados de Chillan,NCH,1
+Río Trocomán,river,Antuco,ANT,1
+Río Trocomán,river,Callaqui,CAL,1
+Río Trocomán,river,Copahue,CPA,1
+Río Tronador,river,Calbuco,CLB,1
+Río Tronador,river,HornopirÃ©n,HOR,1
+Río Tronador,river,Osorno,OSO,1
+Río Tronador,river,Yate,YAT,1
+Río Trubunleo,stream,Antuco,ANT,1
+Río Trueno,river,Llaima,LLA,4
+Río Trueno,river,Lonquimay,LON,3
+Río Trufquennilahuc,river,Sollipulli,SOL,2
+Río Truful,stream,CarrÃ¡n-Los Venados,CLV,1
+Río Truful,stream,Mocho-Choshuenco,MCH,1
+Río Truful,stream,QuetrupillÃ¡n,QUE,1
+Río Truful,stream,Villarrica,VIL,1
+Río Truful Truful,river,Llaima,LLA,2
+Río Truful Truful,river,Lonquimay,LON,2
+Río Truful Truful,river,Sollipulli,SOL,2
+Río Tuetué,stream,Sollipulli,SOL,5
+Río Tunuyán,river,San Jose,SJO,6
+Río Tunuyán,river,Tupungatito,TUP,3
+Río Tupungato,river,Tupungatito,TUP,5
+Río Tupuyuntue,river,Llaima,LLA,1
+Río Tupuyuntue,river,Lonquimay,LON,1
+Río Turbio,stream,Lanin,LAN,18
+Río Turbio,stream,QuetrupillÃ¡n,QUE,18
+Río Turbio,stream,Sollipulli,SOL,3
+Río Turbio,stream,Villarrica,VIL,5
+Río Uspallante,stream,Cay,CAY,2
+Río Uspallante,stream,Maca,MAC,2
+Río Uspallante,stream,Mentolat,MEN,2
+Río Valenzuela,river,Descabezado Grande,DGR,1
+Río Valenzuela,river,Planchon-Peteroa,PLP,1
+Río Valle Grande,river,Descabezado Grande,DGR,1
+Río Valle Grande,river,Planchon-Peteroa,PLP,1
+Río Valverde,river,Osorno,OSO,1
+Río Valverde,river,Puntiagudo,PUN,1
+Río Valverde,river,Tronador,TRO,1
+Río Valverde,river,Yate,YAT,1
+Río Varvarco,river,Laguna del Maule,LDM,4
+Río Varvarco,river,Tatara-San Pedro,TSP,3
+Río Venado,river,Calbuco,CLB,1
+Río Venado,river,Osorno,OSO,1
+Río Ventisquero,river,HornopirÃ©n,HOR,1
+Río Ventisquero,river,Huequi,HUE,1
+Río Ventisquero,river,Melimoyu,MEL,1
+Río Ventisquero,river,Yate,YAT,1
+Río Verde,river,ChaitÃ©n,CHA,1
+Río Verde,river,Corcovado,COR,1
+Río Verde,river,Lanin,LAN,2
+Río Verde,river,Michinmahuida,MIC,1
+Río Verde,river,QuetrupillÃ¡n,QUE,2
+Río Vilama,river,Putana,PUT,9
+Río Vilcún,river,Llaima,LLA,1
+Río Villucura,river,Callaqui,CAL,1
+Río Villucura,river,Copahue,CPA,1
+Río Villucura,river,Llaima,LLA,1
+Río Villucura,river,Lonquimay,LON,1
+Río Viscachillas,stream,Putana,PUT,1
+Río Vodudahue,river,ChaitÃ©n,CHA,4
+Río Vodudahue,river,Huequi,HUE,4
+Río Vodudahue,river,Michinmahuida,MIC,4
+Río Voipir,river,QuetrupillÃ¡n,QUE,3
+Río Voipir,river,Villarrica,VIL,6
+Río Vuriloche,stream,Antillanca-Casablanca,ACA,1
+Río Vuriloche,stream,Calbuco,CLB,1
+Río Vuriloche,stream,Osorno,OSO,1
+Río Vuriloche,stream,Puntiagudo,PUN,1
+Río Vuriloche,stream,Tronador,TRO,1
+Río Víctor,river,Melimoyu,MEL,1
+Río Yelcho,river,ChaitÃ©n,CHA,1
+Río Yelcho,river,Corcovado,COR,1
+Río Yelcho,river,Michinmahuida,MIC,1
+Río Yelcho Chico,river,ChaitÃ©n,CHA,1
+Río Yelcho Chico,river,Corcovado,COR,1
+Río Yeso,river,San Jose,SJO,2
+Río Yeso,river,Tupungatito,TUP,2
+Río Zahuelhue,river,Llaima,LLA,1
+Río Zahuelhue,river,Sollipulli,SOL,1
+Río Zancudo,river,Hudson,HUD,1
+Río de Juana,river,Putana,PUT,1
+Río de La Plata,river,ChaitÃ©n,CHA,4
+Río de La Plata,river,Corcovado,COR,4
+Río de La Plata,river,Michinmahuida,MIC,4
+Río de Las Damas,river,Planchon-Peteroa,PLP,2
+Río de Las Damas,river,Tinguiririca,TIN,2
+Río de Las Truchas,river,Nevados de Chillan,NCH,1
+Río de Los Cipreses,river,Tinguiririca,TIN,1
+Río de Los Cántaros,river,Antillanca-Casablanca,ACA,1
+Río de Los Cántaros,river,Puntiagudo,PUN,1
+Río de Los Cántaros,river,Tronador,TRO,1
+Río de Los Morros,river,Tronador,TRO,1
+Río de Los Morros,river,Yate,YAT,1
+Río de Los Nacimientos,river,Planchon-Peteroa,PLP,1
+Río de Los Nacimientos,river,Tinguiririca,TIN,1
+Río de Palacios,river,Planchon-Peteroa,PLP,1
+Río de Palacios,river,Tinguiririca,TIN,1
+Río de San Martín,river,Descabezado Grande,DGR,1
+Río de San Martín,river,Planchon-Peteroa,PLP,1
+Río de la Esperanza,river,Osorno,OSO,1
+Río de la Esperanza,river,Puntiagudo,PUN,1
+Río de la Esperanza,river,Tronador,TRO,1
+Río de la Puente,river,Laguna del Maule,LDM,2
+Río de la Puente,river,Nevado de Longavi,NLO,2
+Río de la Puente,river,Tatara-San Pedro,TSP,2
+Río de las Astas,stream,Antuco,ANT,1
+Río de las Astas,stream,Nevados de Chillan,NCH,1
+Río de las Peladas,river,Incahuasi,INC,1
+Río de las Peladas,river,Ojos del Salado,ODS,1
+Río de las Peladas,river,San Francisco,SFR,1
+Río de las Truchas,river,Nevados de Chillan,NCH,3
+Río de las Tunas,river,San Jose,SJO,1
+Río de las Tunas,river,Tupungatito,TUP,3
+Río de las Zorras,river,Planchon-Peteroa,PLP,2
+Río de las Zorras,river,Tinguiririca,TIN,2
+Río de los Cuarteles,river,Calbuco,CLB,1
+Río de los Cuarteles,river,Osorno,OSO,1
+Río de los Cuarteles,river,Puntiagudo,PUN,1
+Río de los Cuarteles,river,Tronador,TRO,1
+Río de los Cuarteles,river,Yate,YAT,1
+Río de los Pinos,stream,Antuco,ANT,3
+Río de los Pinos,stream,Callaqui,CAL,3
+Río de los Pinos,stream,Copahue,CPA,3
+Río del Azufre,river,Planchon-Peteroa,PLP,2
+Río del Azufre,river,Tinguiririca,TIN,2
+Río del Este,river,Calbuco,CLB,2
+Río del Este,river,HornopirÃ©n,HOR,1
+Río del Este,river,Osorno,OSO,2
+Río del Este,river,Puntiagudo,PUN,1
+Río del Este,river,Tronador,TRO,2
+Río del Este,river,Yate,YAT,2
+Río del Machete,river,Antillanca-Casablanca,ACA,1
+Río del Machete,river,Puntiagudo,PUN,1
+Río del Machete,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río del Machete,river,Tronador,TRO,1
+Río del Nordeste,river,Michinmahuida,MIC,1
+Río del Norte,river,Antillanca-Casablanca,ACA,1
+Río del Norte,river,Puntiagudo,PUN,1
+Río del Norte,river,Tronador,TRO,1
+Río del Portillo,river,Planchon-Peteroa,PLP,1
+Río del Portillo,river,Tinguiririca,TIN,4
+Río del Valle,river,Tinguiririca,TIN,1
+Río del Volcán,river,San Jose,SJO,1
+Río del Volcán,river,Tupungatito,TUP,1
+Río Álvarez,stream,Cay,CAY,1
+Río Álvarez,stream,Maca,MAC,1
+Río Ñiremetun,stream,Antuco,ANT,1
+Río Ñiremetun,stream,Callaqui,CAL,1
+Río Ñiremetun,stream,Copahue,CPA,1
+Río Ñivinco,river,CarrÃ¡n-Los Venados,CLV,1
+Río Ñivinco,river,Puyehue-CordÃ³n Caulle,PCC,1
+Río Ñuble,river,Nevados de Chillan,NCH,34
+Salto Píderit,stream,Tupungatito,TUP,1
+Sarayuma,stream,Taapaca,TAA,3
+Silala,stream,San Pedro,SDP,13
+Tabaco,stream,Antuco,ANT,1
+Tabaco,stream,Nevados de Chillan,NCH,1
+Teleschuño,stream,Taapaca,TAA,1
+Trinidad,stream,Osorno,OSO,1
+Trinidad,stream,Tronador,TRO,1
+Trinidad,stream,Yate,YAT,1
+Túnel Canal Melado,canal,Descabezado Grande,DGR,1
+Túnel Canal Melado,canal,Nevado de Longavi,NLO,1
+Túnel Canal Melado,canal,Tatara-San Pedro,TSP,1
+Zanjón del Coironal,stream,San Jose,SJO,1
+Zanjón del Coironal,stream,Tupungatito,TUP,1
+Zanjón del Tofo,stream,San Jose,SJO,1
+Zanjón del Tofo,stream,Tupungatito,TUP,1
+rio Huasivida,river,Guallatiri,GUA,1
+rio Huasivida,river,Parinacota,PAR,1
+rio Huasivida,river,Taapaca,TAA,1

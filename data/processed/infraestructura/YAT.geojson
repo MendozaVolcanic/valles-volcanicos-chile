@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "YAT",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "tipo": "clinic", "nombre": "Posta de Salud Rural Lago Chapo", "icono": "🏥", "color": "#ff8fa3" }, "geometry": { "type": "Point", "coordinates": [ -72.59446, -41.41587 ] } },
+{ "type": "Feature", "properties": { "tipo": "represa", "nombre": "Barrera Rio Lenca", "icono": "💧", "color": "#0077b6" }, "geometry": { "type": "Point", "coordinates": [ -72.60903, -41.51585 ] } }
+]
+}

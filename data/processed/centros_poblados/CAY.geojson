@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "CAY",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "nombre": "Villa Cerro Cordón", "tipo": "residential", "poblacion": 0 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -72.68704, -45.42034 ], [ -72.68391, -45.4168 ], [ -72.68334, -45.41626 ], [ -72.68156, -45.41796 ], [ -72.6813, -45.41856 ], [ -72.68182, -45.41968 ], [ -72.68463, -45.42138 ], [ -72.68521, -45.42093 ], [ -72.68704, -45.42034 ] ] ] } },
+{ "type": "Feature", "properties": { "nombre": "Altas cumbres de la Patagonia", "tipo": "residential", "poblacion": 0 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -72.69806, -45.42326 ], [ -72.69761, -45.42304 ], [ -72.6976, -45.42278 ], [ -72.6973, -45.42233 ], [ -72.69665, -45.42247 ], [ -72.69687, -45.42293 ], [ -72.6973, -45.42335 ], [ -72.6968, -45.42366 ], [ -72.69708, -45.42459 ], [ -72.69753, -45.42424 ], [ -72.69771, -45.42433 ], [ -72.69806, -45.42326 ] ] ] } },
+{ "type": "Feature", "properties": { "nombre": "Villa Pesca Chile", "tipo": "residential", "poblacion": 0 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -72.68075, -45.40982 ], [ -72.6805, -45.4102 ], [ -72.6823, -45.41053 ], [ -72.68267, -45.41051 ], [ -72.68262, -45.4101 ], [ -72.68075, -45.40982 ] ] ] } }
+]
+}

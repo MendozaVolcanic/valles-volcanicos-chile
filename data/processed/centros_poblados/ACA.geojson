@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "ACA",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "nombre": "Casas Antares II", "tipo": "residential", "poblacion": 0 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -71.65637, -40.74909 ], [ -71.65624, -40.7487 ], [ -71.65524, -40.74889 ], [ -71.65537, -40.74929 ], [ -71.65637, -40.74909 ] ] ] } }
+]
+}
