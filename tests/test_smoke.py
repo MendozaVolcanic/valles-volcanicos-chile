@@ -133,6 +133,42 @@ def test_tooltips_senapred_campos_existen():
         assert not faltan, f"{capa}: campos faltantes {faltan} (presentes: {list(props)[:10]})"
 
 
+def test_sprint1_estado_reav_csv():
+    """Sprint 1: estado REAV scraping SERNAGEOMIN."""
+    p = PROCESSED / "estado_reav.csv"
+    if not p.exists():
+        pytest.skip("REAV no scrapeado")
+    d = pd.read_csv(p)
+    assert len(d) >= 50, f"esperaba 59 volcanes, hay {len(d)}"
+    for c in ["codigo", "nombre", "nivel"]:
+        assert c in d.columns
+
+
+def test_sprint1_sismos_shards():
+    """Sprint 1: USGS ComCat sismicidad por volcán."""
+    d = PROCESSED / "sismos"
+    if not d.exists():
+        pytest.skip("sismos no descargados")
+    shards = list(d.glob("*.geojson"))
+    assert len(shards) >= 50
+    # Cualquier shard debe ser FeatureCollection válido
+    sample = json.load(open(shards[0], encoding="utf-8"))
+    assert sample["type"] == "FeatureCollection"
+
+
+def test_sprint1_poblacion_expuesta():
+    """Sprint 1: población expuesta Censo 2024 INE."""
+    p = PROCESSED / "poblacion_expuesta.csv"
+    if not p.exists():
+        pytest.skip("poblacion_expuesta no calculada")
+    d = pd.read_csv(p)
+    for c in ["volcan", "peligro_nivel", "poblacion_estimada"]:
+        assert c in d.columns
+    # Cross-check: Villarrica > 10k expuestos
+    vil_total = d[d["volcan"] == "Villarrica"]["poblacion_estimada"].sum()
+    assert vil_total > 10_000, f"Villarrica pob expuesta sospechosa: {vil_total}"
+
+
 def test_comunas_local():
     """Comunas locales (reemplaza WMS BCN roto) — global + shards por volcan."""
     glob_p = PROCESSED / "comunas.geojson"

@@ -19,6 +19,9 @@ from loaders import (
     wms_disponible, cargar_comunas, cargar_snaspe,
     cargar_puntos_encuentro, cargar_vias_evacuacion,
     cargar_servicios, cargar_perimetro_villarrica,
+    # Sprint 1: estado y NRT
+    cargar_estado_reav, cargar_firms, cargar_sismos, cargar_sismos_resumen,
+    cargar_poblacion_expuesta, cargar_gvp,
 )
 from geo_utils import normalizar as _normalizar, latlon_a_utm, midpoint_geojson
 
@@ -316,6 +319,13 @@ with st.sidebar:
     mostrar_carab      = c_serv2.checkbox("Carabineros (C)", value=_capa_default("carab", False))
 
     st.divider()
+    st.markdown("**Capas NRT** (7 días)  \n<small style='color:#888'>Sprint 1 · NASA/USGS</small>", unsafe_allow_html=True)
+    mostrar_firms   = st.checkbox("🔥 Hotspots térmicos FIRMS", value=_capa_default("firms", False),
+                                   help="MODIS+VIIRS últimos 7 días")
+    mostrar_sismos  = st.checkbox("📡 Sismos USGS (M≥2)", value=_capa_default("sismos", False),
+                                   help="USGS ComCat. Marcadores proporcionales a magnitud.")
+
+    st.divider()
     opacidad     = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
     modo_full    = st.toggle("Modo operacional (fullscreen)", value=_qp_full,
                               help="Oculta sidebar y maximiza el mapa para sala de monitoreo")
@@ -333,6 +343,7 @@ with st.sidebar:
         "perimvil": mostrar_perim_vil, "salud": mostrar_salud,
         "bomberos": mostrar_bomberos, "educ": mostrar_educacion,
         "carab": mostrar_carab,
+        "firms": mostrar_firms, "sismos": mostrar_sismos,
     }.items() if v)
 
     with st.expander("Compartir vista (permalink)"):
@@ -404,8 +415,22 @@ if volcan:
         else '<span class="badge badge-extra">Adicional</span>'
     )
     badge_zona = f'<span class="badge badge-zona">{ZONA_SHORT[_zona_volcan(volcan)]}</span>'
+    # Semáforo REAV (Verde/Amarillo/Naranja/Rojo) — fuente SERNAGEOMIN
+    _reav = cargar_estado_reav()
+    _nivel_v = None
+    if not _reav.empty:
+        _row_v = _reav[_reav["codigo"] == volcan["codigo"]]
+        if len(_row_v):
+            _nivel_v = _row_v.iloc[0]["nivel"]
+    _NIVEL_COLOR = {"Verde":"#2ecc40","Amarillo":"#ffdc00","Naranja":"#ff851b","Rojo":"#ff4136"}
+    _NIVEL_EMOJI = {"Verde":"🟢","Amarillo":"🟡","Naranja":"🟠","Rojo":"🔴"}
+    badge_reav = ""
+    if _nivel_v and pd.notna(_nivel_v):
+        _c = _NIVEL_COLOR.get(_nivel_v, "#888")
+        badge_reav = (f'<span class="badge" style="background:{_c};color:#000;font-weight:700">'
+                      f'{_NIVEL_EMOJI.get(_nivel_v,"")} REAV {_nivel_v.upper()}</span>')
     st.markdown(
-        f"### {volcan['nombre']} {badge_zona}{badge_ovdas} "
+        f"### {volcan['nombre']} {badge_zona}{badge_ovdas}{badge_reav} "
         f"&nbsp;<small style='color:#999;font-size:0.6em'>{zona_volc}</small>",
         unsafe_allow_html=True,
     )
@@ -452,13 +477,95 @@ if volcan:
     </div>
     """
     c_mini.markdown(_mini_svg, unsafe_allow_html=True)
+
+    # Fila 3: Sprint 1 — exposición + actividad NRT
+    pob_df = cargar_poblacion_expuesta()
+    pob_alto  = pob_df[(pob_df["volcan"] == volcan["nombre"]) & (pob_df["peligro_nivel"] == "Alto")]["poblacion_estimada"].sum() if not pob_df.empty else 0
+    pob_total = pob_df[pob_df["volcan"] == volcan["nombre"]]["poblacion_estimada"].sum() if not pob_df.empty else 0
+    sismos_df = cargar_sismos_resumen()
+    sismos_v  = sismos_df[sismos_df["codigo"] == volcan["codigo"]] if not sismos_df.empty else pd.DataFrame()
+    n_sismos  = int(sismos_v["n_sismos"].iloc[0]) if len(sismos_v) else 0
+    mag_max   = float(sismos_v["mag_max"].iloc[0]) if len(sismos_v) and pd.notna(sismos_v["mag_max"].iloc[0]) else None
+    firms_gj  = cargar_firms(volcan["codigo"])
+    n_firms   = len(firms_gj.get("features", [])) if firms_gj else None
+    gvp_df    = cargar_gvp()
+    vei_max   = None
+    if not gvp_df.empty:
+        _gvp_r = gvp_df[gvp_df["codigo"] == volcan["codigo"]] if "codigo" in gvp_df.columns else pd.DataFrame()
+        if len(_gvp_r):
+            vei_max = _gvp_r.iloc[0].get("vei_maximo")
+
+    cp1, cp2, cp3, cp4, cp5 = st.columns(5)
+    cp1.metric("Pob. expuesta (Alto)", f"{int(pob_alto):,}" if pob_alto else "—",
+               help="Censo 2024 INE — manzanas censales que caen en zona de peligro Alto.")
+    cp2.metric("Pob. expuesta (total)", f"{int(pob_total):,}" if pob_total else "—",
+               help="Suma Alto+Medio+Bajo.")
+    cp3.metric("Sismos 7d (M≥2)", f"{n_sismos}" + (f" (máx {mag_max:.1f})" if mag_max else ""),
+               help="USGS ComCat. Cobertura efectiva M≥3.5 en zonas remotas.")
+    cp4.metric("Hotspots térmicos 7d", "—" if n_firms is None else str(n_firms),
+               help="NASA FIRMS (MODIS+VIIRS). Requiere MAP_KEY — registrarse en firms.modaps.eosdis.nasa.gov.")
+    cp5.metric("VEI máx histórico", str(int(vei_max)) if vei_max and pd.notna(vei_max) else "—",
+               help="Smithsonian GVP — máximo VEI registrado en el Holoceno.")
+
+    # Ficha GVP completa
+    if not gvp_df.empty and "codigo" in gvp_df.columns:
+        _gvp_r = gvp_df[gvp_df["codigo"] == volcan["codigo"]]
+        if len(_gvp_r):
+            _r = _gvp_r.iloc[0]
+            with st.expander(f"📖 Ficha Smithsonian GVP — {_r.get('nombre_oficial_gvp', volcan['nombre'])}"):
+                _gvp_url = _r.get("url_pagina_si_edu", "")
+                _ult_anio = _r.get("ultima_erupcion_anio")
+                _ult = (f"{int(_ult_anio)}" + (f" (VEI {int(_r['ultima_erupcion_vei'])})"
+                                                if pd.notna(_r.get("ultima_erupcion_vei")) else "")
+                        if pd.notna(_ult_anio) else "—")
+                f1, f2, f3 = st.columns(3)
+                f1.markdown(f"**Tipo morfológico**  \n{_r.get('tipo_morfologico','—')}")
+                f1.markdown(f"**Composición**  \n{_r.get('composicion','—')}")
+                f2.markdown(f"**Elevación GVP**  \n{int(_r['elevacion_gvp']):,} m" if pd.notna(_r.get("elevacion_gvp")) else "**Elevación GVP** —")
+                f2.markdown(f"**Última erupción**  \n{_ult}")
+                f3.markdown(f"**Erupciones Holoceno**  \n{int(_r.get('num_erupciones_holoceno', 0))}")
+                f3.markdown(f"**Erupciones s. XX–XXI**  \n{int(_r.get('num_erupciones_siglo_xx_xxi', 0))}")
+                if _gvp_url:
+                    st.caption(f"Fuente: [Smithsonian GVP vn={int(_r['gvp_id'])}]({_gvp_url})")
 else:
-    st.markdown("### Todos los volcanes monitoreados")
-    c1, c2, c3 = st.columns(3)
+    st.markdown("### Estado nacional 🌋")
+    # Tabla semáforo nacional estilo Vanuatu — vista panorámica
+    _reav_nac = cargar_estado_reav()
+    _sismos_nac = cargar_sismos_resumen()
+    _pob_nac = cargar_poblacion_expuesta()
+
+    c1, c2, c3, c4 = st.columns(4)
     _ovdas_count = sum(1 for v in VOLCANES if _es_ovdas(v))
-    c1.metric("Volcanes monitoreados OVDAS", _ovdas_count)
-    c2.metric("Volcanes adicionales",        len(VOLCANES) - _ovdas_count)
-    c3.metric("Cuencas procesadas",          len(cuencas_gj.get("features", [])) if cuencas_gj else 0)
+    n_amarillo = (_reav_nac["nivel"] == "Amarillo").sum() if not _reav_nac.empty else 0
+    n_naranja  = (_reav_nac["nivel"] == "Naranja").sum() if not _reav_nac.empty else 0
+    n_rojo     = (_reav_nac["nivel"] == "Rojo").sum() if not _reav_nac.empty else 0
+    n_sismos_total = int(_sismos_nac["n_sismos"].sum()) if not _sismos_nac.empty else 0
+    pob_total_chile = int(_pob_nac["poblacion_estimada"].sum()) if not _pob_nac.empty else 0
+    c1.metric("OVDAS monitorea", _ovdas_count)
+    c2.metric("⚠️ Alerta ≥ amarilla", n_amarillo + n_naranja + n_rojo,
+               help=f"Amarillo {n_amarillo} · Naranja {n_naranja} · Rojo {n_rojo}")
+    c3.metric("📡 Sismos 7d (M≥2)", n_sismos_total, help="USGS ComCat — suma 59 bbox")
+    c4.metric("👥 Pob. expuesta total", f"{pob_total_chile:,}",
+               help="Censo 2024 INE — suma manzanas en polígonos peligro (Alto+Medio+Bajo)")
+
+    st.divider()
+    # Tabla semáforo ordenada por nivel descendente + magnitud
+    if not _reav_nac.empty:
+        _nivel_orden = {"Rojo": 0, "Naranja": 1, "Amarillo": 2, "Verde": 3}
+        _tabla = _reav_nac.copy()
+        _tabla["_ord"] = _tabla["nivel"].map(_nivel_orden).fillna(4)
+        if not _sismos_nac.empty:
+            _tabla = _tabla.merge(_sismos_nac[["codigo","n_sismos","mag_max"]], on="codigo", how="left")
+        _tabla = _tabla.sort_values(["_ord","mag_max","n_sismos"], ascending=[True, False, False])
+        _tabla["semáforo"] = _tabla["nivel"].map(
+            {"Verde":"🟢","Amarillo":"🟡","Naranja":"🟠","Rojo":"🔴"}).fillna("⚪")
+        st.markdown("#### Semáforo nacional por volcán")
+        st.dataframe(
+            _tabla[["semáforo","nivel","codigo","nombre","n_sismos","mag_max"]].rename(
+                columns={"n_sismos":"sismos 7d","mag_max":"M máx"}),
+            use_container_width=True, hide_index=True, height=420,
+        )
+        st.caption("Para zoom al volcán, seleccionalo en el menú lateral.")
 
 # ---------------------------------------------------------------------------
 # Mapa Folium
@@ -671,6 +778,58 @@ for tipo, activo, icono, color, label, get_nombre, get_detalles in SERV_SPEC:
             popup=folium.Popup(popup_html, max_width=280),
         ).add_to(grupo)
     grupo.add_to(m)
+
+# === Capas NRT — Sprint 1 ===
+
+# -- Hotspots térmicos FIRMS (MODIS+VIIRS últimos 7 días) --
+if mostrar_firms and volcan:
+    firms_gj_v = cargar_firms(volcan["codigo"])
+    if firms_gj_v and firms_gj_v.get("features"):
+        grupo_f = folium.FeatureGroup(name="Hotspots FIRMS (7d)", show=True)
+        for ft in firms_gj_v["features"]:
+            lon_f, lat_f = ft["geometry"]["coordinates"]
+            p = ft["properties"]
+            frp = p.get("frp") or 0
+            radio = 4 + min(float(frp) / 20, 10)  # 4-14 px
+            popup = (f"<b>🔥 Hotspot</b><br>"
+                     f"Satélite: {p.get('satellite','?')} ({p.get('instrument','')})<br>"
+                     f"Fecha: {p.get('acq_date','?')} {p.get('acq_time','')}<br>"
+                     f"FRP: {p.get('frp','?')} MW<br>"
+                     f"Brightness: {p.get('brightness','?')} K<br>"
+                     f"Confianza: {p.get('confidence','?')}")
+            folium.CircleMarker(
+                location=[lat_f, lon_f], radius=radio,
+                color="#ff3300", weight=1, fill=True, fill_color="#ffaa00", fill_opacity=0.8,
+                tooltip=f"🔥 {p.get('acq_date','?')} FRP={p.get('frp','?')}",
+                popup=folium.Popup(popup, max_width=260),
+            ).add_to(grupo_f)
+        grupo_f.add_to(m)
+
+# -- Sismos USGS ComCat últimos 7 días (M≥2) --
+if mostrar_sismos and volcan:
+    sismos_gj_v = cargar_sismos(volcan["codigo"])
+    if sismos_gj_v and sismos_gj_v.get("features"):
+        grupo_s = folium.FeatureGroup(name="Sismos USGS (7d)", show=True)
+        for ft in sismos_gj_v["features"]:
+            lon_s, lat_s = ft["geometry"]["coordinates"][:2]
+            depth = ft["geometry"]["coordinates"][2] if len(ft["geometry"]["coordinates"]) > 2 else None
+            p = ft["properties"]
+            mag = p.get("mag") or 0
+            radio = 4 + float(mag) * 2.5  # M2=9px, M4=14px, M5=16.5px
+            color = "#003049" if mag < 3 else ("#d62828" if mag < 5 else "#9d0208")
+            hora_str = pd.to_datetime(p.get("time"), unit="ms").strftime("%Y-%m-%d %H:%M UTC") if p.get("time") else "?"
+            popup_parts = [f"<b>📡 Sismo M {mag:.1f}</b>", f"{p.get('place','')}"]
+            if depth is not None:
+                popup_parts.append(f"Profundidad: {depth:.1f} km")
+            popup_parts.append(f"Hora: {hora_str}")
+            popup = "<br>".join(popup_parts)
+            folium.CircleMarker(
+                location=[lat_s, lon_s], radius=radio,
+                color=color, weight=1.5, fill=True, fill_color=color, fill_opacity=0.6,
+                tooltip=f"📡 M{mag:.1f} {pd.to_datetime(p.get('time'), unit='ms').strftime('%m-%d %H:%M') if p.get('time') else ''}",
+                popup=folium.Popup(popup, max_width=260),
+            ).add_to(grupo_s)
+        grupo_s.add_to(m)
 
 # -- Zonas de peligro volcanico (SERNAGEOMIN shapefile) --
 if mostrar_peligros and peligros_gj:

@@ -181,6 +181,63 @@ def cargar_perimetro_villarrica() -> dict | None:
         return json.load(f)
 
 
+# --- Sprint 1: capas NRT y referencias ---
+
+@st.cache_data
+def cargar_estado_reav() -> pd.DataFrame:
+    """Nivel REAV (Verde/Amarillo/Naranja/Rojo) por volcán. Scraping SERNAGEOMIN."""
+    p = PROCESSED / "estado_reav.csv"
+    if not p.exists():
+        return pd.DataFrame(columns=["codigo","nombre","nivel","fecha_reav","url_reav","resumen","fecha_scrape"])
+    return pd.read_csv(str(p))
+
+
+@st.cache_data(ttl=3600)
+def cargar_firms(codigo: str) -> dict | None:
+    """Hotspots NASA FIRMS últimos 7 días por volcán (cache 1h)."""
+    p = PROCESSED / "firms" / f"{codigo}.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
+@st.cache_data(ttl=3600)
+def cargar_sismos(codigo: str) -> dict | None:
+    """Sismos USGS ComCat últimos 7 días por volcán (cache 1h)."""
+    p = PROCESSED / "sismos" / f"{codigo}.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
+@st.cache_data
+def cargar_sismos_resumen() -> pd.DataFrame:
+    p = PROCESSED / "sismos_resumen.csv"
+    if not p.exists():
+        return pd.DataFrame(columns=["codigo","nombre","n_sismos","mag_max","mag_promedio","mas_reciente"])
+    return pd.read_csv(str(p))
+
+
+@st.cache_data
+def cargar_poblacion_expuesta() -> pd.DataFrame:
+    """Censo 2024 INE — población por nivel de peligro Alto/Medio/Bajo."""
+    p = PROCESSED / "poblacion_expuesta.csv"
+    if not p.exists():
+        return pd.DataFrame(columns=["volcan","peligro_nivel","n_manzanas","poblacion_estimada"])
+    return pd.read_csv(str(p))
+
+
+@st.cache_data
+def cargar_gvp() -> pd.DataFrame:
+    """Ficha Smithsonian GVP por volcán (VEI máx, última erupción, frecuencia)."""
+    p = PROCESSED / "gvp.csv"
+    if not p.exists():
+        return pd.DataFrame()
+    return pd.read_csv(str(p))
+
+
 @st.cache_data(ttl=300)
 def wms_disponible(url: str, timeout: float = 3.0) -> bool:
     """Verifica que el endpoint WMS responda. Cache 5 min."""
