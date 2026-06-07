@@ -94,8 +94,9 @@ def test_senapred_capas_existen():
     for f in ["volcanes_peligrosidad.geojson", "buffer_volcanes_poly.geojson",
               "buffer_volcanes_line.geojson", "perimetro_villarrica.geojson"]:
         assert (senapred / f).exists(), f"{f} falta — correr scripts/08_descargar_senapred.py"
-    # Shards
-    for capa in ["areas_peligro", "puntos_encuentro", "vias_evacuacion",
+    # Shards SENAPRED por volcan. Nota: areas_peligro se quito del pipeline
+    # porque ya tenemos peligros_volcanicos.geojson (SERNAGEOMIN, mejor metadata).
+    for capa in ["puntos_encuentro", "vias_evacuacion",
                  "servicios_salud", "servicios_bomberos", "servicios_educacion",
                  "servicios_carabineros"]:
         d = senapred / capa

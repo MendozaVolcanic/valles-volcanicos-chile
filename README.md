@@ -21,7 +21,11 @@ Identificar todas las quebradas, valles y rios que nacen o pasan por el area de 
 | `03_watershed.py` | Completado | Buffer geodésico 50 km (UTM por zona), 46.469 tramos identificados |
 | `04_census.py` | Pendiente descarga manual | Requiere manzanas INE 2024 |
 | `05_osm_context.py` | Completado | Red vial, infraestructura, centros poblados |
-| `06_watershed_pysheds.py` | Completado | Clasificación hidrológica real: `drena_volcan` por tramo (D8 downstream desde edificio) |
+| `06_watershed_pysheds.py` | Completado | Clasificación hidrológica real: `drena_volcan` por tramo (D8 downstream desde edificio). 2.152/46.469 tramos. |
+| `06b_resumen_drenaje.py` | Completado | CSV agregado por volcán: top Lanín (393), Copahue (104), Villarrica (69) |
+| `07_snaspe_local.py` | Completado | SNAP/SNASPE oficial MBN (mayo 2026), 110 áreas protegidas. **Reemplaza WMS SAG roto** |
+| `08_descargar_senapred.py` | Completado | Capas oficiales SENAPRED: 168 puntos encuentro + 195 vías evac + servicios SALUD/BOMBEROS/EDUC/CARAB |
+| `09_sharding_senapred.py` | Completado | Sjoin SENAPRED contra cuencas → shards por volcán |
 | `export_geojson.py` | Completado | Shardea drenajes y capas de contexto por volcán + índice global precomputado |
 
 ## Stack
@@ -57,14 +61,22 @@ python scripts/run_pipeline.py
 
 O paso a paso:
 ```bash
-python scripts/01_download_hydro.py        # Hidrografia OSM (~25 min)
-python scripts/02_download_dem.py          # DEM SRTM desde AWS (~12 min)
-python scripts/03_watershed.py             # Buffer 50 km + interseccion OSM (~1 min)
-python scripts/05_osm_context.py           # Red vial + infra + centros poblados
-python scripts/06_watershed_pysheds.py     # Drenaje hidrologico real (~20 min)
-python scripts/export_geojson.py           # Shards + indice para Streamlit Cloud
-python scripts/04_census.py                # Poblacion censal
+python scripts/01_download_hydro.py         # Hidrografia OSM (~25 min)
+python scripts/02_download_dem.py           # DEM SRTM desde AWS (~12 min)
+python scripts/03_watershed.py              # Buffer 50 km (UTM) + interseccion OSM (~1 min)
+python scripts/05_osm_context.py            # Red vial + infra + centros poblados
+python scripts/06_watershed_pysheds.py      # Drenaje hidrologico real D8 (~45 min)
+python scripts/06b_resumen_drenaje.py       # CSV resumen drenaje por volcan
+python scripts/07_snaspe_local.py           # SNAP/SNASPE local (requiere SHP MBN)
+python scripts/08_descargar_senapred.py     # Capas oficiales SENAPRED via ArcGIS Online
+python scripts/09_sharding_senapred.py      # Shards SENAPRED por volcan
+python scripts/export_geojson.py            # Shards drenajes + indice para Streamlit Cloud
+python scripts/04_census.py                 # Poblacion censal (manual INE 2024)
 ```
+
+> **Dependencia 07**: requiere descargar `SNAP_*.zip` desde
+> https://idembn.bienes.cl/catastro/catalog/download/ca3c267b-5270-39d0-97d2-6e4694a11877
+> y descomprimir en `data/raw/snaspe/`.
 
 ### 2. Lanzar dashboard
 
@@ -86,6 +98,9 @@ Los datos de manzanas del Censo 2024 requieren descarga manual:
 ## Funcionalidades del dashboard
 
 - **Filtro hidrológico**: toggle "solo quebradas que drenan desde el edificio" — usa D8 flow tracing sobre DEM SRTM 30m, descarta tramos dentro del buffer 50 km que no reciben flujo del cono volcánico (relevante para evaluación de lahares)
+- **Capas oficiales SENAPRED** (Visor Chile Preparado): puntos de encuentro, vías de evacuación, perímetro seguridad Villarrica, servicios oficiales SALUD/BOMBEROS/EDUC/CARABINEROS con popups (nombre, dirección, teléfono, comuna)
+- **SNAP/SNASPE local** (Bienes Nacionales, mayo 2026): 110 áreas protegidas por categoría (parques nacionales, reservas, monumentos)
+- **Herramientas Folium**: escala gráfica, coordenadas mouse, regla de distancias/áreas, fullscreen
 - **Vista general**: mapa de Chile con los 59 volcanes y sus zonas de influencia (50 km)
 - **Selector inteligente**: filtro por zona volcánica (ZVN/ZVC/ZVS/ZVA) + toggle "solo OVDAS" + indicador `*` para volcanes adicionales no monitoreados oficialmente
 - **Buscador de quebradas**: busqueda global por nombre entre todos los volcanes

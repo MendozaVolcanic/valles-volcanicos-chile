@@ -150,11 +150,6 @@ def cargar_vias_evacuacion(codigo: str | None = None) -> dict | None:
 
 
 @st.cache_data
-def cargar_areas_peligro_senapred(codigo: str | None = None) -> dict | None:
-    return _cargar_senapred_shard("areas_peligro", codigo)
-
-
-@st.cache_data
 def cargar_servicios(tipo: str, codigo: str | None = None) -> dict | None:
     """tipo: salud | bomberos | educacion | carabineros"""
     return _cargar_senapred_shard(f"servicios_{tipo}", codigo)

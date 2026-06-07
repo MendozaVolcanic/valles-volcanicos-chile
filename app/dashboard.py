@@ -18,8 +18,7 @@ from loaders import (
     cargar_centros_poblados, cargar_ciudades, cargar_indice_quebradas,
     wms_disponible, cargar_snaspe,
     cargar_puntos_encuentro, cargar_vias_evacuacion,
-    cargar_areas_peligro_senapred, cargar_servicios,
-    cargar_perimetro_villarrica,
+    cargar_servicios, cargar_perimetro_villarrica,
 )
 from geo_utils import normalizar as _normalizar, latlon_a_utm, midpoint_geojson
 
@@ -270,8 +269,9 @@ with st.sidebar:
 
     st.divider()
     st.markdown("**Capas SENAPRED**  \n<small style='color:#888'>Visor Chile Preparado</small>", unsafe_allow_html=True)
-    mostrar_peligro_oficial = st.checkbox("Áreas de peligro volcánico (SENAPRED)", value=_capa_default("peligro_oficial", False),
-                                          help="Polígonos oficiales SENAPRED clasificados Alto/Medio/Bajo")
+    # Nota: las áreas de peligro ya están en "Zonas de peligro volcánico" arriba
+    # (peligros_volcanicos.geojson, 142 features bien etiquetados por volcán).
+    # No replicamos con SENAPRED areas_peligro (10k duplicados, campo 'volcan' vacío).
     mostrar_puntos_enc      = st.checkbox("Puntos de encuentro",   value=_capa_default("puntos", False),
                                           help="168 puntos de encuentro oficiales para evacuación")
     mostrar_vias_evac       = st.checkbox("Vías de evacuación",    value=_capa_default("vias", False),
@@ -297,7 +297,6 @@ with st.sidebar:
         "centros": mostrar_centros, "vial": mostrar_vial,
         "infra": mostrar_infra, "peligros": mostrar_peligros,
         "snaspe": mostrar_snaspe, "drena": solo_drena,
-        "peligro_oficial": mostrar_peligro_oficial,
         "puntos": mostrar_puntos_enc, "vias": mostrar_vias_evac,
         "perimvil": mostrar_perim_vil, "salud": mostrar_salud,
         "bomberos": mostrar_bomberos, "educ": mostrar_educacion,
@@ -529,27 +528,6 @@ if mostrar_snaspe:
 
 # === Capas oficiales SENAPRED (visor Chile Preparado) ============================
 
-# -- Áreas de peligro volcánico oficiales SENAPRED --
-if mostrar_peligro_oficial:
-    peligro_gj = cargar_areas_peligro_senapred(volcan["codigo"] if volcan else None)
-    if peligro_gj and peligro_gj.get("features"):
-        PEL_COLORS = {"Alto": "#c1121f", "Medio": "#f77f00", "Bajo": "#fcbf49"}
-        folium.GeoJson(
-            peligro_gj,
-            name="Peligro volcánico (SENAPRED)",
-            style_function=lambda f: {
-                "fillColor":   PEL_COLORS.get(f["properties"].get("peligro", "Bajo"), "#fcbf49"),
-                "color":       PEL_COLORS.get(f["properties"].get("peligro", "Bajo"), "#fcbf49"),
-                "weight":      1.0,
-                "fillOpacity": 0.45,
-                "opacity":     0.85,
-            },
-            tooltip=folium.GeoJsonTooltip(
-                fields=["volcan", "peligro"],
-                aliases=["Volcán", "Nivel"],
-            ),
-        ).add_to(m)
-
 # -- Puntos de encuentro oficiales --
 if mostrar_puntos_enc:
     pts = cargar_puntos_encuentro(volcan["codigo"] if volcan else None)
@@ -558,7 +536,9 @@ if mostrar_puntos_enc:
         for f in pts["features"]:
             lon_p, lat_p = f["geometry"]["coordinates"]
             props = f["properties"]
-            nombre = props.get("NOMBRE") or props.get("nombre") or "Punto de encuentro"
+            nombre  = props.get("nombre", "Punto de encuentro")
+            tipo_pe = props.get("tipo", "")
+            volc_pe = props.get("volcan", "")
             folium.Marker(
                 location=[lat_p, lon_p],
                 icon=folium.DivIcon(html=(
@@ -567,7 +547,14 @@ if mostrar_puntos_enc:
                     'text-align:center;line-height:14px;'
                     'box-shadow:0 1px 3px rgba(0,0,0,0.6);">★</div>'
                 ), icon_size=(18,18), icon_anchor=(9,9)),
-                tooltip=f"★ {nombre}",
+                tooltip=f"★ {nombre} ({tipo_pe})" if tipo_pe else f"★ {nombre}",
+                popup=folium.Popup(
+                    f"<b>★ Punto de encuentro</b><br>"
+                    f"<b>{nombre}</b><br>"
+                    f"Volcán: {volc_pe}<br>"
+                    f"Tipo: {tipo_pe}",
+                    max_width=240,
+                ),
             ).add_to(grupo_pe)
         grupo_pe.add_to(m)
 
@@ -585,7 +572,7 @@ if mostrar_vias_evac:
                 "dashArray": "10,5",
             },
             tooltip=folium.GeoJsonTooltip(
-                fields=[k for k in (vias["features"][0]["properties"].keys() if vias["features"] else []) if k.lower() in ("nombre","via","localidad","comuna")][:3] or None,
+                fields=["volcan"], aliases=["Vía de evacuación — volcán"],
             ),
         ).add_to(m)
 
@@ -604,13 +591,29 @@ if mostrar_perim_vil:
         ).add_to(m)
 
 # -- Servicios SENAPRED (salud, bomberos, educacion, carabineros) --
+# Cada tipo tiene su propio esquema de propiedades, definido aqui:
 SERV_SPEC = [
-    ("salud",      mostrar_salud,     "🏥", "#e63946", "Salud"),
-    ("bomberos",   mostrar_bomberos,  "🚒", "#d62828", "Bomberos"),
-    ("educacion",  mostrar_educacion, "🏫", "#3a86ff", "Educación"),
-    ("carabineros",mostrar_carab,     "🛡️", "#003049", "Carabineros"),
+    ("salud",      mostrar_salud,     "🏥", "#e63946", "Salud",
+       lambda p: p.get("nombre_ofi") or p.get("nombre_dep") or "Centro de salud",
+       lambda p: [p.get("nivel_de_a"), p.get("simbologia"),
+                  f"📞 {p.get('teléfono')}" if str(p.get("teléfono","0")) not in ("0","","None","null") else None,
+                  p.get("dirección"), p.get("comuna")]),
+    ("bomberos",   mostrar_bomberos,  "🚒", "#d62828", "Bomberos",
+       lambda p: p.get("nombre", "Bomberos"),
+       lambda p: [p.get("tipo"), p.get("compa__ia"),
+                  f"📞 {p.get('telefono')}" if p.get("telefono") else None,
+                  p.get("direccion"), p.get("nom_com")]),
+    ("educacion",  mostrar_educacion, "🏫", "#3a86ff", "Educación",
+       lambda p: p.get("nombre_establecimiento", "Establecimiento"),
+       lambda p: [p.get("dependencia"), p.get("urbano_rural"),
+                  f"Matrícula: {p.get('matricula')}" if p.get("matricula") else None,
+                  p.get("comuna")]),
+    ("carabineros",mostrar_carab,     "🛡️", "#003049", "Carabineros",
+       lambda p: p.get("nombre_uni", "Unidad"),
+       lambda p: [p.get("tipo_de_un"), p.get("prefectura"),
+                  p.get("comuna"), p.get("region")]),
 ]
-for tipo, activo, icono, color, label in SERV_SPEC:
+for tipo, activo, icono, color, label, get_nombre, get_detalles in SERV_SPEC:
     if not activo:
         continue
     sv = cargar_servicios(tipo, volcan["codigo"] if volcan else None)
@@ -619,11 +622,17 @@ for tipo, activo, icono, color, label in SERV_SPEC:
     grupo = folium.FeatureGroup(name=f"{label} (SENAPRED)", show=True)
     for f in sv["features"]:
         lon_s, lat_s = f["geometry"]["coordinates"]
-        nombre = f["properties"].get("NOMBRE") or f["properties"].get("nombre") or label
+        props = f["properties"]
+        nombre = get_nombre(props)
+        detalles = [d for d in get_detalles(props) if d not in (None, "", "null")]
+        popup_html = f"<b>{icono} {label}</b><br><b>{nombre}</b>"
+        if detalles:
+            popup_html += "<br>" + "<br>".join(str(d) for d in detalles)
         folium.CircleMarker(
             location=[lat_s, lon_s],
             radius=5, color=color, fill=True, fill_color=color, fill_opacity=0.85,
-            tooltip=f"{icono} {label}: {nombre}",
+            tooltip=f"{icono} {nombre}",
+            popup=folium.Popup(popup_html, max_width=280),
         ).add_to(grupo)
     grupo.add_to(m)
 
