@@ -16,7 +16,7 @@ from loaders import (
     cargar_config, cargar_cuencas, cargar_drenajes, cargar_peligros,
     cargar_poblacion, cargar_vial, cargar_infraestructura,
     cargar_centros_poblados, cargar_ciudades, cargar_indice_quebradas,
-    wms_disponible, cargar_snaspe,
+    wms_disponible, cargar_comunas, cargar_snaspe,
     cargar_puntos_encuentro, cargar_vias_evacuacion,
     cargar_servicios, cargar_perimetro_villarrica,
 )
@@ -225,22 +225,54 @@ with st.sidebar:
 
     st.divider()
 
-    # Buscador global de quebradas (entre todos los volcanes)
-    with st.expander("Buscar quebrada o rio", expanded=False):
-        try:
-            _idx_qb = cargar_indice_quebradas()
-            _q = st.text_input("Nombre o palabra clave", placeholder="ej: Pichillancahue")
-            if _q and len(_q) >= 2:
-                _q_norm = _normalizar(_q)
-                _hits = _idx_qb[_idx_qb["quebrada"].apply(lambda x: _q_norm in _normalizar(x))]
-                if len(_hits) > 0:
-                    st.caption(f"{len(_hits)} coincidencias en {_hits['volcan'].nunique()} volcanes")
-                    st.dataframe(_hits[["quebrada", "tipo", "volcan"]].head(30),
-                                 use_container_width=True, hide_index=True, height=200)
-                else:
-                    st.caption("Sin coincidencias")
-        except Exception as exc:
-            st.caption(f"Indice no disponible: {exc}")
+    # Buscador global: volcanes + ciudades + quebradas + comunas
+    with st.expander("🔍 Buscar (volcán, ciudad, quebrada)", expanded=False):
+        _q = st.text_input("Texto", placeholder="ej: Pichillancahue, Pucón, Villarrica",
+                            label_visibility="collapsed")
+        if _q and len(_q) >= 2:
+            _q_norm = _normalizar(_q)
+            hits_global = []
+
+            # 1) Volcanes (match en nombre)
+            for v in VOLCANES:
+                if _q_norm in _normalizar(v["nombre"]):
+                    hits_global.append({
+                        "tipo": "🌋 Volcán", "nombre": v["nombre"],
+                        "detalle": v.get("region", ""),
+                        "lat": v["lat"], "lon": v["lon"],
+                    })
+            # 2) Ciudades
+            for c in CIUDADES:
+                if _q_norm in _normalizar(c["nombre"]):
+                    hits_global.append({
+                        "tipo": "🏙️ Ciudad", "nombre": c["nombre"],
+                        "detalle": f"{c['pop']:,} hab.",
+                        "lat": c["lat"], "lon": c["lon"],
+                    })
+            # 3) Quebradas (precomputado, instantaneo)
+            try:
+                _idx_qb = cargar_indice_quebradas()
+                _hits_q = _idx_qb[_idx_qb["quebrada"].apply(lambda x: _q_norm in _normalizar(x))]
+                for _, r in _hits_q.head(20).iterrows():
+                    hits_global.append({
+                        "tipo": f"💧 {r['tipo'].capitalize()}", "nombre": r["quebrada"],
+                        "detalle": f"vía {r['volcan']}",
+                        "lat": None, "lon": None,
+                    })
+            except Exception:
+                pass
+
+            if hits_global:
+                st.caption(f"{len(hits_global)} coincidencias")
+                _df = pd.DataFrame(hits_global)[["tipo", "nombre", "detalle"]]
+                st.dataframe(_df.head(30), use_container_width=True, hide_index=True, height=200)
+                # Tip de uso
+                _con_coord = [h for h in hits_global if h["lat"] is not None]
+                if _con_coord:
+                    _pri = _con_coord[0]
+                    st.caption(f"💡 Para centrar el mapa en **{_pri['nombre']}**, pegalo en el selector de volcán arriba.")
+            else:
+                st.caption("Sin coincidencias")
 
     st.divider()
     st.markdown("**Capas tematicas**")
@@ -477,24 +509,27 @@ folium.TileLayer(
     opacity=0.7,
 ).add_to(m)
 
-# -- Limites comunales (WMS BCN Chile) --
-# Servicio: Biblioteca del Congreso Nacional, SIIT
+# -- Limites comunales (local, 345 comunas — reemplaza WMS BCN roto) --
+# Fuente: chile-geojson (BCN/INE upstream). Procesado por scripts/10_comunas_local.py
 if mostrar_comunas:
-    _bcn_url = "https://siit2.bcn.cl/mapas_geoserver/BCN/wms"
-    if wms_disponible(_bcn_url):
-        folium.WmsTileLayer(
-            url=_bcn_url,
-            layers="BCN:lim_comunal_2016_WGS84",
-            fmt="image/png",
-            transparent=True,
-            name="Comunas (BCN)",
-            overlay=True,
-            control=True,
-            opacity=0.85,
-            show=True,
+    comunas_gj = cargar_comunas(volcan["codigo"] if volcan else None)
+    if comunas_gj and comunas_gj.get("features"):
+        folium.GeoJson(
+            comunas_gj,
+            name="Comunas",
+            style_function=lambda f: {
+                "fillColor":   "#ffffff",
+                "color":       "#a0a0a0",
+                "weight":      1.0,
+                "fillOpacity": 0.05,
+                "opacity":     0.7,
+                "dashArray":   "3,3",
+            },
+            tooltip=folium.GeoJsonTooltip(
+                fields=["nombre_comuna", "nombre_provincia", "nombre_region"],
+                aliases=["Comuna", "Provincia", "Región"],
+            ),
         ).add_to(m)
-    else:
-        st.warning("WMS BCN no responde — capa de comunas no disponible. Reintentar en unos minutos.", icon="⚠️")
 
 # -- SNASPE / SNAP local (MBN, mayo 2026) — reemplaza al WMS SAG roto --
 if mostrar_snaspe:
@@ -594,10 +629,11 @@ if mostrar_perim_vil:
 # Cada tipo tiene su propio esquema de propiedades, definido aqui:
 SERV_SPEC = [
     ("salud",      mostrar_salud,     "🏥", "#e63946", "Salud",
-       lambda p: p.get("nombre_ofi") or p.get("nombre_dep") or "Centro de salud",
-       lambda p: [p.get("nivel_de_a"), p.get("simbologia"),
+       # nombre_ofi siempre vacio en SENAPRED — usamos simbologia (APS, urgencia, etc) como nombre
+       lambda p: (p.get("simbologia") or p.get("nombre_dep") or "Centro de salud") + (f" — {p.get('comuna')}" if p.get("comuna") else ""),
+       lambda p: [p.get("nombre_dep"), p.get("nivel_de_a"),
                   f"📞 {p.get('teléfono')}" if str(p.get("teléfono","0")) not in ("0","","None","null") else None,
-                  p.get("dirección"), p.get("comuna")]),
+                  p.get("dirección")]),
     ("bomberos",   mostrar_bomberos,  "🚒", "#d62828", "Bomberos",
        lambda p: p.get("nombre", "Bomberos"),
        lambda p: [p.get("tipo"), p.get("compa__ia"),

@@ -104,6 +104,53 @@ def test_senapred_capas_existen():
             f"shards de {capa} faltan — correr scripts/09_sharding_senapred.py"
 
 
+def test_tooltips_senapred_campos_existen():
+    """Verifica que los campos que el dashboard usa en tooltips existen en los
+    GeoJSON SENAPRED. Si SENAPRED cambia su schema, este test falla y avisa."""
+    capas_y_campos = {
+        "servicios_salud":       ["simbologia", "nombre_dep", "dirección", "comuna", "nivel_de_a"],
+        "servicios_bomberos":    ["nombre", "tipo", "direccion", "telefono"],
+        "servicios_educacion":   ["nombre_establecimiento", "dependencia", "urbano_rural", "matricula", "comuna"],
+        "servicios_carabineros": ["nombre_uni", "tipo_de_un", "prefectura", "comuna", "region"],
+        "puntos_encuentro":      ["nombre", "tipo", "volcan"],
+        "vias_evacuacion":       ["volcan"],
+    }
+    base = PROCESSED / "senapred"
+    if not base.exists():
+        pytest.skip("SENAPRED no descargado")
+    for capa, campos in capas_y_campos.items():
+        d = base / capa
+        if not d.exists():
+            pytest.skip(f"shards {capa} no existen")
+        sample = next(d.glob("*.geojson"), None)
+        if sample is None:
+            continue
+        gj = json.load(open(sample, encoding="utf-8"))
+        if not gj["features"]:
+            continue
+        props = gj["features"][0]["properties"].keys()
+        faltan = [c for c in campos if c not in props]
+        assert not faltan, f"{capa}: campos faltantes {faltan} (presentes: {list(props)[:10]})"
+
+
+def test_comunas_local():
+    """Comunas locales (reemplaza WMS BCN roto) — global + shards por volcan."""
+    glob_p = PROCESSED / "comunas.geojson"
+    if not glob_p.exists():
+        pytest.skip("comunas no procesadas — correr scripts/10_comunas_local.py")
+    g = json.load(open(glob_p, encoding="utf-8"))
+    n = len(g["features"])
+    assert n >= 340, f"esperaba ~345 comunas, hay {n}"
+    # Verificar schema esperado por dashboard tooltip
+    for campo in ["nombre_comuna", "nombre_provincia", "nombre_region"]:
+        assert campo in g["features"][0]["properties"], f"falta campo {campo}"
+    # Shard Villarrica deberia incluir las 4 esperadas
+    vil = json.load(open(PROCESSED / "comunas" / "VIL.geojson", encoding="utf-8"))
+    vil_nombres = {f["properties"]["nombre_comuna"] for f in vil["features"]}
+    esperadas = {"Villarrica", "Pucón", "Curarrehue", "Panguipulli"}
+    assert esperadas <= vil_nombres, f"VIL faltan comunas: {esperadas - vil_nombres}"
+
+
 def test_snaspe_local():
     """SNAP/SNASPE oficial MBN, reemplazo del WMS SAG roto."""
     d = PROCESSED / "snaspe"

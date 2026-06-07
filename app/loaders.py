@@ -102,6 +102,23 @@ def cargar_indice_quebradas() -> pd.DataFrame:
     return pd.DataFrame(columns=["quebrada", "tipo", "volcan", "codigo", "tramos"])
 
 
+# --- Comunas locales (reemplaza al WMS BCN roto en 2026) ---
+@st.cache_data
+def cargar_comunas(codigo: str | None = None) -> dict | None:
+    """Limites comunales (345 comunas Chile). Shard por volcan o global."""
+    if codigo:
+        p = PROCESSED / "comunas" / f"{codigo}.geojson"
+        if p.exists():
+            with open(str(p), encoding="utf-8") as f:
+                return json.load(f)
+        return {"type": "FeatureCollection", "features": []}
+    p = PROCESSED / "comunas.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
 # --- SNASPE local (reemplaza al WMS SAG/CONAF roto en 2026) ---
 @st.cache_data
 def cargar_snaspe(codigo: str | None = None) -> dict | None:
