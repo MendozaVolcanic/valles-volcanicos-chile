@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "MEN",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 8901, "fid_establecimientos_de_salud": null, "código_an": "25-104", "código_vi": 125104, "código__m": " ", "código_nu": 0, "código_re": 11, "nombre_reg": "Aysén del General Carlos Ibáñez del Campo", "código_de": 25, "nombre_dep": "Servicio de Salud Aysén", "pertenenci": "Perteneciente al Sistema Nacional de Servicios de Salud", "tipo_estab": null, "ámbito_de": "Establecimiento de Salud", "nombre_ofi": null, "certificac": "No Aplica", "dependenci": "Servicio de Salud Aysén", "nivel_de_a": "Pendiente", "código_co": "11202", "nombre_com": "CISNES", "vía": "Calle", "número": 869, "dirección": "Rafael Sotomayor", "teléfono": 672261302, "fecha_inic": "38716", "tiene_serv": null, "tipo_de_ur": "Urgencia Hospitalaria (UEH)", "tipo_de_sa": null, "latitud": -44.72603, "longitud__": -72.68078, "tipo_de_pr": null, "estado_de": null, "nivel_de_c": "Pendiente", "modalidad": null, "simbologia": "Hospitales y Unidades de Hospitalización", "fid_comunas_v1": null, "cut_reg": "11", "cut_prov": "112", "cut_com": "11202", "region": "Aysén del General Carlos Ibáñez del Campo", "provincia": "AYSÉN", "comuna": "CISNES", "superficie": null }, "geometry": { "type": "Point", "coordinates": [ -72.68078, -44.72603 ] } }
+]
+}

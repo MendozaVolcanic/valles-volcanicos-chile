@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"name": "CPA",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 618, "id": 67.0, "nombre": "Carabineros Trapa Trapa", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.22098, -37.73327 ] } },
+{ "type": "Feature", "properties": { "objectid": 619, "id": 68.0, "nombre": "Carabineros Guallalí", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.27583, -38.04282 ] } },
+{ "type": "Feature", "properties": { "objectid": 620, "id": 69.0, "nombre": "Costa Ralco", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.30665, -37.99131 ] } },
+{ "type": "Feature", "properties": { "objectid": 621, "id": 70.0, "nombre": "Lonco Traro", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.26794, -37.7259 ] } },
+{ "type": "Feature", "properties": { "objectid": 622, "id": 71.0, "nombre": "Posta Butalelbun", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.21508, -37.75273 ] } },
+{ "type": "Feature", "properties": { "objectid": 623, "id": 72.0, "nombre": "Trapa Trapa", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.2462, -37.71575 ] } },
+{ "type": "Feature", "properties": { "objectid": 624, "id": 73.0, "nombre": "Antena", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.22507, -37.75715 ] } },
+{ "type": "Feature", "properties": { "objectid": 633, "id": 87.0, "nombre": "Villa Ralco", "tipo": "PE", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.63815, -37.87958 ] } },
+{ "type": "Feature", "properties": { "objectid": 685, "id": 191.0, "nombre": "Escuela Callaqui", "tipo": "PET", "volcan": "Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.67064, -37.85483 ] } },
+{ "type": "Feature", "properties": { "objectid": 686, "id": 192.0, "nombre": "Gimnasio Escuela E-970", "tipo": "PET", "volcan": "Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.63707, -37.87928 ] } },
+{ "type": "Feature", "properties": { "objectid": 687, "id": 193.0, "nombre": "Escuela Quepuca-Ralco", "tipo": "PET", "volcan": "Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.47117, -38.03823 ] } },
+{ "type": "Feature", "properties": { "objectid": 688, "id": 194.0, "nombre": "La Cruz", "tipo": "PET", "volcan": "Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.47109, -38.04153 ] } },
+{ "type": "Feature", "properties": { "objectid": 689, "id": 196.0, "nombre": "Confluencia", "tipo": "PET", "volcan": "Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.32081, -37.98533 ] } },
+{ "type": "Feature", "properties": { "objectid": 690, "id": 197.0, "nombre": "Río Ralco Oeste", "tipo": "PET", "volcan": "Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.32173, -38.01464 ] } },
+{ "type": "Feature", "properties": { "objectid": 691, "id": 198.0, "nombre": "Cancha El Barco", "tipo": "PET", "volcan": "Copahue Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.30539, -38.01846 ] } },
+{ "type": "Feature", "properties": { "objectid": 692, "id": 199.0, "nombre": "Guallalí", "tipo": "PET", "volcan": "Callaqui" }, "geometry": { "type": "Point", "coordinates": [ -71.33584, -38.03745 ] } },
+{ "type": "Feature", "properties": { "objectid": 693, "id": 200.0, "nombre": "Escuela de Chenqueco", "tipo": "PET", "volcan": "Copahue Callaqui " }, "geometry": { "type": "Point", "coordinates": [ -71.3542, -38.06496 ] } }
+]
+}

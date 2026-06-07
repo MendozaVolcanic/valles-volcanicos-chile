@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "TRO",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 645, "id": 99.0, "nombre": "Petrohue", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.40078, -41.13853 ] } },
+{ "type": "Feature", "properties": { "objectid": 646, "id": 100.0, "nombre": "Saltos Del Petrohue", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.45051, -41.17249 ] } },
+{ "type": "Feature", "properties": { "objectid": 647, "id": 101.0, "nombre": "Escuela Rural Ella Minte de Roth", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.01848, -41.08516 ] } }
+]
+}

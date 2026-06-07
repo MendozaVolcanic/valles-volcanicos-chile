@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "LAS",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2525, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN TOCONAO (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "AVENIDA", "nombre_de": "NORTE", "numero": "55", "point_x": -68.0055558, "point_y": -23.18602273, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02013", "fid_dpa_co": null, "cine_prov": "022", "cod_com": null, "cine_com": "02203", "cine_reg": "02", "region": "Antofagasta", "provincia": "El Loa", "comuna": "San Pedro de Atacama", "globalid": "a8752e4d-acfc-4bff-bf5b-283d39f7125a" }, "geometry": { "type": "Point", "coordinates": [ -68.00556, -23.18602 ] } }
+]
+}

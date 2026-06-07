@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "COR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2439, "fid_cuarte": null, "fid_": null, "nombre_uni": "4TA. COM. CHAITEN (F)", "tipo_de_un": "COMISARIA", "tipo_de_vi": "AVENIDA", "nombre_de": "IGNACIO CARRERA PINTO", "numero": "435", "point_x": -72.70942782, "point_y": -42.91606447, "hecho": "2014", "rg": 10, "prefectura": "CHILOE", "zona": "ZONA DE LOS LAGOS", "uni_cod": "10011", "fid_dpa_co": null, "cine_prov": "104", "cod_com": null, "cine_com": "10401", "cine_reg": "10", "region": "Los Lagos", "provincia": "Palena", "comuna": "Chaitén", "globalid": "b3dd5074-b741-44a2-925f-9c09580782dc" }, "geometry": { "type": "Point", "coordinates": [ -72.70943, -42.91606 ] } }
+]
+}

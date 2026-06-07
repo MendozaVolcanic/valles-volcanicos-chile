@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "CLV",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 695, "id": 215.0, "nombre": "Posta de Salud Rupumeica Bajo", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -71.96139, -40.31942 ] } },
+{ "type": "Feature", "properties": { "objectid": 696, "id": 216.0, "nombre": "Posta Rupumeica Alto", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -71.98633, -40.35962 ] } },
+{ "type": "Feature", "properties": { "objectid": 698, "id": 221.0, "nombre": "Escuela El Arrayán", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.51683, -40.60154 ] } },
+{ "type": "Feature", "properties": { "objectid": 699, "id": 222.0, "nombre": "Escuela Rural Mantilhue Bajo", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.48555, -40.61681 ] } },
+{ "type": "Feature", "properties": { "objectid": 700, "id": 224.0, "nombre": "Escuela Rucatayo Alto", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.40803, -40.57015 ] } },
+{ "type": "Feature", "properties": { "objectid": 701, "id": 225.0, "nombre": "Iglesia cruce Las Quemas", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.15637, -40.3231 ] } },
+{ "type": "Feature", "properties": { "objectid": 702, "id": 226.0, "nombre": "Cerro Familia Santibáñez", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -71.94982, -40.32386 ] } },
+{ "type": "Feature", "properties": { "objectid": 703, "id": 227.0, "nombre": "Sede Los Álamos", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.18639, -40.31067 ] } }
+]
+}

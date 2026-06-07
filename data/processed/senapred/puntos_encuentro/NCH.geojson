@@ -1,0 +1,22 @@
+{
+"type": "FeatureCollection",
+"name": "NCH",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 595, "id": 43.0, "nombre": "Shangri-La Norte", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.49524, -36.90281 ] } },
+{ "type": "Feature", "properties": { "objectid": 596, "id": 44.0, "nombre": "Ex-Complejo Copelec", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.53935, -36.90435 ] } },
+{ "type": "Feature", "properties": { "objectid": 597, "id": 45.0, "nombre": "Est.Complejo Entre Roc*", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.50842, -36.91524 ] } },
+{ "type": "Feature", "properties": { "objectid": 598, "id": 46.0, "nombre": "Tenencia Las Trancas", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.48028, -36.91078 ] } },
+{ "type": "Feature", "properties": { "objectid": 599, "id": 47.0, "nombre": "Cueva Los Pincheiras", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.55144, -36.89619 ] } },
+{ "type": "Feature", "properties": { "objectid": 600, "id": 48.0, "nombre": "Complejo Valle Hermoso", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.41835, -36.91635 ] } },
+{ "type": "Feature", "properties": { "objectid": 601, "id": 49.0, "nombre": "Los Cipreses", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.56413, -36.93108 ] } },
+{ "type": "Feature", "properties": { "objectid": 602, "id": 50.0, "nombre": "Los Pellines", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.61528, -36.82631 ] } },
+{ "type": "Feature", "properties": { "objectid": 603, "id": 51.0, "nombre": "Las Veguillas", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.38544, -36.65766 ] } },
+{ "type": "Feature", "properties": { "objectid": 604, "id": 52.0, "nombre": "Los Sauces", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.27094, -36.65444 ] } },
+{ "type": "Feature", "properties": { "objectid": 605, "id": 53.0, "nombre": "El Caracol", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.38939, -36.64912 ] } },
+{ "type": "Feature", "properties": { "objectid": 606, "id": 54.0, "nombre": "Los Puquios", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.44452, -36.61505 ] } },
+{ "type": "Feature", "properties": { "objectid": 607, "id": 55.0, "nombre": "Carabineros El Roble", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.25305, -36.74786 ] } },
+{ "type": "Feature", "properties": { "objectid": 608, "id": 56.0, "nombre": "El Chacayal", "tipo": "PET", "volcan": "Nevados de Chillán" }, "geometry": { "type": "Point", "coordinates": [ -71.28648, -36.71197 ] } }
+]
+}

@@ -3,6 +3,7 @@ data/processed/*.csv
 !data/processed/indice_quebradas.csv
 !data/processed/resumen_drenaje.csv
 data/processed/*.gpkg
+data/processed/snaspe.geojson
 # GeoJSONs se incluyen en el repo para deploy en Streamlit Cloud (los .gpkg son intermedios regenerables)
 __pycache__/
 data/test_mapa.html

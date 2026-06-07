@@ -16,7 +16,10 @@ from loaders import (
     cargar_config, cargar_cuencas, cargar_drenajes, cargar_peligros,
     cargar_poblacion, cargar_vial, cargar_infraestructura,
     cargar_centros_poblados, cargar_ciudades, cargar_indice_quebradas,
-    wms_disponible,
+    wms_disponible, cargar_snaspe,
+    cargar_puntos_encuentro, cargar_vias_evacuacion,
+    cargar_areas_peligro_senapred, cargar_servicios,
+    cargar_perimetro_villarrica,
 )
 from geo_utils import normalizar as _normalizar, latlon_a_utm, midpoint_geojson
 
@@ -263,7 +266,22 @@ with st.sidebar:
     mostrar_infra     = st.checkbox("Infraestructura critica",     value=_capa_default("infra", False))
     mostrar_peligros  = st.checkbox("Zonas de peligro volcanico",  value=_capa_default("peligros", False))
     mostrar_snaspe    = st.checkbox("Areas protegidas (SNASPE)",   value=_capa_default("snaspe", False),
-                                     help="WMS oficial SAG/CONAF — Parques nacionales y reservas")
+                                     help="SNAP (ex-SNASPE) oficial Bienes Nacionales, mayo 2026. Parques, reservas y monumentos.")
+
+    st.divider()
+    st.markdown("**Capas SENAPRED**  \n<small style='color:#888'>Visor Chile Preparado</small>", unsafe_allow_html=True)
+    mostrar_peligro_oficial = st.checkbox("Áreas de peligro volcánico (SENAPRED)", value=_capa_default("peligro_oficial", False),
+                                          help="Polígonos oficiales SENAPRED clasificados Alto/Medio/Bajo")
+    mostrar_puntos_enc      = st.checkbox("Puntos de encuentro",   value=_capa_default("puntos", False),
+                                          help="168 puntos de encuentro oficiales para evacuación")
+    mostrar_vias_evac       = st.checkbox("Vías de evacuación",    value=_capa_default("vias", False),
+                                          help="195 vías oficiales de evacuación")
+    mostrar_perim_vil       = st.checkbox("Perímetro seguridad Villarrica", value=_capa_default("perimvil", False))
+    c_serv1, c_serv2 = st.columns(2)
+    mostrar_salud      = c_serv1.checkbox("Salud (S)",      value=_capa_default("salud", False))
+    mostrar_bomberos   = c_serv2.checkbox("Bomberos (B)",   value=_capa_default("bomberos", False))
+    mostrar_educacion  = c_serv1.checkbox("Educación (E)",  value=_capa_default("educ", False))
+    mostrar_carab      = c_serv2.checkbox("Carabineros (C)", value=_capa_default("carab", False))
 
     st.divider()
     opacidad     = st.slider("Opacidad zona influencia", 0.05, 0.6, 0.2)
@@ -279,6 +297,11 @@ with st.sidebar:
         "centros": mostrar_centros, "vial": mostrar_vial,
         "infra": mostrar_infra, "peligros": mostrar_peligros,
         "snaspe": mostrar_snaspe, "drena": solo_drena,
+        "peligro_oficial": mostrar_peligro_oficial,
+        "puntos": mostrar_puntos_enc, "vias": mostrar_vias_evac,
+        "perimvil": mostrar_perim_vil, "salud": mostrar_salud,
+        "bomberos": mostrar_bomberos, "educ": mostrar_educacion,
+        "carab": mostrar_carab,
     }.items() if v)
 
     with st.expander("Compartir vista (permalink)"):
@@ -413,7 +436,23 @@ else:
 center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
 zoom   = 10 if volcan else 5
 
-m = folium.Map(location=center, zoom_start=zoom, tiles=None, prefer_canvas=True)
+m = folium.Map(location=center, zoom_start=zoom, tiles=None, prefer_canvas=True,
+               control_scale=True)  # escala grafica en esquina (estilo visor SENAPRED)
+
+# Coordenadas del mouse en la esquina inferior — estilo visor Chile Preparado
+from folium.plugins import MousePosition, MeasureControl, MiniMap, Fullscreen
+MousePosition(
+    position="bottomleft", separator=" | ", empty_string="Mover el ratón para coordenadas",
+    lng_first=False, num_digits=4, prefix="Lat/Lon",
+).add_to(m)
+# Herramienta de medicion (distancia/area)
+MeasureControl(
+    primary_length_unit="kilometers", secondary_length_unit="meters",
+    primary_area_unit="hectares", position="topleft",
+).add_to(m)
+# Boton fullscreen
+Fullscreen(position="topleft", title="Pantalla completa", title_cancel="Salir",
+           force_separate_button=True).add_to(m)
 
 # -- Base satelital ESRI --
 folium.TileLayer(
@@ -458,23 +497,135 @@ if mostrar_comunas:
     else:
         st.warning("WMS BCN no responde — capa de comunas no disponible. Reintentar en unos minutos.", icon="⚠️")
 
-# -- SNASPE: Sistema Nacional de Areas Silvestres Protegidas (CONAF/SAG) --
+# -- SNASPE / SNAP local (MBN, mayo 2026) — reemplaza al WMS SAG roto --
 if mostrar_snaspe:
-    _sag_url = "https://geoportal.sag.gob.cl/server/services/SNASPE/MapServer/WMSServer"
-    if wms_disponible(_sag_url):
-        folium.WmsTileLayer(
-            url=_sag_url,
-            layers="0",
-            fmt="image/png",
-            transparent=True,
-            name="SNASPE (CONAF)",
-            overlay=True,
-            control=True,
-            opacity=0.55,
-            show=True,
+    snaspe_gj = cargar_snaspe(volcan["codigo"] if volcan else None)
+    if snaspe_gj and snaspe_gj.get("features"):
+        CAT_COLORS = {
+            "Parque Nacional":          "#2a9d8f",
+            "Reserva Nacional":         "#8ab17d",
+            "Monumento Natural":        "#e9c46a",
+            "Reserva de Region Virgen": "#264653",
+            "Santuario de la Naturaleza":"#a4c2a8",
+        }
+        folium.GeoJson(
+            snaspe_gj,
+            name="SNAP / Áreas protegidas",
+            style_function=lambda f: {
+                "fillColor":   CAT_COLORS.get(f["properties"].get("categoria", ""), "#83c5be"),
+                "color":       "#0a3a2a",
+                "weight":      1.5,
+                "fillOpacity": 0.40,
+                "opacity":     0.85,
+                "dashArray":   "4,3",
+            },
+            tooltip=folium.GeoJsonTooltip(
+                fields=["nombre", "categoria", "region"],
+                aliases=["Área", "Categoría", "Región"],
+            ),
         ).add_to(m)
-    else:
-        st.warning("WMS SAG/CONAF no responde — capa SNASPE no disponible.", icon="⚠️")
+    elif volcan:
+        st.caption("Sin áreas SNAP en el buffer de este volcán.")
+
+# === Capas oficiales SENAPRED (visor Chile Preparado) ============================
+
+# -- Áreas de peligro volcánico oficiales SENAPRED --
+if mostrar_peligro_oficial:
+    peligro_gj = cargar_areas_peligro_senapred(volcan["codigo"] if volcan else None)
+    if peligro_gj and peligro_gj.get("features"):
+        PEL_COLORS = {"Alto": "#c1121f", "Medio": "#f77f00", "Bajo": "#fcbf49"}
+        folium.GeoJson(
+            peligro_gj,
+            name="Peligro volcánico (SENAPRED)",
+            style_function=lambda f: {
+                "fillColor":   PEL_COLORS.get(f["properties"].get("peligro", "Bajo"), "#fcbf49"),
+                "color":       PEL_COLORS.get(f["properties"].get("peligro", "Bajo"), "#fcbf49"),
+                "weight":      1.0,
+                "fillOpacity": 0.45,
+                "opacity":     0.85,
+            },
+            tooltip=folium.GeoJsonTooltip(
+                fields=["volcan", "peligro"],
+                aliases=["Volcán", "Nivel"],
+            ),
+        ).add_to(m)
+
+# -- Puntos de encuentro oficiales --
+if mostrar_puntos_enc:
+    pts = cargar_puntos_encuentro(volcan["codigo"] if volcan else None)
+    if pts and pts.get("features"):
+        grupo_pe = folium.FeatureGroup(name="Puntos de encuentro", show=True)
+        for f in pts["features"]:
+            lon_p, lat_p = f["geometry"]["coordinates"]
+            props = f["properties"]
+            nombre = props.get("NOMBRE") or props.get("nombre") or "Punto de encuentro"
+            folium.Marker(
+                location=[lat_p, lon_p],
+                icon=folium.DivIcon(html=(
+                    '<div style="background:#06d6a0;color:#000;border:2px solid #fff;'
+                    'border-radius:50%;width:18px;height:18px;font-weight:bold;font-size:11px;'
+                    'text-align:center;line-height:14px;'
+                    'box-shadow:0 1px 3px rgba(0,0,0,0.6);">★</div>'
+                ), icon_size=(18,18), icon_anchor=(9,9)),
+                tooltip=f"★ {nombre}",
+            ).add_to(grupo_pe)
+        grupo_pe.add_to(m)
+
+# -- Vías de evacuación --
+if mostrar_vias_evac:
+    vias = cargar_vias_evacuacion(volcan["codigo"] if volcan else None)
+    if vias and vias.get("features"):
+        folium.GeoJson(
+            vias,
+            name="Vías de evacuación",
+            style_function=lambda f: {
+                "color":   "#06d6a0",
+                "weight":  4.5,
+                "opacity": 0.85,
+                "dashArray": "10,5",
+            },
+            tooltip=folium.GeoJsonTooltip(
+                fields=[k for k in (vias["features"][0]["properties"].keys() if vias["features"] else []) if k.lower() in ("nombre","via","localidad","comuna")][:3] or None,
+            ),
+        ).add_to(m)
+
+# -- Perímetro seguridad Villarrica --
+if mostrar_perim_vil:
+    pv = cargar_perimetro_villarrica()
+    if pv and pv.get("features"):
+        folium.GeoJson(
+            pv,
+            name="Perímetro seguridad Villarrica",
+            style_function=lambda f: {
+                "fillColor": "#ff006e", "color": "#ff006e",
+                "weight": 2, "fillOpacity": 0.15, "opacity": 0.9,
+                "dashArray": "6,3",
+            },
+        ).add_to(m)
+
+# -- Servicios SENAPRED (salud, bomberos, educacion, carabineros) --
+SERV_SPEC = [
+    ("salud",      mostrar_salud,     "🏥", "#e63946", "Salud"),
+    ("bomberos",   mostrar_bomberos,  "🚒", "#d62828", "Bomberos"),
+    ("educacion",  mostrar_educacion, "🏫", "#3a86ff", "Educación"),
+    ("carabineros",mostrar_carab,     "🛡️", "#003049", "Carabineros"),
+]
+for tipo, activo, icono, color, label in SERV_SPEC:
+    if not activo:
+        continue
+    sv = cargar_servicios(tipo, volcan["codigo"] if volcan else None)
+    if not sv or not sv.get("features"):
+        continue
+    grupo = folium.FeatureGroup(name=f"{label} (SENAPRED)", show=True)
+    for f in sv["features"]:
+        lon_s, lat_s = f["geometry"]["coordinates"]
+        nombre = f["properties"].get("NOMBRE") or f["properties"].get("nombre") or label
+        folium.CircleMarker(
+            location=[lat_s, lon_s],
+            radius=5, color=color, fill=True, fill_color=color, fill_opacity=0.85,
+            tooltip=f"{icono} {label}: {nombre}",
+        ).add_to(grupo)
+    grupo.add_to(m)
 
 # -- Zonas de peligro volcanico (SERNAGEOMIN shapefile) --
 if mostrar_peligros and peligros_gj:

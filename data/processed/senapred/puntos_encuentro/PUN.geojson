@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"name": "PUN",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 613, "id": 61.0, "nombre": "Predio Jorge Matzner", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.64556, -41.07583 ] } },
+{ "type": "Feature", "properties": { "objectid": 614, "id": 62.0, "nombre": "La Picada", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.56667, -41.00861 ] } },
+{ "type": "Feature", "properties": { "objectid": 615, "id": 63.0, "nombre": "Río Blanco Coihueco", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.58722, -40.9725 ] } },
+{ "type": "Feature", "properties": { "objectid": 616, "id": 64.0, "nombre": "Aguas Buenas", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.60017, -40.97 ] } },
+{ "type": "Feature", "properties": { "objectid": 617, "id": 65.0, "nombre": "Kloker", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.65056, -41.04583 ] } },
+{ "type": "Feature", "properties": { "objectid": 636, "id": 90.0, "nombre": "El Tepú", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.60274, -41.23342 ] } },
+{ "type": "Feature", "properties": { "objectid": 637, "id": 91.0, "nombre": "Villa Los Alamos", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.58239, -41.22982 ] } },
+{ "type": "Feature", "properties": { "objectid": 638, "id": 92.0, "nombre": "Cruce Navarro", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.57131, -41.22713 ] } },
+{ "type": "Feature", "properties": { "objectid": 639, "id": 93.0, "nombre": "Villa Los Volcanes", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.56954, -41.22671 ] } },
+{ "type": "Feature", "properties": { "objectid": 640, "id": 94.0, "nombre": "Villa Elisa", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.56549, -41.2257 ] } },
+{ "type": "Feature", "properties": { "objectid": 641, "id": 95.0, "nombre": "El Zorro", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.55488, -41.2217 ] } },
+{ "type": "Feature", "properties": { "objectid": 642, "id": 96.0, "nombre": "Escuela Epson", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.53917, -41.20848 ] } },
+{ "type": "Feature", "properties": { "objectid": 643, "id": 97.0, "nombre": "Los Arrayanes", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.5084, -41.2191 ] } },
+{ "type": "Feature", "properties": { "objectid": 644, "id": 98.0, "nombre": "Yerbas Buenas", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.58669, -41.14375 ] } },
+{ "type": "Feature", "properties": { "objectid": 645, "id": 99.0, "nombre": "Petrohue", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.40078, -41.13853 ] } },
+{ "type": "Feature", "properties": { "objectid": 646, "id": 100.0, "nombre": "Saltos Del Petrohue", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.45051, -41.17249 ] } },
+{ "type": "Feature", "properties": { "objectid": 647, "id": 101.0, "nombre": "Escuela Rural Ella Minte de Roth", "tipo": "PET", "volcan": "Osorno" }, "geometry": { "type": "Point", "coordinates": [ -72.01848, -41.08516 ] } },
+{ "type": "Feature", "properties": { "objectid": 697, "id": 220.0, "nombre": "Escuela Pisu Pisue", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.53912, -40.62904 ] } },
+{ "type": "Feature", "properties": { "objectid": 698, "id": 221.0, "nombre": "Escuela El Arrayán", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.51683, -40.60154 ] } },
+{ "type": "Feature", "properties": { "objectid": 699, "id": 222.0, "nombre": "Escuela Rural Mantilhue Bajo", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.48555, -40.61681 ] } },
+{ "type": "Feature", "properties": { "objectid": 700, "id": 224.0, "nombre": "Escuela Rucatayo Alto", "tipo": "PET", "volcan": "Cordón Caulle" }, "geometry": { "type": "Point", "coordinates": [ -72.40803, -40.57015 ] } }
+]
+}

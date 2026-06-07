@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "LAS",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid_1": 1413, "fid_compil": 25, "objectid": 25, "nombre": "Tercera de San Pedro de Atacama", "nombre_del": "San Pedro de Atacama", "tipo": "Compañia", "cut_cia": 220703, "compa__ia": "Tercera de San Pedro de Atacama", "cut_cuerpo": 2207, "direccion": "Guatiquiña esq. Copiapó", "telefono": "933978335", "point_x": -68.006696, "point_y": -23.191488, "cut": " ", "tipo_de_vl": " ", "numeraci__": " ", "nombre_de": " ", "comunas_at": " ", "voluntario": 0, "as_2018": 0, "as_2019": 0, "as_2020": 0, "cantidad_m": 0, "actualizad": " ", "esp6": " ", "esp1": "Agua", "esp5": " ", "esp3": "Rescate vehicular", "esp2": "Escalada", "esp4": " ", "esp7": " ", "esp8": " ", "cine_prov": "022", "cod_com": 2203, "cine_com": "02203", "nom_com": "SAN PEDRO DE ATACAMA", "nom_prov": "EL LOA", "nom_reg": "ANTOFAGASTA", "cine_reg": "02", "globalid": "b52d97d3-ae3f-4d47-943d-cbb82ba94b16", "region": "Antofagasta", "provincia": "EL LOA", "comuna": "SAN PEDRO DE ATACAMA" }, "geometry": { "type": "Point", "coordinates": [ -68.0067, -23.19149 ] } }
+]
+}

@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "SDP",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2520, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN ASCOTAN (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "RUTA", "nombre_de": "RUTA CH-21", "numero": "KM 122", "point_x": -68.27544348000001, "point_y": -21.72512922, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02008", "fid_dpa_co": null, "cine_prov": "022", "cod_com": null, "cine_com": "02202", "cine_reg": "02", "region": "Antofagasta", "provincia": "El Loa", "comuna": "Ollagüe", "globalid": "f8d7f98a-101f-4f1e-8bb0-4b30596fe03b" }, "geometry": { "type": "Point", "coordinates": [ -68.27544, -21.72513 ] } },
+{ "type": "Feature", "properties": { "objectid": 2521, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN INACALIRI (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "RUTA", "nombre_de": "RUTA B-145 SECTOR CONCHI EL TAPIO", "numero": "S/N", "point_x": -68.066668959999987, "point_y": -22.02806577, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02009", "fid_dpa_co": null, "cine_prov": "022", "cod_com": null, "cine_com": "02201", "cine_reg": "02", "region": "Antofagasta", "provincia": "El Loa", "comuna": "Calama", "globalid": "2a79fd12-b06d-4ea4-8823-8400c5698c0b" }, "geometry": { "type": "Point", "coordinates": [ -68.06667, -22.02807 ] } },
+{ "type": "Feature", "properties": { "objectid": 2526, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN TOCONCE (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "RUTA", "nombre_de": "GABRIELA MISTRAL", "numero": "S/N", "point_x": -68.1662094, "point_y": -22.2644872, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02014", "fid_dpa_co": null, "cine_prov": "022", "cod_com": null, "cine_com": "02201", "cine_reg": "02", "region": "Antofagasta", "provincia": "El Loa", "comuna": "Calama", "globalid": "d4560cf7-ed8b-45b6-aea9-75b3f874f165" }, "geometry": { "type": "Point", "coordinates": [ -68.16621, -22.26449 ] } }
+]
+}

@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "PUT",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2526, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN TOCONCE (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "RUTA", "nombre_de": "GABRIELA MISTRAL", "numero": "S/N", "point_x": -68.1662094, "point_y": -22.2644872, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02014", "fid_dpa_co": null, "cine_prov": "022", "cod_com": null, "cine_com": "02201", "cine_reg": "02", "region": "Antofagasta", "provincia": "El Loa", "comuna": "Calama", "globalid": "d4560cf7-ed8b-45b6-aea9-75b3f874f165" }, "geometry": { "type": "Point", "coordinates": [ -68.16621, -22.26449 ] } },
+{ "type": "Feature", "properties": { "objectid": 2527, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN TOCORPURI (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "RUTA", "nombre_de": "RUTA B-159", "numero": "KM 55", "point_x": -68.058373, "point_y": -22.497451, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02015", "fid_dpa_co": null, "cine_prov": "022", "cod_com": null, "cine_com": "02203", "cine_reg": "02", "region": "Antofagasta", "provincia": "El Loa", "comuna": "San Pedro de Atacama", "globalid": "8fed09ee-cb1d-4914-b667-8227bd19782d" }, "geometry": { "type": "Point", "coordinates": [ -68.05837, -22.49745 ] } },
+{ "type": "Feature", "properties": { "objectid": 2529, "fid_cuarte": null, "fid_": null, "nombre_uni": "2DA. COM. SAN PEDRO ATACAMA (F)", "tipo_de_un": "COMISARIA", "tipo_de_vi": "CALLE", "nombre_de": "GUSTAVO LEPEIGE", "numero": "S/N", "point_x": -68.20050595000001, "point_y": -22.91061127, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02017", "fid_dpa_co": null, "cine_prov": "022", "cod_com": null, "cine_com": "02203", "cine_reg": "02", "region": "Antofagasta", "provincia": "El Loa", "comuna": "San Pedro de Atacama", "globalid": "d7994763-eccf-4937-9557-5d76274e7f81" }, "geometry": { "type": "Point", "coordinates": [ -68.20051, -22.91061 ] } }
+]
+}

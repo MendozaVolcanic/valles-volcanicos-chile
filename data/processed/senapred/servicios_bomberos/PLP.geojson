@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "PLP",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid_1": 1167, "fid_compil": 847, "objectid": 849, "nombre": "Segunda de Romeral", "nombre_del": "Romeral", "tipo": "Compañia", "cut_cia": 731802, "compa__ia": "Segunda de Romeral", "cut_cuerpo": 7318, "direccion": "Avenida La Junta S/N, Los Queñes", "telefono": "(75) 431031", "point_x": -70.812646, "point_y": -34.999528, "cut": " ", "tipo_de_vl": " ", "numeraci__": " ", "nombre_de": " ", "comunas_at": " ", "voluntario": 0, "as_2018": 0, "as_2019": 0, "as_2020": 0, "cantidad_m": 0, "actualizad": " ", "esp6": " ", "esp1": " ", "esp5": " ", "esp3": " ", "esp2": " ", "esp4": " ", "esp7": " ", "esp8": " ", "cine_prov": "073", "cod_com": 7306, "cine_com": "07306", "nom_com": "ROMERAL", "nom_prov": "CURICÓ", "nom_reg": "MAULE", "cine_reg": "07", "globalid": "68c79115-1137-49e7-b83b-84e33c3729bb", "region": "Maule", "provincia": "CURICÓ", "comuna": "ROMERAL" }, "geometry": { "type": "Point", "coordinates": [ -70.81265, -34.99953 ] } },
+{ "type": "Feature", "properties": { "objectid_1": 1180, "fid_compil": 870, "objectid": 872, "nombre": "Quinta de Teno", "nombre_del": "Teno", "tipo": "Compañia", "cut_cia": 730805, "compa__ia": "Quinta de Teno", "cut_cuerpo": 7308, "direccion": "Camino La Montaña, Sector La Laguna", "telefono": " ", "point_x": -70.950672, "point_y": -34.966182, "cut": " ", "tipo_de_vl": " ", "numeraci__": " ", "nombre_de": " ", "comunas_at": " ", "voluntario": 0, "as_2018": 0, "as_2019": 0, "as_2020": 0, "cantidad_m": 0, "actualizad": " ", "esp6": " ", "esp1": " ", "esp5": " ", "esp3": " ", "esp2": " ", "esp4": " ", "esp7": " ", "esp8": " ", "cine_prov": "073", "cod_com": 7308, "cine_com": "07308", "nom_com": "TENO", "nom_prov": "CURICÓ", "nom_reg": "MAULE", "cine_reg": "07", "globalid": "c1a5ebe5-10fb-4cc4-a933-c121bc08f672", "region": "Maule", "provincia": "CURICÓ", "comuna": "TENO" }, "geometry": { "type": "Point", "coordinates": [ -70.95067, -34.96618 ] } }
+]
+}

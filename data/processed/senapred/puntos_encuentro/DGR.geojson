@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "DGR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 712, "id": null, "nombre": "Los Álamos", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -70.81896, -35.8177 ] } },
+{ "type": "Feature", "properties": { "objectid": 713, "id": null, "nombre": "Las Garzas", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -70.99493, -35.76262 ] } },
+{ "type": "Feature", "properties": { "objectid": 714, "id": null, "nombre": "Las Parcelas, La Suiza", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.0175, -35.72234 ] } },
+{ "type": "Feature", "properties": { "objectid": 715, "id": null, "nombre": "San Carlos la Campana, Armerillo", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.06185, -35.70719 ] } },
+{ "type": "Feature", "properties": { "objectid": 716, "id": null, "nombre": "Fundo Tricahue, Armerillo", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.06521, -35.69853 ] } },
+{ "type": "Feature", "properties": { "objectid": 717, "id": null, "nombre": "Cancha Armerillo", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.10845, -35.70323 ] } },
+{ "type": "Feature", "properties": { "objectid": 718, "id": null, "nombre": "Vientos Bajos, Armerillo", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.08927, -35.7021 ] } },
+{ "type": "Feature", "properties": { "objectid": 719, "id": null, "nombre": "Punte Pancho", "tipo": "PE", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.10455, -35.38623 ] } },
+{ "type": "Feature", "properties": { "objectid": 720, "id": null, "nombre": "Reten Molina", "tipo": "PET", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.04931, -35.4184 ] } },
+{ "type": "Feature", "properties": { "objectid": 723, "id": null, "nombre": "Bramadero", "tipo": "PE", "volcan": "Descabezado" }, "geometry": { "type": "Point", "coordinates": [ -71.2995, -35.60302 ] } }
+]
+}

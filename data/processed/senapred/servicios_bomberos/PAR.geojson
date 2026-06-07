@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "PAR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid_1": 406, "fid_compil": 375, "objectid": 377, "nombre": "Octava de Arica", "nombre_del": "Arica", "tipo": "Compañia", "cut_cia": 1510508, "compa__ia": "Octava de Arica", "cut_cuerpo": 15101, "direccion": "Teniente del Campo con Av. O'Higgins", "telefono": "(58) 257614 - 254568 - 257654", "point_x": -69.560885, "point_y": -18.197373, "cut": " ", "tipo_de_vl": " ", "numeraci__": " ", "nombre_de": " ", "comunas_at": " ", "voluntario": 0, "as_2018": 0, "as_2019": 0, "as_2020": 0, "cantidad_m": 0, "actualizad": "No", "esp6": " ", "esp1": " ", "esp5": " ", "esp3": " ", "esp2": " ", "esp4": " ", "esp7": " ", "esp8": " ", "cine_prov": "152", "cod_com": 15201, "cine_com": "15201", "nom_com": "PUTRE", "nom_prov": "PARINACOTA", "nom_reg": "ARICA Y PARINACOTA", "cine_reg": "15", "globalid": "86dd0bcc-1cc9-460b-a145-514b8d6c9e04", "region": "Arica y Parinacota", "provincia": "PARINACOTA", "comuna": "PUTRE" }, "geometry": { "type": "Point", "coordinates": [ -69.56089, -18.19737 ] } }
+]
+}

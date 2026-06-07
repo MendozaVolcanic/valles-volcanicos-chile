@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "TUP",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 12300, "fid_establecimientos_de_salud": null, "código_an": "12-407", "código_vi": 112407, "código__m": " ", "código_nu": 0, "código_re": 13, "nombre_reg": "Metropolitana de Santiago", "código_de": 12, "nombre_dep": "Servicio de Salud Metropolitano Oriente", "pertenenci": "Perteneciente al Sistema Nacional de Servicios de Salud", "tipo_estab": null, "ámbito_de": "Establecimiento de Salud", "nombre_ofi": null, "certificac": "No Aplica", "dependenci": "Servicio de Salud Metropolitano Oriente", "nivel_de_a": "Primario", "código_co": "13115", "nombre_com": "LO BARNECHEA", "vía": "Calle", "número": 0, "dirección": "Camino a Farellones", "teléfono": 222224591, "fecha_inic": "38716", "tiene_serv": null, "tipo_de_ur": "No Aplica", "tipo_de_sa": null, "latitud": -33.35232, "longitud__": -70.31119, "tipo_de_pr": null, "estado_de": null, "nivel_de_c": "Primario", "modalidad": null, "simbologia": "Atención Primaria de Salud (APS)", "fid_comunas_v1": null, "cut_reg": "13", "cut_prov": "131", "cut_com": "13115", "region": "Metropolitana de Santiago", "provincia": "SANTIAGO", "comuna": "LO BARNECHEA", "superficie": null }, "geometry": { "type": "Point", "coordinates": [ -70.31119, -33.35232 ] } }
+]
+}

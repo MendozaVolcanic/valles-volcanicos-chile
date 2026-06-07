@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "MEL",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2303, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN PUYUHUAPI", "tipo_de_un": "RETEN", "tipo_de_vi": "CALLE", "nombre_de": "OTTO UEBEL", "numero": "S/N", "point_x": -72.558077, "point_y": -44.324892, "hecho": "2014", "rg": 11, "prefectura": "AYSEN DEL GRAL LUIS MARCHANT GONZALEZ", "zona": "ZONA DE AYSEN", "uni_cod": "11015", "fid_dpa_co": null, "cine_prov": "112", "cod_com": null, "cine_com": "11202", "cine_reg": "11", "region": "Aysén del General Carlos Ibáñez del Campo", "provincia": "Aisén", "comuna": "Cisnes", "globalid": "d82008dc-5abe-4e02-bc0c-ae16fe5f5aac" }, "geometry": { "type": "Point", "coordinates": [ -72.55808, -44.32489 ] } },
+{ "type": "Feature", "properties": { "objectid": 2304, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN RAUL MARIN BALMACEDA", "tipo_de_un": "RETEN", "tipo_de_vi": "AVENIDA", "nombre_de": "COSTANERA", "numero": "S/N", "point_x": -72.95166156000001, "point_y": -43.77636227, "hecho": "2014", "rg": 11, "prefectura": "AYSEN DEL GRAL LUIS MARCHANT GONZALEZ", "zona": "ZONA DE AYSEN", "uni_cod": "11016", "fid_dpa_co": null, "cine_prov": "112", "cod_com": null, "cine_com": "11202", "cine_reg": "11", "region": "Aysén del General Carlos Ibáñez del Campo", "provincia": "Aisén", "comuna": "Cisnes", "globalid": "91745efc-ea9a-4c8c-9a39-00e2224715cc" }, "geometry": { "type": "Point", "coordinates": [ -72.95166, -43.77636 ] } },
+{ "type": "Feature", "properties": { "objectid": 2311, "fid_cuarte": null, "fid_": null, "nombre_uni": "TCIA. LA JUNTA", "tipo_de_un": "TENENCIA", "tipo_de_vi": "RUTA", "nombre_de": "RUTA 7 CARRETERA AUSTRAL", "numero": "KM 269", "point_x": -72.40200584, "point_y": -43.97226919, "hecho": "2014", "rg": 11, "prefectura": "AYSEN DEL GRAL LUIS MARCHANT GONZALEZ", "zona": "ZONA DE AYSEN", "uni_cod": "11024", "fid_dpa_co": null, "cine_prov": "112", "cod_com": null, "cine_com": "11202", "cine_reg": "11", "region": "Aysén del General Carlos Ibáñez del Campo", "provincia": "Aisén", "comuna": "Cisnes", "globalid": "3b3462eb-319a-4710-a8da-3784c624f729" }, "geometry": { "type": "Point", "coordinates": [ -72.40201, -43.97227 ] } }
+]
+}

@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "MIC",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 637, "volcan": "Chaitén", "Shape__Length": 0.0058047432898618127 }, "geometry": { "type": "LineString", "coordinates": [ [ -72.70255, -42.91931 ], [ -72.70211, -42.92237 ], [ -72.70189, -42.92297 ], [ -72.70036, -42.92437 ] ] } },
+{ "type": "Feature", "properties": { "objectid": 638, "volcan": "Chaitén", "Shape__Length": 0.012524291059181871 }, "geometry": { "type": "LineString", "coordinates": [ [ -72.71001, -42.92093 ], [ -72.70891, -42.91471 ], [ -72.71047, -42.91457 ], [ -72.71026, -42.91328 ], [ -72.70969, -42.91271 ], [ -72.70978, -42.91249 ], [ -72.71054, -42.91174 ], [ -72.71089, -42.91166 ], [ -72.71175, -42.91172 ] ] } },
+{ "type": "Feature", "properties": { "objectid": 639, "volcan": "Chaitén", "Shape__Length": 0.0036771145066051263 }, "geometry": { "type": "LineString", "coordinates": [ [ -72.70586, -42.91854 ], [ -72.70953, -42.9182 ] ] } },
+{ "type": "Feature", "properties": { "objectid": 640, "volcan": "Chaitén", "Shape__Length": 0.0069470246095220331 }, "geometry": { "type": "LineString", "coordinates": [ [ -72.7086, -42.92307 ], [ -72.70712, -42.92319 ], [ -72.70591, -42.92309 ], [ -72.70516, -42.92294 ], [ -72.70388, -42.922 ], [ -72.70339, -42.92176 ], [ -72.70277, -42.92172 ], [ -72.70215, -42.9221 ] ] } }
+]
+}

@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "TUP",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2172, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN FARELLONES", "tipo_de_un": "RETEN", "tipo_de_vi": "CAMINO", "nombre_de": "LOS CLONQUIS", "numero": "S/N", "point_x": -70.3155405, "point_y": -33.35235442, "hecho": "2014", "rg": 13, "prefectura": "SANTIAGO ANDES", "zona": "ZONA METROPOLITANA ESTE", "uni_cod": "13055", "fid_dpa_co": null, "cine_prov": "131", "cod_com": null, "cine_com": "13115", "cine_reg": "13", "region": "Metropolitana de Santiago", "provincia": "Santiago", "comuna": "Lo Barnechea", "globalid": "32964b1b-3130-45b9-aaab-3aee8a19d8af" }, "geometry": { "type": "Point", "coordinates": [ -70.31554, -33.35235 ] } }
+]
+}

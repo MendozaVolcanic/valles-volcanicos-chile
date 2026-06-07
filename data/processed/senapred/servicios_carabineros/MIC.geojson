@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "MIC",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2377, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN VODUDAHUE (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "RUTA", "nombre_de": "VODUDAHUE", "numero": "S/N", "point_x": -72.39130924, "point_y": -42.49017804, "hecho": "2014", "rg": 10, "prefectura": "LLANQUIHUE", "zona": "ZONA DE LOS LAGOS", "uni_cod": "10060", "fid_dpa_co": null, "cine_prov": "104", "cod_com": null, "cine_com": "10403", "cine_reg": "10", "region": "Los Lagos", "provincia": "Palena", "comuna": "Hualaihué", "globalid": "a6e00427-7052-4cf8-ae92-3b3b586ae91a" }, "geometry": { "type": "Point", "coordinates": [ -72.39131, -42.49018 ] } },
+{ "type": "Feature", "properties": { "objectid": 2439, "fid_cuarte": null, "fid_": null, "nombre_uni": "4TA. COM. CHAITEN (F)", "tipo_de_un": "COMISARIA", "tipo_de_vi": "AVENIDA", "nombre_de": "IGNACIO CARRERA PINTO", "numero": "435", "point_x": -72.70942782, "point_y": -42.91606447, "hecho": "2014", "rg": 10, "prefectura": "CHILOE", "zona": "ZONA DE LOS LAGOS", "uni_cod": "10011", "fid_dpa_co": null, "cine_prov": "104", "cod_com": null, "cine_com": "10401", "cine_reg": "10", "region": "Los Lagos", "provincia": "Palena", "comuna": "Chaitén", "globalid": "b3dd5074-b741-44a2-925f-9c09580782dc" }, "geometry": { "type": "Point", "coordinates": [ -72.70943, -42.91606 ] } }
+]
+}

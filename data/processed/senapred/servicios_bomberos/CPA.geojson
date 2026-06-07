@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "CPA",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid_1": 843, "fid_compil": 1018, "objectid": 1020, "nombre": "Cuarta de Santa Bárbara", "nombre_del": "Alto Bío Bío", "tipo": "Compañia", "cut_cia": 832004, "compa__ia": "Cuarta de Santa Bárbara", "cut_cuerpo": 8320, "direccion": "Villa Ralco S/N", "telefono": "(43) 581201", "point_x": -71.63724, "point_y": -37.881121, "cut": " ", "tipo_de_vl": " ", "numeraci__": " ", "nombre_de": " ", "comunas_at": " ", "voluntario": 0, "as_2018": 0, "as_2019": 0, "as_2020": 0, "cantidad_m": 0, "actualizad": " ", "esp6": " ", "esp1": " ", "esp5": " ", "esp3": " ", "esp2": " ", "esp4": " ", "esp7": " ", "esp8": " ", "cine_prov": "083", "cod_com": 8314, "cine_com": "08314", "nom_com": "ALTO BIOBÍO", "nom_prov": "BIOBÍO", "nom_reg": "BIOBÍO", "cine_reg": "08", "globalid": "bf6d27f0-99fa-49aa-8400-5d0713612b23", "region": "Biobío", "provincia": "BIOBÍO", "comuna": "ALTO BIOBÍO" }, "geometry": { "type": "Point", "coordinates": [ -71.63724, -37.88112 ] } }
+]
+}

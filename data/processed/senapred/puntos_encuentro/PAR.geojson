@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "PAR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 705, "id": 184.0, "nombre": "Vista Tacora", "tipo": "PET", "volcan": "Taapacá" }, "geometry": { "type": "Point", "coordinates": [ -69.54195, -18.09705 ] } },
+{ "type": "Feature", "properties": { "objectid": 706, "id": 185.0, "nombre": "Casa Familia Huaylla", "tipo": "PET", "volcan": "Taapacá" }, "geometry": { "type": "Point", "coordinates": [ -69.46293, -18.16364 ] } },
+{ "type": "Feature", "properties": { "objectid": 707, "id": 186.0, "nombre": "Estancia Pajira Japani", "tipo": "PET", "volcan": "Taapacá" }, "geometry": { "type": "Point", "coordinates": [ -69.4968, -18.18993 ] } },
+{ "type": "Feature", "properties": { "objectid": 708, "id": 188.0, "nombre": "Pampa Lluscuma", "tipo": "PET", "volcan": "Taapacá" }, "geometry": { "type": "Point", "coordinates": [ -69.584, -18.19752 ] } },
+{ "type": "Feature", "properties": { "objectid": 709, "id": 189.0, "nombre": "Campamento vialidad", "tipo": "PET", "volcan": "Taapacá" }, "geometry": { "type": "Point", "coordinates": [ -69.54917, -18.20688 ] } },
+{ "type": "Feature", "properties": { "objectid": 711, "id": 236.0, "nombre": "Zapahuira", "tipo": "PE", "volcan": "Taapacá" }, "geometry": { "type": "Point", "coordinates": [ -69.58871, -18.33822 ] } }
+]
+}

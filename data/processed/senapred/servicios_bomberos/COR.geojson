@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "COR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid_1": 448, "fid_compil": 1264, "objectid": 1266, "nombre": "Primera de Chaiten", "nombre_del": "Chaitén", "tipo": "Compañia", "cut_cia": 1042601, "compa__ia": "Primera de Chaiten", "cut_cuerpo": 10426, "direccion": "Portales 517", "telefono": "(65) 731459 - 08 2162505", "point_x": -72.711692, "point_y": -42.918262, "cut": " ", "tipo_de_vl": " ", "numeraci__": " ", "nombre_de": " ", "comunas_at": " ", "voluntario": 0, "as_2018": 0, "as_2019": 0, "as_2020": 0, "cantidad_m": 0, "actualizad": " ", "esp6": " ", "esp1": " ", "esp5": " ", "esp3": " ", "esp2": " ", "esp4": " ", "esp7": " ", "esp8": " ", "cine_prov": "104", "cod_com": 10401, "cine_com": "10401", "nom_com": "CHAITÉN", "nom_prov": "PALENA", "nom_reg": "LOS LAGOS", "cine_reg": "10", "globalid": "a9e1cdcc-9b06-43ca-bf8f-6eb992cf15b9", "region": "Los Lagos", "provincia": "PALENA", "comuna": "CHAITÉN" }, "geometry": { "type": "Point", "coordinates": [ -72.71169, -42.91826 ] } },
+{ "type": "Feature", "properties": { "objectid_1": 449, "fid_compil": 59, "objectid": 59, "nombre": "Chaitén", "nombre_del": "Chaitén", "tipo": "Cuerpo", "cut_cia": 0, "compa__ia": "Chaitén", "cut_cuerpo": 0, "direccion": "Diego Portales 517", "telefono": " ", "point_x": -72.710434, "point_y": -42.916337, "cut": "10426", "tipo_de_vl": "Avenida", "numeraci__": "517", "nombre_de": "Diego Portales", "comunas_at": "Chaitén", "voluntario": 56, "as_2018": 137, "as_2019": 117, "as_2020": 108, "cantidad_m": 8, "actualizad": " ", "esp6": " ", "esp1": " ", "esp5": " ", "esp3": " ", "esp2": " ", "esp4": " ", "esp7": " ", "esp8": " ", "cine_prov": "104", "cod_com": 10401, "cine_com": "10401", "nom_com": "CHAITÉN", "nom_prov": "PALENA", "nom_reg": "LOS LAGOS", "cine_reg": "10", "globalid": "0f7a013b-dc6b-4e20-9bc2-2b00c2e9d502", "region": "Los Lagos", "provincia": "PALENA", "comuna": "CHAITÉN" }, "geometry": { "type": "Point", "coordinates": [ -72.71043, -42.91634 ] } }
+]
+}

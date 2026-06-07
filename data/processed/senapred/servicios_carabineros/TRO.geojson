@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "TRO",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2363, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN PASO EL LEON (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "CALLE", "nombre_de": "EL LEON", "numero": "S/N", "point_x": -71.86094772, "point_y": -41.5041642, "hecho": "2014", "rg": 10, "prefectura": "LLANQUIHUE", "zona": "ZONA DE LOS LAGOS", "uni_cod": "10045", "fid_dpa_co": null, "cine_prov": "101", "cod_com": null, "cine_com": "10103", "cine_reg": "10", "region": "Los Lagos", "provincia": "Llanquihue", "comuna": "Cochamó", "globalid": "7ee8a82f-6e4c-4e21-9026-9265c36a27d7" }, "geometry": { "type": "Point", "coordinates": [ -71.86095, -41.50416 ] } },
+{ "type": "Feature", "properties": { "objectid": 2486, "fid_cuarte": null, "fid_": null, "nombre_uni": "TCIA. CASA PANGUE (F)", "tipo_de_un": "TENENCIA", "tipo_de_vi": "RUTA", "nombre_de": "RUTA CH-225", "numero": "KM 18", "point_x": -71.87649562, "point_y": -41.04765792000001, "hecho": "2014", "rg": 10, "prefectura": "LLANQUIHUE", "zona": "ZONA DE LOS LAGOS", "uni_cod": "10072", "fid_dpa_co": null, "cine_prov": "101", "cod_com": null, "cine_com": "10109", "cine_reg": "10", "region": "Los Lagos", "provincia": "Llanquihue", "comuna": "Puerto Varas", "globalid": "773e8106-4c34-4810-91cc-7d846eb3f7a4" }, "geometry": { "type": "Point", "coordinates": [ -71.8765, -41.04766 ] } }
+]
+}

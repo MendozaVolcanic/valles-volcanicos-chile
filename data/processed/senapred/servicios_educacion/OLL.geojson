@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "OLL",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 31964, "dependencia": "INTEGRA", "nombre_establecimiento": "MI BANDERITA CHILENA", "rbd": "I20401", "dgv_rbd": null, "estado": null, "direccion": null, "urbano_rural": "RURAL", "matricula": 10, "tipo": null, "cut_reg": "02", "cut_prov": "022", "cut_com": "02202", "region": "Antofagasta", "provincia": "El Loa", "comuna": "Ollagüe", "globalid": "cb43593d-7acb-4a67-a187-42557dc652c2", "latitud": -21.224228, "longitud": -68.254734 }, "geometry": { "type": "Point", "coordinates": [ -68.25473, -21.22423 ] } },
+{ "type": "Feature", "properties": { "objectid": 31995, "dependencia": "SLEP", "nombre_establecimiento": "ESC. BASICA RURAL SAN ANTONIO DE PADUA", "rbd": "268", "dgv_rbd": null, "estado": null, "direccion": null, "urbano_rural": "RURAL", "matricula": 50, "tipo": null, "cut_reg": "02", "cut_prov": "022", "cut_com": "02202", "region": "Antofagasta", "provincia": "El Loa", "comuna": "Ollagüe", "globalid": "78ce156f-2ad9-417b-b71e-95fbfffcce89", "latitud": -21.22388, "longitud": -68.25251 }, "geometry": { "type": "Point", "coordinates": [ -68.25251, -21.22388 ] } }
+]
+}

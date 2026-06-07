@@ -102,6 +102,73 @@ def cargar_indice_quebradas() -> pd.DataFrame:
     return pd.DataFrame(columns=["quebrada", "tipo", "volcan", "codigo", "tramos"])
 
 
+# --- SNASPE local (reemplaza al WMS SAG/CONAF roto en 2026) ---
+@st.cache_data
+def cargar_snaspe(codigo: str | None = None) -> dict | None:
+    """Areas protegidas SNAP/SNASPE oficiales (MBN). Shard por volcan."""
+    if codigo:
+        p = PROCESSED / "snaspe" / f"{codigo}.geojson"
+        if p.exists():
+            with open(str(p), encoding="utf-8") as f:
+                return json.load(f)
+        return {"type": "FeatureCollection", "features": []}
+    p = PROCESSED / "snaspe.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
+# --- SENAPRED: capas oficiales del Visor Chile Preparado ---
+SENAPRED = PROCESSED / "senapred"
+
+
+def _cargar_senapred_shard(capa: str, codigo: str | None) -> dict | None:
+    """Carga shard SENAPRED por volcan o devuelve FC vacio."""
+    if codigo:
+        p = SENAPRED / capa / f"{codigo}.geojson"
+        if p.exists():
+            with open(str(p), encoding="utf-8") as f:
+                return json.load(f)
+        return {"type": "FeatureCollection", "features": []}
+    # Vista global: leer GeoJSON global si existe
+    p = SENAPRED / f"{capa}.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
+@st.cache_data
+def cargar_puntos_encuentro(codigo: str | None = None) -> dict | None:
+    return _cargar_senapred_shard("puntos_encuentro", codigo)
+
+
+@st.cache_data
+def cargar_vias_evacuacion(codigo: str | None = None) -> dict | None:
+    return _cargar_senapred_shard("vias_evacuacion", codigo)
+
+
+@st.cache_data
+def cargar_areas_peligro_senapred(codigo: str | None = None) -> dict | None:
+    return _cargar_senapred_shard("areas_peligro", codigo)
+
+
+@st.cache_data
+def cargar_servicios(tipo: str, codigo: str | None = None) -> dict | None:
+    """tipo: salud | bomberos | educacion | carabineros"""
+    return _cargar_senapred_shard(f"servicios_{tipo}", codigo)
+
+
+@st.cache_data
+def cargar_perimetro_villarrica() -> dict | None:
+    p = SENAPRED / "perimetro_villarrica.geojson"
+    if not p.exists():
+        return None
+    with open(str(p), encoding="utf-8") as f:
+        return json.load(f)
+
+
 @st.cache_data(ttl=300)
 def wms_disponible(url: str, timeout: float = 3.0) -> bool:
     """Verifica que el endpoint WMS responda. Cache 5 min."""

@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "LDM",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 24722, "dependencia": "MUNICIPAL", "nombre_establecimiento": "ESCUELA NACIONES UNIDAS", "rbd": "3092", "dgv_rbd": null, "estado": null, "direccion": null, "urbano_rural": "RURAL", "matricula": 3, "tipo": null, "cut_reg": "07", "cut_prov": "071", "cut_com": "07109", "region": "Maule", "provincia": "Talca", "comuna": "San Clemente", "globalid": "30dc82f6-780b-4422-8d26-90a8ccbf91e2", "latitud": -35.81569, "longitud": -70.81283 }, "geometry": { "type": "Point", "coordinates": [ -70.81283, -35.81569 ] } }
+]
+}

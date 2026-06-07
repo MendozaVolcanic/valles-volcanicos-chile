@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "SDP",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 12719, "fid_establecimientos_de_salud": null, "código_an": "03-409", "código_vi": 103409, "código__m": " ", "código_nu": 0, "código_re": 2, "nombre_reg": "Antofagasta", "código_de": 3, "nombre_dep": "Servicio de Salud Antofagasta", "pertenenci": "Perteneciente al Sistema Nacional de Servicios de Salud", "tipo_estab": null, "ámbito_de": "Establecimiento de Salud", "nombre_ofi": null, "certificac": "No Aplica", "dependenci": "Servicio de Salud Antofagasta", "nivel_de_a": "Primario", "código_co": "02201", "nombre_com": "CALAMA", "vía": "Calle", "número": 321, "dirección": "San Roque", "teléfono": 0, "fecha_inic": "38716", "tiene_serv": null, "tipo_de_ur": "No Aplica", "tipo_de_sa": null, "latitud": -22.27864, "longitud__": -68.32189, "tipo_de_pr": null, "estado_de": null, "nivel_de_c": "Primario", "modalidad": null, "simbologia": "Atención Primaria de Salud (APS)", "fid_comunas_v1": null, "cut_reg": "2", "cut_prov": "022", "cut_com": "02201", "region": "Antofagasta", "provincia": "EL LOA", "comuna": "CALAMA", "superficie": null }, "geometry": { "type": "Point", "coordinates": [ -68.32189, -22.27864 ] } }
+]
+}

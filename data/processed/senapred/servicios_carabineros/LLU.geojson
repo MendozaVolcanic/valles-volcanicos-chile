@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "LLU",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 2524, "fid_cuarte": null, "fid_": null, "nombre_uni": "RETEN SOCOMPA (F)", "tipo_de_un": "RETEN", "tipo_de_vi": "RUTA", "nombre_de": "RUTA B-55", "numero": "KM 370", "point_x": -68.29061667, "point_y": -24.45041002, "hecho": "2014", "rg": 2, "prefectura": "EL LOA", "zona": "ZONA DE ANTOFAGASTA", "uni_cod": "02012", "fid_dpa_co": null, "cine_prov": "021", "cod_com": null, "cine_com": "02101", "cine_reg": "02", "region": "Antofagasta", "provincia": "Antofagasta", "comuna": "Antofagasta", "globalid": "df3e662f-6057-4c55-b7f8-02677d9f313e" }, "geometry": { "type": "Point", "coordinates": [ -68.29062, -24.45041 ] } }
+]
+}

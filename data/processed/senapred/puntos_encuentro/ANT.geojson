@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "ANT",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 618, "id": 67.0, "nombre": "Carabineros Trapa Trapa", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.22098, -37.73327 ] } },
+{ "type": "Feature", "properties": { "objectid": 621, "id": 70.0, "nombre": "Lonco Traro", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.26794, -37.7259 ] } },
+{ "type": "Feature", "properties": { "objectid": 622, "id": 71.0, "nombre": "Posta Butalelbun", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.21508, -37.75273 ] } },
+{ "type": "Feature", "properties": { "objectid": 623, "id": 72.0, "nombre": "Trapa Trapa", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.2462, -37.71575 ] } },
+{ "type": "Feature", "properties": { "objectid": 624, "id": 73.0, "nombre": "Antena", "tipo": "PET", "volcan": "Copahue" }, "geometry": { "type": "Point", "coordinates": [ -71.22507, -37.75715 ] } },
+{ "type": "Feature", "properties": { "objectid": 648, "id": 112.0, "nombre": "Estadio Antuco", "tipo": "PE", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.67204, -37.33149 ] } },
+{ "type": "Feature", "properties": { "objectid": 649, "id": 113.0, "nombre": "Oficina CONAF", "tipo": "PET", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.40903, -37.39351 ] } },
+{ "type": "Feature", "properties": { "objectid": 650, "id": 114.0, "nombre": "Villa Peluca", "tipo": "PET", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.61611, -37.3379 ] } },
+{ "type": "Feature", "properties": { "objectid": 651, "id": 115.0, "nombre": "Campamento Viejo", "tipo": "PET", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.4738, -37.3873 ] } },
+{ "type": "Feature", "properties": { "objectid": 652, "id": 116.0, "nombre": "Centro Turístico Serv. Salud Biob", "tipo": "PET", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.49786, -37.37147 ] } },
+{ "type": "Feature", "properties": { "objectid": 653, "id": 117.0, "nombre": "Villa Los Canelos", "tipo": "PET", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.53454, -37.35987 ] } },
+{ "type": "Feature", "properties": { "objectid": 654, "id": 118.0, "nombre": "PE Villa Las Rosas", "tipo": "PE", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.65068, -37.33309 ] } },
+{ "type": "Feature", "properties": { "objectid": 655, "id": 119.0, "nombre": "Callejón Los Aromos", "tipo": "PE", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.64078, -37.33432 ] } },
+{ "type": "Feature", "properties": { "objectid": 656, "id": 120.0, "nombre": "Sede JJVV Alto Antuco", "tipo": "PE", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.67215, -37.34284 ] } },
+{ "type": "Feature", "properties": { "objectid": 657, "id": 121.0, "nombre": "El Manzano - Sector Los Castillo", "tipo": "PET", "volcan": "Antuco" }, "geometry": { "type": "Point", "coordinates": [ -71.51282, -37.36558 ] } }
+]
+}

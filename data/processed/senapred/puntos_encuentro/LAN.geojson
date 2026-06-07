@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"name": "LAN",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-05,
+"features": [
+{ "type": "Feature", "properties": { "objectid": 628, "id": 82.0, "nombre": "PET 2", "tipo": "PET", "volcan": "Mocho Choshuenco" }, "geometry": { "type": "Point", "coordinates": [ -72.00467, -39.82997 ] } },
+{ "type": "Feature", "properties": { "objectid": 666, "id": 163.0, "nombre": "Cerdúo 1", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -71.88076, -39.33116 ] } },
+{ "type": "Feature", "properties": { "objectid": 668, "id": 166.0, "nombre": "Palguín", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -71.78312, -39.39791 ] } },
+{ "type": "Feature", "properties": { "objectid": 670, "id": 168.0, "nombre": "Mirador Puente Pellaifa", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -72.01955, -39.58891 ] } },
+{ "type": "Feature", "properties": { "objectid": 671, "id": 169.0, "nombre": "Cerro Raucan", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -72.01528, -39.5539 ] } },
+{ "type": "Feature", "properties": { "objectid": 672, "id": 170.0, "nombre": "Alicia Rojas", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -72.00993, -39.55336 ] } },
+{ "type": "Feature", "properties": { "objectid": 675, "id": 174.0, "nombre": "Agrupación de Mujeres Huincul Zomo \"Milimili\"", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -72.03528, -39.51167 ] } },
+{ "type": "Feature", "properties": { "objectid": 676, "id": 175.0, "nombre": "Familia Cheuquepán", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -72.05139, -39.52972 ] } },
+{ "type": "Feature", "properties": { "objectid": 680, "id": 179.0, "nombre": "Termas Geométricas", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -71.87571, -39.50335 ] } },
+{ "type": "Feature", "properties": { "objectid": 681, "id": 180.0, "nombre": "El Cardo", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -71.93417, -39.5503 ] } },
+{ "type": "Feature", "properties": { "objectid": 682, "id": 181.0, "nombre": "Chépica", "tipo": "PET", "volcan": "Villarrica" }, "geometry": { "type": "Point", "coordinates": [ -71.94943, -39.54479 ] } }
+]
+}

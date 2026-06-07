@@ -85,6 +85,33 @@ def test_indice_quebradas():
     assert len(df) > 1000, f"indice sospechosamente chico: {len(df)}"
 
 
+def test_senapred_capas_existen():
+    """Capas oficiales del Visor Chile Preparado descargadas (08_descargar_senapred.py)."""
+    senapred = PROCESSED / "senapred"
+    if not senapred.exists():
+        pytest.skip("SENAPRED no descargado")
+    # Globales chicos
+    for f in ["volcanes_peligrosidad.geojson", "buffer_volcanes_poly.geojson",
+              "buffer_volcanes_line.geojson", "perimetro_villarrica.geojson"]:
+        assert (senapred / f).exists(), f"{f} falta — correr scripts/08_descargar_senapred.py"
+    # Shards
+    for capa in ["areas_peligro", "puntos_encuentro", "vias_evacuacion",
+                 "servicios_salud", "servicios_bomberos", "servicios_educacion",
+                 "servicios_carabineros"]:
+        d = senapred / capa
+        assert d.exists() and any(d.glob("*.geojson")), \
+            f"shards de {capa} faltan — correr scripts/09_sharding_senapred.py"
+
+
+def test_snaspe_local():
+    """SNAP/SNASPE oficial MBN, reemplazo del WMS SAG roto."""
+    d = PROCESSED / "snaspe"
+    if not d.exists():
+        pytest.skip("SNASPE no procesado")
+    shards = list(d.glob("*.geojson"))
+    assert len(shards) >= 20, f"muy pocos shards SNASPE: {len(shards)}"
+
+
 def test_drenajes_tienen_clasificacion_hidrologica():
     """Verifica que los shards llevan la columna drena_volcan (06_watershed_pysheds.py).
     Sin esto el toggle hidrologico del dashboard queda inerte."""
