@@ -5,6 +5,18 @@ Capas: comunas (WMS BCN Chile) + ciudades y pueblos (lista estatica OSM).
 Sin dependencias nativas — funciona en cualquier Python.
 """
 
+import sys
+from pathlib import Path
+
+# Aseguramos que el directorio del propio script (app/) esté en sys.path antes
+# de importar los módulos hermanos. Localmente Streamlit lo inyecta solo, pero
+# en Streamlit Cloud el script puede ejecutarse con un CWD/sys.path distinto y
+# entonces `from loaders import ...` lanza ImportError. Esto lo hace robusto en
+# ambos entornos sin depender del working directory.
+_APP_DIR = Path(__file__).resolve().parent
+if str(_APP_DIR) not in sys.path:
+    sys.path.insert(0, str(_APP_DIR))
+
 import streamlit as st
 import pandas as pd
 import folium
