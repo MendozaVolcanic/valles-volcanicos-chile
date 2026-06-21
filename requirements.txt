@@ -1,6 +1,10 @@
-streamlit>=1.35
-folium>=0.16
-streamlit-folium>=0.20
-pandas>=2.0
-pyyaml>=6.0
-requests>=2.31
+# Dependencias de runtime del dashboard (Streamlit Cloud).
+# Pines de major para evitar que una versión nueva incompatible rompa el deploy
+# silenciosamente (p. ej. streamlit 2.x cambiaría APIs). Subir el techo a mano
+# tras probar localmente.
+streamlit>=1.35,<2
+folium>=0.16,<1
+streamlit-folium>=0.20,<1
+pandas>=2.0,<4
+pyyaml>=6.0,<7
+requests>=2.31,<3

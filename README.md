@@ -142,6 +142,26 @@ valles-volcanicos-chile/
     └── config.toml           # tema oscuro, puerto 8505
 ```
 
+## Deploy (Streamlit Cloud) — notas
+
+El visor se sirve desde Streamlit Cloud apuntando a `app/dashboard.py`. Dos
+gotchas que ya costaron caídas de producción (hay tests anti-regresión para
+ambos en `tests/test_smoke.py`):
+
+1. **Imports de módulos hermanos** (`from loaders import ...`): Streamlit Cloud
+   puede ejecutar con un `sys.path`/CWD distinto al local. `dashboard.py` inserta
+   `app/` en `sys.path` al inicio (antes de los imports) para que resuelva igual
+   en ambos entornos. No mover ese bloque.
+2. **CSVs que el dashboard lee deben estar versionados**. `.gitignore` ignora
+   `data/processed/*.csv` por defecto; cada CSV que el dashboard consume en
+   runtime (estado_reav, sismos_resumen, gvp, poblacion_expuesta, indice_quebradas,
+   resumen_drenaje) está **whitelisteado** explícitamente. Si agregás un CSV nuevo
+   y no lo whitelisteás, el deploy mostrará datos vacíos sin error.
+
+Los datos NRT (REAV, sismos, FIRMS) son **snapshots** congelados al último commit
+del pipeline — el dashboard muestra la fecha del snapshot. No son tiempo real en
+el deploy; para refrescar hay que re-correr los scripts 11/12/14 y commitear.
+
 ## Arquitectura futura
 
 `config/volcanoes.yaml` y los GeoPackages en `data/processed/` estan disenados
