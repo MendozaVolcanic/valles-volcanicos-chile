@@ -20,6 +20,57 @@ ROOT      = Path(__file__).resolve().parent.parent
 PROCESSED = ROOT / "data" / "processed"
 CONFIG    = ROOT / "config" / "volcanoes.yaml"
 CIUDADES  = ROOT / "config" / "ciudades.yaml"
+APP       = ROOT / "app"
+
+
+# ---------------------------------------------------------------------------
+# Deploy / imports (Streamlit Cloud regresión)
+# ---------------------------------------------------------------------------
+
+def test_modulos_app_importables_aislados():
+    """Simula el entorno Streamlit Cloud: con SOLO app/ en sys.path (lo que
+    Streamlit inyecta), loaders y geo_utils deben importar sin error.
+    Si esto falla, el deploy cae con ImportError en 'from loaders import ...'."""
+    code = (
+        "import sys; sys.path.insert(0, r'%s'); "
+        "import loaders, geo_utils; "
+        "print('OK', bool(loaders.cargar_config), bool(geo_utils.normalizar))"
+        % str(APP)
+    )
+    r = subprocess.run([sys.executable, "-c", code], cwd=str(ROOT.parent),
+                       capture_output=True, text=True)
+    assert r.returncode == 0, f"import aislado falló:\nSTDOUT {r.stdout}\nSTDERR {r.stderr[-800:]}"
+    assert "OK True True" in r.stdout
+
+
+def test_dashboard_bootstrap_syspath_antes_de_imports():
+    """Guard de regresión: dashboard.py DEBE insertar app/ en sys.path ANTES
+    de 'from loaders import'. Sin esto, Streamlit Cloud rompe (line-15 ImportError).
+    Se anclan los matches a inicio de línea para no confundir con menciones
+    dentro de comentarios."""
+    import re
+    txt = (APP / "dashboard.py").read_text(encoding="utf-8")
+    m_boot = re.search(r"^\s*sys\.path\.insert\(", txt, re.MULTILINE)
+    m_imp  = re.search(r"^from loaders import", txt, re.MULTILINE)
+    assert m_boot is not None, "falta el bootstrap sys.path.insert en dashboard.py"
+    assert m_imp is not None, "no se encontró 'from loaders import' a inicio de línea"
+    assert m_boot.start() < m_imp.start(), "el bootstrap sys.path debe ir ANTES del import de loaders"
+
+
+def test_dashboard_csv_runtime_versionados():
+    """Los CSV que el dashboard lee en runtime deben estar versionados en git
+    (no gitignored), o el deploy mostrará datos vacíos."""
+    import subprocess as sp
+    requeridos = ["estado_reav.csv", "sismos_resumen.csv", "gvp.csv",
+                  "poblacion_expuesta.csv", "indice_quebradas.csv", "resumen_drenaje.csv"]
+    for csv in requeridos:
+        ruta = PROCESSED / csv
+        if not ruta.exists():
+            continue  # si no se generó aún, no aplica
+        # git check-ignore devuelve 0 si está ignorado → eso es el bug
+        res = sp.run(["git", "check-ignore", str(ruta)], cwd=str(ROOT),
+                     capture_output=True, text=True)
+        assert res.returncode != 0, f"{csv} está gitignored — no deployará a Streamlit Cloud"
 
 
 def _load_yaml(p):

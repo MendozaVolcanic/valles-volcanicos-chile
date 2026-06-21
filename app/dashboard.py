@@ -28,7 +28,7 @@ from loaders import (
     cargar_config, cargar_cuencas, cargar_drenajes, cargar_peligros,
     cargar_poblacion, cargar_vial, cargar_infraestructura,
     cargar_centros_poblados, cargar_ciudades, cargar_indice_quebradas,
-    wms_disponible, cargar_comunas, cargar_snaspe,
+    cargar_comunas, cargar_snaspe,
     cargar_puntos_encuentro, cargar_vias_evacuacion,
     cargar_servicios, cargar_perimetro_villarrica,
     # Sprint 1: estado y NRT
@@ -590,7 +590,7 @@ m = folium.Map(location=center, zoom_start=zoom, tiles=None, prefer_canvas=True,
                control_scale=True)  # escala grafica en esquina (estilo visor SENAPRED)
 
 # Coordenadas del mouse en la esquina inferior — estilo visor Chile Preparado
-from folium.plugins import MousePosition, MeasureControl, MiniMap, Fullscreen
+from folium.plugins import MousePosition, MeasureControl, Fullscreen
 MousePosition(
     position="bottomleft", separator=" | ", empty_string="Mover el ratón para coordenadas",
     lng_first=False, num_digits=4, prefix="Lat/Lon",

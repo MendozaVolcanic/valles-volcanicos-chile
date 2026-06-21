@@ -1,9 +1,20 @@
 data/raw/
 data/processed/*.csv
+# CSVs derivados que SÍ se versionan (el dashboard los consume en runtime).
+# Si agregás un CSV nuevo que el dashboard lee, whitelistealo aquí o no deployará.
 !data/processed/indice_quebradas.csv
 !data/processed/resumen_drenaje.csv
+!data/processed/estado_reav.csv
+!data/processed/sismos_resumen.csv
+!data/processed/gvp.csv
+!data/processed/poblacion_expuesta.csv
 data/processed/*.gpkg
 data/processed/snaspe.geojson
+# Globales intermedios: el dashboard usa los shards por volcán, no estos.
+# Son inputs de scripts/export_geojson.py + 09_sharding_senapred.py (regenerables).
+data/processed/red_vial.geojson
+data/processed/centros_poblados.geojson
+data/processed/infraestructura.geojson
 # GeoJSONs se incluyen en el repo para deploy en Streamlit Cloud (los .gpkg son intermedios regenerables)
 __pycache__/
 data/test_mapa.html

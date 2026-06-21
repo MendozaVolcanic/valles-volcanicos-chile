@@ -55,19 +55,24 @@ def cargar_poblacion() -> pd.DataFrame | None:
     return pd.read_csv(str(p)) if p.exists() else None
 
 
+_EMPTY_FC = {"type": "FeatureCollection", "features": []}
+
+
 def _cargar_capa_sharded(capa: str, codigo: str | None) -> dict | None:
-    """Carga lazy: shard por volcan (~5-20 KB) o GeoJSON global (legacy)."""
-    if codigo:
-        shard = PROCESSED / capa / f"{codigo}.geojson"
-        if shard.exists():
-            with open(str(shard), encoding="utf-8") as f:
-                return json.load(f)
-        return {"type": "FeatureCollection", "features": []}
-    p = PROCESSED / f"{capa}.geojson"
-    if not p.exists():
-        return None
-    with open(str(p), encoding="utf-8") as f:
-        return json.load(f)
+    """Carga lazy por volcán (~5-20 KB).
+
+    Para la vista nacional (codigo=None) NO se carga la capa: red vial,
+    infraestructura y centros poblados a escala país son inútiles y pesados
+    (varios MB cada uno en RAM, problemático en Streamlit Cloud free tier).
+    Devuelve FeatureCollection vacío para que el render simplemente no dibuje.
+    """
+    if not codigo:
+        return _EMPTY_FC
+    shard = PROCESSED / capa / f"{codigo}.geojson"
+    if shard.exists():
+        with open(str(shard), encoding="utf-8") as f:
+            return json.load(f)
+    return _EMPTY_FC
 
 
 @st.cache_data
@@ -236,15 +241,3 @@ def cargar_gvp() -> pd.DataFrame:
     if not p.exists():
         return pd.DataFrame()
     return pd.read_csv(str(p))
-
-
-@st.cache_data(ttl=300)
-def wms_disponible(url: str, timeout: float = 3.0) -> bool:
-    """Verifica que el endpoint WMS responda. Cache 5 min."""
-    import requests
-    try:
-        r = requests.get(url, params={"service": "WMS", "request": "GetCapabilities"},
-                         timeout=timeout)
-        return r.status_code == 200 and b"WMS" in r.content[:2048].upper()
-    except Exception:
-        return False
