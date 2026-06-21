@@ -370,7 +370,18 @@ with st.sidebar:
         st.code(f"?{_qs}", language=None)
         st.caption("Copia y pega tras la URL del dashboard")
 
-    st.caption("Fuentes: SERNAGEOMIN · OSM · BCN · INE · CONAF/SAG")
+    # Fecha del snapshot de datos NRT (derivada del scrape REAV).
+    # IMPORTANTE: en el deploy las capas NRT (REAV/sismos/FIRMS) NO son live —
+    # reflejan la última corrida del pipeline, no el estado en tiempo real.
+    _reav_fecha = cargar_estado_reav()
+    _fsnap = None
+    if not _reav_fecha.empty and "fecha_scrape" in _reav_fecha.columns:
+        _vals = _reav_fecha["fecha_scrape"].dropna()
+        if len(_vals):
+            _fsnap = str(_vals.iloc[0])[:10]
+    if _fsnap:
+        st.caption(f"⏱️ Datos NRT al **{_fsnap}** (snapshot, no en vivo)")
+    st.caption("Fuentes: SERNAGEOMIN · OSM · BCN · INE · CONAF/SAG · NASA · USGS · Smithsonian GVP")
 
 # Aplicar permalink al state actual (escribir query params)
 st.query_params.update({
