@@ -220,6 +220,95 @@ def test_sprint1_poblacion_expuesta():
     assert vil_total > 10_000, f"Villarrica pob expuesta sospechosa: {vil_total}"
 
 
+def test_geo_utils_match_nombres_volcan():
+    """Los nombres difieren entre fuentes (yaml vs shapefile SERNAGEOMIN vs
+    SENAPRED). Este matcher decide a qué volcán pertenece cada dato: si afloja,
+    se le atribuyen zonas de peligro o población de OTRO volcán."""
+    sys.path.insert(0, str(APP))
+    from geo_utils import nombres_equivalentes as eq
+    # Deben unificarse: misma entidad escrita distinto
+    assert eq("Nevados Chillan", "Nevados de Chillan")
+    assert eq("Mocho - Choshuenco", "Mocho-Choshuenco")
+    assert eq("Chaitén", "Chaiten")
+    assert eq("Puyehue-Cordón Caulle", "Puyehue-Cordon Caulle")
+    # NO deben unificarse: volcanes distintos a cientos de km
+    assert not eq("San Pedro", "Tatara-San Pedro")
+    assert not eq("Nevado de Longavi", "Nevados Chillan")
+    assert not eq("", "Villarrica")
+
+
+def test_geo_utils_volcanes_en_bbox():
+    """Selección de volcanes por encuadre del mapa (carga al hacer zoom)."""
+    sys.path.insert(0, str(APP))
+    from geo_utils import volcanes_en_bbox
+    vs = [{"nombre": "Villarrica", "lat": -39.42, "lon": -71.93, "codigo": "VIL"},
+          {"nombre": "Lascar", "lat": -23.37, "lon": -67.73, "codigo": "LAS"}]
+    b = {"_southWest": {"lat": -39.8, "lng": -72.3},
+         "_northEast": {"lat": -39.0, "lng": -71.5}}
+    assert [v["codigo"] for v in volcanes_en_bbox(vs, b)] == ["VIL"]
+    # Entradas degradadas no deben romper el render del mapa
+    assert volcanes_en_bbox(vs, {}) == []
+    assert volcanes_en_bbox(vs, None) == []
+    assert volcanes_en_bbox([], b) == []
+
+
+def test_peligros_no_se_cruzan_entre_volcanes():
+    """Un volcán no puede mostrar las zonas de peligro de otro.
+    Regresión: el filtro por token suelto hacía que 'Nevado de Longaví' se
+    quedara con los polígonos de 'Nevados Chillán', a ~200 km."""
+    sys.path.insert(0, str(APP))
+    from geo_utils import normalizar, punto_representativo
+    p = PROCESSED / "peligros_volcanicos.geojson"
+    if not p.exists():
+        pytest.skip("peligros_volcanicos.geojson no disponible")
+    feats = json.load(open(p, encoding="utf-8"))["features"]
+    volcanes = _load_yaml(CONFIG)["volcanes"]
+
+    def filtro(volcan):
+        nv = normalizar(volcan["nombre"])
+        out = []
+        for f in feats:
+            pn = normalizar((f.get("properties") or {}).get("volcan") or "")
+            if not pn or not (nv in pn or pn in nv):
+                continue
+            pt = punto_representativo(f.get("geometry"))
+            if pt is None or (abs(pt[0] - volcan["lat"]) <= 1.0
+                              and abs(pt[1] - volcan["lon"]) <= 1.0):
+                out.append(f)
+        return out
+
+    for v in volcanes:
+        for f in filtro(v):
+            pn = (f.get("properties") or {}).get("volcan") or ""
+            pt = punto_representativo(f.get("geometry"))
+            if pt is None:
+                continue
+            dist = max(abs(pt[0] - v["lat"]), abs(pt[1] - v["lon"]))
+            assert dist <= 1.0, (
+                f"{v['nombre']} recibe polígono de '{pn}' a {dist:.1f}° de distancia")
+
+
+def test_drenajes_lite_generados():
+    """Shards livianos que alimentan la carga por zoom. Sin ellos el loader cae
+    al shard completo y consume más RAM que antes de la optimización."""
+    d = PROCESSED / "drenajes_lite"
+    if not d.exists():
+        pytest.skip("drenajes_lite no generado — correr scripts/16_drenajes_lite.py")
+    lite = list(d.glob("*.geojson"))
+    completos = list((PROCESSED / "drenajes").glob("*.geojson"))
+    assert len(lite) == len(completos), "falta un shard lite por volcán"
+    peso_lite = sum(f.stat().st_size for f in lite)
+    peso_full = sum(f.stat().st_size for f in completos)
+    assert peso_lite < peso_full * 0.5, (
+        f"lite ({peso_lite/1e6:.1f} MB) debería pesar mucho menos que completo "
+        f"({peso_full/1e6:.1f} MB)")
+    # Todo feature del lite tiene nombre: ese es el punto de la capa
+    muestra = json.load(open(PROCESSED / "drenajes_lite" / "VIL.geojson", encoding="utf-8"))
+    for f in muestra["features"]:
+        n = (f.get("properties") or {}).get("nombre")
+        assert n and n != "Sin nombre"
+
+
 def test_comunas_local():
     """Comunas locales (reemplaza WMS BCN roto) — global + shards por volcan."""
     glob_p = PROCESSED / "comunas.geojson"

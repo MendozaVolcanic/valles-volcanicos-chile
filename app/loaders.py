@@ -15,6 +15,16 @@ PROCESSED     = ROOT / "data" / "processed"
 CONFIG_PATH   = ROOT / "config" / "volcanoes.yaml"
 CIUDADES_PATH = ROOT / "config" / "ciudades.yaml"
 
+# Los GeoJSON se cachean con cache_resource, NO con cache_data, a proposito:
+# cache_data serializa a pickle, y medimos que deserializar un shard grande
+# cuesta 58 ms — casi lo mismo que leer el JSON del disco (65 ms) — y ademas
+# mantiene una copia por sesion (~20 MB de RAM para un shard de 4 MB).
+# cache_resource guarda el objeto tal cual y compartido: ~0 ms y una sola copia.
+#
+# CONTRATO: lo que devuelven estas funciones es READ-ONLY. Nunca mutar el dict
+# ni sus features — se comparten entre sesiones. Para filtrar, armar lista nueva.
+cache_geojson = st.cache_resource(show_spinner=False)
+
 
 @st.cache_data
 def cargar_config() -> dict:
@@ -22,7 +32,7 @@ def cargar_config() -> dict:
         return yaml.safe_load(f)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_cuencas() -> dict | None:
     p = PROCESSED / "cuencas.geojson"
     if not p.exists():
@@ -31,7 +41,7 @@ def cargar_cuencas() -> dict | None:
         return json.load(f)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_drenajes(codigo: str) -> dict | None:
     p = PROCESSED / "drenajes" / f"{codigo}.geojson"
     if not p.exists():
@@ -40,7 +50,30 @@ def cargar_drenajes(codigo: str) -> dict | None:
         return json.load(f)
 
 
-@st.cache_data
+@cache_geojson
+def cargar_drenajes_nombrados(codigo: str) -> dict:
+    """Solo los tramos CON nombre de un volcán.
+
+    Se usa en la vista por encuadre (varios volcanes a la vez), donde cargar el
+    shard completo sería prohibitivo: los tramos sin nombre son ~85% del total y
+    a esa escala son ruido visual. Si existe un shard 'lite' pre-generado se usa
+    ese; si no, se filtra el completo (queda cacheado igual).
+    """
+    lite = PROCESSED / "drenajes_lite" / f"{codigo}.geojson"
+    if lite.exists():
+        with open(str(lite), encoding="utf-8") as f:
+            return json.load(f)
+    gj = cargar_drenajes(codigo)
+    if not gj:
+        return {"type": "FeatureCollection", "features": []}
+    feats = [
+        f for f in gj.get("features", [])
+        if (f.get("properties") or {}).get("nombre", "Sin nombre") != "Sin nombre"
+    ]
+    return {"type": "FeatureCollection", "features": feats}
+
+
+@cache_geojson
 def cargar_peligros() -> dict | None:
     p = PROCESSED / "peligros_volcanicos.geojson"
     if not p.exists():
@@ -75,17 +108,17 @@ def _cargar_capa_sharded(capa: str, codigo: str | None) -> dict | None:
     return _EMPTY_FC
 
 
-@st.cache_data
+@cache_geojson
 def cargar_vial(codigo: str | None = None) -> dict | None:
     return _cargar_capa_sharded("red_vial", codigo)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_infraestructura(codigo: str | None = None) -> dict | None:
     return _cargar_capa_sharded("infraestructura", codigo)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_centros_poblados(codigo: str | None = None) -> dict | None:
     return _cargar_capa_sharded("centros_poblados", codigo)
 
@@ -108,7 +141,7 @@ def cargar_indice_quebradas() -> pd.DataFrame:
 
 
 # --- Comunas locales (reemplaza al WMS BCN roto en 2026) ---
-@st.cache_data
+@cache_geojson
 def cargar_comunas(codigo: str | None = None) -> dict | None:
     """Limites comunales (345 comunas Chile). Shard por volcan o global."""
     if codigo:
@@ -125,7 +158,7 @@ def cargar_comunas(codigo: str | None = None) -> dict | None:
 
 
 # --- SNASPE local (reemplaza al WMS SAG/CONAF roto en 2026) ---
-@st.cache_data
+@cache_geojson
 def cargar_snaspe(codigo: str | None = None) -> dict | None:
     """Areas protegidas SNAP/SNASPE oficiales (MBN). Shard por volcan."""
     if codigo:
@@ -161,23 +194,23 @@ def _cargar_senapred_shard(capa: str, codigo: str | None) -> dict | None:
         return json.load(f)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_puntos_encuentro(codigo: str | None = None) -> dict | None:
     return _cargar_senapred_shard("puntos_encuentro", codigo)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_vias_evacuacion(codigo: str | None = None) -> dict | None:
     return _cargar_senapred_shard("vias_evacuacion", codigo)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_servicios(tipo: str, codigo: str | None = None) -> dict | None:
     """tipo: salud | bomberos | educacion | carabineros"""
     return _cargar_senapred_shard(f"servicios_{tipo}", codigo)
 
 
-@st.cache_data
+@cache_geojson
 def cargar_perimetro_villarrica() -> dict | None:
     p = SENAPRED / "perimetro_villarrica.geojson"
     if not p.exists():
@@ -188,7 +221,8 @@ def cargar_perimetro_villarrica() -> dict | None:
 
 # --- Sprint 1: capas NRT y referencias ---
 
-@st.cache_data
+# ttl para que una regeneracion del pipeline se refleje sin reiniciar el proceso
+@st.cache_data(ttl=3600)
 def cargar_estado_reav() -> pd.DataFrame:
     """Nivel REAV (Verde/Amarillo/Naranja/Rojo) por volcán. Scraping SERNAGEOMIN."""
     p = PROCESSED / "estado_reav.csv"
@@ -197,7 +231,7 @@ def cargar_estado_reav() -> pd.DataFrame:
     return pd.read_csv(str(p))
 
 
-@st.cache_data(ttl=3600)
+@st.cache_resource(show_spinner=False, ttl=3600)
 def cargar_firms(codigo: str) -> dict | None:
     """Hotspots NASA FIRMS últimos 7 días por volcán (cache 1h)."""
     p = PROCESSED / "firms" / f"{codigo}.geojson"
@@ -207,7 +241,7 @@ def cargar_firms(codigo: str) -> dict | None:
         return json.load(f)
 
 
-@st.cache_data(ttl=3600)
+@st.cache_resource(show_spinner=False, ttl=3600)
 def cargar_sismos(codigo: str) -> dict | None:
     """Sismos USGS ComCat últimos 7 días por volcán (cache 1h)."""
     p = PROCESSED / "sismos" / f"{codigo}.geojson"
@@ -217,7 +251,7 @@ def cargar_sismos(codigo: str) -> dict | None:
         return json.load(f)
 
 
-@st.cache_data
+@st.cache_data(ttl=3600)
 def cargar_sismos_resumen() -> pd.DataFrame:
     p = PROCESSED / "sismos_resumen.csv"
     if not p.exists():

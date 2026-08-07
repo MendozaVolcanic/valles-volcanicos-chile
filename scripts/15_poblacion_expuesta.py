@@ -68,8 +68,14 @@ def main():
     print("Calculando poblacion expuesta ponderada por area...")
     rows = []
     for (volcan, peligro), grupo in sjoin.groupby(["volcan", "peligro"]):
-        # Polygon del peligro
-        poly = peligros[(peligros["volcan"] == volcan) & (peligros["peligro"] == peligro)].iloc[0].geometry
+        # Geometria del nivel de peligro: UNION de todos sus poligonos.
+        # Con .iloc[0] se tomaba solo el primero, asi que en volcanes cuyo nivel
+        # esta partido en varias piezas (p. ej. Planchon-Peteroa "Alto" son 4)
+        # las manzanas de las piezas restantes quedaban con fraccion 0 y la
+        # poblacion expuesta salia subestimada.
+        _sel = peligros[(peligros["volcan"] == volcan) & (peligros["peligro"] == peligro)]
+        poly = _sel.geometry.union_all() if hasattr(_sel.geometry, "union_all") \
+               else _sel.geometry.unary_union
 
         # Manzanas candidatas
         manz = g.loc[grupo.index]

@@ -25,7 +25,8 @@ from collections import defaultdict
 from urllib.parse import urlencode
 
 from loaders import (
-    cargar_config, cargar_cuencas, cargar_drenajes, cargar_peligros,
+    cargar_config, cargar_cuencas, cargar_drenajes, cargar_drenajes_nombrados,
+    cargar_peligros,
     cargar_poblacion, cargar_vial, cargar_infraestructura,
     cargar_centros_poblados, cargar_ciudades, cargar_indice_quebradas,
     cargar_comunas, cargar_snaspe,
@@ -34,8 +35,11 @@ from loaders import (
     # Sprint 1: estado y NRT
     cargar_estado_reav, cargar_firms, cargar_sismos, cargar_sismos_resumen,
     cargar_poblacion_expuesta, cargar_gvp,
+    CONFIG_PATH as loaders_CONFIG_PATH,
 )
-from geo_utils import normalizar as _normalizar, latlon_a_utm, midpoint_geojson
+from geo_utils import (normalizar as _normalizar, latlon_a_utm, midpoint_geojson,
+                       volcanes_en_bbox, punto_representativo,
+                       nombres_equivalentes)
 
 # ---------------------------------------------------------------------------
 # Configuracion de pagina
@@ -104,7 +108,9 @@ try:
     config   = cargar_config()
     VOLCANES = config["volcanes"]
 except Exception as exc:
-    st.error(f"Error cargando volcanoes.yaml: {exc}\nRuta: {CONFIG_PATH}")
+    # CONFIG_PATH vive en loaders; referenciarlo directo tiraba NameError y
+    # ocultaba la excepcion real del YAML.
+    st.error(f"Error cargando volcanoes.yaml: {exc}\nRuta: {loaders_CONFIG_PATH}")
     st.stop()
 
 try:
@@ -291,13 +297,21 @@ with st.sidebar:
 
     st.divider()
     st.markdown("**Capas tematicas**")
-    _capas_set = set(_qp_capas.split(",")) if _qp_capas else None
+    # Distinguir "no vino el parametro" (usar defaults) de "vino vacio" (el
+    # usuario apago todas las capas). Con truthiness, capas="" restauraba los
+    # defaults y el permalink de un mapa limpio no se podia compartir.
+    _capas_set = set(p for p in _qp_capas.split(",") if p) if "capas" in _qp else None
     def _capa_default(key, default):
         return key in _capas_set if _capas_set is not None else default
     mostrar_cuencas  = st.checkbox("Zona de influencia (50 km)", value=_capa_default("cuencas", True))
     mostrar_drenajes = st.checkbox("Quebradas y rios",           value=_capa_default("drenajes", True))
     mostrar_nombres  = st.checkbox("Nombres de quebradas",       value=_capa_default("nombres", True))
     mostrar_volcanes = st.checkbox("Marcadores de volcanes",     value=_capa_default("volcanes", True))
+    auto_quebradas   = st.checkbox("Cargar quebradas al hacer zoom",
+                                    value=_capa_default("auto", True),
+                                    help="Sin volcán seleccionado, al acercar el mapa se cargan "
+                                         "automáticamente las quebradas nombradas de los volcanes "
+                                         "que estén en pantalla. Desactivalo si el mapa va lento.")
     solo_drena       = st.checkbox("Solo quebradas que drenan desde el edificio",
                                     value=_capa_default("drena", False),
                                     help="Filtra a las quebradas hidrologicamente conectadas al cono (pysheds, DEM SRTM 30m). "
@@ -347,6 +361,7 @@ with st.sidebar:
     _capas_activas = ",".join(k for k, v in {
         "cuencas": mostrar_cuencas, "drenajes": mostrar_drenajes,
         "nombres": mostrar_nombres, "volcanes": mostrar_volcanes,
+        "auto": auto_quebradas,
         "comunas": mostrar_comunas, "ciudades": mostrar_ciudades,
         "centros": mostrar_centros, "vial": mostrar_vial,
         "infra": mostrar_infra, "peligros": mostrar_peligros,
@@ -410,8 +425,38 @@ volcan = None if seleccion == "(Todos los volcanes)" else next(
     (v for v in VOLCANES if v["nombre"] == seleccion), None
 )
 
-drenajes_gj    = cargar_drenajes(volcan["codigo"]) if volcan else None
-feats          = drenajes_gj.get("features", []) if drenajes_gj else []
+# --- Encuadre del mapa (para carga dinamica de quebradas) -------------------
+# streamlit-folium deja el estado del mapa del render anterior en session_state
+# bajo la key del widget. Lo leemos aca, ANTES de construir el mapa, para poder
+# decidir que datos cargar segun donde este mirando el usuario.
+ZOOM_MIN_QUEBRADAS    = 9   # bajo este zoom la vista es regional: no vale la pena
+MAX_VOLCANES_ENCUADRE = 4   # techo para no reventar RAM ni el render de Leaflet
+
+_estado_mapa = st.session_state.get("mapa") or {}
+_vp_zoom     = _estado_mapa.get("zoom")
+_vp_bounds   = _estado_mapa.get("bounds") or {}
+_vp_center   = _estado_mapa.get("center") or {}
+
+# Volcanes visibles en el encuadre actual (solo aplica en vista nacional)
+volcanes_encuadre: list[dict] = []
+zoom_insuficiente = False
+if volcan is None and mostrar_drenajes and auto_quebradas and _vp_zoom:
+    if _vp_zoom >= ZOOM_MIN_QUEBRADAS:
+        volcanes_encuadre = volcanes_en_bbox(VOLCANES, _vp_bounds)[:MAX_VOLCANES_ENCUADRE]
+    else:
+        zoom_insuficiente = True
+
+if volcan:
+    # Vista de un volcan: shard completo (incluye tramos sin nombre)
+    drenajes_gj = cargar_drenajes(volcan["codigo"])
+    feats       = drenajes_gj.get("features", []) if drenajes_gj else []
+else:
+    # Vista nacional con zoom: solo tramos nombrados de los volcanes en pantalla
+    feats = []
+    for _v in volcanes_encuadre:
+        feats.extend(cargar_drenajes_nombrados(_v["codigo"]).get("features", []))
+    drenajes_gj = {"type": "FeatureCollection", "features": feats} if feats else None
+
 # Filtro hidrologico opcional: solo tramos que drenan desde el edificio.
 # Si el campo 'drena_volcan' no esta en los datos (pysheds no corrido aun),
 # el toggle no hace efecto — feats queda sin cambios.
@@ -502,9 +547,18 @@ if volcan:
     c_mini.markdown(_mini_svg, unsafe_allow_html=True)
 
     # Fila 3: Sprint 1 — exposición + actividad NRT
+    # poblacion_expuesta.csv hereda los nombres del shapefile SERNAGEOMIN, que no
+    # coinciden literalmente con volcanoes.yaml ("Chaitén" vs "Chaiten",
+    # "Mocho - Choshuenco" vs "Mocho-Choshuenco"). Comparar sin normalizar dejaba
+    # 7 volcanes en "—" pese a tener poblacion calculada.
     pob_df = cargar_poblacion_expuesta()
-    pob_alto  = pob_df[(pob_df["volcan"] == volcan["nombre"]) & (pob_df["peligro_nivel"] == "Alto")]["poblacion_estimada"].sum() if not pob_df.empty else 0
-    pob_total = pob_df[pob_df["volcan"] == volcan["nombre"]]["poblacion_estimada"].sum() if not pob_df.empty else 0
+    pob_alto = pob_total = 0
+    if not pob_df.empty:
+        _match_pob = pob_df["volcan"].map(
+            lambda x: nombres_equivalentes(x, volcan["nombre"]))
+        _sub_pob   = pob_df[_match_pob]
+        pob_total  = _sub_pob["poblacion_estimada"].sum()
+        pob_alto   = _sub_pob[_sub_pob["peligro_nivel"] == "Alto"]["poblacion_estimada"].sum()
     sismos_df = cargar_sismos_resumen()
     sismos_v  = sismos_df[sismos_df["codigo"] == volcan["codigo"]] if not sismos_df.empty else pd.DataFrame()
     n_sismos  = int(sismos_v["n_sismos"].iloc[0]) if len(sismos_v) else 0
@@ -527,7 +581,9 @@ if volcan:
                help="USGS ComCat. Cobertura efectiva M≥3.5 en zonas remotas.")
     cp4.metric("Hotspots térmicos 7d", "—" if n_firms is None else str(n_firms),
                help="NASA FIRMS (MODIS+VIIRS). Requiere MAP_KEY — registrarse en firms.modaps.eosdis.nasa.gov.")
-    cp5.metric("VEI máx histórico", str(int(vei_max)) if vei_max and pd.notna(vei_max) else "—",
+    # pd.notna sin truthiness: VEI 0 es un valor valido (erupcion no explosiva),
+    # con `if vei_max` se mostraba "—" para Laguna del Maule y Lanin.
+    cp5.metric("VEI máx histórico", str(int(vei_max)) if pd.notna(vei_max) else "—",
                help="Smithsonian GVP — máximo VEI registrado en el Holoceno.")
 
     # Ficha GVP completa
@@ -579,6 +635,11 @@ else:
         _tabla["_ord"] = _tabla["nivel"].map(_nivel_orden).fillna(4)
         if not _sismos_nac.empty:
             _tabla = _tabla.merge(_sismos_nac[["codigo","n_sismos","mag_max"]], on="codigo", how="left")
+        # Si sismos_resumen.csv falta, las columnas no existen y ordenar por
+        # ellas tiraba KeyError, tumbando la pantalla por defecto del dashboard.
+        for _col in ("n_sismos", "mag_max"):
+            if _col not in _tabla.columns:
+                _tabla[_col] = pd.NA
         _tabla = _tabla.sort_values(["_ord","mag_max","n_sismos"], ascending=[True, False, False])
         _tabla["semáforo"] = _tabla["nivel"].map(
             {"Verde":"🟢","Amarillo":"🟡","Naranja":"🟠","Rojo":"🔴"}).fillna("⚪")
@@ -594,8 +655,22 @@ else:
 # Mapa Folium
 # ---------------------------------------------------------------------------
 
-center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
-zoom   = 10 if volcan else 5
+# Encuadre: si el usuario acaba de cambiar de volcan en el selector, saltamos a
+# el. Si no (cambio de capa, zoom, pan), respetamos donde estaba mirando — de lo
+# contrario el mapa se resetearia a Chile completo en cada interaccion.
+_codigo_actual = volcan["codigo"] if volcan else None
+_cambio_seleccion = st.session_state.get("_volcan_previo", "__init__") != _codigo_actual
+st.session_state["_volcan_previo"] = _codigo_actual
+
+if _cambio_seleccion:
+    center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
+    zoom   = 10 if volcan else 5
+elif _vp_center.get("lat") is not None and _vp_zoom:
+    center = [_vp_center["lat"], _vp_center["lng"]]
+    zoom   = _vp_zoom
+else:
+    center = [volcan["lat"], volcan["lon"]] if volcan else [-35.0, -70.5]
+    zoom   = 10 if volcan else 5
 
 m = folium.Map(location=center, zoom_start=zoom, tiles=None, prefer_canvas=True,
                control_scale=True)  # escala grafica en esquina (estilo visor SENAPRED)
@@ -859,19 +934,33 @@ if mostrar_peligros and peligros_gj:
     PELIGRO_COLORS = {"Alto": "#cc0000", "Medio": "#ff8800", "Bajo": "#ffcc00"}
     feats_p = peligros_gj.get("features", [])
     if volcan:
-        # Comparacion robusta: normalizar tildes/guiones/mayusculas
-        # (peligros_volcanicos.geojson usa nombres con tildes y separadores
-        # diferentes al yaml: ej. "Mocho - Choshuenco" vs "Mocho-Choshuenco")
+        # Match de nombre + validacion geografica.
+        #
+        # El nombre se normaliza (tildes/guiones/mayusculas) porque
+        # peligros_volcanicos.geojson usa otra convencion que el yaml:
+        # "Mocho - Choshuenco" vs "Mocho-Choshuenco".
+        #
+        # Se exige coincidencia de FRASE completa, no de token suelto: la regla
+        # anterior aceptaba cualquier palabra >4 letras, y con eso "Nevado de
+        # Longavi" se quedaba con los poligonos de "Nevados Chillan" (token
+        # "nevado"), a ~200 km. En un dashboard de alerta eso es inaceptable.
+        #
+        # La proximidad descarta homonimos legitimos pero lejanos: "San Pedro"
+        # (ZVN, Antofagasta) contra "Tatara-San Pedro" (Maule), a ~1.400 km.
         nv_norm = _normalizar(volcan["nombre"])
-        # Tambien matchear nombre truncado: "Nevado de Longavi" → "Longavi"
-        partes_v = nv_norm.split()
-        feats_p = [
-            f for f in feats_p
-            if (lambda pn: nv_norm in pn or pn in nv_norm
-                          or any(p in pn for p in partes_v if len(p) > 4))(
-                _normalizar(f["properties"].get("volcan") or "")
-            )
-        ]
+        MAX_DELTA_GRADOS = 1.0  # ~110 km, holgado para cualquier zona de peligro
+
+        def _peligro_del_volcan(f: dict) -> bool:
+            pn = _normalizar((f.get("properties") or {}).get("volcan") or "")
+            if not pn or not (nv_norm in pn or pn in nv_norm):
+                return False
+            pt = punto_representativo(f.get("geometry"))
+            if pt is None:
+                return True  # sin geometria utilizable, confiamos en el nombre
+            return (abs(pt[0] - volcan["lat"]) <= MAX_DELTA_GRADOS
+                    and abs(pt[1] - volcan["lon"]) <= MAX_DELTA_GRADOS)
+
+        feats_p = [f for f in feats_p if _peligro_del_volcan(f)]
     if feats_p:
         folium.GeoJson(
             {"type": "FeatureCollection", "features": feats_p},
@@ -1038,10 +1127,20 @@ if mostrar_drenajes and feats:
         ),
     ).add_to(m)
 
-    # Etiquetas — solo vista de un volcan
-    if mostrar_nombres and volcan:
+    # Etiquetas de nombres — en vista de un volcan y tambien al hacer zoom en la
+    # vista nacional. Cada etiqueta es un DivIcon (nodo DOM, no va a canvas), asi
+    # que se limita la cantidad: primero los rios (cauces principales, los que
+    # importan para lahares) y despues esteros/quebradas menores.
+    MAX_ETIQUETAS = 150
+    if mostrar_nombres and (volcan or volcanes_encuadre):
+        _ordenados = sorted(
+            nombrados,
+            key=lambda f: 0 if (f["properties"].get("tipo") == "river") else 1,
+        )
         vistos: set[str] = set()
-        for feat in nombrados:
+        for feat in _ordenados:
+            if len(vistos) >= MAX_ETIQUETAS:
+                break
             nombre_q = feat["properties"]["nombre"]
             if nombre_q in vistos:
                 continue
@@ -1153,7 +1252,28 @@ if mostrar_volcanes:
         ).add_to(m)
 
 folium.LayerControl(collapsed=False).add_to(m)
-st_folium(m, use_container_width=True, height=730, returned_objects=[], key="mapa")
+
+# Pedimos el encuadre de vuelta SOLO si la carga automatica esta activa: cada
+# valor devuelto hace que un pan/zoom dispare un rerun de Streamlit. Con la
+# opcion apagada volvemos al comportamiento liviano de antes (cero reruns).
+_ret = ["bounds", "zoom", "center"] if auto_quebradas else []
+st_folium(m, use_container_width=True, height=730, returned_objects=_ret, key="mapa")
+
+# Feedback de por que se ven (o no) quebradas en la vista nacional
+if volcan is None and mostrar_drenajes:
+    if not auto_quebradas:
+        st.caption("💡 Activá **Cargar quebradas al hacer zoom** en el panel lateral "
+                   "para ver los nombres de valles sin seleccionar un volcán.")
+    elif volcanes_encuadre:
+        _nombres_vol = ", ".join(v["nombre"] for v in volcanes_encuadre)
+        st.caption(f"🔎 Mostrando quebradas nombradas de: **{_nombres_vol}** "
+                   f"({len(nombres_unicos)} cauces). Acercá más para ver el detalle completo.")
+    elif zoom_insuficiente:
+        st.caption(f"🔎 Acercá el mapa (zoom ≥ {ZOOM_MIN_QUEBRADAS}) sobre un volcán "
+                   "para cargar automáticamente sus quebradas y nombres.")
+    else:
+        st.caption(f"🔎 Acercá el mapa sobre un volcán para cargar sus quebradas, "
+                   "o seleccioná uno en el panel lateral.")
 
 # ---------------------------------------------------------------------------
 # Tabla de quebradas
